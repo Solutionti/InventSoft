@@ -25,8 +25,8 @@ class Ventas_model extends CI_model {
     public function CrearDetalleVenta($data) {
         $datos = [
          "codigo_venta" => $data["codigo_venta"],
-         "codigo_producto" => $data["codigo_producto"],
-         "fecha" => date("d-m-Y"),
+         "codigo_producto" => $data["venta"],
+         "fecha" => date("Y-m-d"),
          "hora" => date("h: i A"),
          "usuario" => $this->session->userdata("nombre")
         ];

@@ -52,16 +52,11 @@ $("#codigo_barras").on("change", function() {
         $("#precio").val(data.precio);
         $("#cantidad").val(data.stock);
         document.getElementById("tabla-ventas").insertRow(-1).innerHTML = '<tr><td><button class="btn btn-xs btn-danger">X</button></td><td>'+data.nombre+'</td><td>'+data.codigo_barras+'</td><td>1</td><td>$'+parseInt(data.precio).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 1})+'</td></tr>';
-        venta.push({
-          codigo: data.codigo,
-          codigo_barras: data.codigo_barras,
-          cantidad: 1,
-          precio: data.precio,
-          stock: data.stock
-        });
+        elementos = new Array();
+        elementos = data.codigo_barras;
+        venta.push(elementos);
         $("#codigo_barras").val("");
         $("#codigo_barras").focus();
-        console.log(venta);
         //FUNCIONALIDAD DEL TOTAL AGREGAR EL TOTAL
         totalact.push(data.precio);
         totalact = totalact.map(Number);
@@ -103,7 +98,12 @@ document.addEventListener("keydown", function(event) {
     tp_pago = $("#tp_pago").val(),
     referencia = $("#referencia").val(),
     sede = $("#sede").val();
-    
+    let ventas = [];
+
+    for (let i = 0; i < venta.length; i++) {
+      ventas [i] = venta[i];
+    }
+
     if(recibio == "") {
       $("#recibio").addClass("is-invalid");
       $("#recibio").focus();
@@ -116,7 +116,7 @@ document.addEventListener("keydown", function(event) {
           consecutivo: consecutivo,
           documento: documento,
           recibio: recibio,
-          ventas: venta,
+          ventas: ventas,
           total: total,
           tp_pago: tp_pago,
           referencia: referencia,
@@ -171,13 +171,7 @@ $("#asociar-producto").on("click", function () {
           $("#precio").val(data.precio);
           $("#cantidad").val(data.stock);
         document.getElementById("tabla-ventas").insertRow(-1).innerHTML = '<tr><td><button class="btn btn-xs btn-danger">X</button></td><td>'+data.nombre+'</td><td>'+data.codigo_barras+'</td><td>1</td><td>$'+parseInt(data.precio).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 1})+'</td></tr>';
-        venta.push({
-          codigo: data.codigo,
-          codigo_barras: data.codigo_barras,
-          cantidad: 1,
-          precio: data.precio,
-          stock: data.stock
-        });
+        venta.push(data.codigo_producto);
         $("#codigo_barras").val("");
         $("#codigo_barras").focus();
         //FUNCIONALIDAD DEL TOTAL AGREGAR EL TOTAL

@@ -29,7 +29,8 @@ class Ventas extends CI_Controller {
       $total_recibido = $this->input->post("recibio");
       $total_venta = $this->input->post("total");
       $cantidad_productos  = count($this->input->post("ventas"));
-
+      $ventas = $this->input->post("ventas");
+      
       $data = [
         "consecutivo" => $consecutivo,
         "documento" => $documento,
@@ -40,11 +41,17 @@ class Ventas extends CI_Controller {
         "total_venta" => $total_venta,
         "cantidad_productos" => $cantidad_productos
       ];
-
-      print_r($this->input->post("ventas"));
-
-      //$codigoventa = $this->Ventas_model->crearVenta($data);
-      //echo $codigoventa;
+      $codigoventa = $this->Ventas_model->crearVenta($data);
+      
+      for($i=0; $i < sizeof($ventas); $i++) {
+        $data2 = [
+          "codigo_venta" => $consecutivo,
+          "venta" => $ventas[$i]
+        ];
+        $this->Ventas_model->CrearDetalleVenta($data2);
+      }
+      
+      echo $codigoventa;
     }
 
     public function getProductoId($codigo) {
