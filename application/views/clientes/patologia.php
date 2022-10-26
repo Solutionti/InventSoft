@@ -163,6 +163,7 @@
                       type="number"
                       id="codigo_p"
                       class="form-control form-control-sm"
+                      min="0"
                     >
                     <div id="validationServer03Feedback" class="invalid-feedback">
                       Campo obligatorio
@@ -176,6 +177,7 @@
                       type="number"
                       id="codigo_barras_p"
                       class="form-control form-control-sm"
+                      min="0"
                     >
                     <div id="validationServer03Feedback" class="invalid-feedback">
                       Campo obligatorio
@@ -184,7 +186,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label>Unidad medida</label>
                     <select id="medida_p" class="form-control form-control-sm">
@@ -204,22 +206,30 @@
                 </div>
             </div>
             <div class="col-md-3">
+              <div class="form-group">
+                <label for="">Merma</label>
+              <input type="text" class="form-control form-control-sm">
+            </div>
+          </div>
+            <div class="col-md-2">
                 <div class="form-group">
                     <label>Cantidad</label>
                     <input
                       type="number"
                       id="cantidad_p"
                       class="form-control form-control-sm"
+                      min="0"
                     >
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="form-group">
                     <label>Precio de Venta</label>
                     <input
                       type="number"
                       id="precio_p"
                       class="form-control form-control-sm"
+                      min="0"
                     >
                     <div id="validationServer03Feedback" class="invalid-feedback">
                       Campo obligatorio
@@ -244,6 +254,7 @@
                 id="precio_proveedor"
                 class="form-control
                 form-control-sm"
+                min="0"
               >
             </div>
           </div>
@@ -366,7 +377,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label>Unidad medida</label>
                     <select id="medida_p" class="form-control form-control-sm">
@@ -386,22 +397,30 @@
                 </div>
             </div>
             <div class="col-md-3">
+              <div class="form-group">
+                <label for="">Merma</label>
+              <input type="text" class="form-control form-control-sm">
+            </div>
+          </div>
+            <div class="col-md-2">
                 <div class="form-group">
                     <label>Cantidad</label>
                     <input
                       type="number"
                       id="cantidad_p"
                       class="form-control form-control-sm"
+                      min="0"
                     >
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="form-group">
                     <label>Precio de Venta</label>
                     <input
                       type="number"
                       id="precio_p_act"
                       class="form-control form-control-sm"
+                      min="0"
                     >
                     <div id="validationServer03Feedback" class="invalid-feedback">
                       Campo obligatorio
@@ -583,7 +602,7 @@
   </div>
 </div>
 
-  <!-- MODAL ENTRADA -->
+  <!-- MODALENTRADA -->
   <div class="modal fade" id="entrada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -595,7 +614,7 @@
       </div>
       <div class="modal-body">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label>Producto</label>
                     <input
@@ -617,19 +636,36 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="form-group">
                     <label>Cantidad</label>
                     <input
                       type="number"
                       id="cantidad_e"
                       class="form-control form-control-sm"
+                      min="0"
                     >
                     <div id="validationServer03Feedback" class="invalid-feedback">
                       Campo obligatorio
                     </div>
                 </div>
             </div>
+            <!-- insersión label producto m.p -->
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="">Precio producto</label>
+              <input 
+              type="number" 
+              class="form-control form-control-sm" 
+              id="precioproducto_e"
+              min="0"
+              readonly
+              >
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                Campo obligatorio
+            </div> 
+            </div>
+          </div>
             <div class="col-md-2">
                 <div class="form-group">
                     <label>Stock</label>
@@ -642,6 +678,35 @@
                 </div>
             </div>
         </div>
+        <!-- INICIO MICHAEL CAMBIO E-->
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <label for="">Nombre producto</label>
+              <input 
+              type="text" 
+              class="form-control form-control-sm" 
+              id="nombreproducto_e"
+              readonly
+              >
+            </div>
+          </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Valor compra</label>
+              <input 
+                type="number" 
+                class="form-control form-control-sm" 
+                id="valorcompra_e"
+                min="0"
+                >
+                  <div id="validationServer03Feedback" class="invalid-feedback">
+                Campo obligatorio
+              </div>
+            </div>  
+          </div>
+        </div>
+        <!-- FIN MICHAEL CAMBIO-->
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -682,7 +747,7 @@
   </div>
 </div>
 
-<!--SALIDA DE PRODUCTOS  -->
+<!-- SALIDA DE PRODUCTOS  -->
 <div class="modal fade" id="salida" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -694,7 +759,7 @@
       </div>
       <div class="modal-body">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label>Producto</label>
                     <input
@@ -713,19 +778,35 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="form-group">
                     <label>Cantidad</label>
                     <input
                       type="number"
                       id="cantidad_s"
                       class="form-control form-control-sm"
+                      min="0"
                     >
                     <div id="validationServer03Feedback" class="invalid-feedback">
                       Campo obligatorio
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Precio producto</label>
+              <input 
+              type="number" 
+              class="form-control form-control-sm" 
+              id="precioproducto_s" 
+              min="0"
+              readonly
+              >
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                Campo obligatorio
+            </div> 
+            </div>
+          </div>
             <div class="col-md-2">
                 <div class="form-group">
                     <label>Stock</label>
@@ -738,6 +819,32 @@
                   </div>
                 </div>
               </div>
+                <!-- INICIO MICHAEL CAMBIO S-->
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <label for="">Nombre producto</label>
+              <input 
+              type="text" 
+              class="form-control form-control-sm" 
+              id="nombreproducto_s"
+              readonly
+              >
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                Campo obligatorio
+            </div> 
+            </div>
+          </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="">Valor compra</label>
+              <input type="number" class="form-control form-control-sm" id="valorcompra_s" min="0">
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                Campo obligatorio
+            </div>  
+          </div>
+        </div>
+        <!-- FIN MICHAEL CAMBIO-->
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
