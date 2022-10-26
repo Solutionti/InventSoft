@@ -54,7 +54,7 @@ class Inventarios_model extends CI_model {
     }
 
     public function getStock($id){
-        $this->db->select("stock");
+        $this->db->select("*");
         $this->db->from("productos");
         $this->db->where("codigo", $id);
         $result = $this->db->get();

@@ -217,6 +217,13 @@ $("#producto_e").on("change", function() {
             data = JSON.parse(data);
             console.log(data);
             $("#stock_e").val(data.stock);
+            $("#cantidad_e").val(data.cantidad);
+            $("#precioproducto_e").val(data.precio);
+            $("#nombreproducto_e").val(data.nombre);
+            $("#valorcompra_e").val(data.costo_proveedor);
+            
+
+
         }
     })
 })
@@ -285,6 +292,10 @@ $("#producto_s").on("change", function() {
             data = JSON.parse(data);
             console.log(data);
             $("#stock_s").val(data.stock);
+            $("#cantidad_s").val(data.cantidad);
+            $("#precioproducto_s").val(data.precio);
+            $("#nombreproducto_s").val(data.nombre);
+            $("#valorcompra_s").val(data.costo_proveedor);
         }
     })
 })
