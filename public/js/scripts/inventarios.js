@@ -416,7 +416,8 @@ $("#stock_reporte").on("change", function () {
 })
 
 $("#buscar_kardex").on("click", function () {
-  let url = baseurl + "administracion/consultarkardex",
+  
+  let url = baseurl + "clientes/consultarkardex",
   producto_kardex = $("#producto_kardex").val(),
   fecha_inicial = $("#fecha_inicial").val(),
   fecha_final =  $("#fecha_final").val();

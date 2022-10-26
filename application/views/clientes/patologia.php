@@ -86,7 +86,7 @@
                   </a>
                   <a
                     class="icon icon-shape icon-sm  bg-success shadow"
-                    onclick="verProductos(<?php echo $productos->codigo_producto; ?>);"
+                    onclick="verProductos(<?php echo $productos->codigo; ?>);"
                   >
                     <i class="fas fa-pen text-white opacity-10"></i>
                   </a>
@@ -517,23 +517,35 @@
           <div class="col-md-4">
             <div class="form-group">
               <label>Producto</label>
-              <input type="text" class="form-control form-control-sm">
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="producto_kardex"
+              >
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <label>Fecha inicial</label>
-              <input type="date" class="form-control form-control-sm">
+              <input
+                type="date"
+                class="form-control form-control-sm"
+                id="fecha_inicial"
+              >
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <label>Fecha final</label>
-              <input type="date" class="form-control form-control-sm">
+              <input
+                type="date"
+                class="form-control form-control-sm"
+                id="fecha_final"
+              >
             </div>
           </div>
           <div class="col-md-2 mt-4">
-            <button class="btn btn-success btn-sm mt-2"> <i class="fas fa-search"></i> Buscar</button>
+            <button class="btn btn-success btn-sm mt-2" id="buscar_kardex"> <i class="fas fa-search"></i> Buscar</button>
           </div>
         </div>
         <div class="row">
@@ -549,6 +561,9 @@
                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">SALIDA</th>
                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">SALDO</th>
                 </thead>
+                <tbody id="table-kardex">
+
+                </tbody>
               </table>
             </div>
           </div>

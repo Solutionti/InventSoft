@@ -42,6 +42,7 @@ $route["clientes/traerstock/(:num)"] = "inventarios/getstock/$1";
 $route["clientes/crearentrada"] = "inventarios/crearentrada";
 $route["clientes/crearsalida"] = "inventarios/crearsalida";
 $route["clientes/consultainventario/(:num)"] = "inventarios/getConsultaInventario/$1";
+$route["clientes/consultarkardex"] = "inventarios/consultarkardex";
 
 //VENTAS
 $route["clientes/getproductoventa"] = "ventas/getproductoventa";
