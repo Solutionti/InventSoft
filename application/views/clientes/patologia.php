@@ -699,6 +699,7 @@
                 class="form-control form-control-sm" 
                 id="valorcompra_e"
                 min="0"
+                readonly
                 >
                   <div id="validationServer03Feedback" class="invalid-feedback">
                 Campo obligatorio
@@ -838,7 +839,7 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label for="">Valor compra</label>
-              <input type="number" class="form-control form-control-sm" id="valorcompra_s" min="0">
+              <input type="number" class="form-control form-control-sm" id="valorcompra_s" min="0" readonly>
               <div id="validationServer03Feedback" class="invalid-feedback">
                 Campo obligatorio
             </div>  
