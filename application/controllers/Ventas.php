@@ -41,8 +41,10 @@ class Ventas extends CI_Controller {
         "cantidad_productos" => $cantidad_productos
       ];
 
-      $codigoventa = $this->Ventas_model->crearVenta($data);
-      echo $codigoventa;
+      print_r($this->input->post("ventas"));
+
+      //$codigoventa = $this->Ventas_model->crearVenta($data);
+      //echo $codigoventa;
     }
 
     public function getProductoId($codigo) {

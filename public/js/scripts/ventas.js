@@ -41,14 +41,11 @@ $("#codigo_barras").on("change", function() {
     },
     success: function(data) {
       if(data === "error"){
-        // $("body").overhang({
-        //   type: "error",
-        //   message: "Producto no existe por favor ingrese un codigo"
-        // });
+       
       }
       else {
         data = JSON.parse(data);
-        //console.log(data);
+       
         $("#codigo").val(data.codigo);
         $("#codigo_barras2").val(data.codigo_barras);
         $("#producto").val(data.nombre);
@@ -109,6 +106,7 @@ document.addEventListener("keydown", function(event) {
     
     if(recibio == "") {
       $("#recibio").addClass("is-invalid");
+      $("#recibio").focus();
     }
     else {
       $.ajax({
@@ -168,11 +166,11 @@ $("#asociar-producto").on("click", function () {
           data = JSON.parse(data);
           $("#modal-productos").modal("hide");
           $("#codigo").val(data.codigo);
-        $("#codigo_barras2").val(data.codigo_barras);
-        $("#producto").val(data.nombre);
-        $("#precio").val(data.precio);
-        $("#cantidad").val(data.stock);
-        document.getElementById("tabla-ventas").insertRow(-1).innerHTML = '<tr><td>'+data.nombre+'</td><td>'+data.codigo_barras+'</td><td>1</td><td>$'+parseInt(data.precio).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 1})+'</td></tr>';
+          $("#codigo_barras2").val(data.codigo_barras);
+          $("#producto").val(data.nombre);
+          $("#precio").val(data.precio);
+          $("#cantidad").val(data.stock);
+        document.getElementById("tabla-ventas").insertRow(-1).innerHTML = '<tr><td><button class="btn btn-xs btn-danger">X</button></td><td>'+data.nombre+'</td><td>'+data.codigo_barras+'</td><td>1</td><td>$'+parseInt(data.precio).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 1})+'</td></tr>';
         venta.push({
           codigo: data.codigo,
           codigo_barras: data.codigo_barras,

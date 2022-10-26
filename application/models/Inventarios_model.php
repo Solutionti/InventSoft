@@ -134,7 +134,7 @@ class Inventarios_model extends CI_model {
     public function getProductoId($id) {
         $this->db->select("*");
         $this->db->from("productos");
-        $this->db->where("codigo_producto", $id);
+        $this->db->where("codigo", $id);
         $result = $this->db->get();
 
         return $result->row();

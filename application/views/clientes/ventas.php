@@ -73,13 +73,32 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Recibo de efectivo</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="recibio"
+                      >
+                    </div>
+                    <div class="col-md-6">
+                      <label>Total</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="total"
+                        readonly
+                      >
+                    </div>
+                  </div>
                   <div class="row mt-2">
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Codigo</label>
                         <input
                           type="text"
-                          class="form-control"
+                          class="form-control form-control-sm"
                           id="codigo"
                           readonly
                         >
@@ -90,7 +109,7 @@
                         <label>Codigo EAN</label>
                         <input
                           type="text"
-                          class="form-control form-control-md"
+                          class="form-control form-control-sm"
                           id="codigo_barras2"
                           readonly
                         >
@@ -101,7 +120,7 @@
                         <label>Usuario vendedor</label>
                         <input
                           type="text"
-                          class="form-control form-control-md"
+                          class="form-control form-control-sm"
                           value="<?php echo $this->session->userdata("nombre")." ".$this->session->userdata("apellido"); ?>"
                           readonly
                         >
@@ -114,7 +133,7 @@
                         <label>Nombre del producto</label>
                         <input
                           type="text"
-                          class="form-control"
+                          class="form-control form-control-sm"
                           id="producto"
                           readonly
                         >
@@ -124,10 +143,10 @@
                       <div class="form-group">
                         <label>Precio</label>
                         <div class="input-group">
-                          <span class="input-group-text">$</span>
+                          
                           <input
                             type="text"
-                            class="form-control"
+                            class="form-control form-control-sm"
                             id="precio" aria-label="Amount (to the nearest dollar)"
                             readonly
                           >
@@ -139,7 +158,7 @@
                         <label>Cantidad</label>
                         <input
                           type="number"
-                          class="form-control"
+                          class="form-control form-control-sm"
                           min="0"
                           max="50"
                           id="cantidad"
@@ -152,25 +171,6 @@
                       <button class="btn btn-icon btn-2 text-white color-cyan mt-1" type="button" id="buscar-producto">
 	                      <span class="fas fa-search"><i class="ni ni-bulb-61"></i></span>
                       </button>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>Recibo de efectivo</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="recibio"
-                      >
-                    </div>
-                    <div class="col-md-6">
-                      <label>Total</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="total"
-                        readonly
-                      >
                     </div>
                   </div>
                   <div class="row mt-3">
