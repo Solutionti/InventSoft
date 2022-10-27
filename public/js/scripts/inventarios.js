@@ -59,6 +59,7 @@ $("#guardar_productos").on("click", function() {
     medida_p = $("#medida_p").val(),
     cantidad_p = $("#cantidad_p").val(),
     precio_p = $("#precio_p").val(),
+    merma = $("#merma").val(),
     precio_proveedor = $("#precio_proveedor").val(),
     moneda_p = $("#moneda_p").val(),
     descripcion_p = $("#descripcion_p").val(),
@@ -70,6 +71,7 @@ $("#guardar_productos").on("click", function() {
     formdata.append("medida", medida_p);
     formdata.append("cantidad", cantidad_p);
     formdata.append("precio", precio_p);
+    formdata.append("merma", merma);
     formdata.append("precio_proveedor", precio_proveedor);
     formdata.append("moneda", moneda_p);
     formdata.append("descripcion", descripcion_p);
@@ -130,6 +132,7 @@ $("#actualizar_productos").on("click", function () {
       codigo = $("#codigo_p_act").val(),
       codigo_barras = $("#codigo_barras_p_act").val(),
       precio_venta = $("#precio_p_act").val(),
+      merma = $("#merma").val(),
       precio_proveedor = $("#precio_proveedor_act").val(),
       producto_venta = $("#pro_venta_act").val(),
       descripcion = $("#descripcion_p_act").val();
@@ -144,6 +147,7 @@ $("#actualizar_productos").on("click", function () {
           codigo: codigo,
           codigo_barras: codigo_barras,
           precio: precio_venta,
+          merma: merma,
           precio_proveedor: precio_proveedor,
           pro_venta: producto_venta,
           descripcion: descripcion

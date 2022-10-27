@@ -17,6 +17,7 @@ class Inventarios extends CI_Controller {
         $medida = $this->input->post("medida");
         $cantidad = $this->input->post("cantidad");
         $precio = $this->input->post("precio");
+        $merma = $this->input->post("merma");
         $precio_proveedor = $this->input->post("precio_proveedor");
         $moneda = $this->input->post("moneda");
         $descripcion = $this->input->post("descripcion");
@@ -30,6 +31,7 @@ class Inventarios extends CI_Controller {
           "medida" => $medida,
           "cantidad" => $cantidad,
           "precio" => $precio,
+          "merma" => $merma,
           "precio_proveedor" => $precio_proveedor,
           "moneda" => $moneda,
           "descripcion" => $descripcion,
@@ -52,6 +54,7 @@ class Inventarios extends CI_Controller {
         $codigo = $this->input->post("codigo");
         $codigo_barras = $this->input->post("codigo_barras");
         $precio = $this->input->post("precio");
+        $merma = $this->input->post("merma");
         $precio_proveedor = $this->input->post("precio_proveedor");
         $moneda = $this->input->post("moneda");
         $descripcion = $this->input->post("descripcion");
@@ -63,6 +66,7 @@ class Inventarios extends CI_Controller {
           "codigo" => $codigo,
           "codigo_barras" => $codigo_barras,
           "precio" => $precio,
+          "merma" => $merma,
           "precio_proveedor" => $precio_proveedor,
           "moneda" => $moneda,
           "descripcion" => $descripcion,

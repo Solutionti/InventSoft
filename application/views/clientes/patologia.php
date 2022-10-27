@@ -208,7 +208,7 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label for="">Merma</label>
-              <input type="text" class="form-control form-control-sm">
+              <input type="text" class="form-control form-control-sm" id="merma">
             </div>
           </div>
             <div class="col-md-2">
@@ -343,6 +343,7 @@
                       type="text"
                       id="nombre_p_act"
                       class="form-control form-control-sm"
+                      readonly
                     >
                     <div id="validationServer03Feedback" class="invalid-feedback">
                       Campo obligatorio
@@ -356,6 +357,7 @@
                       type="number"
                       id="codigo_p_act"
                       class="form-control form-control-sm"
+                      readonly
                     >
                     <div id="validationServer03Feedback" class="invalid-feedback">
                       Campo obligatorio
@@ -369,6 +371,7 @@
                       type="number"
                       id="codigo_barras_p_act"
                       class="form-control form-control-sm"
+                      readonly
                     >
                     <div id="validationServer03Feedback" class="invalid-feedback">
                       Campo obligatorio
@@ -399,7 +402,7 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label for="">Merma</label>
-              <input type="text" class="form-control form-control-sm">
+              <input type="text" class="form-control form-control-sm" >
             </div>
           </div>
             <div class="col-md-2">
@@ -430,7 +433,7 @@
             <div class="col-md-2">
                 <div class="form-group">
                     <label>Moneda</label>
-                    <select id="moneda_p" class="form-control form-control-sm">
+                    <select id="moneda_p" class="form-control form-control-sm" readonly>
                         <option value="COP">Pesos ( COP )</option>
                     </select>
                 </div>
@@ -445,6 +448,7 @@
                 id="precio_proveedor_act"
                 class="form-control
                 form-control-sm"
+                min="0"
               >
             </div>
           </div>

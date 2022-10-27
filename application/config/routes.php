@@ -55,6 +55,8 @@ $route["clientes/ventas"] = "clientes/ventas";
 $route["iniciarsesionclientes"] = "login/iniciarsesionclientes";
 $route["cerrarsesionclientes"] = "login/cerrarsesionclientes";
 
+// DEVOLUCIONES
+$route["clientes/devoluciones"] = "clientes/devoluciones";
 
 
 

@@ -152,27 +152,38 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-7">
             <div class="form-group input-group-sm">
               <label>Nombre</label>
               <input
-                type="number"
+                type="text"
                 class="form-control"
                 id="precio"
               >
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-3">
             <div class="form-group input-group-sm">
               <label>Precio factura</label>
               <input
                 type="number"
                 class="form-control"
                 id="precio"
+                min="0"
               >
             </div>
           </div>
+          <div class="col-md-2 mt-4">            
+          <div class="form-check">
+           <input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault">
+            <label for="flexCheckDefault">
+            Cuentas por cobrar
+               </label>
+                </div>
+          </div>
         </div>
+<!--          SE IHNABILITA POR MICHAEL PIMIENTO
+
         <h6>Detalle de la factura</h6>
         <div class="row">
           <div class="col-md-6">
@@ -196,7 +207,8 @@
               class="form-control form-control-sm" 
             >
           </div>
-        </div>
+        </div>           -->
+        <!--   SE IHNABILITA POR MICHAEL PIMIENTO
         <div class="row mt-3">
           <div class="col-md-12">
             <div class="table-responsive">
@@ -218,7 +230,7 @@
               </table>
             </div>
           </div>
-        </div>
+        </div>          FIN DE IHNABILITACION   -->
         <div class="form-group input-group-sm">
             <label>Descripciòn</label>
             <textarea
