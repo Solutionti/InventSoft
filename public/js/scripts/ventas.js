@@ -127,7 +127,7 @@ document.addEventListener("keydown", function(event) {
             type: "success",
             message: "La venta se ha creado correctamente"
           });
-          //setTimeout(reloadPage, 2000);
+          facturaVenta(consecutivo);
         },
         error: function () {
           $("body").overhang({
@@ -200,12 +200,11 @@ $("#tp_pago").on("change", function () {
   }
 });
 
-$("#factura-venta").on("click", function (){
-  var id = $("#id").val(),
-  url = baseurl  + "administracion/recibolaboratorio/" + id;
+
+function facturaVenta(consecutivo) {
+  url = baseurl  + "clientes/generarpdfventas/" + consecutivo;
   window.open(url, "_blank", " width=500, height=400");
-  // location.reload();
-})
+}
 
 function reloadPage() {
   location.reload();

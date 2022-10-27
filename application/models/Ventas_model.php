@@ -59,4 +59,24 @@ class Ventas_model extends CI_model {
       $this->db->update("productos", $datos);
     }
 
+
+    public function getVentaPdf($venta) {
+      $this->db->select("fecha, hora, total_venta, total_recibido");
+      $this->db->from("ventas");
+      $this->db->where("codigo_consecutivo", $venta);
+      $resultado = $this->db->get();
+
+      return $resultado;
+    }
+
+    public function getDetalleVenta($codigo) {
+      $this->db->select("v.*, p.nombre, p.precio");
+      $this->db->from("detalle_venta v");
+      $this->db->join("productos p", "v.codigo_producto = p.codigo");
+      $this->db->where("codigo_venta", $codigo);
+      $resultado = $this->db->get();
+
+      return $resultado;
+    }
+
 }

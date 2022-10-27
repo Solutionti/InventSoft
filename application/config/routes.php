@@ -46,7 +46,7 @@ $route["clientes/consultarkardex"] = "inventarios/consultarkardex";
 
 //VENTAS
 $route["clientes/getproductoventa"] = "ventas/getproductoventa";
-$route["clientes/generarpdfventas"] = "ventas/pdfreciboventa";
+$route["clientes/generarpdfventas/(:any)"] = "ventas/pdfreciboventa/$1";
 $route["clientes/verproducto/(:num)"] = "ventas/getproductoid/$1";
 $route["clientes/crearventa"] = "ventas/crearventa";
 //
