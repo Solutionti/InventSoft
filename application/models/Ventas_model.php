@@ -42,4 +42,21 @@ class Ventas_model extends CI_model {
       return $resultado;
     }
 
+    public function getInventarioStock($codigo) {
+      $this->db->select("stock");
+      $this->db->from("productos");
+      $this->db->where("codigo", $codigo);
+      $resultado = $this->db->get();
+
+      return $resultado->row();
+    }
+
+    public function updateInventarioStock($codigo, $stockact) {
+      $datos = [
+        "stock" => $stockact 
+      ];
+      $this->db->where("codigo", $codigo);
+      $this->db->update("productos", $datos);
+    }
+
 }

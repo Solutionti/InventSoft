@@ -49,6 +49,9 @@ class Ventas extends CI_Controller {
           "venta" => $ventas[$i]
         ];
         $this->Ventas_model->CrearDetalleVenta($data2);
+        $descuenta = $this->Ventas_model->getInventarioStock($ventas[$i]);
+        $stockact = $descuenta->stock - 1;
+        $this->Ventas_model->updateInventarioStock($ventas[$i], $stockact);
       }
       
       echo $codigoventa;

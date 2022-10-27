@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bien Viaje - Inicio</title>
+    <title>Buen Viaje - Inicio</title>
     <?php require_once("componentes/head.php"); ?>
 </head>
 <body class="g-sidenav-show bg-gray-100">
