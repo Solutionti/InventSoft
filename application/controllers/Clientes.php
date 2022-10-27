@@ -68,4 +68,8 @@ class Clientes extends CI_Controller {
 		$this->load->view("clientes/devoluciones");
 	}
 
+	public function proveedores() {
+      $this->load->view("clientes/proveedores");
+	}
+
 }

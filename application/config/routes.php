@@ -42,10 +42,11 @@ $route["clientes/traerstock/(:num)"] = "inventarios/getstock/$1";
 $route["clientes/crearentrada"] = "inventarios/crearentrada";
 $route["clientes/crearsalida"] = "inventarios/crearsalida";
 $route["clientes/consultainventario/(:num)"] = "inventarios/getConsultaInventario/$1";
+$route["clientes/consultarkardex"] = "inventarios/consultarkardex";
 
 //VENTAS
 $route["clientes/getproductoventa"] = "ventas/getproductoventa";
-$route["clientes/generarpdfventas"] = "ventas/pdfreciboventa";
+$route["clientes/generarpdfventas/(:any)"] = "ventas/pdfreciboventa/$1";
 $route["clientes/verproducto/(:num)"] = "ventas/getproductoid/$1";
 $route["clientes/crearventa"] = "ventas/crearventa";
 //
@@ -57,6 +58,9 @@ $route["cerrarsesionclientes"] = "login/cerrarsesionclientes";
 
 // DEVOLUCIONES
 $route["clientes/devoluciones"] = "clientes/devoluciones";
+
+//PROVEEDORES
+$route["clientes/proveedores"] = "clientes/proveedores";
 
 
 

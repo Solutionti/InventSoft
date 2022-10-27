@@ -42,4 +42,41 @@ class Ventas_model extends CI_model {
       return $resultado;
     }
 
+    public function getInventarioStock($codigo) {
+      $this->db->select("stock");
+      $this->db->from("productos");
+      $this->db->where("codigo", $codigo);
+      $resultado = $this->db->get();
+
+      return $resultado->row();
+    }
+
+    public function updateInventarioStock($codigo, $stockact) {
+      $datos = [
+        "stock" => $stockact 
+      ];
+      $this->db->where("codigo", $codigo);
+      $this->db->update("productos", $datos);
+    }
+
+
+    public function getVentaPdf($venta) {
+      $this->db->select("fecha, hora, total_venta, total_recibido");
+      $this->db->from("ventas");
+      $this->db->where("codigo_consecutivo", $venta);
+      $resultado = $this->db->get();
+
+      return $resultado;
+    }
+
+    public function getDetalleVenta($codigo) {
+      $this->db->select("v.*, p.nombre, p.precio");
+      $this->db->from("detalle_venta v");
+      $this->db->join("productos p", "v.codigo_producto = p.codigo");
+      $this->db->where("codigo_venta", $codigo);
+      $resultado = $this->db->get();
+
+      return $resultado;
+    }
+
 }
