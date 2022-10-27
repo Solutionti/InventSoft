@@ -80,7 +80,7 @@
           <?php require_once("componentes/footer.php"); ?>
         </div>
 
- <!-- MODAL AGREGAR GASTOS -->
+ <!-- MODAL AGREGAR PROVEEDORES -->
  <div class="modal fade" id="Agregarusuario" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -94,19 +94,17 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group input-group-sm">
-            <label>Categoria</label>
-            <select id="categoria" class="form-control">
-              <option value="">SELECCIONE</option>
-              <option value="Gasto interno">Gasto interno</option>
-              <option value="Pago proveedores">Pago a proveedores</option>
-              <option value="Pago descuento">Pago por descuento</option>
-              <option value="Gasto temporal">Gasto temporal</option>
-            </select>
+            <label>NIT / Documento</label>
+            <input
+                type="date"
+                class="form-control"
+                id="fecha"
+              >
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label>Proveedor</label>
+              <label>Nombre</label>
               <input
                 type="text"
                 class="form-control form-control-sm"
@@ -115,21 +113,20 @@
           </div>
           <div class="col-md-2">
             <div class="form-group input-group-sm">
-              <label>Fecha</label>
+              <label>Telefono</label>
               <input
-                type="date"
+                type="text"
                 class="form-control"
-                id="fecha"
-                value="<?php echo date("Y-m-d"); ?>"
+                id="fecha"  
                 readonly
               >
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-7">
+          <div class="col-md-12">
             <div class="form-group input-group-sm">
-              <label>Nombre</label>
+              <label>Correo</label>
               <input
                 type="text"
                 class="form-control"
@@ -137,74 +134,7 @@
               >
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="form-group input-group-sm">
-              <label>Precio factura</label>
-              <input
-                type="number"
-                class="form-control"
-                id="precio"
-              >
-            </div>
-          </div>
-          <div class="col-md-2 mt-4">            
-          <div class="form-check">
-           <input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault">
-            <label for="flexCheckDefault">
-            Cuentas por cobrar
-               </label>
-                </div>
-          </div>
         </div>
-<!--          SE IHNABILITA POR MICHAEL PIMIENTO
-
-        <h6>Detalle de la factura</h6>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Codigo</label>
-            <input
-              type="text"
-              class="form-control form-control-sm" 
-            >
-          </div>
-          <div class="col-md-4">
-            <label>Precio</label>
-            <input
-              type="text"
-              class="form-control form-control-sm" 
-            >
-          </div>
-          <div class="col-md-2">
-            <label>Cantidad</label>
-            <input
-              type="number"
-              class="form-control form-control-sm" 
-            >
-          </div>
-        </div>           -->
-        <!--   SE IHNABILITA POR MICHAEL PIMIENTO
-        <div class="row mt-3">
-          <div class="col-md-12">
-            <div class="table-responsive">
-              <table class="table table-striped table-underline">
-                <thead class="bg-default">
-                  <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">
-                    Cantidad
-                  </th>
-                  <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">
-                    Detalle
-                  </th>
-                  <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">
-                    Sub total
-                  </th>
-                  <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">
-                    Total
-                  </th>
-                </thead>
-              </table>
-            </div>
-          </div>
-        </div>          FIN DE IHNABILITACION   -->
         <div class="form-group input-group-sm">
             <label>Descripciòn</label>
             <textarea
