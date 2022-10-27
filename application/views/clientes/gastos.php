@@ -182,6 +182,31 @@
                 </div>
           </div>
         </div>
+        <div class="row">
+        <div class="col-md-6">
+            <div class="form-group input-group-sm">
+              <label>Fecha limite</label>
+              <input
+                type="date"
+                class="form-control"
+                id="fecha"
+                value="<?php echo date("Y-m-d"); ?>"
+              >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group input-group-sm">
+              <label>Fecha actual</label>
+              <input
+                type="date"
+                class="form-control"
+                id="fecha"
+                value="<?php echo date("Y-m-d"); ?>"
+                
+              >
+            </div>
+          </div>
+        </div>
 <!--          SE IHNABILITA POR MICHAEL PIMIENTO
 
         <h6>Detalle de la factura</h6>

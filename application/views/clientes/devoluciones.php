@@ -85,28 +85,25 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header bg-success">
-        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Agregar Gastos</h5>
+        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Agregar Devolucion</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-md-4">
-            <div class="form-group input-group-sm">
-            <label>Categoria</label>
-            <select id="categoria" class="form-control">
-              <option value="">SELECCIONE</option>
-              <option value="Gasto interno">Gasto interno</option>
-              <option value="Pago proveedores">Pago a proveedores</option>
-              <option value="Pago descuento">Pago por descuento</option>
-              <option value="Gasto temporal">Gasto temporal</option>
-            </select>
-            </div>
-          </div>
-          <div class="col-md-6">
+        <div class="col-md-3">
             <div class="form-group">
-              <label>Proveedor</label>
+              <label>Codio producto</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+              >
+            </div>              
+          </div>
+          <div class="col-md-7">
+            <div class="form-group">
+              <label>Nombre producto</label>
               <input
                 type="text"
                 class="form-control form-control-sm"
@@ -115,47 +112,17 @@
           </div>
           <div class="col-md-2">
             <div class="form-group input-group-sm">
-              <label>Fecha</label>
-              <input
-                type="date"
-                class="form-control"
-                id="fecha"
-                value="<?php echo date("Y-m-d"); ?>"
-                readonly
-              >
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-7">
-            <div class="form-group input-group-sm">
-              <label>Nombre</label>
-              <input
-                type="text"
-                class="form-control"
-                id="precio"
-              >
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="form-group input-group-sm">
-              <label>Precio factura</label>
+              <label>Cantidad</label>
               <input
                 type="number"
                 class="form-control"
-                id="precio"
+                id="fecha"
+                min="0"
               >
             </div>
           </div>
-          <div class="col-md-2 mt-4">            
-          <div class="form-check">
-           <input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault">
-            <label for="flexCheckDefault">
-            Cuentas por cobrar
-               </label>
-                </div>
-          </div>
         </div>
+     
 <!--          SE IHNABILITA POR MICHAEL PIMIENTO
 
         <h6>Detalle de la factura</h6>
