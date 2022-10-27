@@ -200,6 +200,13 @@ $("#tp_pago").on("change", function () {
   }
 });
 
+$("#factura-venta").on("click", function (){
+  var id = $("#id").val(),
+  url = baseurl  + "administracion/recibolaboratorio/" + id;
+  window.open(url, "_blank", " width=500, height=400");
+  // location.reload();
+})
+
 function reloadPage() {
   location.reload();
 }

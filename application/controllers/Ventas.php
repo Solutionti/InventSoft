@@ -69,17 +69,18 @@ class Ventas extends CI_Controller {
       $pdfAct = new Pdf();
       $pdf=new FPDF();
       $pdf->addpage();
-      $pdf->Image('public/img/theme/logo.jpeg' , 20,5, 20 , 17,'jpeg');
+      // $pdf->Image('public/img/theme/logo.jpeg' , 20,5, 20 , 17,'jpeg');
       //$pdf->Image('public/img/theme/zonac.png' , 35 ,5, 15 , 15,'png');
-      $pdf->Ln(14);
-      $pdf->SetFont('Times','',8);
-      $pdf->Cell(5,5,'', '', 0,'L', false );
-      $pdf->Cell(1,5,'ENAMORA REGALOS', '', 0,'L', false );
-      $pdf->Ln(5);
-      $pdf->Cell(10,5,'', '', 0,'L', false );
-      $pdf->Cell(7,5,'CRA 6 # 31 - 71', '', 0,'L', false );
       $pdf->Ln(2);
-      $pdf->Cell(10,5,'______________________________', '', 0,'L', false );
+      $pdf->SetFont('Times','',8);
+      $pdf->Cell(2,5,'', '', 0,'L', false );
+      $pdf->Cell(1,5,'CAFETERIA BUEN VIAJE', '', 0,'L', false );
+      $pdf->SetFont('Times','',6);
+      $pdf->Ln(3);
+      $pdf->Cell(8,5,'', '', 0,'L', false );
+      $pdf->Cell(7,5,'TERMINAL LOCAL - 203', '', 0,'L', false );
+      $pdf->Ln(2);
+      $pdf->Cell(10,5,'_______________________________________', '', 0,'L', false );
       $pdf->SetFont('Times','',8);
       $pdf->Ln(5);
       $pdf->Cell(12,5,'FECHA:', '', 0,'L', false );
@@ -94,13 +95,13 @@ class Ventas extends CI_Controller {
       $pdf->Cell(4,5,$this->session->userdata("nombre"), '', 0,'L', false );
       $pdf->Ln(7);
       $pdf->SetFont('Times','b',8);
-      $pdf->Cell(35,5,utf8_decode('Producto'), '', 0,'L', false );
+      $pdf->Cell(35,5,utf8_decode('Productos'), '', 0,'L', false );
       $pdf->Cell(4,5,"Precio", '', 0,'L', false );
       $pdf->SetFont('Times','',9);
       // ACA VA LOS PRODUCTOS
       $pdf->Ln(5);
       $pdf->Cell(35,5,'Alcancia superman', '', 0,'L', false );
-      $pdf->Cell(5,5,utf8_decode("$2500 "), '', 0,'L', false );
+      $pdf->Cell(5,5,utf8_decode("$25000 "), '', 0,'L', false );
       //FIN DEL PRODUCTO
       $pdf->Ln(7);
       $pdf->SetFont('Times','b',9);
