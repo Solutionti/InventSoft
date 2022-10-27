@@ -62,13 +62,10 @@
              <div class="table-responsive">
                <table class="table table-responsive table-hover">
                  <thead class="bg-default">
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Categoria</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Descripcion</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Precio</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Usuario</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fecha</th>
+                 <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codio producto</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nombre producto</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">cantidad</th>
                  </thead>
                  <tbody>
                  

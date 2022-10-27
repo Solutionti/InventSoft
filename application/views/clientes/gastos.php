@@ -63,12 +63,14 @@
                <table class="table table-responsive table-hover">
                  <thead class="bg-default">
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Categoria</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Descripcion</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Precio</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Usuario</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fecha</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">proveedor</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fechar</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nombre</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Precio factura</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Cuentas por cobrar</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fecha limite</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fecha actual</th>
                  </thead>
                  <tbody>
                   <?php foreach($gasto->result() as $gastos) { ?>
