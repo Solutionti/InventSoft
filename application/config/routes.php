@@ -59,6 +59,9 @@ $route["cerrarsesionclientes"] = "login/cerrarsesionclientes";
 // DEVOLUCIONES
 $route["clientes/devoluciones"] = "clientes/devoluciones";
 
+//PROVEEDORES
+$route["clientes/proveedores"] = "clientes/proveedores";
+
 
 
 
