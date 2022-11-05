@@ -398,7 +398,7 @@
                   type="date"
                   class="form-control form-control-sm"
                   value="<?php echo date("Y-m-d")?>"
-                  id="fecha-apertura"
+                  id="fecha_apertura"
                 >
               </div>
             </div>
@@ -409,7 +409,7 @@
                   type="text"
                   class="form-control form-control-sm"
                   value="APERTURA"
-                  id="movimiento-apertura"
+                  id="movimiento_apertura"
                 >
               </div>
             </div>
@@ -421,7 +421,7 @@
                 <input
                   type="number"
                   class="form-control form-control-sm"
-                  id="monto-apertura"
+                  id="monto_apertura"
                 >
               </div>
             </div>
@@ -433,7 +433,7 @@
                 <textarea
                   class="form-control"
                   rows="5"
-                  id="comentarios-apertura"
+                  id="comentarios_apertura"
                 ></textarea>
               </div>
             </div>
@@ -443,9 +443,9 @@
           <button
             type="button"
             class="btn color-cyan text-white"
-            id="abrir"
+            id="guardar-caja"
           >
-          Aceptar
+            Aceptar
           </button>
         </div>
       </div>

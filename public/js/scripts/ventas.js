@@ -206,9 +206,36 @@ function facturaVenta(consecutivo) {
   window.open(url, "_blank", " width=500, height=400");
 }
 
-// $("#abrir-caja").on("click", function() {
-//   alert();
-// })
+$("#guardar-caja").on("click", function() {
+  var url = baseurl + "clientes/abrircaja";
+  var fecha_apertura = $("#fecha-apertura").val(),
+      movimiento_apertura = $("#movimiento_apertura").val(),
+      monto_apertura = $("#monto_apertura").val(),
+      comentarios_apertura = $("#comentarios_apertura").val();
+
+  $.ajax({
+    url: url,
+    method: "POST",
+    data: {
+      fecha_apertura: fecha_apertura,
+      movimiento_apertura: movimiento_apertura,
+      monto_apertura: monto_apertura,
+      comentarios_apertura: comentarios_apertura
+    },
+    success: function () {
+      $("body").overhang({
+        type: "success",
+        message: "Se ha abierto la caja"
+      });
+    }, 
+    error: function () {
+      $("body").overhang({
+        type: "error",
+        message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+      });
+    }
+  })
+})
 
 function reloadPage() {
   location.reload();

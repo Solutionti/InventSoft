@@ -79,4 +79,25 @@ class Ventas_model extends CI_model {
       return $resultado;
     }
 
+    //APERTURA DE LA CAJA
+    public function guardarAperturaCaja($data) {
+      $datos = [
+        "fecha" => date("Y-m-d"),
+        "hora" => date("H: i"),
+        "monto" => $data["monto_apertura"],
+        "comentarios" => $data["comentarios_apertura"],
+        "usuario_abre" => $this->session->userdata("nombre"),
+        "estado" => "ABIERTA" 
+      ];
+      $this->db->insert("cajas", $datos);
+    }
+
+    public function getEstadoCaja() {
+      $this->db->select("estado");
+      $this->db->from("cajas");
+      $result = $this->db->get();
+
+      return $result;
+    }
+
 }

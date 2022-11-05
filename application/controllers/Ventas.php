@@ -122,4 +122,19 @@ class Ventas extends CI_Controller {
       $pdf->Cell(25,5,' GRACIAS POR TU COMPRA ', '', 0,'L', false );
       $pdf->Output();
     }
+
+    public function guardarAperturaCaja() {
+      $fecha_apertura = $this->input->post("fecha_apertura");
+      $movimiento_apertura  = $this->input->post("movimiento_apertura");
+      $monto_apertura = $this->input->post("monto_apertura");
+      $comentarios_apertura =  $this->input->post("comentarios_apertura");
+
+      $datos = [
+        "fecha_apertura" => $fecha_apertura,
+        "movimiento_apertura" => $movimiento_apertura,
+        "monto_apertura" => $monto_apertura,
+        "comentarios_apertura" => $comentarios_apertura
+      ];
+      $this->Ventas_model->guardarAperturaCaja($datos);
+    }
 }

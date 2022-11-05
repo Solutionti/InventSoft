@@ -65,10 +65,12 @@ class Clientes extends CI_Controller {
 		$balances = $this->Ventas_model->getBalanceSistema();
 		$productos = $this->Inventarios_model->getProductos();
 		$consecutivos = $this->Inventarios_model->consecutivoDocumentoVenta();
+		$estadocajas = $this->Ventas_model->getEstadoCaja();
 		$data = [
 		  "producto" => $productos,
 		  "consecutivo" => $consecutivos,
-		  "balance" => $balances
+		  "balance" => $balances,
+		  "estadocaja" => $estadocajas
 		];
 		$this->load->view("clientes/ventas", $data);
 	}
