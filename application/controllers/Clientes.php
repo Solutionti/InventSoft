@@ -11,6 +11,7 @@ class Clientes extends CI_Controller {
 		$this->load->model("Usuarios_model");
 		$this->load->model("Gastos_model");
 		$this->load->model("Ventas_model");
+		$this->load->model("Reportes_model");
 	}
 
     public function index() {
@@ -43,7 +44,15 @@ class Clientes extends CI_Controller {
 	}
 
 	public function ecografias() {
-	  $this->load->view("clientes/ecografias");
+	  $ventadias = $this->Reportes_model->ventaDiaria();
+	  $productoDias = $this->Reportes_model->ProductosVendidos();
+	  $gastos = $this->Reportes_model->ReporteGastos();
+	  $data = [
+	    "ventadia" => $ventadias,
+		"gasto" => $gastos,
+		"productodia" => $productoDias
+	  ];
+	  $this->load->view("clientes/ecografias", $data);
 	}
 
 	public function gastos() {

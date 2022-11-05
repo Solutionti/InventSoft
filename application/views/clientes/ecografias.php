@@ -67,9 +67,10 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
+                    <?php $ventadias = $ventadia->result()[0]; ?>
                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Venta Diaria</p>
                     <h5 class="font-weight-bolder">
-                      2
+                      <?php echo $ventadias->venta; ?>
                     </h5>
                     <p class="mb-0">
                       <span class="text-success text-sm font-weight-bolder">100%</span>
@@ -91,9 +92,10 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
+                    <?php $gastos = $gasto->result()[0]; ?>
                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Gastos</p>
                     <h5 class="font-weight-bolder">
-                      0
+                      <?php echo $gastos->gastos; ?>
                     </h5>
                     <p class="mb-0">
                       <span class="text-success text-sm font-weight-bolder">+50%</span>
@@ -139,9 +141,10 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
+                    <?php $productodias = $productodia->result()[0]; ?>
                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Producto</p>
                     <h5 class="font-weight-bolder">
-                      8
+                      <?php echo $productodias->productos; ?>
                     </h5>
                     <p class="mb-0">
                       <span class="text-success text-sm font-weight-bolder">+50%</span>

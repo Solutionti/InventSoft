@@ -293,8 +293,9 @@
               <div class="row mt-3">
                   <div class="col-md-12">
                     <div class="form-group">
-                    <button class="btn bg-gradient-success" id="abrir-caja">Abrir caja</button>
-                    <button class="btn bg-gradient-danger" id="cerrar-caja">Cerrar Caja</button>
+                    <!-- <button class="btn bg-gradient-success" id="abrir-caja">Abrir caja</button>
+                    <button class="btn bg-gradient-danger" id="cerrar-caja">Cerrar Caja</button> -->
+                    <button class="btn bg-gradient-danger" id="hacer-venta">Vender</button>
                   </div>
                 </div>
               </div>

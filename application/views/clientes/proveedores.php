@@ -85,7 +85,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header bg-success">
-        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Agregar Gastos</h5>
+        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Agregar Proveedores</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -96,13 +96,13 @@
             <div class="form-group input-group-sm">
             <label>NIT / Documento</label>
             <input
-                type="date"
+                type="text"
                 class="form-control"
                 id="fecha"
               >
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
             <div class="form-group">
               <label>Nombre</label>
               <input
@@ -111,14 +111,14 @@
               >
             </div>              
           </div>
-          <div class="col-md-2">
+          <div class="col-md-3">
             <div class="form-group input-group-sm">
               <label>Telefono</label>
               <input
                 type="text"
                 class="form-control"
                 id="fecha"  
-                readonly
+                
               >
             </div>
           </div>
@@ -134,14 +134,6 @@
               >
             </div>
           </div>
-        </div>
-        <div class="form-group input-group-sm">
-            <label>Descripciòn</label>
-            <textarea
-              class="form-control"
-              id="descripcion"
-            >
-            </textarea>
         </div>
       </div>
       <div class="modal-footer">

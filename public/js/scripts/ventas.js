@@ -86,7 +86,7 @@ $("#otra-venta").on("click", function () {
 
 //DARLE ACCION A EL BOTON CONTROL + F1
 document.addEventListener("keydown", function(event) {
-  if (event.ctrlKey && event.keyCode === 112)
+  if (event.ctrlKey && event.keyCode === 65)
   {
     var url = baseurl + "clientes/crearventa",
     consecutivo = $("#consecutivo").val(),
