@@ -206,6 +206,10 @@ function facturaVenta(consecutivo) {
   window.open(url, "_blank", " width=500, height=400");
 }
 
+// $("#abrir-caja").on("click", function() {
+//   alert();
+// })
+
 function reloadPage() {
   location.reload();
 }

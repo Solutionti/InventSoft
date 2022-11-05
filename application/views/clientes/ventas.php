@@ -293,9 +293,9 @@
               <div class="row mt-3">
                   <div class="col-md-12">
                     <div class="form-group">
-                    <!-- <button class="btn bg-gradient-success" id="abrir-caja">Abrir caja</button>
-                    <button class="btn bg-gradient-danger" id="cerrar-caja">Cerrar Caja</button> -->
-                    <button class="btn bg-gradient-danger" id="hacer-venta">Vender</button>
+                    <button class="btn bg-gradient-success" id="abrir-caja">Abrir caja</button>
+                    <!-- <button class="btn bg-gradient-danger" id="cerrar-caja">Cerrar Caja</button> -->
+                    
                   </div>
                 </div>
               </div>
@@ -394,13 +394,23 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Fecha</label>
-                <input type="date" class="form-control form-control-sm" value="<?php echo date("Y-m-d")?>">
+                <input
+                  type="date"
+                  class="form-control form-control-sm"
+                  value="<?php echo date("Y-m-d")?>"
+                  id="fecha-apertura"
+                >
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Tipo de movimiento</label>
-                <input type="text" class="form-control form-control-sm" value="APERTURA">
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  value="APERTURA"
+                  id="movimiento-apertura"
+                >
               </div>
             </div>
           </div>
@@ -408,7 +418,11 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Monto</label>
-                <input type="number" class="form-control form-control-sm">
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  id="monto-apertura"
+                >
               </div>
             </div>
           </div>
@@ -416,13 +430,23 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Comentarios</label>
-                <textarea class="form-control" rows="5"></textarea>
+                <textarea
+                  class="form-control"
+                  rows="5"
+                  id="comentarios-apertura"
+                ></textarea>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn color-cyan text-white" id="abrir">Aceptar</button>
+          <button
+            type="button"
+            class="btn color-cyan text-white"
+            id="abrir"
+          >
+          Aceptar
+          </button>
         </div>
       </div>
     </div>

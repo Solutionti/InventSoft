@@ -119,7 +119,7 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Gastos - Venta</p>
                     <h5 class="font-weight-bolder">
-                      8
+                      <?php echo ($ventadias->venta - $gastos->gastos); ?>
                     </h5>
                     <p class="mb-0">
                       <span class="text-success text-sm font-weight-bolder">+70%</span>
@@ -167,14 +167,13 @@
             <div class="card-body">
               <h5 class="card-title">Tablero de reportes</h5>
               <label>Seleccione el reporte a consultar</label>
-              <select name="" id="" class="form-control">
+              <select name="select-inputs" id="select-inputs" class="form-control">
                <option value="">SELECCIONE UNA OPCIÓN</option>
-               <option value="">Transacciones por dia</option>
-               <option value="">Reporte de merma</option>
-               <option value="">Transacciones por producto</option>
-               <option value="">Top productos venta</option>
-               <option value="">Ventas por categoria</option>
-               <option value="">Venta de los empleados</option>
+               <option value="1">Transacciones por dia</option>
+               <option value="2">Ventas por categoria</option>
+               <option value="3">Transacciones por producto</option>
+               <option value="4">Reporte de merma</option>
+               <option value="5">Top productos venta</option>
               </select> 
             </div> 
           </div>
@@ -199,9 +198,9 @@
                     <div class="col-md-4">
                       <label for="">Usuario</label>
                       <select class="form-control" aria-label="Default select example">
-                        <option selected>Seleccione el usuario a consultar</option>
-                           <option value="1">One</option>
-                         <option value="2">Two</option>
+                        <option selected>Seleccione el usuario</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
                         <option value="3">Three</option>
                       </select>
                       </div>
@@ -250,5 +249,6 @@
 </div>
 
   <?php require_once("componentes/scripts.php"); ?>
+  <script src="<?php echo base_url(); ?>public/js/scripts/reportes.js"></script>
 </body>
 </html>
