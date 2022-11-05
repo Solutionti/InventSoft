@@ -179,7 +179,7 @@
         <div class="col-md-9">
           <div class="card border-1">
             <div class="card-body">
-               <div id="reporte-dia">
+               <div id="reporte-dia" hidden>
                 <div class="row">
                   <div class="col-md-3">
                     <div class="form-group">
@@ -207,13 +207,42 @@
                       </div>
                 </div>
                </div>
-
-            </div> 
-          </div>
-        </div>
+              <div id="ventas-categoria" hidden>
+                <div class="row">
+                  <div class="col-md-3">
+                  <div class="form-group">
+                      <label for="">Fecha inicial</label>
+                      <input type="date" class="form-control">
+                    </div>
+                  </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="">Fecha final</label>
+                      <input type="date" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="">Categoria</label>
+                        <select class="form-control" aria-label="Default select example">
+                           <option selected>Seleccione el usuario a consultar</option>
+                              <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                           </div>
+                          <div class="col-md-2 mt-4">
+                        <button type="button" class="btn btn-primary mt-2">Buscar</button>
+                         </div>
+                          </div>
+                           </div>
+                            </div>
+                           </div>
+                         </div> 
+                       </div>
+                     </div>
+         </div>
       </div>
     </div>
-  </div>
   <?php require_once("componentes/footer.php"); ?>
 </div>
 
