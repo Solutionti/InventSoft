@@ -61,6 +61,7 @@ $route["clientes/devoluciones"] = "clientes/devoluciones";
 
 //PROVEEDORES
 $route["clientes/proveedores"] = "clientes/proveedores";
+$route["clientes/crearproveedor"] = "proveedores/guardarproveedores";
 
 
 
