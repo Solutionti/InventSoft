@@ -63,12 +63,10 @@
                <table class="table table-responsive table-hover">
                  <thead class="bg-default">
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Categoria</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Descripcion</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Precio</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Usuario</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fecha</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">nit / documento</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nombre</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Telefono</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">correo</th>
                  </thead>
                  <tbody>
                  
@@ -98,7 +96,7 @@
             <input
                 type="text"
                 class="form-control"
-                id="fecha"
+                id="nit_proveedores"
               >
             </div>
           </div>
@@ -107,6 +105,7 @@
               <label>Nombre</label>
               <input
                 type="text"
+                id="nom_proveedores"
                 class="form-control form-control-sm"
               >
             </div>              
@@ -117,30 +116,44 @@
               <input
                 type="text"
                 class="form-control"
+<<<<<<< HEAD
                 id="fecha"  
                 
               >
+=======
+                id="tel_proveedores">
+>>>>>>> 21dc38a4235305f56edc45671e28b55c87ae34f4
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-9">
             <div class="form-group input-group-sm">
               <label>Correo</label>
               <input
                 type="text"
                 class="form-control"
-                id="precio"
+                id="correo_proveedores"
               >
             </div>
           </div>
         </div>
+<<<<<<< HEAD
+=======
+        <div class="form-group input-group-sm">
+            <label>Descripciòn</label>
+            <textarea
+              class="form-control"
+              id="desc_proveedores"
+            ></textarea>
+        </div>
+>>>>>>> 21dc38a4235305f56edc45671e28b55c87ae34f4
       </div>
       <div class="modal-footer">
         <button
           type="button"
           class="btn color-cyan text-white"
-          id="creargasto"
+          id="crearproveedor"
         >
           Guardar
         </button>
@@ -152,6 +165,6 @@
   <script>
     var baseurl = "<?php echo base_url();?>";
   </script>
-  <script src="<?php echo base_url(); ?>public/js/scripts/gastos.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/scripts/proveedores.js"></script>
 </body>
 </html>
