@@ -181,6 +181,7 @@
             <div class="card-body">
                <div id="reporte-dia" hidden>
                 <div class="row">
+                <h5> Reporte por día</h5>
                   <div class="col-md-3">
                     <div class="form-group">
                       <label for="">Fecha inicial</label>
@@ -209,6 +210,7 @@
                </div>
               <div id="ventas-categoria" hidden>
                 <div class="row">
+                <h5> Ventas por categoria</h5>
                   <div class="col-md-3">
                   <div class="form-group">
                       <label for="">Fecha inicial</label>
@@ -233,16 +235,56 @@
                           <div class="col-md-2 mt-4">
                         <button type="button" class="btn btn-primary mt-2">Buscar</button>
                          </div>
-                          </div>
-                           </div>
                             </div>
+                             </div>
+                              <div id="transaccion-producto" hidden>
+                               <div class="row">
+                                <h5> Transacciones por producto</h5>
+                                 <div class="col-md-3">
+                                  <div class="form-group">
+                                  <label for="">Codigo producto</label>
+                                 <input 
+                                type="text" 
+                                class="form-control form-control-md" 
+                               id="codigoproducto_e">
+                             </div>
                            </div>
-                         </div> 
+                           <div class="col-md-3">
+                             <div class="form-group">
+                              <label for="">Nombre producto</label>
+                               <input 
+                                type="text" 
+                                class="form-control form-control-md" 
+                                id="nombreproducto_e">
+                                 </div>
+                               </div>
+                              <div class="col-md-2">
+                            <div class="form-group">
+                         <label for="">Fecha inicial</label>
+                       <input type="date" class="form-control">
+                    </div>
+                  </div>
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label for="">Fecha final</label>
+                      <input type="date" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-2 mt-4">
+                        <button type="button" class="btn btn-primary mt-2">Buscar</button>
+                         </div>
+      <!-- fin row   --> </div> 
                        </div>
                      </div>
-         </div>
+                   </div>
+                 </div>
+               </div>
+             </div> 
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+     </div>
   <?php require_once("componentes/footer.php"); ?>
 </div>
 
