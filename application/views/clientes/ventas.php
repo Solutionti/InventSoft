@@ -8,6 +8,7 @@
     <?php require_once("componentes/head.php"); ?>
 </head>
 <body class="g-sidenav-show bg-gray-100">
+<?php $estadocajas = $estadocaja->result()[0]; ?>
   <div
     class="position-absolute w-100 min-height-300 top-0"
     style="background-image: url('https://cdn.pixabay.com/photo/2020/10/01/17/11/store-5619201_960_720.jpg'); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%"
@@ -60,9 +61,10 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-8">
                   <div class="row">
                     <div class="col-md-12">
+                      <?php if($estadocajas->estado === "ABIERTA") { ?>
                       <div class="form-group">
                         <label>Codigo de barras</label>
                         <input
@@ -71,14 +73,27 @@
                           id="codigo_barras"
                         >
                       </div>
+                      <?php } else {?>
+                        <div class="form-group">
+                        <label>Codigo de barras</label>
+                        <input
+                          type="text"
+                          class="form-control form-control-md"
+                          id="codigo_barras"
+                          readonly
+                        >
+                      </div>
+                      <?php } ?>
                     </div>
                   </div>
+                  <?php $id_cajas = $id_caja->result()[0]; ?>
+                  <input type="text" class="form-control" id="id_caja" value="<?php echo $id_cajas->id_caja ?>" hidden>
                   <div class="row">
                     <div class="col-md-6">
                       <label>Recibo de efectivo</label>
                       <input
                         type="text"
-                        class="form-control form-control-sm"
+                        class="form-control form-control-sm text-lg"
                         id="recibio"
                       >
                     </div>
@@ -189,19 +204,19 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3 mb-4">
+                <div class="col-md-4 mb-4">
                   <div class="card card-pricing">
                     <div
-                      class="card-header bg-gradient-success text-center pt-4 pb-5 position-relative"
+                      class="card-header bg-gradient-light text-center pt-4 pb-5 position-relative"
                     >
                       <div class="z-index-1 position-relative">
-                        <h5 class="text-white">Total Compra</h5>
-                        <h1 class="text-white mt-2 mb-0" id="ventaa">
+                        <h5 class="text-black">TOTAL VENTA</h5>
+                        <h1 class="text-black mt-2 mb-0" id="ventaa">
                         <small id="total-compra">$ </small>0
                         </h1>
-                        <h6 class="text-white">Total a devolver</h6>
+                        <h6 class="text-black">TOTAL DEVOLVER</h6>
                         <div id="volver">
-                          <h4 class="text-white" id="devolver">0</h4>
+                          <h3 class="text-black" id="devolver">0</h3>
                         </div>
                       </div>
                     </div>
@@ -293,9 +308,14 @@
               <div class="row mt-3">
                   <div class="col-md-12">
                     <div class="form-group">
-                    <button class="btn bg-gradient-success" id="abrir-caja">Abrir caja</button>
-                    <!-- <button class="btn bg-gradient-danger" id="cerrar-caja">Cerrar Caja</button> -->
                     
+                    <?php
+                      if($estadocajas->estado == "CERRADA") {
+                    ?>
+                    <button class="btn bg-gradient-success" id="abrir-caja">Abrir caja</button>
+                    <?php } else { ?>
+                      <button class="btn bg-gradient-danger" id="cerrar-caja">Cerrar Caja</button> 
+                    <?php } ?>
                   </div>
                 </div>
               </div>
@@ -472,19 +492,18 @@
         </div>
         <div class="modal-body">
           <?php $balances = $balance->result()[0]; ?>
-          <h5>¿Esta seguro de cerrar caja?</h5>
+          <h5 class="gray-text">¿Esta seguro de cerrar caja?</h5>
           <small>Se recomienda revisar sus montos de cierre</small>
-          <h6 class="text-uppercase mt-3">Balance teorico: $/ <?php echo $balances->venta; ?></h6>
-          <h6 class="text-uppercase">Efectivo real: $/ 50.000</h6>
-          <h6 class="text-uppercase">Diferencia: $/ 0</h6>
+          <h6 class="text-uppercase mt-3">Balance teorico: $/ <spam id="balance"> <?php echo $balances->venta; ?></spam></h6>
+          <h6 class="text-uppercase">Efectivo real:  $/ <spam id="efectivo"></spam></h6>
+          <h6 class="text-uppercase text-danger">Diferencia: $/ <spam id="diferencia"></spam></h6>
           <br>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Total efectivo">
+            <input type="number" class="form-control" placeholder="Total efectivo" id="real_efectivo">
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success text-white" id="abrir">Aceptar</button>
-          <button type="button" class="btn btn-danger text-white" id="cancelar">Cancelar</button>
+          <button type="button" class="btn btn-success text-white" id="cierre-caja">Aceptar</button>
         </div>
       </div>
     </div>

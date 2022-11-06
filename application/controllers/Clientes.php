@@ -12,6 +12,7 @@ class Clientes extends CI_Controller {
 		$this->load->model("Gastos_model");
 		$this->load->model("Ventas_model");
 		$this->load->model("Reportes_model");
+		$this->load->model("Proveedores_model");
 	}
 
     public function index() {
@@ -66,11 +67,13 @@ class Clientes extends CI_Controller {
 		$productos = $this->Inventarios_model->getProductos();
 		$consecutivos = $this->Inventarios_model->consecutivoDocumentoVenta();
 		$estadocajas = $this->Ventas_model->getEstadoCaja();
+		$idcajas = $this->Ventas_model->getIdCaja();
 		$data = [
 		  "producto" => $productos,
 		  "consecutivo" => $consecutivos,
 		  "balance" => $balances,
-		  "estadocaja" => $estadocajas
+		  "estadocaja" => $estadocajas,
+		  "id_caja" => $idcajas
 		];
 		$this->load->view("clientes/ventas", $data);
 	}
@@ -80,7 +83,11 @@ class Clientes extends CI_Controller {
 	}
 
 	public function proveedores() {
-      $this->load->view("clientes/proveedores");
+	  $proveedores = $this->Proveedores_model->getProveedores();
+      $datos = [
+		"proveedor" => $proveedores
+	  ]; 
+      $this->load->view("clientes/proveedores", $datos);
 	}
 
 }

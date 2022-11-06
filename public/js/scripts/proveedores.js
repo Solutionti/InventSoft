@@ -23,6 +23,7 @@ $("#crearproveedor").on("click", function(){
             type: "success",
             message: "El proveedor se  ha creado correctamente"
           });
+          setTimeout(reloadPage, 2000);
       },
       error: function (){
         $("body").overhang({
@@ -33,3 +34,7 @@ $("#crearproveedor").on("click", function(){
     })
 
 })
+
+function reloadPage() {
+  location.reload();
+}

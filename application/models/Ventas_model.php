@@ -15,11 +15,26 @@ class Ventas_model extends CI_model {
           "total_venta" => $data["total_venta"],
           "cantidad_productos" => $data["cantidad_productos"],
           "usuario" => $this->session->userdata("nombre"),
+          "id_caja" => $data["id_caja"]
         ];
         $this->db->insert("ventas", $datos);
         $id = $this->db->insert_id();
 
         return $id;
+    }
+
+    public function getVentaRepetida($venta) {
+      $this->db->select("*");
+      $this->db->from("ventas");
+      $this->db->where("codigo_consecutivo", $venta);
+      $result = $this->db->get();
+
+      if($result->num_rows() > 0){
+        return 1;
+      }
+      else {
+        return 0;
+      }
     }
 
     public function CrearDetalleVenta($data) {
@@ -33,14 +48,7 @@ class Ventas_model extends CI_model {
         $this->db->insert("detalle_venta", $datos);
     }
 
-    public function getBalanceSistema() {
-      $this->db->select("SUM(total_venta) as venta");
-      $this->db->from("ventas");
-      $this->db->where("fecha", date("Y-m-d"));
-      $resultado = $this->db->get();
-
-      return $resultado;
-    }
+   
 
     public function getInventarioStock($codigo) {
       $this->db->select("stock");
@@ -92,12 +100,47 @@ class Ventas_model extends CI_model {
       $this->db->insert("cajas", $datos);
     }
 
-    public function getEstadoCaja() {
-      $this->db->select("estado");
+    public function cerrarCaja($data, $caja) {
+      $datos = [
+        "usuario_cierre" => $this->session->userdata("nombre"),
+        "balance_sistema" => $data["balance"],
+        "total_venta" => $data["efectivoreal"],
+        "descuadre" => $data["diferencia"],
+        "estado" => "CERRADA"
+      ];
+      $this->db->where("codigo_caja", $caja);
+      $this->db->update("cajas", $datos);
+    }
+
+    public function getIdCaja() {
+      $this->db->select("MAX(codigo_caja) as id_caja");
       $this->db->from("cajas");
+      $this->db->where("estado", "ABIERTA");
       $result = $this->db->get();
 
       return $result;
+    }
+
+    public function getEstadoCaja() {
+      $this->db->select("estado");
+      $this->db->from("cajas");
+      $this->db->order_by("codigo_caja", "desc");
+      $result = $this->db->get();
+
+      return $result;
+    }
+
+    public function getBalanceSistema() {
+      $resultado = $this->getIdCaja();
+      $resultados = $resultado->result()[0];
+      $this->db->select("SUM(total_venta) as venta");
+      $this->db->from("ventas");
+      // $this->db->where("fecha", date("Y-m-d"));
+      $this->db->where("usuario", $this->session->userdata("nombre"));
+      $this->db->where("id_caja", $resultados->id_caja);
+      $resultado = $this->db->get();
+
+      return $resultado;
     }
 
 }

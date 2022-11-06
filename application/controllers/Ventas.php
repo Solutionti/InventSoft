@@ -30,31 +30,41 @@ class Ventas extends CI_Controller {
       $total_venta = $this->input->post("total");
       $cantidad_productos  = count($this->input->post("ventas"));
       $ventas = $this->input->post("ventas");
-      
-      $data = [
-        "consecutivo" => $consecutivo,
-        "documento" => $documento,
-        "sede" => $sede,
-        "tipo_pago" => $tipo_pago,
-        "referencia" => $referencia,
-        "total_recibido" => $total_recibido,
-        "total_venta" => $total_venta,
-        "cantidad_productos" => $cantidad_productos
-      ];
-      $codigoventa = $this->Ventas_model->crearVenta($data);
-      
-      for($i=0; $i < sizeof($ventas); $i++) {
-        $data2 = [
-          "codigo_venta" => $consecutivo,
-          "venta" => $ventas[$i]
+      $id_caja = $this->input->post("id_caja");
+
+      $validacion = $this->Ventas_model->getVentaRepetida($consecutivo);
+      if ( $validacion == 0) {
+        $data = [
+          "consecutivo" => $consecutivo,
+          "documento" => $documento,
+          "sede" => $sede,
+          "tipo_pago" => $tipo_pago,
+          "referencia" => $referencia,
+          "total_recibido" => $total_recibido,
+          "total_venta" => $total_venta,
+          "cantidad_productos" => $cantidad_productos,
+          "id_caja" => $id_caja
         ];
-        $this->Ventas_model->CrearDetalleVenta($data2);
-        $descuenta = $this->Ventas_model->getInventarioStock($ventas[$i]);
-        $stockact = $descuenta->stock - 1;
-        $this->Ventas_model->updateInventarioStock($ventas[$i], $stockact);
+        $codigoventa = $this->Ventas_model->crearVenta($data);
+        
+        for($i=0; $i < sizeof($ventas); $i++) {
+          $data2 = [
+            "codigo_venta" => $consecutivo,
+            "venta" => $ventas[$i]
+          ];
+          $this->Ventas_model->CrearDetalleVenta($data2);
+          $descuenta = $this->Ventas_model->getInventarioStock($ventas[$i]);
+          $stockact = $descuenta->stock - 1;
+          $this->Ventas_model->updateInventarioStock($ventas[$i], $stockact);
+        }
+        
+        echo $codigoventa;
+
+      }
+      else {
+        echo "error";
       }
       
-      echo $codigoventa;
     }
 
     public function getProductoId($codigo) {
@@ -136,5 +146,18 @@ class Ventas extends CI_Controller {
         "comentarios_apertura" => $comentarios_apertura
       ];
       $this->Ventas_model->guardarAperturaCaja($datos);
+    }
+
+    public function cerrarCaja() {
+      $efectivoreal = $this->input->post("efectivoreal");
+      $balance = $this->input->post("balance");
+      $diferencia = $this->input->post("diferencia");
+      $id_caja = $this->input->post("id_caja");
+      $datos = [
+        "efectivoreal" => $efectivoreal,
+        "balance" => $balance,
+        "diferencia" => $diferencia
+      ];
+      $this->Ventas_model->cerrarCaja($datos, $id_caja);
     }
 }

@@ -50,6 +50,7 @@ $route["clientes/generarpdfventas/(:any)"] = "ventas/pdfreciboventa/$1";
 $route["clientes/verproducto/(:num)"] = "ventas/getproductoid/$1";
 $route["clientes/crearventa"] = "ventas/crearventa";
 $route["clientes/abrircaja"] = "ventas/guardaraperturacaja";
+$route["clientes/cerrarcaja"] = "ventas/cerrarcaja";
 //
 $route["clientes/ecografias"] = "clientes/ecografias";
 $route["clientes/gastos"] = "clientes/gastos";

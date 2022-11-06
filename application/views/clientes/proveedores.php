@@ -62,14 +62,22 @@
              <div class="table-responsive">
                <table class="table table-responsive table-hover">
                  <thead class="bg-default">
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
+                   <!-- <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th> -->
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">nit / documento</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nombre</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Telefono</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">correo</th>
                  </thead>
                  <tbody>
-                 
+                  <?php foreach($proveedor->result() as $proveedores){ ?>
+                  <tr>
+                    <!-- <td></td> -->
+                    <td><?php echo $proveedores->nit; ?></td>
+                    <td><?php echo $proveedores->nombre; ?></td>
+                    <td><?php echo $proveedores->telefono; ?></td>
+                    <td><?php echo $proveedores->correo; ?></td>
+                  </tr>
+                  <?php } ?>
                  </tbody>
                </table>
              </div>
@@ -116,13 +124,8 @@
               <input
                 type="text"
                 class="form-control"
-<<<<<<< HEAD
-                id="fecha"  
-                
-              >
-=======
                 id="tel_proveedores">
->>>>>>> 21dc38a4235305f56edc45671e28b55c87ae34f4
+              >
             </div>
           </div>
         </div>
@@ -138,8 +141,6 @@
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-=======
         <div class="form-group input-group-sm">
             <label>Descripciòn</label>
             <textarea
@@ -147,7 +148,6 @@
               id="desc_proveedores"
             ></textarea>
         </div>
->>>>>>> 21dc38a4235305f56edc45671e28b55c87ae34f4
       </div>
       <div class="modal-footer">
         <button

@@ -73,7 +73,7 @@ $("#codigo_barras").on("change", function() {
     var recibio = parseInt($("#recibio").val()),
         total = parseInt($("#total").val());
         $("#devolver").attr("hidden", true);
-        document.getElementById("volver").innerHTML = '<h4 class="text-white text-uppercase">'+ (recibio - total).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})+'</h4>';
+        document.getElementById("volver").innerHTML = '<h3 class="text-black text-uppercase">'+ (recibio - total).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})+'</h3>';
  });
 
 $("#buscar-producto").on("click", function () {
@@ -97,7 +97,8 @@ document.addEventListener("keydown", function(event) {
     total = $("#total").val(),
     tp_pago = $("#tp_pago").val(),
     referencia = $("#referencia").val(),
-    sede = $("#sede").val();
+    sede = $("#sede").val(),
+    id_caja = $("#id_caja").val();
     let ventas = [];
 
     for (let i = 0; i < venta.length; i++) {
@@ -120,14 +121,23 @@ document.addEventListener("keydown", function(event) {
           total: total,
           tp_pago: tp_pago,
           referencia: referencia,
-          sede: sede
+          sede: sede,
+          id_caja: id_caja
         },
         success: function(data) {
-          $("body").overhang({
-            type: "success",
-            message: "La venta se ha creado correctamente"
-          });
-          facturaVenta(consecutivo);
+          if (data === "error") {
+            $("body").overhang({
+              type: "error",
+              message: "Usted ya registro una venta con el codigo consecutivo. " + consecutivo ,
+            });
+          }
+          else {
+            $("body").overhang({
+              type: "success",
+              message: "La venta se ha creado correctamente"
+            });
+            facturaVenta(consecutivo);
+          }
         },
         error: function () {
           $("body").overhang({
@@ -227,6 +237,7 @@ $("#guardar-caja").on("click", function() {
         type: "success",
         message: "Se ha abierto la caja"
       });
+      setTimeout(reloadPage, 2000);
     }, 
     error: function () {
       $("body").overhang({
@@ -235,6 +246,51 @@ $("#guardar-caja").on("click", function() {
       });
     }
   })
+})
+
+let efectivoreal = 0;
+let balance = 0;
+let diferencia  = 0;
+
+$("#real_efectivo").on("keyup", function() {
+  //efectivo real
+  efectivoreal = parseInt($("#real_efectivo").val());
+  //balance
+  balance = parseInt(document.getElementById("balance").innerHTML);
+  //diferencia
+  diferencia = efectivoreal - balance  ; 
+  document.getElementById("efectivo").innerHTML = (efectivoreal).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+  document.getElementById("diferencia").innerHTML = (diferencia).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+
+})
+
+$("#cierre-caja").on("click", function () {
+  var url = baseurl + "clientes/cerrarcaja";
+  var id_caja = $("#id_caja").val();
+  $.ajax({
+    url: url,
+    method: "POST",
+    data: {
+      efectivoreal: efectivoreal,
+      balance: balance,
+      diferencia: diferencia,
+      id_caja: id_caja
+    },
+    success: function () {
+      $("body").overhang({
+        type: "success",
+        message: "Se ha cerrado la caja"
+      });
+      setTimeout(reloadPage, 2000);
+    },
+    error: function () {
+      $("body").overhang({
+        type: "error",
+        message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+      });
+    }
+  });
+
 })
 
 function reloadPage() {

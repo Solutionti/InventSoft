@@ -122,7 +122,11 @@
           <div class="col-md-4">
             <div class="form-group input-group-sm">
             <label>Categoria</label>
-            <select id="categoria" class="form-control">
+            <select
+              id="categoria"
+              class="form-control"
+              id="categoria_gasto"
+            >
               <option value="">SELECCIONE</option>
               <option value="Gasto interno">Gasto interno</option>
               <option value="Pago proveedores">Pago a proveedores</option>
@@ -134,10 +138,13 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Proveedor</label>
-              <input
-                type="text"
+              <select 
                 class="form-control form-control-sm"
+                id="proveedor_gasto"
               >
+                <option value=""></option>
+              </select>
+              
             </div>              
           </div>
           <div class="col-md-2">
@@ -146,7 +153,7 @@
               <input
                 type="date"
                 class="form-control"
-                id="fecha"
+                id="fecha_gasto"
                 value="<?php echo date("Y-m-d"); ?>"
                 readonly
               >
@@ -160,7 +167,7 @@
               <input
                 type="text"
                 class="form-control"
-                id="precio"
+                id="nombre_gasto"
               >
             </div>
           </div>
@@ -170,18 +177,18 @@
               <input
                 type="number"
                 class="form-control"
-                id="precio"
+                id="precio_factura"
                 min="0"
               >
             </div>
           </div>
           <div class="col-md-2 mt-4">            
-          <div class="form-check">
-           <input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault">
-            <label for="flexCheckDefault">
-            Cuentas por cobrar
-               </label>
-                </div>
+            <div class="form-check">
+              <input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault">
+              <label for="flexCheckDefault">
+                Cuentas por cobrar
+              </label>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -191,78 +198,18 @@
               <input
                 type="date"
                 class="form-control"
-                id="fecha"
+                id="fecha_limite"
                 value="<?php echo date("Y-m-d"); ?>"
               >
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="form-group input-group-sm">
-              <label>Fecha actual</label>
-              <input
-                type="date"
-                class="form-control"
-                id="fecha"
-                value="<?php echo date("Y-m-d"); ?>"
-                
-              >
-            </div>
-          </div>
+          
         </div>
-<!--          SE IHNABILITA POR MICHAEL PIMIENTO
-
-        <h6>Detalle de la factura</h6>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Codigo</label>
-            <input
-              type="text"
-              class="form-control form-control-sm" 
-            >
-          </div>
-          <div class="col-md-4">
-            <label>Precio</label>
-            <input
-              type="text"
-              class="form-control form-control-sm" 
-            >
-          </div>
-          <div class="col-md-2">
-            <label>Cantidad</label>
-            <input
-              type="number"
-              class="form-control form-control-sm" 
-            >
-          </div>
-        </div>           -->
-        <!--   SE IHNABILITA POR MICHAEL PIMIENTO
-        <div class="row mt-3">
-          <div class="col-md-12">
-            <div class="table-responsive">
-              <table class="table table-striped table-underline">
-                <thead class="bg-default">
-                  <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">
-                    Cantidad
-                  </th>
-                  <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">
-                    Detalle
-                  </th>
-                  <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">
-                    Sub total
-                  </th>
-                  <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">
-                    Total
-                  </th>
-                </thead>
-              </table>
-            </div>
-          </div>
-        </div>          FIN DE IHNABILITACION   -->
         <div class="form-group input-group-sm">
             <label>Descripciòn</label>
             <textarea
               class="form-control"
-              id="descripcion"
+              id="descripcion_gasto"
             >
             </textarea>
         </div>
