@@ -22,6 +22,7 @@
     <div class="col-lg-8 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
       <div class="nav-wrapper position-relative end-0">
         <ul class="nav nav-pills nav-fill p-1" role="tablist">
+          <?php if($this->session->userdata("rol") === "Administrador") { ?>
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
@@ -76,15 +77,6 @@
               <span class="ms-2">Proveedores</span>
             </a>
           </li>
-          <!-- <li class="nav-item">
-            <a
-              class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
-              href="<?php echo base_url(); ?>clientes/devoluciones"
-            >
-              <i class="ni ni-settings-gear-65"></i>
-              <span class="ms-2">Devoluciones</span>
-            </a>
-          </li> -->
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
@@ -94,6 +86,53 @@
               <span class="ms-2">Reportes</span>
             </a>
           </li>
+          <?php } else if ($this->session->userdata("rol") === "Vendedor") {  ?>
+            <li class="nav-item">
+            <a
+              class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
+              href="<?php echo base_url(); ?>clientes/inicio"
+            >
+              <i class="ni ni-settings-gear-65"></i>
+              <span class="ms-2">Inicio</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
+              href="<?php echo base_url(); ?>clientes/patologia"
+            >
+              <i class="ni ni-email-83"></i>
+              <span class="ms-2">Inventarios</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
+              href="<?php echo base_url(); ?>clientes/ventas"
+            >
+              <i class="ni ni-settings-gear-65"></i>
+              <span class="ms-2">Ventas</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
+              href="<?php echo base_url(); ?>clientes/gastos"
+            >
+              <i class="ni ni-settings-gear-65"></i>
+              <span class="ms-2">Gastos</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
+              href="<?php echo base_url(); ?>clientes/proveedores"
+            >
+              <i class="ni ni-settings-gear-65"></i>
+              <span class="ms-2">Proveedores</span>
+            </a>
+          </li>
+           <?php } ?>
         </ul>
       </div>
     </div>

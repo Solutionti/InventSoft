@@ -48,17 +48,26 @@ class Clientes extends CI_Controller {
 	  $ventadias = $this->Reportes_model->ventaDiaria();
 	  $productoDias = $this->Reportes_model->ProductosVendidos();
 	  $gastos = $this->Reportes_model->ReporteGastos();
+	  $usuarios = $this->Usuarios_model->getAdministtradores();
+	  $categorias = $this->Inventarios_model->getCategorias();
+
 	  $data = [
 	    "ventadia" => $ventadias,
 		"gasto" => $gastos,
-		"productodia" => $productoDias
+		"productodia" => $productoDias,
+		"usuario" => $usuarios,
+		"categoria" => $categorias
 	  ];
 	  $this->load->view("clientes/ecografias", $data);
 	}
 
 	public function gastos() {
 		$gastos = $this->Gastos_model->getGastos();
-		$data = ["gasto" => $gastos];
+		$proveedores = $this->Proveedores_model->getProveedores();
+		$data = [
+		  "gasto" => $gastos,
+		  "proveedor" => $proveedores
+		];
 		$this->load->view("clientes/gastos", $data);
 	  }
 

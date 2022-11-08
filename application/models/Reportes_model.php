@@ -2,13 +2,33 @@
 
 class Reportes_model extends CI_model {
 
-
-    
-
     //REPORTES A GENERAR
     //TRANSACCIONES POR DIA
-    public function transaccionesVentaDia() {
+    public function transaccionesVentaDia($fecha_inicial, $fecha_final, $usuario) {
+      
+      $this->db->select("d.*, p.nombre, p.stock");
+      $this->db->from("detalle_venta d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->where("d.fecha >=", $fecha_inicial);
+      $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->where("d.usuario", $usuario);
+      $result = $this->db->get();
 
+      return $result;
+
+    }
+    public function ReporteVentaCategoria($fecha_inicial, $fecha_final, $categoria) {
+      $this->db->select("d.*,p.nombre,p.categoria,c.nombre as categoria");
+      $this->db->from("detalle_venta d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+      $this->db->where("d.fecha >=", $fecha_inicial);
+      $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->where("p.categoria", $categoria);
+      $result = $this->db->get();
+
+      return $result; 
+      
     }
     //REPORTE DE MERMA
     public function ReporteMerma() {
@@ -18,10 +38,7 @@ class Reportes_model extends CI_model {
     public function transaccionesProducto() {
 
     }
-    //TOP 10 MEJORES 10 VENDIDOS
-    public function topProductoVendido() {
-
-    }
+   
     //REPORTE DE GASTOS
     public function ReporteGastos() {
       $this->db->select("SUM(precio) as gastos");
@@ -32,10 +49,7 @@ class Reportes_model extends CI_model {
       return $result;
 
     }
-    //REPORTE DE VENTA VS GANANCIA MES A MES
-    public function gananciaVenta() {
-      
-    }
+
 
     //VENTA DIARIA DINERO FECHA
     public function ventaDiaria() {
@@ -45,11 +59,6 @@ class Reportes_model extends CI_model {
       $result = $this->db->get();
         
       return $result;
-    }
-
-    //GASTOS - VENTA FECHA
-    public function gananciaNeta() {
-
     }
 
     //CANTIDAD PRODUCTOS VENDIDOS POR FECHA

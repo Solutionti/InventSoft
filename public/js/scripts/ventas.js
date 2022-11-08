@@ -45,7 +45,9 @@ $("#codigo_barras").on("change", function() {
       }
       else {
         data = JSON.parse(data);
-       
+        // var imagen = "<img src='https://ventas-buen-viaje.saludmadreymujer.com/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'>";
+        var imagen = "<img src='http://localhost/CODEIGNITER/ventas-buenviaje/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'>";
+        document.getElementById("imagen").innerHTML = imagen;
         $("#codigo").val(data.codigo);
         $("#codigo_barras2").val(data.codigo_barras);
         $("#producto").val(data.nombre);
@@ -73,7 +75,7 @@ $("#codigo_barras").on("change", function() {
     var recibio = parseInt($("#recibio").val()),
         total = parseInt($("#total").val());
         $("#devolver").attr("hidden", true);
-        document.getElementById("volver").innerHTML = '<h3 class="text-black text-uppercase">'+ (recibio - total).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})+'</h3>';
+        document.getElementById("volver").innerHTML = '<h2 class="text-black text-uppercase">'+ (recibio - total).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})+'</h2>';
  });
 
 $("#buscar-producto").on("click", function () {
@@ -174,6 +176,8 @@ $("#asociar-producto").on("click", function () {
         method: "GET",
         success: function(data) {
           data = JSON.parse(data);
+          var imagen = "<img src='http://localhost/CODEIGNITER/ventas-buenviaje/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'>";
+          document.getElementById("imagen").innerHTML = imagen;
           $("#modal-productos").modal("hide");
           $("#codigo").val(data.codigo);
           $("#codigo_barras2").val(data.codigo_barras);
@@ -181,7 +185,7 @@ $("#asociar-producto").on("click", function () {
           $("#precio").val(data.precio);
           $("#cantidad").val(data.stock);
         document.getElementById("tabla-ventas").insertRow(-1).innerHTML = '<tr><td><button class="btn btn-xs btn-danger">X</button></td><td>'+data.nombre+'</td><td>'+data.codigo_barras+'</td><td>1</td><td>$'+parseInt(data.precio).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 1})+'</td></tr>';
-        venta.push(data.codigo_producto);
+        venta.push(data.codigo);
         $("#codigo_barras").val("");
         $("#codigo_barras").focus();
         //FUNCIONALIDAD DEL TOTAL AGREGAR EL TOTAL
@@ -281,7 +285,8 @@ $("#cierre-caja").on("click", function () {
         type: "success",
         message: "Se ha cerrado la caja"
       });
-      setTimeout(reloadPage, 2000);
+      // setTimeout(reloadPage, 2000);
+      location.href = baseurl + "iniciar";
     },
     error: function () {
       $("body").overhang({
@@ -296,6 +301,7 @@ $("#cierre-caja").on("click", function () {
 function reloadPage() {
   location.reload();
 }
+
 
 
 

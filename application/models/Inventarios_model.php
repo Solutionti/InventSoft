@@ -21,7 +21,8 @@ class Inventarios_model extends CI_model {
         "fecha" => date("Y-m-d"),
         "hora" => date("h:i A"),
         "usuario" => $this->session->userdata("nombre"),
-        "producto_venta" => $data["pro_venta"]
+        "producto_venta" => $data["pro_venta"],
+        "url_imagen" => $data["url_imagen"]
       ];
       $this->db->insert("productos", $datos);
     }

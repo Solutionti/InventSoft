@@ -13,12 +13,18 @@ class Gastos extends CI_Controller {
       $fecha = $this->input->post("fecha");
       $precio = $this->input->post("precio");
       $descripcion = $this->input->post("descripcion");
+      $proveedor_gasto = $this->input->post("proveedor_gasto");
+      $fecha_limite = $this->input->post("fecha_limite");
+      $porpagaract = $this->input->post("porpagaract");
 
       $data = [
         "categoria" => $categoria,
+        "proveedor" => $proveedor_gasto,
+        "fecha_limite" => $fecha_limite,
         "fecha" => $fecha,
         "precio" => $precio,
-        "descripcion" => $descripcion
+        "descripcion" => $descripcion,
+        "porpagaract" => $porpagaract
       ];
       $this->Gastos_model->crearGasto($data);
 

@@ -16,56 +16,6 @@ class Usuarios_model extends CI_model {
         return $result;
     }
 
-    public function getAtenciones() {
-        $this->db->select("*");
-        $this->db->from("usuarios");
-        $this->db->where("rol_usuario", "Atencion");
-        $this->db->where("estado", "Activo");
-        $result = $this->db->get();
-
-        return $result;
-    }
-
-    public function getEnfermeras() {
-        $this->db->select("*");
-        $this->db->from("usuarios");
-        $this->db->where("rol_usuario", "Enfermera");
-        $this->db->where("estado", "Activo");
-        $result = $this->db->get();
-
-        return $result;
-    }
-
-    public function getDoctor() {
-        $this->db->select("*");
-        $this->db->from("usuarios");
-        $this->db->where("rol_usuario", "Doctor");
-        $this->db->where("estado", "Activo");
-        $result = $this->db->get();
-
-        return $result;
-    }
-
-    public function getLaboratorista() {
-        $this->db->select("*");
-        $this->db->from("usuarios");
-        $this->db->where("rol_usuario", "Laboratorista");
-        $this->db->where("estado", "Activo");
-        $result = $this->db->get();
-
-        return $result;
-    }
-
-    public function getPatologo() {
-        $this->db->select("*");
-        $this->db->from("usuarios");
-        $this->db->where("rol_usuario", "Patologo");
-        $this->db->where("estado", "Activo");
-        $result = $this->db->get();
-
-        return $result;
-    }
-
     public function crearUsuarios($data) {
         $pass_encrypt = $this->Generic_model->encriptarPassword($data["password"]);
         $datos = [

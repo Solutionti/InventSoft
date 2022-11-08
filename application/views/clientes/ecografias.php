@@ -187,26 +187,26 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label for="">Fecha inicial</label>
-                      <input type="date" class="form-control">
+                      <input type="date" class="form-control" id="fecha_inicial">
                     </div>
                   </div>
                     <div class="col-md-3">
                       <div class="form-group">
                         <label for="">Fecha final</label>
-                      <input type="date" class="form-control">
+                      <input type="date" class="form-control" id="fecha_final">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <label for="">Usuario</label>
-                      <select class="form-control" aria-label="Default select example">
+                      <select class="form-control" id="usuario">
                         <option selected>Seleccione el usuario</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <?php foreach($usuario->result() as $usuarios) {?>
+                        <option value="<?php echo $usuarios->nombre; ?>"><?php echo $usuarios->nombre .' '.$usuarios->apellido; ?></option>
+                        <?php } ?>
                       </select>
                       </div>
                       <div class="col-md-2 mt-4">
-                        <button type="button" class="btn btn-primary mt-2">Buscar</button>
+                        <button type="button" class="btn btn-danger mt-2" onclick="reporteDia()">Pdf</button>
                       </div>
                 </div>
                </div>
@@ -216,26 +216,26 @@
                   <div class="col-md-3">
                   <div class="form-group">
                       <label for="">Fecha inicial</label>
-                      <input type="date" class="form-control">
+                      <input type="date" id="fecha_inicial_categoria" class="form-control">
                     </div>
                   </div>
                     <div class="col-md-3">
                       <div class="form-group">
                         <label for="">Fecha final</label>
-                      <input type="date" class="form-control">
+                      <input type="date" id="fecha_final_categoria" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <label for="">Categoria</label>
-                        <select class="form-control" aria-label="Default select example">
-                           <option selected>Seleccione el usuario a consultar</option>
-                              <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                              </select>
-                           </div>
-                          <div class="col-md-2 mt-4">
-                        <button type="button" class="btn btn-primary mt-2">Buscar</button>
+                        <select class="form-control" id="tp_categoria" aria-label="Default select example">
+                           <option>Seleccione la categoria</option>
+                           <?php foreach($categoria->result() as $categorias) { ?>
+                           <option value="<?php echo $categorias->codigo_categoria; ?>"><?php echo $categorias->nombre; ?></option>
+                           <?php } ?>
+                        </select>
+                      </div>
+                      <div class="col-md-2 mt-4">
+                        <button type="button" class="btn btn-primary mt-2" onclick="reporteCategoriaVenta()">Pdf</button>
                          </div>
                             </div>
                              </div>
@@ -291,6 +291,9 @@
 </div>
 
   <?php require_once("componentes/scripts.php"); ?>
+  <script>
+    var baseurl = "<?php echo base_url();?>";
+  </script>
   <script src="<?php echo base_url(); ?>public/js/scripts/reportes.js"></script>
 </body>
 </html>

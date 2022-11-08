@@ -65,6 +65,10 @@ $route["clientes/devoluciones"] = "clientes/devoluciones";
 $route["clientes/proveedores"] = "clientes/proveedores";
 $route["clientes/crearproveedor"] = "proveedores/guardarproveedores";
 
+//REPORTES
+$route["clientes/reportedia/(:any)/(:any)/(:any)"] = "reportes/reportedia/$1/$2/$3";
+$route["clientes/reportecategoriaventa/(:any)/(:any)/(:any)"] = "reportes/Reporteventacategoria/$1/$2/$3";
+
 
 
 

@@ -50,6 +50,7 @@ $("#codigo_p").on("keyup", function () {
 })
 
 $("#guardar_productos").on("click", function() {
+    var files = document.getElementById("imagen").files;
     var formdata = new FormData();
     var url1 = baseurl + "clientes/crearproductos",
     categoria_p = $("#categoria_p").val(),
@@ -63,7 +64,8 @@ $("#guardar_productos").on("click", function() {
     precio_proveedor = $("#precio_proveedor").val(),
     moneda_p = $("#moneda_p").val(),
     descripcion_p = $("#descripcion_p").val(),
-    pro_venta = $("#pro_venta:checked").length;
+    pro_venta = $("#pro_venta:checked").length,
+    imagen = $("#imagen").val();
     formdata.append("categoria", categoria_p);
     formdata.append("nombre", nombre_p);
     formdata.append("codigo", codigo_p);
@@ -76,6 +78,12 @@ $("#guardar_productos").on("click", function() {
     formdata.append("moneda", moneda_p);
     formdata.append("descripcion", descripcion_p);
     formdata.append("pro_venta", pro_venta);
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+      //agregue los archivos al objeto formData para la carga de datos
+      formdata.append('imagen[]', file, file.name);
+    }
+    
     if(categoria_p == "") {
       $("#categoria_p").addClass("is-invalid");
     }
@@ -125,6 +133,7 @@ $("#guardar_productos").on("click", function() {
 });
 
 $("#actualizar_productos").on("click", function () {
+ 
   var url = baseurl + "clientes/actualizarproductos",
       id_productos = $("#id_productos_act").val(),
       categoria = $("#categoria_p_act").val(),
@@ -177,7 +186,8 @@ function verProductos(codigo) {
     method: "GET",
     success: function (data) {
       data = JSON.parse(data);
-      console.log(data);
+      var imagen = "<img src='http://localhost/CODEIGNITER/ventas-buenviaje/public/productos/"+ data.url_imagen +"' class='rounded-circle img-fluid border border-2 border-white' width='150px;'>";
+      document.getElementById("img-actualizar").innerHTML = imagen;
       $("#id_productos_act").val(data.codigo_producto);
       $("#categoria_p_act").val(data.categoria).attr("selected", true);
       $("#nombre_p_act").val(data.nombre);

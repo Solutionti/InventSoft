@@ -65,10 +65,9 @@
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Categoria</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">proveedor</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fechar</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nombre</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Precio factura</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Cuentas por cobrar</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Usuario</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fecha limite</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fecha actual</th>
                  </thead>
@@ -79,7 +78,7 @@
                 <div class="row">
                   <a
                     class="icon icon-shape icon-sm me-1 bg-gradient-danger shadow mx-3"
-                    href="<?php echo base_url(); ?>administracion/eliminarusuario/"
+                    href="#"
                   >
                     <i class="fas fa-times text-white opacity-10"></i>
                   </a>
@@ -91,11 +90,12 @@
                   </a>
                 </div>
                     </td>
-                      <td class="text-xs text-dark mb-0" ><?php echo $gastos->codigo_gasto; ?></td>
                       <td class="text-xs text-dark mb-0"><?php echo $gastos->categoria; ?></td>
-                      <td class="text-xs text-dark mb-0"><?php echo $gastos->descripcion; ?></td>
+                      <td class="text-xs text-dark mb-0"><?php echo $gastos->proveedor; ?></td>
                       <td class="text-xs text-dark mb-0">$ <?php echo $gastos->precio; ?></td>
+                      <td class="text-xs text-dark mb-0"><?php echo $gastos->porpagar; ?></td>
                       <td class="text-xs text-dark mb-0"><?php echo $gastos->usuario; ?></td>
+                      <td class="text-xs text-dark mb-0"><?php echo $gastos->fecha_limite; ?></td>
                       <td class="text-xs text-dark mb-0"><?php echo $gastos->fecha; ?></td>
                     </tr>
                   <?php }?>
@@ -123,7 +123,6 @@
             <div class="form-group input-group-sm">
             <label>Categoria</label>
             <select
-              id="categoria"
               class="form-control"
               id="categoria_gasto"
             >
@@ -142,7 +141,9 @@
                 class="form-control form-control-sm"
                 id="proveedor_gasto"
               >
-                <option value=""></option>
+              <?php foreach($proveedor->result() as $proveedores) { ?>
+                <option value="<?php echo $proveedores->nombre; ?>"><?php echo $proveedores->nombre; ?></option>
+              <?php } ?>
               </select>
               
             </div>              
@@ -184,8 +185,8 @@
           </div>
           <div class="col-md-2 mt-4">            
             <div class="form-check">
-              <input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault">
-              <label for="flexCheckDefault">
+              <input class="form-check-input mt-1" type="checkbox"  id="porpagar">
+              <label >
                 Cuentas por cobrar
               </label>
             </div>

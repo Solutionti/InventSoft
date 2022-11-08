@@ -63,18 +63,18 @@
               <div class="row">
                 <div class="col-md-8">
                   <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                       <?php if($estadocajas->estado === "ABIERTA") { ?>
                       <div class="form-group">
                         <label>Codigo de barras</label>
                         <input
                           type="text"
-                          class="form-control form-control-md"
+                          class="form-control form-control-lg text-lg"
                           id="codigo_barras"
                         >
                       </div>
                       <?php } else {?>
-                        <div class="form-group">
+                      <div class="form-group">
                         <label>Codigo de barras</label>
                         <input
                           type="text"
@@ -85,18 +85,18 @@
                       </div>
                       <?php } ?>
                     </div>
-                  </div>
-                  <?php $id_cajas = $id_caja->result()[0]; ?>
-                  <input type="text" class="form-control" id="id_caja" value="<?php echo $id_cajas->id_caja ?>" hidden>
-                  <div class="row">
                     <div class="col-md-6">
                       <label>Recibo de efectivo</label>
                       <input
                         type="text"
-                        class="form-control form-control-sm text-lg"
+                        class="form-control form-control-lg text-lg"
                         id="recibio"
                       >
                     </div>
+                  </div>
+                  <?php $id_cajas = $id_caja->result()[0]; ?>
+                  <input type="text" class="form-control" id="id_caja" value="<?php echo $id_cajas->id_caja ?>" hidden>
+                  <div class="row" hidden>
                     <div class="col-md-6">
                       <label>Total</label>
                       <input
@@ -107,7 +107,9 @@
                       >
                     </div>
                   </div>
-                  <div class="row mt-2">
+                  <div class="row">
+                    <div class="col-md-9">
+                    <div class="row mt-2">
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Codigo</label>
@@ -119,7 +121,7 @@
                         >
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                       <div class="form-group">
                         <label>Codigo EAN</label>
                         <input
@@ -130,7 +132,7 @@
                         >
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                       <div class="form-group">
                         <label>Usuario vendedor</label>
                         <input
@@ -154,7 +156,7 @@
                         >
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                       <div class="form-group">
                         <label>Precio</label>
                         <div class="input-group">
@@ -183,11 +185,21 @@
                     </div>
                     <div class="col-md-1">
                       <br>
-                      <button class="btn btn-icon btn-2 text-white color-cyan mt-1" type="button" id="buscar-producto">
+                      <button class="btn btn-icon btn-2 btn-sm text-white color-cyan mt-1" type="button" id="buscar-producto">
 	                      <span class="fas fa-search"><i class="ni ni-bulb-61"></i></span>
                       </button>
                     </div>
                   </div>
+                  </div>
+                    <div class="col-md-3 mt-4">
+                      <div class="text-center">
+                        <div id="imagen" class="mt-2">
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
                   <div class="row mt-3">
                     <div class="table-responsive">
                       <table class="table table-stripped table-hover">
@@ -363,7 +375,7 @@
                   <td>
                     <div class="text-center">
                       <img
-                        src="https://static.vecteezy.com/system/resources/previews/007/481/440/non_2x/red-shopping-basket-with-products-icon-isolated-on-background-with-green-leaves-plastic-shop-cart-with-vegetables-fruit-water-healthy-food-illustration-organic-natural-concept-vector.jpg"
+                        src="<?php echo base_url(); ?>public/productos/<?php echo $productos->url_imagen; ?>"
                         class="avatar avatar-sm me-4"
                       >
                     </div>

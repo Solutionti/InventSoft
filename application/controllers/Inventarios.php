@@ -10,19 +10,25 @@ class Inventarios extends CI_Controller {
 	}
 
     public function createProductos() {
-        $categoria = $this->input->post("categoria");
-        $nombre = $this->input->post("nombre");
-        $codigo = $this->input->post("codigo");
-        $codigo_barras = $this->input->post("codigo_barras");
-        $medida = $this->input->post("medida");
-        $cantidad = $this->input->post("cantidad");
-        $precio = $this->input->post("precio");
-        $merma = $this->input->post("merma");
-        $precio_proveedor = $this->input->post("precio_proveedor");
-        $moneda = $this->input->post("moneda");
-        $descripcion = $this->input->post("descripcion");
-        $pro_venta = $this->input->post("pro_venta");
-
+      
+      $categoria = $this->input->post("categoria");
+      $nombre = $this->input->post("nombre");
+      $codigo = $this->input->post("codigo");
+      $codigo_barras = $this->input->post("codigo_barras");
+      $medida = $this->input->post("medida");
+      $cantidad = $this->input->post("cantidad");
+      $precio = $this->input->post("precio");
+      $merma = $this->input->post("merma");
+      $precio_proveedor = $this->input->post("precio_proveedor");
+      $moneda = $this->input->post("moneda");
+      $descripcion = $this->input->post("descripcion");
+      $pro_venta = $this->input->post("pro_venta");
+      //para guardar la imagen
+        $archivo = $_FILES['imagen']['name'];
+        $tmp_name = $_FILES['imagen']['tmp_name'];
+        $dir_subida = 'public/productos/';
+        $fichero_subido = $dir_subida.basename($codigo."-".$archivo[0]);
+        move_uploaded_file($tmp_name[0], $fichero_subido);
         $data = [
           "categoria" => $categoria,
           "nombre" => $nombre,
@@ -35,7 +41,8 @@ class Inventarios extends CI_Controller {
           "precio_proveedor" => $precio_proveedor,
           "moneda" => $moneda,
           "descripcion" => $descripcion,
-          "pro_venta" => $pro_venta
+          "pro_venta" => $pro_venta,
+          "url_imagen" => $nombre."-".$archivo[0]
         ];
         $existproduct = $this->Inventarios_model->getProductoVenta($codigo);
 

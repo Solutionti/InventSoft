@@ -58,7 +58,9 @@
                 <button class="btn btn-primary text-white btn-xs ms-auto mx-2" data-bs-toggle="modal" href="#productos" role="button"> <i class="fas fa-shopping-basket"></i> Agregar Producto</button>
                 <button class="btn color-cyan btn-primary btn-xs  mx-2" data-bs-toggle="modal" href="#consulta" role="button"> <i class="fas fa-search"></i> Consulta</button>
                 <button class="btn btn-success btn-xs mx-2" data-bs-toggle="modal" href="#entrada" role="button"> <i class="fas fa-plus"></i> Entrada</button>
+                <?php if($this->session->userdata("rol") === "Administrador"){ ?>
                 <button class="btn btn-danger btn-xs mx-2" data-bs-toggle="modal" href="#salida" role="button" > <i class="fas fa-minus"></i> Salida</button>
+                <?php }?>
               </div>
             </div>
             <div class="card-body">
@@ -92,6 +94,7 @@
                   </a>
                 </div>
                   </td>
+                  <?php if($productos->url_imagen == ""){ ?>
                   <td>
                     <div class="">
                       <img
@@ -100,6 +103,16 @@
                       >
                     </div>
                   </td>
+                  <?php } else {?>
+                    <td>
+                    <div class="">
+                      <img
+                        src="<?php echo base_url(); ?>public/productos/<?php echo $productos->url_imagen; ?>"
+                        class="avatar avatar-md me-3"
+                      >
+                    </div>
+                  </td>
+                  <?php }?>
                   <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $productos->codigo; ?></td>
                   <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $productos->nombre; ?></td>
                   <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $productos->categorias; ?></td>
@@ -264,6 +277,8 @@
               <input
                 type="file"
                 class="form-control form-control-sm"
+                name="imagen"
+                id="imagen"
               >
             </div>
           </div>
@@ -319,6 +334,15 @@
           </div>
         </div>
         <div class="row">
+          <div class="col-md-12 text-center" id="img-actualizar">
+            <img
+              src="https://demos.creative-tim.com/argon-dashboard/assets/img/team-2.jpg"
+              class="rounded-circle img-fluid border border-2 border-white"
+              width="150px;"
+            >
+          </div>
+        </div>
+        <div class="row mt-3">
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Categoria</label>
@@ -343,7 +367,7 @@
                       type="text"
                       id="nombre_p_act"
                       class="form-control form-control-sm"
-                      readonly
+                      
                     >
                     <div id="validationServer03Feedback" class="invalid-feedback">
                       Campo obligatorio
@@ -357,7 +381,7 @@
                       type="number"
                       id="codigo_p_act"
                       class="form-control form-control-sm"
-                      readonly
+                      
                     >
                     <div id="validationServer03Feedback" class="invalid-feedback">
                       Campo obligatorio
@@ -371,7 +395,7 @@
                       type="number"
                       id="codigo_barras_p_act"
                       class="form-control form-control-sm"
-                      readonly
+                      
                     >
                     <div id="validationServer03Feedback" class="invalid-feedback">
                       Campo obligatorio
