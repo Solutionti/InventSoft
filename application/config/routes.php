@@ -43,6 +43,7 @@ $route["clientes/crearentrada"] = "inventarios/crearentrada";
 $route["clientes/crearsalida"] = "inventarios/crearsalida";
 $route["clientes/consultainventario/(:num)"] = "inventarios/getConsultaInventario/$1";
 $route["clientes/consultarkardex"] = "inventarios/consultarkardex";
+$route["clientes/actualizarimagen"] = "inventarios/actualizarimagen";
 
 //VENTAS
 $route["clientes/getproductoventa"] = "ventas/getproductoventa";
@@ -68,7 +69,8 @@ $route["clientes/crearproveedor"] = "proveedores/guardarproveedores";
 //REPORTES
 $route["clientes/reportedia/(:any)/(:any)/(:any)"] = "reportes/reportedia/$1/$2/$3";
 $route["clientes/reportecategoriaventa/(:any)/(:any)/(:any)"] = "reportes/Reporteventacategoria/$1/$2/$3";
-
+$route["clientes/gananciageneral"] = "reportes/gananciageneral";
+$route["clientes/reportekardex/(:any)/(:any)"] = "reportes/reportekardex/$1/$2";
 
 
 

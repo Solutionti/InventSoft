@@ -46,7 +46,7 @@ $("#codigo_barras").on("change", function() {
       else {
         data = JSON.parse(data);
         // var imagen = "<img src='https://ventas-buen-viaje.saludmadreymujer.com/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'>";
-        var imagen = "<img src='http://localhost/CODEIGNITER/ventas-buenviaje/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'>";
+        var imagen = "<img src='http://localhost/CODEIGNITER/ventas-buenviaje/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
         document.getElementById("imagen").innerHTML = imagen;
         $("#codigo").val(data.codigo);
         $("#codigo_barras2").val(data.codigo_barras);
@@ -67,6 +67,7 @@ $("#codigo_barras").on("change", function() {
         $("#total").val(total);
         $("#total-compra").attr("hidden",true);
         document.getElementById("ventaa").innerHTML = '<small>$ </small> '+ total.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0}) +'';
+        document.getElementById("total_productos").innerHTML = "<p class='h2 text-right mt-4'>"+ venta.length +"</p>";
       }
     }
   });
@@ -165,6 +166,7 @@ document.addEventListener("keydown", function(event) {
   if (event.ctrlKey && event.keyCode === 114)
   {
     $("#modal-productos").modal("show");
+    // $("input[type='search']").focus();
   }
 });
 
@@ -196,6 +198,8 @@ $("#asociar-producto").on("click", function () {
         $("#total").val(total);
         $("#total-compra").attr("hidden",true);
         document.getElementById("ventaa").innerHTML = '<small>$ </small> '+ total.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0}) +'';
+        document.getElementById("total_productos").innerHTML = "<p class='h2 text-right mt-4'>"+ venta.length +"</p>";
+
         }
       });
 });

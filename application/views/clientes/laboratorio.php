@@ -8,10 +8,7 @@
     <?php require_once("componentes/head.php"); ?>
 </head>
 <body class="g-sidenav-show bg-gray-100">
-  <div
-    class="position-absolute w-100 min-height-300 top-0"
-    style="background-image: url('https://cdn.pixabay.com/photo/2020/10/01/17/11/store-5619201_960_720.jpg'); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%"
-  >
+  <div class="position-absolute w-100 min-height-300 top-0 bg-default" style="background-image: url(''); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%">
     <span class="mask bg-default opacity-6"></span>
   </div>
   <div class="main-content position-relative max-height-vh-100 h-100">

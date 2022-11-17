@@ -54,6 +54,21 @@ class Inventarios extends CI_Controller {
         }
     }
 
+    public function actualizarimagen() {
+      //para actualizar la imagen
+      $codigo = $this->input->post("codigo");
+      $archivo = $_FILES['imagen']['name'];
+      $tmp_name = $_FILES['imagen']['tmp_name'];
+      $dir_subida = 'public/productos/';
+      $fichero_subido = $dir_subida.basename($codigo ."-".$archivo[0]);
+      move_uploaded_file($tmp_name[0], $fichero_subido);
+      $data = [
+        "url_imagen" => $codigo."-".$archivo[0],
+        "codigo" => $codigo
+      ];
+      $this->Inventarios_model->actualizarimagen($data);
+    }
+
     public function actualizarProductos() {
         $id_productos = $this->input->post("id_productos");
         $categoria = $this->input->post("categoria");

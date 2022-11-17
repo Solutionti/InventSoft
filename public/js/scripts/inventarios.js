@@ -198,8 +198,31 @@ function verProductos(codigo) {
       $("#descripcion_p_act").val(data.descripcion);
     }
   });
-
 }
+
+$("#actualizar_imagen").on("click", function() {
+  var url =  baseurl + "clientes/actualizarimagen";
+  var files = document.getElementById("imagen2").files;
+  var codigo = $("#codigo_p_act").val();
+  var formdata = new FormData();
+  formdata.append("codigo", codigo);
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    //agregue los archivos al objeto formData para la carga de datos
+    formdata.append('imagen[]', file, file.name);
+  }
+  
+  $.ajax({
+    url: url,
+    method: "POST",
+    data: formdata,
+    processData: false,
+    contentType: false,
+    success: function () {
+      alert("la imagen se ha cambiado");
+    }
+  });
+})
 
 $("#opciones-inventario").on("change", function () {
 

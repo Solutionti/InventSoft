@@ -177,6 +177,14 @@ class Inventarios_model extends CI_model {
 
         return $result->row();
     }
+
+    public function actualizarimagen($data) {
+        $datos = [
+            "url_imagen" => $data["url_imagen"]
+        ];
+        $this->db->where("codigo", $data["codigo"]);
+        $this->db->update("productos", $datos);
+    }
 }
 
 ?>

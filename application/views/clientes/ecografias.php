@@ -8,9 +8,7 @@
     <?php require_once("componentes/head.php"); ?>
 </head>
 <body class="g-sidenav-show bg-gray-100">
-  <div
-    class="position-absolute w-100 min-height-300 top-0"
-    style="background-image: url('https://cdn.pixabay.com/photo/2020/10/01/17/11/store-5619201_960_720.jpg'); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%">
+  <div class="position-absolute w-100 min-height-300 top-0 bg-default" style="background-image: url(''); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%">
     <span class="mask bg-default opacity-6"></span>
   </div>
   <div class="main-content position-relative max-height-vh-100 h-100">
@@ -153,7 +151,58 @@
                 </div>
                 <div class="col-4 text-end">
                   <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-                    <i class="fas fa-user-md text-lg opacity-10" aria-hidden="true"></i>
+                    <i class="fas fa-barcode text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 mt-3">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <?php $totalproveedores = $totalproveedor->result()[0]; ?>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Total proveedor</p>
+                    <h5 class="font-weight-bolder">
+                      <?php echo $totalproveedores->totalproveedor; ?>
+                    </h5>
+                    <p class="mb-0">
+                      <span class="text-success text-sm font-weight-bolder">+100%</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-info shadow-success text-center rounded-circle">
+                    <i class="fas fa-database text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 mt-3">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <?php $totalinventarios = $totalinventario->result()[0]; ?>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Ganancia total</p>
+                    <h5 class="font-weight-bolder">
+                      <?php echo $totalinventarios->totalinventario; ?>
+                    </h5>
+                    <p class="mb-0">
+                      <span class="text-success text-sm font-weight-bolder">+100%</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-dark shadow-success text-center rounded-circle">
+                    <i class="fas fa-shopping-cart text-lg opacity-10" aria-hidden="true"></i>
                   </div>
                 </div>
               </div>
@@ -172,8 +221,8 @@
                <option value="1">Transacciones por dia</option>
                <option value="2">Ventas por categoria</option>
                <option value="3">Transacciones por producto</option>
-               <option value="4">Reporte de merma</option>
-               <option value="5">Top productos venta</option>
+               <option value="4">Ganancia general</option>
+               <option value="5">Kardex consolidado</option>
               </select> 
             </div> 
           </div>
@@ -237,56 +286,104 @@
                       <div class="col-md-2 mt-4">
                         <button type="button" class="btn btn-primary mt-2" onclick="reporteCategoriaVenta()">Pdf</button>
                          </div>
-                            </div>
-                             </div>
-                              <div id="transaccion-producto" hidden>
-                               <div class="row">
-                                <h5> Transacciones por producto</h5>
-                                 <div class="col-md-3">
-                                  <div class="form-group">
-                                  <label for="">Codigo producto</label>
-                                 <input 
-                                type="text" 
-                                class="form-control form-control-md" 
-                               id="codigoproducto_e">
-                             </div>
                            </div>
-                           <div class="col-md-3">
-                             <div class="form-group">
-                              <label for="">Nombre producto</label>
-                               <input 
-                                type="text" 
-                                class="form-control form-control-md" 
-                                id="nombreproducto_e">
-                                 </div>
-                               </div>
-                              <div class="col-md-2">
-                            <div class="form-group">
-                         <label for="">Fecha inicial</label>
-                       <input type="date" class="form-control">
-                    </div>
-                  </div>
-                    <div class="col-md-2">
-                      <div class="form-group">
-                        <label for="">Fecha final</label>
-                      <input type="date" class="form-control">
+                             </div>
+                               <div id="transaccion-producto" hidden>
+                                 <div class="row">
+                                   <h5> Transacciones por producto</h5>
+                                    <div class="col-md-3">
+                                      <div class="form-group">
+                                        <label for="">Codigo producto</label>
+                                        <input 
+                                          type="text" 
+                                          class="form-control form-control-md" 
+                                          id="codigoproducto_e">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <div class="form-group">
+                                        <label for="">Nombre producto</label>
+                                          <input 
+                                            type="text" 
+                                            class="form-control form-control-md" 
+                                            id="nombreproducto_e"
+                                          >
+                                        </div>
+                                      </div>
+                                      <div class="col-md-2">
+                                        <div class="form-group">
+                                          <label for="">Fecha inicial</label>
+                                          <input type="date" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-md-2">
+                                        <div class="form-group">
+                                          <label for="">Fecha final</label>
+                                          <input type="date" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-md-2 mt-4">
+                                        <button type="button" class="btn btn-primary mt-2">Buscar</button>
+                                      </div>
+      <!-- fin row   -->            </div> 
+                                  </div>
+                                  <div id="ganancia-general" hidden>
+                                    <h5>Ganancia general por categoria</h5>
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <select class="form-control" id="generalcategoria">
+                                          <option value="">Todas</option>
+                                          <?php foreach($categoria->result() as $categorias) { ?>
+                                            <option value="<?php echo $categorias->codigo_categoria; ?>"><?php echo $categorias->nombre; ?></option>
+                                           <?php } ?>
+                                        </select>
+                                        <br>
+                                        <div class="table-responsive">
+                                          <table class="table table-striped table-hover">
+                                            <thead class="bg-default">
+                                              <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Ganancia total</th>
+                                              <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Ganancia proveedor</th>
+                                              <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Categoria</th>
+                                            </thead>
+                                            <tbody id="table-ganancia-general">
+                                              
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div id="kardex-general" hidden>
+                                    <h5>Reporte de kardex consolidado</h5>
+                                    <div class="row">
+                                      <div class="col-md-5">
+                                        <div class="form-group">
+                                          <label for="">Fecha inicial</label>
+                                          <input type="date" id="fecha_inicial_kardex" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-md-5">
+                                        <div class="form-group">
+                                          <label for="">Fecha final</label>
+                                          <input type="date" id="fecha_final_kardex" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-md-2 mt-4">
+                                      <button type="button" class="btn btn-primary mt-2" onclick="kardexPdf()">Pdf</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- termina -->
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
                       </div>
                     </div>
-                    <div class="col-md-2 mt-4">
-                        <button type="button" class="btn btn-primary mt-2">Buscar</button>
-                         </div>
-      <!-- fin row   --> </div> 
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div> 
-            </div>
-          </div>
-        </div>
-      </div>
-     </div>
+                  </div>
+                </div>
+              </div>
   <?php require_once("componentes/footer.php"); ?>
 </div>
 

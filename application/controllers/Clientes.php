@@ -50,13 +50,16 @@ class Clientes extends CI_Controller {
 	  $gastos = $this->Reportes_model->ReporteGastos();
 	  $usuarios = $this->Usuarios_model->getAdministtradores();
 	  $categorias = $this->Inventarios_model->getCategorias();
-
+	  $totalinventarios = $this->Reportes_model->totalInventario();
+	  $totalproveedores = $this->Reportes_model->totalProveedor();
 	  $data = [
 	    "ventadia" => $ventadias,
 		"gasto" => $gastos,
 		"productodia" => $productoDias,
 		"usuario" => $usuarios,
-		"categoria" => $categorias
+		"categoria" => $categorias,
+		"totalinventario" => $totalinventarios,
+		"totalproveedor" => $totalproveedores
 	  ];
 	  $this->load->view("clientes/ecografias", $data);
 	}

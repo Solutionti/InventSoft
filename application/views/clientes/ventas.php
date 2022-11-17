@@ -9,10 +9,7 @@
 </head>
 <body class="g-sidenav-show bg-gray-100">
 <?php $estadocajas = $estadocaja->result()[0]; ?>
-  <div
-    class="position-absolute w-100 min-height-300 top-0"
-    style="background-image: url('https://cdn.pixabay.com/photo/2020/10/01/17/11/store-5619201_960_720.jpg'); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%"
-  >
+  <div class="position-absolute w-100 min-height-300 top-0 bg-default" style="background-image: url(''); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%">
     <span class="mask bg-default opacity-6"></span>
   </div>
   <div class="main-content position-relative max-height-vh-100 h-100">
@@ -23,9 +20,9 @@
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="<?php echo base_url(); ?>clientes/inicio">Buen Viaje</a></li>
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Ventas</li>
           </ol>
-          <h6 class="font-weight-bolder text-white mb-0">Ventas</h6>
+          
         </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="collapse navbar-collapse mt-sm-0 mt-1 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group">
             </div>
@@ -85,13 +82,16 @@
                       </div>
                       <?php } ?>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                       <label>Recibo de efectivo</label>
                       <input
                         type="text"
                         class="form-control form-control-lg text-lg"
                         id="recibio"
                       >
+                    </div>
+                    <div class="col-md-1 mt-2" id="total_productos">
+                    
                     </div>
                   </div>
                   <?php $id_cajas = $id_caja->result()[0]; ?>
@@ -193,7 +193,7 @@
                   </div>
                     <div class="col-md-3 mt-4">
                       <div class="text-center">
-                        <div id="imagen" class="mt-2">
+                        <div id="imagen" class="">
                           
                         </div>
                       </div>
