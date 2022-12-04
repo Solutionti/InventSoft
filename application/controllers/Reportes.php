@@ -12,7 +12,9 @@ class Reportes extends CI_Controller {
 
       $transaccion = $this->Reportes_model->transaccionesVentaDia($fecha_inicial, $fecha_final, $usuario);
       $sumatoria = $this->Reportes_model->sumatoriaVentaDia($fecha_inicial, $fecha_final, $usuario);
+      $gastos = $this->Reportes_model->sumatoriaGastos($fecha_inicial, $fecha_final, $usuario);
       $sumatoriaact =  $sumatoria->result()[0];
+      $gastoact =  $gastos->result()[0];
       $this->load->library("pdf");
       $pdfAct = new Pdf();
       $pdf=new FPDF();
@@ -71,9 +73,18 @@ class Reportes extends CI_Controller {
       $pdf->Cell(50,5,'', '', 0,'L', false );
       $pdf->Cell(30,5,"", '', 0,'L', false );
       $pdf->Cell(25,5,"", '', 0,'L', false );
-      $pdf->Cell(25,5,"TOTAL", 'LTBR', 0,'L', false );
+      $pdf->Cell(25,5,"TOTA", 'LTBR', 0,'L', false );
       $pdf->Cell(20,5,"$".$sumatoriaact->totalventa, 'TBR', 0,'L', false );
       $pdf->Cell(18,5,"", '', 0,'L', false );
+      $pdf->Ln(8);
+      $pdf->SetFont('Times','b',9);
+      $pdf->Cell(25,5,'', '', 0,'L', false );
+      $pdf->Cell(50,5,'', '', 0,'L', false );
+      $pdf->Cell(30,5,"", '', 0,'L', false );
+      $pdf->Cell(25,5,"", '', 0,'L', false );
+      $pdf->Cell(25,5,"GASTOS", 'LTBR', 0,'L', false );
+      $pdf->Cell(20,5,"$".$gastoact->gasto, 'TBR', 0,'L', false );
+      $pdf->Cell(22,5,"", '', 0,'L', false );
       $pdf->Output();
     }
 
@@ -143,6 +154,7 @@ class Reportes extends CI_Controller {
       $pdf->Cell(25,5,"TOTAL", 'LTBR', 0,'L', false );
       $pdf->Cell(20,5,"$".$sumatoriaact->total, 'TBR', 0,'L', false );
       $pdf->Cell(22,5,"", '', 0,'L', false );
+      
       $pdf->Output();
     }
 
@@ -215,5 +227,63 @@ class Reportes extends CI_Controller {
       $resultado = $this->Reportes_model->gananciaGeneral($categoria);
 
       echo json_encode($resultado);
+    }
+
+    public function getInventarioTotal($categoria) {
+      $inventario = $this->Reportes_model->getInventarioTotal($categoria);
+      $this->load->library("pdf");
+      $pdfAct = new Pdf();
+      $pdf=new FPDF();
+      $pdf->addpage();
+      // $pdf->Image('public/img/theme/logo.jpeg' , 20,5, 20 , 17,'jpeg');
+      //$pdf->Image('public/img/theme/zonac.png' , 35 ,5, 15 , 15,'png');
+      $pdf->Ln(2);
+      $pdf->SetFont('Times','',9);
+      $pdf->Cell(80,5,'', '', 0,'L', false );
+      $pdf->Cell(1,5,'CAFETERIA BUEN VIAJE', '', 0,'L', false );
+      $pdf->SetFont('Times','',8);
+      $pdf->Ln(5);
+      $pdf->Cell(83,5,'', '', 0,'L', false );
+      $pdf->Cell(7,5,'TERMINAL LOCAL - 151', '', 0,'L', false );
+      $pdf->Ln(2);
+      $pdf->Cell(70,5,'', '', 0,'L', false );
+      $pdf->Cell(10,5,'_______________________________________', '', 0,'L', false );
+      $pdf->SetFont('Times','',9);
+      $pdf->Ln(9);
+      $pdf->Cell(34,5,'FECHA DEL REPORTE:', '', 0,'L', false );
+      $pdf->Cell(18,5,date("d-m-Y"), '', 0,'L', false );
+      $pdf->Ln(5);
+      $pdf->SetFont('Times','',8);
+      $pdf->Cell(12,5,'HORA:', '', 0,'L', false );
+      $pdf->Cell(4,5,date("H: i A"), '', 0,'L', false );
+      $pdf->Ln(5);
+      $pdf->SetFont('Times','',8);
+      $pdf->Cell(18,5,'VENDEDOR:', '', 0,'L', false );
+      $pdf->Cell(4,5,$this->session->userdata("nombre"). ' '. $this->session->userdata("apellido") , '', 0,'L', false );
+      $pdf->Ln(11);
+      $pdf->SetFont('Times','b',10);
+      $pdf->Cell(18,5,'REPORTE DE INVENTARIO', '', 0,'L', false );
+      $pdf->Ln(11);
+      $pdf->SetFont('Times','b',9);
+      $pdf->Cell(25,5,'CODIGO', 'LTBR', 0,'L', false );
+      $pdf->Cell(40,5,'NOMBRE', 'TBR', 0,'L', false );
+      $pdf->Cell(30,5,"PROVEEDOR", 'TBR', 0,'L', false );
+      $pdf->Cell(20,5,"VENTA", 'TBR', 0,'L', false );
+      $pdf->Cell(17,5,"STOCK", 'TBR', 0,'L', false );
+      $pdf->Cell(35,5,"FECHA", 'TBR', 0,'L', false );
+      $pdf->Cell(20,5,"MERMA", 'TBR', 0,'L', false );
+      foreach($inventario->result() as $inventarios){
+        $pdf->Ln(6);
+        $pdf->SetFont('Times','',9);
+        $pdf->Cell(25,5,$inventarios->codigo, '', 0,'L', false );
+        $pdf->Cell(40,5,$inventarios->nombre, '', 0,'L', false );
+        $pdf->Cell(30,5,$inventarios->costo_proveedor, '', 0,'L', false );
+        $pdf->Cell(20,5,$inventarios->precio, '', 0,'L', false );
+        $pdf->Cell(17,5,$inventarios->stock, '', 0,'L', false );
+        $pdf->Cell(35,5,$inventarios->fecha, '', 0,'L', false );
+        $pdf->Cell(18,5,$inventarios->merma, '', 0,'L', false );
+      }
+      
+      $pdf->Output();
     }
 }

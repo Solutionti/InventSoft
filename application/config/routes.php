@@ -71,6 +71,7 @@ $route["clientes/reportedia/(:any)/(:any)/(:any)"] = "reportes/reportedia/$1/$2/
 $route["clientes/reportecategoriaventa/(:any)/(:any)/(:any)"] = "reportes/Reporteventacategoria/$1/$2/$3";
 $route["clientes/gananciageneral"] = "reportes/gananciageneral";
 $route["clientes/reportekardex/(:any)/(:any)"] = "reportes/reportekardex/$1/$2";
+$route["clientes/reporteinventario/(:num)"] = "reportes/getinventariototal/$1";
 
 
 

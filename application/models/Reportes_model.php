@@ -11,7 +11,9 @@ class Reportes_model extends CI_model {
       $this->db->join("productos p", "d.codigo_producto = p.codigo");
       $this->db->where("d.fecha >=", $fecha_inicial);
       $this->db->where("d.fecha <=", $fecha_final);
-      $this->db->where("d.usuario", $usuario);
+      if($usuario != 0){
+        $this->db->where("d.usuario", $usuario);
+      }
       $result = $this->db->get();
 
       return $result;
@@ -21,7 +23,9 @@ class Reportes_model extends CI_model {
       $this->db->from("ventas");
       $this->db->where("fecha >=", $fecha_inicial);
       $this->db->where("fecha <=", $fecha_final);
+      if($usuario != 0){
       $this->db->where("usuario", $usuario);
+      }
       $result = $this->db->get();
 
       return $result;
@@ -136,4 +140,27 @@ class Reportes_model extends CI_model {
       return $result;
     }
 
+
+    public function sumatoriaGastos($fecha_inicial, $fecha_final, $usuario) {
+      $this->db->select("SUM(precio) as gasto");
+      $this->db->from("gastos");
+      $this->db->where("fecha >=", $fecha_inicial);
+      $this->db->where("fecha <=", $fecha_final);
+      if($usuario != 0){
+      $this->db->where("usuario", $usuario);
+      }
+      $result = $this->db->get();
+
+      return $result;
+    }
+    public function getInventarioTotal($categoria) {
+      $this->db->select("*");
+      $this->db->from("productos");
+      if($categoria > 0){
+        $this->db->where("categoria", $categoria);
+      }
+      $result = $this->db->get();
+
+      return $result;
+    }
 }

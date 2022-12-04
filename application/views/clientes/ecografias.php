@@ -223,6 +223,7 @@
                <option value="3">Transacciones por producto</option>
                <option value="4">Ganancia general</option>
                <option value="5">Kardex consolidado</option>
+               <option value="6">Inventario</option>
               </select> 
             </div> 
           </div>
@@ -248,7 +249,7 @@
                     <div class="col-md-4">
                       <label for="">Usuario</label>
                       <select class="form-control" id="usuario">
-                        <option selected>Seleccione el usuario</option>
+                        <option value="0" selected>SELECCIONE UNA OPCION</option>
                         <?php foreach($usuario->result() as $usuarios) {?>
                         <option value="<?php echo $usuarios->nombre; ?>"><?php echo $usuarios->nombre .' '.$usuarios->apellido; ?></option>
                         <?php } ?>
@@ -374,6 +375,25 @@
                                     </div>
                                   </div>
                                   <!-- termina -->
+                                  <div id="inventario-pdf" hidden>
+                                  <h5>Inventario</h5>
+                                    <div class="row">
+                                      <div class="col-md-9">
+                                        <div class="form-group">
+                                          <label for="">Categoria</label>
+                                          <select class="form-control" id="generalcategoriainventario">
+                                          <option value="0">Todas</option>
+                                          <?php foreach($categoria->result() as $categorias) { ?>
+                                            <option value="<?php echo $categorias->codigo_categoria; ?>"><?php echo $categorias->nombre; ?></option>
+                                           <?php } ?>
+                                        </select>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-2 mt-4">
+                                      <button type="button" class="btn btn-primary mt-2" onclick="inventarioPdf()">Pdf</button>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>

@@ -5,7 +5,7 @@ $("#select-inputs").on("change", function() {
     $("#transaccion-producto").attr("hidden", true);
     $("#ganancia-general").attr("hidden", true);
     $("#kardex-general").attr("hidden", true);
-
+    $("#inventario-pdf").attr("hidden", true);
     $("#reporte-dia").attr("hidden", false);
   }
   else if (selected == 2) {
@@ -13,7 +13,7 @@ $("#select-inputs").on("change", function() {
     $("#transaccion-producto").attr("hidden", true);
     $("#ganancia-general").attr("hidden", true);
     $("#kardex-general").attr("hidden", true);
-
+    $("#inventario-pdf").attr("hidden", true);
     $("#ventas-categoria").attr("hidden", false);
   }
   else if (selected == 3) {
@@ -21,7 +21,7 @@ $("#select-inputs").on("change", function() {
     $("#ventas-categoria").attr("hidden", true);
     $("#ganancia-general").attr("hidden", true);
     $("#kardex-general").attr("hidden", true);
-    
+    $("#inventario-pdf").attr("hidden", true);
     $("#transaccion-producto").attr("hidden", false);
   }
   else if (selected == 4) {
@@ -29,7 +29,7 @@ $("#select-inputs").on("change", function() {
     $("#ventas-categoria").attr("hidden", true);
     $("#transaccion-producto").attr("hidden", true);
     $("#kardex-general").attr("hidden", true);
-
+    $("#inventario-pdf").attr("hidden", true);
     $("#ganancia-general").attr("hidden", false);
     
   }
@@ -38,8 +38,16 @@ $("#select-inputs").on("change", function() {
     $("#ventas-categoria").attr("hidden", true);
     $("#transaccion-producto").attr("hidden", true);
     $("#ganancia-general").attr("hidden", true);
+    $("#inventario-pdf").attr("hidden", true);
     $("#kardex-general").attr("hidden", false);
-    
+  }
+  else if (selected == 6) {
+    $("#reporte-dia").attr("hidden", true);
+    $("#ventas-categoria").attr("hidden", true);
+    $("#transaccion-producto").attr("hidden", true);
+    $("#ganancia-general").attr("hidden", true);
+    $("#kardex-general").attr("hidden", true);
+    $("#inventario-pdf").attr("hidden", false);
   }
 });
 
@@ -66,6 +74,12 @@ function kardexPdf(){
       fecha_final = $("#fecha_final_kardex").val();
 
   url = baseurl  + "clientes/reportekardex/" + fecha_inicial + "/" + fecha_final;
+  window.open(url, "_blank", " width=500, height=400");
+     
+}
+function inventarioPdf(){
+  var categoria = $("#generalcategoriainventario").val();
+  url = baseurl  + "clientes/reporteinventario/" + categoria;
   window.open(url, "_blank", " width=500, height=400");
      
 }
