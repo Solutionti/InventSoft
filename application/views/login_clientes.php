@@ -25,41 +25,8 @@
     .rosa-text {
       color: #CF1B77 !important;
     }
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
-
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  .card.highlight-card {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
-
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
+  
+  
 
   svg#rocket {
     width: 80px;
@@ -90,7 +57,7 @@
   .terminal {
     position: relative;
     width: 80%;
-    max-width: 600px;
+   
     border-radius: 6px;
     padding-top: 45px;
     margin-top: 8px;
@@ -140,17 +107,7 @@
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   }
 
-  footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-  }
-
-  footer a {
-    display: flex;
-    align-items: center;
-  }
+  
 
   .github-star-badge {
     color: #24292e;
@@ -192,14 +149,7 @@
       width: 100%;
     }
 
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
-
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
+    
 
     svg#rocket-smoke {
       right: 120px;
@@ -207,12 +157,7 @@
     }
   }
 
-  @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-      display: none;
-      visibility: hidden;
-    }
-  }
+  
 
   </style>
 <body class="">

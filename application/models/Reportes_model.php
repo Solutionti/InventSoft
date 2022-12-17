@@ -11,7 +11,9 @@ class Reportes_model extends CI_model {
       $this->db->join("productos p", "d.codigo_producto = p.codigo");
       $this->db->where("d.fecha >=", $fecha_inicial);
       $this->db->where("d.fecha <=", $fecha_final);
-      if($usuario != 0){
+      if($usuario == "0"){
+      }
+      else {
         $this->db->where("d.usuario", $usuario);
       }
       $result = $this->db->get();
@@ -23,8 +25,10 @@ class Reportes_model extends CI_model {
       $this->db->from("ventas");
       $this->db->where("fecha >=", $fecha_inicial);
       $this->db->where("fecha <=", $fecha_final);
-      if($usuario != 0){
-      $this->db->where("usuario", $usuario);
+      if($usuario == "0"){
+      }
+      else {
+        $this->db->where("usuario", $usuario);
       }
       $result = $this->db->get();
 
@@ -146,8 +150,11 @@ class Reportes_model extends CI_model {
       $this->db->from("gastos");
       $this->db->where("fecha >=", $fecha_inicial);
       $this->db->where("fecha <=", $fecha_final);
-      if($usuario != 0){
-      $this->db->where("usuario", $usuario);
+      if($usuario == "0"){
+      }
+      else {
+        $this->db->where("usuario", $usuario);
+
       }
       $result = $this->db->get();
 
