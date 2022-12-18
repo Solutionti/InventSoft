@@ -31,7 +31,7 @@ $("#cerrar-caja").on("click", function() {
 
 
 $("#codigo_barras").on("change", function() {
-  var url1 = baseurl + "clientes/getproductoventa",
+  var url1 = baseurl + "ventas/getproductoventa",
   codigo_barras = $("#codigo_barras").val();
   $.ajax({
     url: url1,
@@ -91,7 +91,7 @@ $("#otra-venta").on("click", function () {
 document.addEventListener("keydown", function(event) {
   if (event.ctrlKey && event.keyCode === 65)
   {
-    var url = baseurl + "clientes/crearventa",
+    var url = baseurl + "ventas/crearventa",
     consecutivo = $("#consecutivo").val(),
     documento = $("#documento").val(),
     codigo = $("#codigo").val(),
@@ -172,7 +172,7 @@ document.addEventListener("keydown", function(event) {
 
 $("#asociar-producto").on("click", function () {
   var codigo = $("#codigoproduct:checked").val(),
-      url3 = baseurl + "clientes/verproducto/" + codigo;
+      url3 = baseurl + "ventas/verproducto/" + codigo;
       $.ajax({
         url: url3,
         method: "GET",
@@ -220,12 +220,12 @@ $("#tp_pago").on("change", function () {
 
 
 function facturaVenta(consecutivo) {
-  url = baseurl  + "clientes/generarpdfventas/" + consecutivo;
+  url = baseurl  + "ventas/generarpdfventas/" + consecutivo;
   window.open(url, "_blank", " width=500, height=400");
 }
 
 $("#guardar-caja").on("click", function() {
-  var url = baseurl + "clientes/abrircaja";
+  var url = baseurl + "ventas/abrircaja";
   var fecha_apertura = $("#fecha-apertura").val(),
       movimiento_apertura = $("#movimiento_apertura").val(),
       monto_apertura = $("#monto_apertura").val(),
@@ -273,7 +273,7 @@ $("#real_efectivo").on("keyup", function() {
 })
 
 $("#cierre-caja").on("click", function () {
-  var url = baseurl + "clientes/cerrarcaja";
+  var url = baseurl + "ventas/cerrarcaja";
   var id_caja = $("#id_caja").val();
   $.ajax({
     url: url,

@@ -1,5 +1,5 @@
 $("#crearusuario").on("click", function () {
-    var url1 = baseurl + "clientes/crearusuario", 
+    var url1 = baseurl + "ventas/crearusuario", 
     apellido = $("#apellido").val(),
     nombre = $("#nombre").val(),
     tp_usuario = $("#tp_usuario").val(),
@@ -30,7 +30,7 @@ $("#crearusuario").on("click", function () {
     });
 });
 function verUsuarios (codigo) {
-  var url = baseurl + "clientes/getusuario/" + codigo;
+  var url = baseurl + "ventas/getusuario/" + codigo;
   $("#actualizarUsuario").modal("show");
 
   $.ajax({
@@ -50,7 +50,7 @@ function verUsuarios (codigo) {
 }
 
 $("#actualizar-usuario").on("click", function () {
-  var url2 = baseurl + "clientes/actualizarusuario",
+  var url2 = baseurl + "ventas/actualizarusuario",
   telefono = $("#telefono").val(),
   direccion = $("#direccion").val();
   if(telefono === "") {

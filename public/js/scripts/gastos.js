@@ -1,5 +1,5 @@
 $("#creargasto").on("click", function() {
-  var url1 = baseurl + "clientes/creargasto",
+  var url1 = baseurl + "ventas/creargasto",
       categoria = $("#categoria_gasto").val(),
       proveedor_gasto = $("#proveedor_gasto").val(),
       fecha_limite = $("#fecha_limite").val(),

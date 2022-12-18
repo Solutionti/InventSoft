@@ -52,7 +52,7 @@ $("#codigo_p").on("keyup", function () {
 $("#guardar_productos").on("click", function() {
     var files = document.getElementById("imagen").files;
     var formdata = new FormData();
-    var url1 = baseurl + "clientes/crearproductos",
+    var url1 = baseurl + "ventas/crearproductos",
     categoria_p = $("#categoria_p").val(),
     nombre_p = $("#nombre_p").val(),
     codigo_p = $("#codigo_p").val(),
@@ -134,7 +134,7 @@ $("#guardar_productos").on("click", function() {
 
 $("#actualizar_productos").on("click", function () {
  
-  var url = baseurl + "clientes/actualizarproductos",
+  var url = baseurl + "ventas/actualizarproductos",
       id_productos = $("#id_productos_act").val(),
       categoria = $("#categoria_p_act").val(),
       nombre = $("#nombre_p_act").val(),
@@ -178,7 +178,7 @@ $("#actualizar_productos").on("click", function () {
 });
 
 function verProductos(codigo) {
-  var url = baseurl + "clientes/verproducto/" + codigo;
+  var url = baseurl + "ventas/verproducto/" + codigo;
   $("#actualizarproductos").modal("show");
 
   $.ajax({
@@ -201,7 +201,7 @@ function verProductos(codigo) {
 }
 
 $("#actualizar_imagen").on("click", function() {
-  var url =  baseurl + "clientes/actualizarimagen";
+  var url =  baseurl + "ventas/actualizarimagen";
   var files = document.getElementById("imagen2").files;
   var codigo = $("#codigo_p_act").val();
   var formdata = new FormData();
@@ -245,7 +245,7 @@ $("#opciones-inventario").on("change", function () {
 //ENTRADA DE INVENTARIO
 $("#producto_e").on("change", function() {
     var id = $("#producto_e").val(),
-    url = baseurl + "clientes/traerstock/" + id;
+    url = baseurl + "ventas/traerstock/" + id;
 
     $.ajax({
         url: url,
@@ -266,7 +266,7 @@ $("#producto_e").on("change", function() {
 })
 
 $("#guardar_e").on("click", function () {
-  var url = baseurl + "clientes/crearentrada",
+  var url = baseurl + "ventas/crearentrada",
   cantidad = $("#cantidad_e").val(),
   stock = $("#stock_e").val(),
   total = parseInt(cantidad) + parseInt(stock),
@@ -320,7 +320,7 @@ $("#guardar_e").on("click", function () {
 //SALIDA DE INVENTARIO
 $("#producto_s").on("change", function() {
     var id = $("#producto_s").val(),
-    url = baseurl + "clientes/traerstock/" + id;
+    url = baseurl + "ventas/traerstock/" + id;
 
     $.ajax({
         url: url,
@@ -338,7 +338,7 @@ $("#producto_s").on("change", function() {
 })
 
 $("#guardar_s").on("click", function () {
-  var url = baseurl + "clientes/crearsalida",
+  var url = baseurl + "ventas/crearsalida",
       cantidad = $("#cantidad_s").val(),
       stock = $("#stock_s").val(),
       total = parseInt(stock) - parseInt(cantidad),
@@ -437,7 +437,7 @@ $("#guardar_s").on("click", function () {
 
 $("#stock_reporte").on("change", function () {
   var cantidad = $("#stock_reporte").val();
-  var url4 = baseurl + "clientes/consultainventario/" + cantidad;
+  var url4 = baseurl + "ventas/consultainventario/" + cantidad;
   $.ajax({
     url: url4,
     method: "GET",
@@ -454,7 +454,7 @@ $("#stock_reporte").on("change", function () {
 
 $("#buscar_kardex").on("click", function () {
   
-  let url = baseurl + "clientes/consultarkardex",
+  let url = baseurl + "ventas/consultarkardex",
   producto_kardex = $("#producto_kardex").val(),
   fecha_inicial = $("#fecha_inicial").val(),
   fecha_final =  $("#fecha_final").val();

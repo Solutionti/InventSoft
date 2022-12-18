@@ -301,13 +301,14 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Impuesto</label>
-                    <select class="form-control form-control-sm">
-                      <option value="">A</option>
-                      <option value="">B</option>
-                      <option value="">C</option>
-                      <option value="">D</option>
-                    </select>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1">
+                      <label class="custom-control-label" for="customCheck1">Devolucion?</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1">
+                      <label class="custom-control-label" for="customCheck1"></label>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">

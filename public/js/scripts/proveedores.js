@@ -1,5 +1,5 @@
 $("#crearproveedor").on("click", function(){
-    var url = baseurl + "clientes/crearproveedor";
+    var url = baseurl + "ventas/crearproveedor";
     var nit_proveedores = $("#nit_proveedores").val(), 
     nom_proveedores = $("#nom_proveedores").val(),
     tel_proveedores =$("#tel_proveedores").val(),
