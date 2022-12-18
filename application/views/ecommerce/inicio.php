@@ -267,10 +267,10 @@
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-default">
-            <i class="bi-list"></i>
+            <i class="fas fa-bars"></i>
           </span>
           <span class="navbar-toggler-toggled">
-            <i class="bi-x"></i>
+            <i class="fas fa-times"></i>
           </span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
