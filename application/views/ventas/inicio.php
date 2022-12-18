@@ -101,11 +101,12 @@
                 </div>
               </div>
               <br>
+              <br>
             </div>
           </div>
         </div>
         <?php $usuarios = $usuario->result()[0]; ?>
-        <div class="col-md-9">
+        <div class="col-md-6">
           <div class="card">
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
@@ -201,14 +202,30 @@
                   </div>
                 </div>
               </div>
-              <br>
               <hr class="horizontal dark">
-              
-              <br>
             </div>
           </div>
-         <?php require_once("componentes/footer.php"); ?>
         </div>
+        <div class="col-md-3">
+    <div class="card"> 
+      <div class="card-body">
+        <p class="text-uppercase text-sm">Notas rapidas <i class="fa-regular fa-note-sticky text-primary"></i></p> 
+        <div class="card-body pt-4 p-3">
+            <ul class="list-group">
+            <li class="border-0 d-flex  bg-gray-100 border-radius-lg">
+            <div class="d-flex flex-column">
+            <h6 class=" text-sm">Pagar proveedor</h6>
+            <span class="mb-2 text-xs">Asunto: <span class="text-dark font-weight-bold ms-sm-0">
+                se debe pagar al proveedor de cocacola
+            </span></span>
+            </div>
+            </li>
+            </ul>
+            </div>
+      </div>
+    </div>
+  </div>
+        <?php require_once("componentes/footer.php"); ?>
         <?php require_once("componentes/scripts.php"); ?>
         <script>
           var baseurl = "<?php echo base_url();?>";

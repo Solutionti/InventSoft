@@ -156,9 +156,6 @@
       transform: rotate(-5deg);
     }
   }
-
-  
-
   </style>
 <body class="">
 <div class="container position-sticky z-index-sticky top-0">
@@ -175,27 +172,23 @@
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
               <div class="card card-plain">
                 <div class="card-header pb-0 text-center">
-                  <img src="<?php echo base_url(); ?>public/img/theme/logo.png" width="50px;" class="img-fluid mb-3">
-                  <h3> <span class="text-danger h4 font-weight-bold">Invent</span> <span class="text-default h2 font-weight-bold">Soft</span> </h3>
-                  <p class="text-capitalize">Cafeteria buen viaje</p>
+                  <!-- <img src="<?php echo base_url(); ?>public/img/theme/logo.png" width="50px;" class="img-fluid mb-3"> -->
+                  <h3> <span class="text-primary h4 font-weight-bold">Invent</span> <span class="text-default h2 font-weight-bold">Soft</span> </h3>
+                  <p class="text-capitalize">Software de ventas y inventarios</p>
                 </div>
                 <div class="card-body">
-                  <h6 class="font-weight-bolder text-uppercase mt-2">Iniciar Sesión</h6>
+                  <h6 class="font-weight-bolder text-uppercase mt-1">Iniciar Sesión</h6>
                 <p class="mb-0">Ingresa tu usuario y contraseña</p>
                   <div class="messageError mt-2"></div>
-                  <form role="form">
+                  <form role="form" method="post" validate id="FormLOG">
                     <div class="mb-3">
-                      <input type="text" class="form-control form-control-lg" id="correo" placeholder="Usuario">
+                      <input type="text" class="form-control form-control-lg" id="correo" placeholder="Usuario" required>
                     </div>
                     <div class="mb-3">
-                      <input type="password" class="form-control form-control-lg" id="password" placeholder="Contraseña">
+                      <input type="password" class="form-control form-control-lg" id="password" placeholder="Contraseña" required>
                     </div>
-                    <!-- <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe">
-                      <label class="form-check-label" for="rememberMe">ver contraseña</label>
-                    </div> -->
                     <div class="text-center">
-                      <button type="button" id="login" class="btn btn-lg btn-danger text-white btn-lg w-100 mt-4 mb-0">Ingresar</button>
+                      <button type="submit" id="login" class="btn btn-lg btn-primary text-white btn-lg w-100 mt-4 mb-0">Ingresar</button>
                     </div>
                   </form>
                 </div>
@@ -228,7 +221,7 @@
               </div>
             </div>
             <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-              <div class="position-relative bg-gradient-success h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://cdn.pixabay.com/photo/2020/01/13/14/44/eet-4762568_960_720.jpg');
+              <div class="position-relative bg-gradient-success h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('public/img/theme/istockphoto-639318080-612x612.jpg');
           background-size: cover; background-repeat: no-repeat">
                 <span class="mask  opacity-6"></span>
                 <!-- <h3 class="mt-1 text-danger font-weight-bolder position-relative">BUEN  <span class="text-success">VIAJE</span> </h3>
