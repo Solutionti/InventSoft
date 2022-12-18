@@ -16,62 +16,66 @@ $route['translate_uri_dashes'] = FALSE;
 $route["iniciarsesion"] = "login/iniciarsesion";
 $route["cerrarsesion"] = "login/cerrarsesion";
 $route["cerrarsesionclientes"] = "login/cerrarsesionclientes";
-
+// INICIO
+$route["ventas/inicio"] = "clientes/inicio";
 /*
 **********************************************************
-***** SECCION DE CONSULTA DE LABORATORIO PAGINA WEB ******
+***** ADMINISTRACION DE LAS VENTAS E INVENTARIOS ******
 ***********************************************************
 */
 $route["iniciar"] = "clientes";
-$route["clientes/laboratorio"] = "clientes/laboratorio";
+$route["ventas/laboratorio"] = "clientes/laboratorio";
 
 //USUARIOS
-$route["clientes/crearusuario"] = "usuarios/crearusuarios";
-$route["clientes/actualizarusuario"] = "usuarios/actualizarusuarioperfil";
-$route["clientes/getusuario/(:num)"] = "usuarios/getusuariosid/$1";
+$route["ventas/crearusuario"] = "usuarios/crearusuarios";
+$route["ventas/actualizarusuario"] = "usuarios/actualizarusuarioperfil";
+$route["ventas/getusuario/(:num)"] = "usuarios/getusuariosid/$1";
 
 //GASTOS
-$route["clientes/creargasto"] = "gastos/creargasto";
+$route["ventas/creargasto"] = "gastos/creargasto";
 
 //INVENTARIOS
-$route["clientes/patologia"] = "clientes/patologia";
-$route["clientes/crearproductos"] = "inventarios/createproductos";
-$route["clientes/actualizarproductos"] = "inventarios/actualizarproductos";
-$route["clientes/verproducto/(:num)"] = "inventarios/getProductoId/$1";
-$route["clientes/traerstock/(:num)"] = "inventarios/getstock/$1";
-$route["clientes/crearentrada"] = "inventarios/crearentrada";
-$route["clientes/crearsalida"] = "inventarios/crearsalida";
-$route["clientes/consultainventario/(:num)"] = "inventarios/getConsultaInventario/$1";
-$route["clientes/consultarkardex"] = "inventarios/consultarkardex";
-$route["clientes/actualizarimagen"] = "inventarios/actualizarimagen";
+$route["ventas/patologia"] = "clientes/patologia";
+$route["ventas/crearproductos"] = "inventarios/createproductos";
+$route["ventas/actualizarproductos"] = "inventarios/actualizarproductos";
+$route["ventas/verproducto/(:num)"] = "inventarios/getProductoId/$1";
+$route["ventas/traerstock/(:num)"] = "inventarios/getstock/$1";
+$route["ventas/crearentrada"] = "inventarios/crearentrada";
+$route["ventas/crearsalida"] = "inventarios/crearsalida";
+$route["ventas/consultainventario/(:num)"] = "inventarios/getConsultaInventario/$1";
+$route["ventas/consultarkardex"] = "inventarios/consultarkardex";
+$route["ventas/actualizarimagen"] = "inventarios/actualizarimagen";
 
 //VENTAS
-$route["clientes/getproductoventa"] = "ventas/getproductoventa";
-$route["clientes/generarpdfventas/(:any)"] = "ventas/pdfreciboventa/$1";
-$route["clientes/verproducto/(:num)"] = "ventas/getproductoid/$1";
-$route["clientes/crearventa"] = "ventas/crearventa";
-$route["clientes/abrircaja"] = "ventas/guardaraperturacaja";
-$route["clientes/cerrarcaja"] = "ventas/cerrarcaja";
+$route["ventas/getproductoventa"] = "ventas/getproductoventa";
+$route["ventas/generarpdfventas/(:any)"] = "ventas/pdfreciboventa/$1";
+$route["ventas/verproducto/(:num)"] = "ventas/getproductoid/$1";
+$route["ventas/crearventa"] = "ventas/crearventa";
+$route["ventas/abrircaja"] = "ventas/guardaraperturacaja";
+$route["ventas/cerrarcaja"] = "ventas/cerrarcaja";
 //
-$route["clientes/ecografias"] = "clientes/ecografias";
-$route["clientes/gastos"] = "clientes/gastos";
-$route["clientes/ventas"] = "clientes/ventas";
+$route["ventas/ecografias"] = "clientes/ecografias";
+$route["ventas/gastos"] = "clientes/gastos";
+$route["ventas/ventas"] = "clientes/ventas";
 $route["iniciarsesionclientes"] = "login/iniciarsesionclientes";
 $route["cerrarsesionclientes"] = "login/cerrarsesionclientes";
 
 // DEVOLUCIONES
-$route["clientes/devoluciones"] = "clientes/devoluciones";
+$route["ventas/devoluciones"] = "clientes/devoluciones";
 
 //PROVEEDORES
-$route["clientes/proveedores"] = "clientes/proveedores";
-$route["clientes/crearproveedor"] = "proveedores/guardarproveedores";
+$route["ventas/proveedores"] = "clientes/proveedores";
+$route["ventas/crearproveedor"] = "proveedores/guardarproveedores";
 
 //REPORTES
-$route["clientes/reportedia/(:any)/(:any)/(:any)"] = "reportes/reportedia/$1/$2/$3";
-$route["clientes/reportecategoriaventa/(:any)/(:any)/(:any)"] = "reportes/Reporteventacategoria/$1/$2/$3";
-$route["clientes/gananciageneral"] = "reportes/gananciageneral";
-$route["clientes/reportekardex/(:any)/(:any)"] = "reportes/reportekardex/$1/$2";
-$route["clientes/reporteinventario/(:num)"] = "reportes/getinventariototal/$1";
+$route["ventas/reportedia/(:any)/(:any)/(:any)"] = "reportes/reportedia/$1/$2/$3";
+$route["ventas/reportecategoriaventa/(:any)/(:any)/(:any)"] = "reportes/Reporteventacategoria/$1/$2/$3";
+$route["ventas/gananciageneral"] = "reportes/gananciageneral";
+$route["ventas/reportekardex/(:any)/(:any)"] = "reportes/reportekardex/$1/$2";
+$route["ventas/reporteinventario/(:num)"] = "reportes/getinventariototal/$1";
+
+// ECOMMERCE
+$route["ecommerce/inicio"] = "ecommerce";
 
 
 

@@ -23,7 +23,7 @@ class Clientes extends CI_Controller {
 		$id = $this->session->userdata("codigo");
 		$usuarios = $this->Usuarios_model->getUsuariosId($id);
 		$data = ["usuario" => $usuarios];
-		$this->load->view("clientes/inicio", $data);
+		$this->load->view("ventas/inicio", $data);
 	}
 
 	public function laboratorio() {
@@ -31,7 +31,7 @@ class Clientes extends CI_Controller {
 		$data = [
 		  "administrador" => $administradores,
 		];
-	  $this->load->view("clientes/laboratorio", $data);
+	  $this->load->view("ventas/laboratorio", $data);
 	}
 
 	public function patologia() {
@@ -41,7 +41,7 @@ class Clientes extends CI_Controller {
             "producto" => $productos,
 			"categoria" => $categorias
         ];
-		$this->load->view("clientes/patologia", $data);
+		$this->load->view("ventas/patologia", $data);
 	}
 
 	public function ecografias() {
@@ -61,7 +61,7 @@ class Clientes extends CI_Controller {
 		"totalinventario" => $totalinventarios,
 		"totalproveedor" => $totalproveedores
 	  ];
-	  $this->load->view("clientes/ecografias", $data);
+	  $this->load->view("ventas/ecografias", $data);
 	}
 
 	public function gastos() {
@@ -71,7 +71,7 @@ class Clientes extends CI_Controller {
 		  "gasto" => $gastos,
 		  "proveedor" => $proveedores
 		];
-		$this->load->view("clientes/gastos", $data);
+		$this->load->view("ventas/gastos", $data);
 	  }
 
 	public function ventas() {
@@ -87,11 +87,11 @@ class Clientes extends CI_Controller {
 		  "estadocaja" => $estadocajas,
 		  "id_caja" => $idcajas
 		];
-		$this->load->view("clientes/ventas", $data);
+		$this->load->view("ventas/ventas", $data);
 	}
 
 	public function devoluciones(){
-		$this->load->view("clientes/devoluciones");
+		$this->load->view("ventas/devoluciones");
 	}
 
 	public function proveedores() {
@@ -99,7 +99,7 @@ class Clientes extends CI_Controller {
       $datos = [
 		"proveedor" => $proveedores
 	  ]; 
-      $this->load->view("clientes/proveedores", $datos);
+      $this->load->view("ventas/proveedores", $datos);
 	}
 
 }

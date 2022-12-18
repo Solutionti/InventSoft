@@ -26,7 +26,7 @@
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
-              href="<?php echo base_url(); ?>clientes/inicio"
+              href="<?php echo base_url(); ?>ventas/inicio"
             >
               <i class="ni ni-settings-gear-65"></i>
               <span class="ms-2">Inicio</span>
@@ -35,7 +35,7 @@
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1  d-flex align-items-center justify-content-center "
-              href="<?php echo base_url(); ?>clientes/laboratorio"
+              href="<?php echo base_url(); ?>ventas/laboratorio"
             >
               <i class="ni ni-app"></i>
               <span class="ms-2">Usuarios</span>
@@ -44,7 +44,7 @@
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
-              href="<?php echo base_url(); ?>clientes/patologia"
+              href="<?php echo base_url(); ?>ventas/patologia"
             >
               <i class="ni ni-email-83"></i>
               <span class="ms-2">Inventarios</span>
@@ -53,7 +53,7 @@
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
-              href="<?php echo base_url(); ?>clientes/ventas"
+              href="<?php echo base_url(); ?>ventas/ventas"
             >
               <i class="ni ni-settings-gear-65"></i>
               <span class="ms-2">Ventas</span>
@@ -62,7 +62,7 @@
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
-              href="<?php echo base_url(); ?>clientes/gastos"
+              href="<?php echo base_url(); ?>ventas/gastos"
             >
               <i class="ni ni-settings-gear-65"></i>
               <span class="ms-2">Gastos</span>
@@ -71,7 +71,7 @@
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
-              href="<?php echo base_url(); ?>clientes/proveedores"
+              href="<?php echo base_url(); ?>ventas/proveedores"
             >
               <i class="ni ni-settings-gear-65"></i>
               <span class="ms-2">Proveedores</span>
@@ -80,7 +80,7 @@
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
-              href="<?php echo base_url(); ?>clientes/ecografias"
+              href="<?php echo base_url(); ?>ventas/ecografias"
             >
               <i class="ni ni-settings-gear-65"></i>
               <span class="ms-2">Reportes</span>
@@ -90,7 +90,7 @@
             <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
-              href="<?php echo base_url(); ?>clientes/inicio"
+              href="<?php echo base_url(); ?>ventas/inicio"
             >
               <i class="ni ni-settings-gear-65"></i>
               <span class="ms-2">Inicio</span>
@@ -99,7 +99,7 @@
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
-              href="<?php echo base_url(); ?>clientes/patologia"
+              href="<?php echo base_url(); ?>ventas/patologia"
             >
               <i class="ni ni-email-83"></i>
               <span class="ms-2">Inventarios</span>
@@ -108,7 +108,7 @@
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
-              href="<?php echo base_url(); ?>clientes/ventas"
+              href="<?php echo base_url(); ?>ventas/ventas"
             >
               <i class="ni ni-settings-gear-65"></i>
               <span class="ms-2">Ventas</span>
@@ -117,7 +117,7 @@
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
-              href="<?php echo base_url(); ?>clientes/gastos"
+              href="<?php echo base_url(); ?>ventas/gastos"
             >
               <i class="ni ni-settings-gear-65"></i>
               <span class="ms-2">Gastos</span>
@@ -126,7 +126,7 @@
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
-              href="<?php echo base_url(); ?>clientes/proveedores"
+              href="<?php echo base_url(); ?>ventas/proveedores"
             >
               <i class="ni ni-settings-gear-65"></i>
               <span class="ms-2">Proveedores</span>
