@@ -920,7 +920,7 @@
       </div>
     </div>
     <div class="bg-black">
-      <div class="container content-space-1">
+      <div class="container content-space-0">
         <div class="w-md-75 w-lg-50 text-center mx-md-auto">
           <div class="row justify-content-lg-between">
             <div class="mb-5">
