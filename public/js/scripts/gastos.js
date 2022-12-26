@@ -9,7 +9,7 @@ $("#creargasto").on("click", function() {
       porpagar = $("#porpagar:checked").val();
       
       if(porpagar == "on") {
-        porpagaract = "SI";
+        porpagaract = "SI"
       }
       else {
         porpagaract = "NO";
