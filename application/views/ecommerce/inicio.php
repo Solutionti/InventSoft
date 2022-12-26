@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://htmlstream.com/preview/front-v4.2/html/assets/css/theme.min.css?v=1.0">
     <link rel="stylesheet" href="https://htmlstream.com/preview/front-v4.2/html/assets/css/theme.min.css?v=1.0">
 </head>
-<body>
+<body style="background-color: black;">
     <!-- ========== HEADER ========== -->
   <header id="header" class="navbar navbar-expand-lg navbar-end navbar-light">
     <div class="container navbar-topbar">
@@ -263,7 +263,10 @@
     <div class="container">
       <nav class="js-mega-menu navbar-nav-wrap">
         <a class="navbar-brand" href="../demo-shop/index.html" aria-label="Front">
-          <img class="navbar-brand-logo" src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/logos/logo.svg" alt="Logo">
+          <img 
+            class="navbar-brand-logo" 
+            src="https://www.sosfactory.com/wp-content/uploads/2016/12/icon-restaurant-bolat-min.png"
+          >
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-default">
@@ -274,19 +277,19 @@
           </span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav ">
             <li class="nav-item">
-              <a class="nav-link active" href="../demo-shop/index.html">Inicio</a>
+              <a class="nav-link active text-white" href="../demo-shop/index.html">Inicio</a>
             </li>
             <li class="hs-has-sub-menu nav-item">
-              <a id="listingsDropdown" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+              <a id="listingsDropdown" class="hs-mega-menu-invoker nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
               <div class="hs-sub-menu dropdown-menu" aria-labelledby="listingsDropdown" style="min-width: 14rem;">
                 <a class="dropdown-item " href="../demo-shop/products-list.html">Listing</a>
                 <a class="dropdown-item " href="../demo-shop/products-grid.html">Listing (Grid)</a>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="../demo-shop/product-overview.html">Productos mas vendidos</a>
+              <a class="nav-link text-white" href="../demo-shop/product-overview.html">Productos mas vendidos</a>
             </li>
             <li class="hs-has-mega-menu nav-item" data-hs-mega-menu-item-options='{
                   "desktop": {
@@ -294,7 +297,7 @@
                     "maxWidth": "27rem"
                   }
                 }'>
-              <a id="pagesMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Conoce mas</a>
+              <a id="pagesMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle text-white" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Conoce mas</a>
               <div class="hs-mega-menu dropdown-menu" aria-labelledby="pagesMegaMenu" style="min-width: 27rem;">
                 <div class="navbar-dropdown-menu-inner">
                   <span class="dropdown-header">Elements</span>
@@ -329,10 +332,10 @@
             </li>
             <li class="nav-item">
               <button class="btn btn-ghost-secondary btn-sm btn-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarSearch" aria-controls="offcanvasNavbarSearch">
-                <i class="fas fa-search"></i>
+                <i class="fas fa-search text-white"></i>
               </button>
               <button type="button" class="btn btn-ghost-secondary btn-sm btn-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarEmptyShoppingCart" aria-controls="offcanvasNavbarEmptyShoppingCart">
-              <i class="fas fa-shopping-basket"></i>
+              <i class="fas fa-shopping-basket text-white"></i>
               </button>
               <button class="btn btn-primary btn-transition btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">Iniciar sesion</button>
             </li>
@@ -345,15 +348,18 @@
   <!-- ========== MAIN CONTENT ========== -->
   <main id="content" role="main">
     <div class="position-relative">
-      <div class="js-swiper-shop-classic-hero swiper bg-light">
+      <div class="js-swiper-shop-classic-hero swiper bg-black">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="container content-space-t-2 content-space-b-3">
               <div class="row align-items-lg-center">
                 <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
                   <div class="mb-6">
-                    <h1 class="display-4 mb-4">Front original design cap</h1>
-                    <p>As well as being game-changers when it comes to technical innovation, Front has some of the bestselling cap in its locker.</p>
+                    <h1 class="display-4 mb-4 text-white">Hamburguesas doble carne</h1>
+                    <p class="text-white">
+                      As well as being game-changers when it comes to technical innovation,
+                      Front has some of the bestselling cap in its locker.
+                    </p>
                   </div>
                   <div class="d-flex gap-2">
                     <a class="btn btn-primary rounded-pill" href="#">$59 - Add to cart</a>
@@ -364,7 +370,10 @@
                 </div>
                 <div class="col-lg-6 order-lg-1">
                   <div class="w-75 mx-auto">
-                    <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/mockups/img6.png" alt="Image Description">
+                    <img
+                      class="img-fluid"
+                      src="https://www.pngplay.com/wp-content/uploads/2/Burger-Transparent-Images.png"
+                    >
                   </div>
                 </div>
               </div>
@@ -375,8 +384,8 @@
               <div class="row align-items-lg-center">
                 <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
                   <div class="mb-6">
-                    <h2 class="display-4 mb-4">Apple iPad Pro</h2>
-                    <p>It's all new, all screen, and all powerful. Completely redesigned and packed with our most advanced technology, it will make you rethink what iPad is capable of.</p>
+                    <h2 class="display-4 mb-4 text-white">Papas locas Full</h2>
+                    <p class="text-white">It's all new, all screen, and all powerful. Completely redesigned and packed with our most advanced technology, it will make you rethink what iPad is capable of.</p>
                   </div>
                   <div class="d-flex gap-2">
                     <a class="btn btn-primary rounded-pill" href="#">$799 - Add to cart</a>
@@ -387,7 +396,7 @@
                 </div>
                 <div class="col-lg-6 order-lg-1">
                   <div class="w-75 mx-auto">
-                    <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/mockups/img5.png" alt="Image Description">
+                    <img class="img-fluid" src="https://laspapaslocas.com/wp-content/uploads/sites/9/2022/04/papas.png" alt="Image Description">
                   </div>
                 </div>
               </div>
@@ -398,20 +407,24 @@
               <div class="row align-items-lg-center">
                 <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
                   <div class="mb-6">
-                    <h3 class="display-4 mb-4">Celio hoodie</h3>
-                    <p>Founded in 1985, French label Celio channels 30 years of expertise into its contemporary menswear range. Expect fly style for a city or beach with its denim shorts, chinos and printed jersey.</p>
+                    <h3 class="display-4 mb-4 text-white">Perros calientes</h3>
+                    <p class="text-white">Founded in 1985, French label Celio channels 30 years of expertise into its contemporary menswear range. Expect fly style for a city or beach with its denim shorts, chinos and printed jersey.</p>
                   </div>
 
                   <div class="d-flex gap-2">
-                    <a class="btn btn-primary rounded-pill" href="#">$15 - Add to cart</a>
+                    <a class="btn btn-primary rounded-pill" href="#">$10k - agregar carrito</a>
                     <a class="btn btn-outline-primary btn-icon rounded-circle" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Save for later">
                       <i class="bi-heart-fill"></i>
                     </a>
                   </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
-                  <div class="w-75 mx-auto">
-                    <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/mockups/img1.png" alt="Image Description">
+                  <div class="w-75 mx-auto text-center">
+                    <img
+                      class="img-fluid"
+                      src="https://www.pngplay.com/wp-content/uploads/7/Hot-Dog-No-Background.png"}
+                      width="320px;"
+                    >
                   </div>
                 </div>
               </div>
@@ -426,17 +439,17 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <a class="js-swiper-thumb-progress swiper-thumb-progress-avatar" href="javascript:;" tabindex="0">
-                <img class="swiper-thumb-progress-avatar-img" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/mockups/img6.png" alt="Image Description">
+                <img class="swiper-thumb-progress-avatar-img" src="https://www.pngplay.com/wp-content/uploads/2/Burger-Transparent-Images.png" alt="Image Description">
               </a>
             </div>
             <div class="swiper-slide">
               <a class="js-swiper-thumb-progress swiper-thumb-progress-avatar" href="javascript:;" tabindex="0">
-                <img class="swiper-thumb-progress-avatar-img" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/mockups/img5.png" alt="Image Description">
+                <img class="swiper-thumb-progress-avatar-img" src="https://laspapaslocas.com/wp-content/uploads/sites/9/2022/04/papas.png" alt="Image Description">
               </a>
             </div>
             <div class="swiper-slide">
               <a class="js-swiper-thumb-progress swiper-thumb-progress-avatar" href="javascript:;" tabindex="0">
-                <img class="swiper-thumb-progress-avatar-img" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/mockups/img1.png" alt="Image Description">
+                <img class="swiper-thumb-progress-avatar-img" src="https://www.pngplay.com/wp-content/uploads/7/Hot-Dog-No-Background.png" alt="Image Description">
               </a>
             </div>
           </div>
@@ -452,19 +465,23 @@
                 <img class="avatar avatar-4x3" src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/oc-protected-card.svg" alt="Image Description">
               </div>
               <div class="flex-grow-1 ms-4">
-                <h4 class="mb-1">Pago seguro</h4>
-                <p class="small mb-0">Guaranteed safe checkout</p>
+                <h4 class="mb-1 text-white">Pago seguro</h4>
+                <p class="small mb-0 text-white">Pago seguro garantizado</p>
               </div>
             </div>
           </div>
           <div class="col-md-4 mb-7 mb-md-0">
             <div class="d-flex">
               <div class="flex-shrink-0">
-                <img class="avatar avatar-4x3" src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/oc-return.svg" alt="Image Description">
+                <img
+                  class="avatar avatar-4x3"
+                  src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/oc-return.svg"
+                  alt="Image Description"
+                >
               </div>
               <div class="flex-grow-1 ms-4">
-                <h4 class="mb-1">30 días de regreso</h4>
-                <p class="small mb-0">We offer you a full refund within 30 days of purchase.</p>
+                <h4 class="mb-1 text-white">Tiempos cortos de entrega</h4>
+                <p class="small mb-0 text-white"></p>
               </div>
             </div>
           </div>
@@ -474,20 +491,20 @@
                 <img class="avatar avatar-4x3" src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/oc-truck.svg" alt="Image Description">
               </div>
               <div class="flex-grow-1 ms-4">
-                <h4 class="mb-1">Paga en la puerta de tu casa</h4>
-                <p class="small mb-0">Automatically receive free standard shipping on every order.</p>
+                <h4 class="mb-1 text-white">Paga en la puerta de tu casa</h4>
+                <p class="small mb-0 text-white" >envío estándar gratuito en cada pedido.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="container content-space-2 content-space-lg-3">
+    <div class="container content-space-2 content-space-lg-1">
       <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-        <h2>La mejor manera de comprar con los mejores productos de</h2>
+        <h2 class="text-white">La mejor manera de comprar con los mejores productos de</h2>
       </div>
       <div class="row mb-2">
-        <div class="col-sm-6 col-md-4 mb-4">
+        <div class="col-sm-6 col-md-3 mb-4">
           <div class="card card-bordered shadow-none overflow-hidden">
             <div class="card-body d-flex align-items-center border-bottom p-0">
               <div class="w-65 border-end">
@@ -507,7 +524,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 mb-4">
+        <div class="col-sm-6 col-md-3 mb-4">
           <div class="card card-bordered shadow-none overflow-hidden">
             <div class="card-body d-flex align-items-center border-bottom p-0">
               <div class="w-65 border-end">
@@ -527,7 +544,27 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 mb-4">
+        <div class="col-sm-6 col-md-3 mb-4">
+          <div class="card card-bordered shadow-none overflow-hidden">
+            <div class="card-body d-flex align-items-center border-bottom p-0">
+              <div class="w-65 border-end">
+                <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x400/img4.jpg" alt="Image Description">
+              </div>
+              <div class="w-35">
+                <div class="border-bottom">
+                  <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x360/img6.jpg" alt="Image Description">
+                </div>
+                <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x360/img5.jpg" alt="Image Description">
+              </div>
+            </div>
+            <div class="card-footer text-center">
+              <h3 class="card-title">Tech covers</h3>
+              <p class="card-text text-muted small">Starting from $399.99</p>
+              <a class="btn btn-outline-primary btn-sm btn-transition rounded-pill px-6" href="#">Ver todos</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 mb-4">
           <div class="card card-bordered shadow-none overflow-hidden">
             <div class="card-body d-flex align-items-center border-bottom p-0">
               <div class="w-65 border-end">
@@ -549,7 +586,7 @@
         </div>
       </div>
       <div class="text-center">
-        <p class="small">Solo por tiempo limitado, hasta agotar existencias.</p>
+        <p class="small text-white">Solo por tiempo limitado, hasta agotar existencias.</p>
       </div>
     </div>
     <div class="container">
@@ -609,7 +646,7 @@
     </div>
     <div class="container content-space-2 content-space-lg-3">
       <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-        <h2>Nuestros productos</h2>
+        <h2 class="text-white">Nuestros productos</h2>
       </div>
       <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-3">
         <div class="col mb-4">
@@ -882,13 +919,13 @@
         <a class="btn btn-outline-primary btn-transition rounded-pill" href="#">Ver todos los productos</a>
       </div>
     </div>
-    <div class="bg-light">
+    <div class="bg-black">
       <div class="container content-space-1">
         <div class="w-md-75 w-lg-50 text-center mx-md-auto">
           <div class="row justify-content-lg-between">
             <div class="mb-5">
-              <span class="text-cap">Subscribir</span>
-              <h2>Recibe lo último de</h2>
+              <span class="text-cap text-white">Subscribir</span>
+              <h2 class="text-white">Recibe lo último de</h2>
             </div>
             <form>
               <div class="input-card input-card-pill input-card-sm border mb-3">
@@ -899,7 +936,7 @@
                 <button type="button" class="btn btn-primary btn-lg rounded-pill">Subscribir</button>
               </div>
             </form>
-            <p class="small">Puedes darte de baja en cualquier momento. Lea nuestra <a href="#">Politica de privacidad</a></p>
+            <p class="small text-white">Puedes darte de baja en cualquier momento. Lea nuestra <a href="#">Politica de privacidad</a></p>
           </div>
         </div>
       </div>
@@ -919,7 +956,7 @@
           <img class="avatar avatar-lg avatar-4x3" src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/brands/puma-dark.svg" alt="Logo">
         </div>
         <div class="col text-center py-3">
-          <img class="avatar avatar-lg avatar-4x3" src=".https://htmlstream.com/preview/front-v4.2/html/assets/svg/brands/nike-dark.svg" alt="Logo">
+          <img class="avatar avatar-lg avatar-4x3" src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/brands/nike-dark.svg" alt="Logo">
         </div>
         <div class="col text-center py-3">
           <img class="avatar avatar-lg avatar-4x3" src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/brands/tnf-dark.svg" alt="Logo">
@@ -928,19 +965,19 @@
     </div>
   </main>
   <!-- ========== FOOTER ========== -->
-  <footer class="border-top">
-    <div class="container">
+  <footer class="border-top text-white">
+    <div class="container text-white">
       <div class="row justify-content-lg-between content-space-t-2 content-space-b-lg-2">
         <div class="col-lg-3 mb-5">
           <div class="d-flex align-items-start flex-column h-100">
             <a class="w-100 mb-3 mb-lg-auto" href="../demo-shop/index.html" aria-label="Front">
               <img class="brand" src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/logos/logo.svg" alt="Logo">
             </a>
-            <p class="text-muted small mb-0">&copy; Solutionti. todos los derechos 2023.</p>
+            <p class="text-muted small mb-0 text-white">&copy; Solutionti. todos los derechos 2023.</p>
           </div>
         </div>
         <div class="col-6 col-md-4 col-lg-3 ms-lg-auto mb-5 mb-lg-0">
-          <h5>Account</h5>
+          <h5 class="text-white">Account</h5>
           <ul class="list-unstyled list-py-1">
             <li><a class="link-sm text-secondary" href="#">Placing an order</a></li>
             <li><a class="link-sm text-secondary" href="#">Shipping options</a></li>
@@ -949,7 +986,7 @@
           </ul>
         </div>
         <div class="col-6 col-md-4 col-lg-3 mb-5 mb-lg-0">
-          <h5>Company</h5>
+          <h5 class="text-white">Company</h5>
           <ul class="list-unstyled list-py-1">
             <li><a class="link-sm text-secondary" href="#">Financing</a></li>
             <li><a class="link-sm text-secondary" href="#">Recycling</a></li>
@@ -957,7 +994,7 @@
           </ul>
         </div>
         <div class="col-md-4 col-lg-2 mb-5 mb-lg-0">
-          <h5 class="mb-3">Resources</h5>
+          <h5 class="mb-3 text-white">Resources</h5>
           <ul class="list-unstyled list-py-1">
             <li><a class="link-sm link-secondary" href="#"><i class="bi-question-circle-fill me-1"></i> Help</a></li>
             <li><a class="link-sm link-secondary" href="#"><i class="bi-person-circle me-1"></i> Your Account</a></li>
@@ -973,10 +1010,10 @@
         <div class="col-sm-auto">
           <ul class="list-inline list-separator">
             <li class="list-inline-item">
-              <a class="link-sm link-secondary" href="../page-privacy.html">Privacidad &amp; politicas</a>
+              <a class="link-sm link-secondary text-white" href="../page-privacy.html">Privacidad &amp; politicas</a>
             </li>
             <li class="list-inline-item">
-              <a class="link-sm link-secondary" href="../page-terms.html">Terminos &amp; condiciones</a>
+              <a class="link-sm link-secondary text-white" href="../page-terms.html">Terminos &amp; condiciones</a>
             </li>
           </ul>
         </div>
