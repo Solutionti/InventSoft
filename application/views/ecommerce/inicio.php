@@ -282,10 +282,11 @@
               <a class="nav-link active text-white" href="../demo-shop/index.html">Inicio</a>
             </li>
             <li class="hs-has-sub-menu nav-item">
-              <a id="listingsDropdown" class="hs-mega-menu-invoker nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+              <a id="listingsDropdown" class="hs-mega-menu-invoker nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
               <div class="hs-sub-menu dropdown-menu" aria-labelledby="listingsDropdown" style="min-width: 14rem;">
-                <a class="dropdown-item " href="../demo-shop/products-list.html">Listing</a>
-                <a class="dropdown-item " href="../demo-shop/products-grid.html">Listing (Grid)</a>
+              <?php foreach($categoria->result() as $categorias){ ?>
+                <a class="dropdown-item " href="#"><?php echo $categorias->nombre; ?></a>
+              <?php } ?>
               </div>
             </li>
             <li class="nav-item">
@@ -422,7 +423,7 @@
                   <div class="w-75 mx-auto text-center">
                     <img
                       class="img-fluid"
-                      src="https://www.pngplay.com/wp-content/uploads/7/Hot-Dog-No-Background.png"}
+                      src="https://www.pngplay.com/wp-content/uploads/7/Hot-Dog-No-Background.png"
                       width="320px;"
                     >
                   </div>
@@ -504,86 +505,28 @@
         <h2 class="text-white">La mejor manera de comprar con los mejores productos de</h2>
       </div>
       <div class="row mb-2">
+      <?php foreach($categoria->result() as $categorias){ ?>
         <div class="col-sm-6 col-md-3 mb-4">
           <div class="card card-bordered shadow-none overflow-hidden">
             <div class="card-body d-flex align-items-center border-bottom p-0">
               <div class="w-65 border-end">
-                <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x400/img3.jpg" alt="Image Description">
+                <img class="img-fluid" src="<?php echo $categorias->url1; ?>" alt="Image Description">
               </div>
               <div class="w-35">
                 <div class="border-bottom">
-                  <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x360/img8.jpg" alt="Image Description">
+                  <img class="img-fluid" src="<?php echo $categorias->url2; ?>" alt="Image Description">
                 </div>
-                <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x360/img7.jpg" alt="Image Description">
+                <img class="img-fluid" src="<?php echo $categorias->url3; ?>" alt="Image Description">
               </div>
             </div>
             <div class="card-footer text-center">
-              <h3 class="card-title">T-shirts</h3>
-              <p class="card-text text-muted small">Starting from $29.99</p>
+              <h4 class="card-title text-uppercase"><?php echo $categorias->nombre; ?></h4>
+              <!-- <p class="card-text text-muted small">Starting from $29.99</p> -->
               <a class="btn btn-outline-primary btn-sm btn-transition rounded-pill px-6" href="#">Ver todos</a>
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-3 mb-4">
-          <div class="card card-bordered shadow-none overflow-hidden">
-            <div class="card-body d-flex align-items-center border-bottom p-0">
-              <div class="w-65 border-end">
-                <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x400/img4.jpg" alt="Image Description">
-              </div>
-              <div class="w-35">
-                <div class="border-bottom">
-                  <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x360/img6.jpg" alt="Image Description">
-                </div>
-                <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x360/img5.jpg" alt="Image Description">
-              </div>
-            </div>
-            <div class="card-footer text-center">
-              <h3 class="card-title">Tech covers</h3>
-              <p class="card-text text-muted small">Starting from $399.99</p>
-              <a class="btn btn-outline-primary btn-sm btn-transition rounded-pill px-6" href="#">Ver todos</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 mb-4">
-          <div class="card card-bordered shadow-none overflow-hidden">
-            <div class="card-body d-flex align-items-center border-bottom p-0">
-              <div class="w-65 border-end">
-                <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x400/img4.jpg" alt="Image Description">
-              </div>
-              <div class="w-35">
-                <div class="border-bottom">
-                  <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x360/img6.jpg" alt="Image Description">
-                </div>
-                <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x360/img5.jpg" alt="Image Description">
-              </div>
-            </div>
-            <div class="card-footer text-center">
-              <h3 class="card-title">Tech covers</h3>
-              <p class="card-text text-muted small">Starting from $399.99</p>
-              <a class="btn btn-outline-primary btn-sm btn-transition rounded-pill px-6" href="#">Ver todos</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 mb-4">
-          <div class="card card-bordered shadow-none overflow-hidden">
-            <div class="card-body d-flex align-items-center border-bottom p-0">
-              <div class="w-65 border-end">
-                <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x400/img2.jpg" alt="Image Description">
-              </div>
-              <div class="w-35">
-                <div class="border-bottom">
-                  <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x360/img4.jpg" alt="Image Description">
-                </div>
-                <img class="img-fluid" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/380x360/img3.jpg" alt="Image Description">
-              </div>
-            </div>
-            <div class="card-footer text-center">
-              <h3 class="card-title">Caps</h3>
-              <p class="card-text text-muted small">Starting from $13.99</p>
-              <a class="btn btn-outline-primary btn-sm btn-transition rounded-pill px-6" href="#">Ver todos</a>
-            </div>
-          </div>
-        </div>
+        <?php } ?>
       </div>
       <div class="text-center">
         <p class="small text-white">Solo por tiempo limitado, hasta agotar existencias.</p>
@@ -592,53 +535,53 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 mb-4 mb-md-0">
-          <div class="card card-lg bg-img-start" style="background-image: url(https://argiron.es/wp-content/uploads/2020/05/product5-800x800.jpg); min-height: 30rem;">
+          <div class="card card-lg bg-img-start" style="background-image: url('https://www.comunicare.es/wp-content/uploads/2021/01/Publicidad-para-hamburguesas.jpg'); min-height: 30rem;">
             <div class="card-body">
-              <span class="card-subtitle text-danger">Limited time only</span>
-              <h2 class="card-title display-4">70% OFF</h2>
+              <span class="card-subtitle text-white">Por tiempo limitado</span>
+              <h2 class="card-title display-4 text-white">70% OFF</h2>
               <div class="w-md-65">
                 <div class="js-countdown row mb-5">
                   <div class="col-4 text-center">
                     <div class="border border-dark rounded-2 p-2 mb-1">
-                      <span class="js-cd-days h2"></span>
+                      <span class="js-cd-days h2 text-white"></span>
                     </div>
 
-                    <h5 class="card-title">Days</h5>
+                    <h5 class="card-title text-white">Dias</h5>
                   </div>
                   <div class="col-4 text-center">
                     <div class="border border-dark rounded-2 p-2 mb-1">
-                      <span class="js-cd-hours h2"></span>
+                      <span class="js-cd-hours h2 text-white"></span>
                     </div>
 
-                    <h5 class="card-title">Hours</h5>
+                    <h5 class="card-title text-white">Horas</h5>
                   </div>
                   <div class="col-4 text-center">
                     <div class="border border-dark rounded-2 p-2 mb-1">
-                      <span class="js-cd-minutes h2"></span>
+                      <span class="js-cd-minutes h2 text-white"></span>
                     </div>
-                    <h5 class="card-title">Mins</h5>
+                    <h5 class="card-title text-white">Minutos</h5>
                   </div>
                   <div class="col-4 d-none text-center">
                     <div class="border border-dark rounded-2 p-2 mb-1">
-                      <span class="js-cd-seconds h2"></span>
+                      <span class="js-cd-seconds h2 text-white"></span>
                     </div>
-                    <h5 class="card-title">Sec</h5>
+                    <h5 class="card-title text-white">Sec</h5>
                   </div>
                 </div>
               </div>
-              <a class="btn btn-light btn-sm btn-transition rounded-pill px-6" href="#">Shop</a>
+              <a class="btn btn-light btn-sm btn-transition rounded-pill px-6" href="#">Comprar</a>
             </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="card card-lg bg-img-start" style="background-image: url(https://tuvalum.com/blog/wp-content/uploads/2021/09/Unplash-38-900x484.jpg); min-height: 30rem;">
+          <div class="card card-lg bg-img-start" style="background-image: url(https://www.misterpollo.co/domicilios/514-large_default/hamburguesa-combo-13.jpg); min-height: 30rem;">
             <div class="card-body">
               <div class="mb-4">
-                <h2 class="card-title text-white">$109.99</h2>
-                <h3 class="card-title text-white">Nakto 26 Bicycle</h3>
-                <p class="card-text text-white">NAKTO bicycles to save the environment and bring fun to our friends!</p>
+                <h2 class="card-title text-white">$10.000</h2>
+                <h3 class="card-title text-white">Nakto Combo Bigmac</h3>
+                <p class="card-text text-white">Lleva tu combo personal con con papas y gaseosa  por un precio especial</p>
               </div>
-              <a class="btn btn-light btn-sm btn-transition rounded-pill px-6" href="#">Shop</a>
+              <a class="btn btn-light btn-sm btn-transition rounded-pill px-6" href="#">Comprar</a>
             </div>
           </div>
         </div>
@@ -649,12 +592,18 @@
         <h2 class="text-white">Nuestros productos</h2>
       </div>
       <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-3">
+      <?php foreach($producto->result() as $productos){ ?>
         <div class="col mb-4">
           <div class="card card-bordered shadow-none text-center h-100">
             <div class="card-pinned">
-              <img class="card-img-top" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/300x180/img3.jpg" alt="Image Description">
+              <img
+                class="card-img-top img-fluid"
+                src="<?php echo $productos->url_imagen; ?>"
+
+                alt="Image Description"
+              >
               <div class="card-pinned-top-start">
-                <span class="badge bg-success rounded-pill">New arrival</span>
+                <span class="badge bg-danger rounded-pill"><?php echo $productos->categorias; ?></span>
               </div>
               <div class="card-pinned-top-end">
                 <button type="button" class="btn btn-outline-secondary btn-xs btn-icon rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Save for later">
@@ -664,13 +613,13 @@
             </div>
             <div class="card-body">
               <div class="mb-1">
-                <a class="link-sm link-secondary" href="#">Accessories</a>
+                <a class="link-sm link-secondary" href="#"><?php echo $productos->categorias; ?></a>
               </div>
-              <a class="text-body" href="#">Herschel backpack in dark blue</a>
-              <p class="card-text text-dark">$56.99</p>
+              <a class="text-body" href="#"><?php echo $productos->nombre; ?></a>
+              <p class="card-text text-dark">$<?php echo $productos->precio; ?></p>
             </div>
             <div class="card-footer pt-0">
-              <a class="d-inline-flex align-items-center mb-3" href="#">
+              <!-- <a class="d-inline-flex align-items-center mb-3" href="#">
                 <div class="d-flex gap-1 me-2">
                   <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
                   <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
@@ -679,244 +628,15 @@
                   <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
                 </div>
                 <span class="small">0</span>
-              </a>
-              <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">Agregar al carrito</button>
+              </a> -->
+              <button type="button" class="btn btn-outline-danger btn-sm rounded-pill">Agregar al carrito</button>
             </div>
           </div>
         </div>
-        <div class="col mb-4">
-          <div class="card card-bordered shadow-none text-center h-100">
-            <div class="card-pinned">
-              <img class="card-img-top" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/300x180/img1.jpg" alt="Image Description">
-
-              <div class="card-pinned-top-end">
-                <button type="button" class="btn btn-outline-secondary btn-xs btn-icon rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Save for later">
-                  <i class="bi-heart"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="mb-1">
-                <a class="link-sm link-secondary" href="#">Clothing</a>
-              </div>
-              <a class="text-body" href="#">Front hoodie</a>
-              <p class="card-text text-dark">$91.88</p>
-            </div>
-            <div class="card-footer pt-0">
-              <a class="d-inline-flex align-items-center mb-3" href="#">
-                <div class="d-flex gap-1 me-2">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                </div>
-                <span class="small">40</span>
-              </a>
-              <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">Agregar al carrito</button>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card card-bordered shadow-none text-center h-100">
-            <div class="card-pinned">
-              <img class="card-img-top" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/300x180/img4.jpg" alt="Image Description">
-              <div class="card-pinned-top-start">
-                <span class="badge bg-danger rounded-pill">Out of stock</span>
-              </div>
-              <div class="card-pinned-top-end">
-                <button type="button" class="btn btn-outline-secondary btn-xs btn-icon rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Save for later">
-                  <i class="bi-heart"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="mb-1">
-                <a class="link-sm link-secondary" href="#">Accessories</a>
-              </div>
-              <a class="text-body" href="../demo-shop/product-overview.html">Herschel backpack in gray</a>
-              <p class="card-text text-dark">$29.99 <span class="text-body ms-1"><del>$33.99</del></span></p>
-            </div>
-            <div class="card-footer pt-0">
-              <a class="d-inline-flex align-items-center mb-3" href="#">
-                <div class="d-flex gap-1 me-2">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                </div>
-                <span class="small">125</span>
-              </a>
-              <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">Agregar al carrito</button>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card card-bordered shadow-none text-center h-100">
-            <div class="card-pinned">
-              <img class="card-img-top" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/300x180/img6.jpg" alt="Image Description">
-              <div class="card-pinned-top-end">
-                <button type="button" class="btn btn-outline-secondary btn-xs btn-icon rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Save for later">
-                  <i class="bi-heart"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="mb-1">
-                <a class="link-sm link-secondary" href="#">Clothing</a>
-              </div>
-              <a class="text-body" href="../demo-shop/product-overview.html">Front Originals adicolor t-shirt with trefoil logo</a>
-              <p class="card-text text-dark">$38.00</p>
-            </div>
-            <div class="card-footer pt-0">
-              <a class="d-inline-flex align-items-center mb-3" href="#">
-                <div class="d-flex gap-1 me-2">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                </div>
-                <span class="small">9</span>
-              </a>
-              <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">Agregar al carrito</button>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card card-bordered shadow-none text-center h-100">
-            <div class="card-pinned">
-              <img class="card-img-top" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/300x180/img7.jpg" alt="Image Description">
-              <div class="card-pinned-top-end">
-                <button type="button" class="btn btn-outline-secondary btn-xs btn-icon rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Save for later">
-                  <i class="bi-heart"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="mb-1">
-                <a class="link-sm link-secondary" href="#">Accessories</a>
-              </div>
-              <a class="text-body" href="../demo-shop/product-overview.html">Front mesh baseball cap with signature logo</a>
-              <p class="card-text text-dark">$8.8</p>
-            </div>
-            <div class="card-footer pt-0">
-              <a class="d-inline-flex align-items-center mb-3" href="#">
-                <div class="d-flex gap-1 me-2">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                </div>
-                <span class="small">9</span>
-              </a>
-              <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">Agragar al carrito</button>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card card-bordered shadow-none text-center h-100">
-            <div class="card-pinned">
-              <img class="card-img-top" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/300x180/img2.jpg" alt="Image Description">
-              <div class="card-pinned-top-end">
-                <button type="button" class="btn btn-outline-secondary btn-xs btn-icon rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Save for later">
-                  <i class="bi-heart"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="mb-1">
-                <a class="link-sm link-secondary" href="#">Clothing</a>
-              </div>
-              <a class="text-body" href="../demo-shop/product-overview.html">Front Originals adicolor t-shirt in gray</a>
-              <p class="card-text text-dark">$24</p>
-            </div>
-            <div class="card-footer pt-0">
-              <a class="d-inline-flex align-items-center mb-3" href="#">
-                <div class="d-flex gap-1 me-2">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                </div>
-                <span class="small">0</span>
-              </a>
-              <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">Agragar al carrito</button>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card card-bordered shadow-none text-center h-100">
-            <div class="card-pinned">
-              <img class="card-img-top" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/300x180/img5.jpg" alt="Image Description">
-
-              <div class="card-pinned-top-end">
-                <button type="button" class="btn btn-outline-secondary btn-xs btn-icon rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Save for later">
-                  <i class="bi-heart"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="mb-1">
-                <a class="link-sm link-secondary" href="#">Clothing</a>
-              </div>
-              <a class="text-body" href="../demo-shop/product-overview.html">COLLUSION Unisex mechanic print t-shirt</a>
-              <p class="card-text text-dark">$43.99</p>
-            </div>
-            <div class="card-footer pt-0">
-              <a class="d-inline-flex align-items-center mb-3" href="#">
-                <div class="d-flex gap-1 me-2">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                </div>
-                <span class="small">35</span>
-              </a>
-              <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">Agragar al carrito</button>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card card-bordered shadow-none text-center h-100">
-            <div class="card-pinned">
-              <img class="card-img-top" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/300x180/img8.jpg" alt="Image Description">
-
-              <div class="card-pinned-top-end">
-                <button type="button" class="btn btn-outline-secondary btn-xs btn-icon rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Save for later">
-                  <i class="bi-heart"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="mb-1">
-                <a class="link-sm link-secondary" href="#">Accessories</a>
-              </div>
-              <a class="text-body" href="../demo-shop/product-overview.html">Billabong Walled snapback in green</a>
-              <p class="card-text text-dark">$12.00</p>
-            </div>
-            <div class="card-footer pt-0">
-              <a class="d-inline-flex align-items-center mb-3" href="#">
-                <div class="d-flex gap-1 me-2">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
-                </div>
-                <span class="small">35</span>
-              </a>
-              <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">Agragar al carrito</button>
-            </div>
-          </div>
-        </div>
+        <?php } ?>
       </div>
       <div class="text-center">
-        <a class="btn btn-outline-primary btn-transition rounded-pill" href="#">Ver todos los productos</a>
+        <a class="btn btn-outline-danger btn-transition rounded-pill" href="#">Ver todos los productos</a>
       </div>
     </div>
     <div class="bg-black">
@@ -933,7 +653,7 @@
                   <label for="subscribeForm" class="form-label visually-hidden">Ingresa tu email</label>
                   <input type="text" class="form-control form-control-lg" id="subscribeForm" placeholder="Ingresa tu email" aria-label="Enter email">
                 </div>
-                <button type="button" class="btn btn-primary btn-lg rounded-pill">Subscribir</button>
+                <button type="button" class="btn btn-danger btn-lg rounded-pill">Subscribir</button>
               </div>
             </form>
             <p class="small text-white">Puedes darte de baja en cualquier momento. Lea nuestra <a href="#">Politica de privacidad</a></p>
@@ -971,22 +691,22 @@
         <div class="col-lg-3 mb-5">
           <div class="d-flex align-items-start flex-column h-100">
             <a class="w-100 mb-3 mb-lg-auto" href="../demo-shop/index.html" aria-label="Front">
-              <img class="brand" src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/logos/logo.svg" alt="Logo">
+              <img class="brand" src="https://www.sosfactory.com/wp-content/uploads/2016/12/icon-restaurant-bolat-min.png" alt="Logo">
             </a>
             <p class="text-muted small mb-0 text-white">&copy; Solutionti. todos los derechos 2023.</p>
           </div>
         </div>
         <div class="col-6 col-md-4 col-lg-3 ms-lg-auto mb-5 mb-lg-0">
-          <h5 class="text-white">Account</h5>
+          <h5 class="text-white">Links</h5>
           <ul class="list-unstyled list-py-1">
-            <li><a class="link-sm text-secondary" href="#">Placing an order</a></li>
-            <li><a class="link-sm text-secondary" href="#">Shipping options</a></li>
+            <li><a class="link-sm text-secondary" href="#">Inicio</a></li>
+            <li><a class="link-sm text-secondary" href="#">Ubicación geografica</a></li>
             <li><a class="link-sm text-secondary" href="#">Tracking a package</a></li>
             <li><a class="link-sm text-secondary" href="#">Country availability</a></li>
           </ul>
         </div>
         <div class="col-6 col-md-4 col-lg-3 mb-5 mb-lg-0">
-          <h5 class="text-white">Company</h5>
+          <h5 class="text-white">Compañía</h5>
           <ul class="list-unstyled list-py-1">
             <li><a class="link-sm text-secondary" href="#">Financing</a></li>
             <li><a class="link-sm text-secondary" href="#">Recycling</a></li>
@@ -994,7 +714,7 @@
           </ul>
         </div>
         <div class="col-md-4 col-lg-2 mb-5 mb-lg-0">
-          <h5 class="mb-3 text-white">Resources</h5>
+          <h5 class="mb-3 text-white">Contacto</h5>
           <ul class="list-unstyled list-py-1">
             <li><a class="link-sm link-secondary" href="#"><i class="bi-question-circle-fill me-1"></i> Help</a></li>
             <li><a class="link-sm link-secondary" href="#"><i class="bi-person-circle me-1"></i> Your Account</a></li>
@@ -1208,7 +928,7 @@
          }
        }
      }'>
-    <i class="bi-chevron-up"></i>
+    <i class="fas fa-chevron-up"></i>
   </a>
   <div class="offcanvas offcanvas-top offcanvas-navbar-search bg-light" tabindex="-1" id="offcanvasNavbarSearch">
     <div class="offcanvas-body">
