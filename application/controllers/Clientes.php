@@ -13,6 +13,7 @@ class Clientes extends CI_Controller {
 		$this->load->model("Ventas_model");
 		$this->load->model("Reportes_model");
 		$this->load->model("Proveedores_model");
+		$this->load->model("Pedidos_model");
 	}
 
     public function index() {
@@ -101,5 +102,14 @@ class Clientes extends CI_Controller {
 	  ]; 
       $this->load->view("ventas/proveedores", $datos);
 	}
+
+	public function pedidos() {
+		$pedidos = $this->Pedidos_model->getPedidos();
+		$data = [
+		  "pedido" => $pedidos
+		];
+		
+		$this->load->view("ventas/pedidos", $data);
+	  }
 
 }

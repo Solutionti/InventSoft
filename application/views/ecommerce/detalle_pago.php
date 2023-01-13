@@ -47,7 +47,7 @@
                   <label for="address" class="">Dirección</label>
                   <input type="text" id="address" class="form-control mb-3">
                   <div class="row">
-                    <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="col-lg-3 col-md-12 mb-4">
                       <label for="country">Departamento</label>
                       <select class="custom-select d-block w-100" id="country" required disabled>
                         <option>TOLIMA</option>
@@ -56,7 +56,7 @@
                         Please select a valid country.
                       </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-3 col-md-6 mb-4">
                       <label for="state">Municipio</label>
                       <select class="custom-select d-block w-100" id="state" required disabled>
                         <option>IBAGUE</option>
@@ -65,12 +65,21 @@
                         Please provide a valid state.
                       </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4">
                       <label for="zip">Sede</label>
-                      <input type="text" class="form-control" id="zip" placeholder="" required>
+                      <select class="custom-select d-block w-100" id="state" required >
+                        <option>SELECCIONA LA SEDE MAS CERCANA A TI</option>
+                        <option>IBAGUE</option>
+                      </select>
                       <div class="invalid-feedback">
                         Zip code required.
                       </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                        <label>¿Alguna sugerencia a tu pedido?</label>
+                      <textarea  rows="3" class="form-control"></textarea>
                     </div>
                   </div>
                   <hr>

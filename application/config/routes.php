@@ -74,8 +74,12 @@ $route["ventas/gananciageneral"] = "reportes/gananciageneral";
 $route["ventas/reportekardex/(:any)/(:any)"] = "reportes/reportekardex/$1/$2";
 $route["ventas/reporteinventario/(:num)"] = "reportes/getinventariototal/$1";
 
+// PEDIDOS
+$route["ventas/pedidos"] = "clientes/pedidos";
+
 // ECOMMERCE
 $route["ecommerce/inicio"] = "ecommerce";
+$route["ecommerce/productoscategoria/(:num)"] = "ecommerce/productosCategoria/$1";
 
 
 
