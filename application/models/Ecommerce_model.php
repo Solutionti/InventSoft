@@ -29,5 +29,16 @@ class Ecommerce_model extends CI_model {
 
       return $result;
     }
+
+    public function getProductoCodigo($codigo) {
+      $this->db->select("p.*, c.nombre as categorias");
+      $this->db->from("productos p");
+      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+      $this->db->where("codigo_producto", $codigo);
+
+      $result = $this->db->get();
+
+      return $result->row();
+    }
 }
 ?>

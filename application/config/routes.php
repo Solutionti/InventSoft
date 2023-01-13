@@ -80,6 +80,8 @@ $route["ventas/pedidos"] = "clientes/pedidos";
 // ECOMMERCE
 $route["ecommerce/inicio"] = "ecommerce";
 $route["ecommerce/productoscategoria/(:num)"] = "ecommerce/productosCategoria/$1";
+$route["ecommerce/getproductocodigo/(:num)"] = "ecommerce/getproductocodigo/$1";
+
 
 
 

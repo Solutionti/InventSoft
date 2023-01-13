@@ -32,4 +32,11 @@ class Ecommerce extends CI_Controller {
     }
 
 
+    public function getProductoCodigo($codigo){
+      $producto = $this->Ecommerce_model->getProductoCodigo($codigo);
+
+      echo json_encode($producto);
+    }
+
+
 }
