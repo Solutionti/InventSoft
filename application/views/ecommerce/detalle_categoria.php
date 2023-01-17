@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos por categoria</title>
-    <link rel="stylesheet" href="<?php echo base_url();?>./public/css/asclepio.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/fontawesome/css/fontawesome.css">
-  <link href="<?php echo base_url(); ?>public/fontawesome/css/brands.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>public/fontawesome/css/solid.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+    <link href="<?php echo base_url(); ?>public/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>public/fontawesome/css/solid.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>public/css/overhang.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
     <link rel="stylesheet" href="https://htmlstream.com/preview/front-v4.2/html/assets/css/vendor.min.css">
     <link rel="stylesheet" href="https://htmlstream.com/preview/front-v4.2/html/assets/css/theme.min.css?v=1.0">
 </head>
-<body class="black">
+<body style="background-color: black;">
 <header id="header" class="navbar navbar-expand-lg navbar-end navbar-light">
     <!-- End Topbar -->
     <div class="container">
@@ -53,7 +53,13 @@
               <button class="btn btn-ghost-secondary btn-sm btn-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarSearch" aria-controls="offcanvasNavbarSearch">
                 <i class="fas fa-search text-white"></i>
               </button>
-              <button type="button" class="btn btn-ghost-secondary btn-sm btn-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarEmptyShoppingCart" aria-controls="offcanvasNavbarEmptyShoppingCart">
+              <button
+                type="button"
+                class="btn btn-ghost-secondary btn-sm btn-icon"
+                data-toggle="modal"
+                data-target="#staticBackdrop"
+                aria-hidden="true" 
+              >
               <i class="fas fa-shopping-basket text-white"></i>
               </button>
               <button class="btn btn-primary btn-transition btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">Rastrear pedido</button>
@@ -176,8 +182,382 @@
       </div>
     </div>
 <div class="container my-5">
-  <section>
-    <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <hr class="w-header my-4 pb-2">
+    <div class="row">
+      <?php foreach($productosc->result() as $productos){ ?>
+        <div class="col-md-3 mb-4">
+          <div class="card card-bordered shadow-none text-center h-100">
+            <div class="card-pinned">
+              <img
+                class="card-img-top img-fluid"
+                src="<?php echo $productos->url_imagen; ?>"
+                alt="Image Description"
+              >
+              <div class="codigo_producto" hidden><?php echo $productos->codigo; ?></div>
+              <div class="card-pinned-top-start">
+                <span class="badge bg-danger rounded-pill"><?php echo $productos->categorias; ?></span>
+              </div>
+              <div class="card-pinned-top-end">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary btn-xs btn-icon rounded-circle"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="Agregar a favoritos"
+                >
+                  <i class="fas fa-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="mb-1">
+                <a class="link-sm link-secondary"><?php echo $productos->categorias; ?></a>
+              </div>
+              <a class="text-body" href="#"><?php echo $productos->nombre; ?></a>
+              <p class="card-text text-dark">$<?php echo $productos->precio; ?></p>
+            </div>
+            <div class="card-footer pt-0">
+              <a class="d-inline-flex align-items-center mb-3" href="#">
+                <div class="d-flex gap-1 me-2">
+                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
+                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
+                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
+                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
+                  <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
+                </div>
+              </a>
+              <a
+                type="button"
+                class="btn btn-outline-danger btn-sm rounded-pill btn_agregar_carrito"
+              >
+                Agregar al carrito
+              </a>
+              <a
+                type="button"
+                class="btn btn-outline-primary btn-sm rounded-pill mt-2"
+                data-toggle="modal"
+                data-target="#basicExampleModal"
+                aria-hidden="true"
+                onclick="getDataModalProduct(<?php echo $productos->codigo_producto; ?>)"
+              >
+                Ver
+              </a>
+            </div>
+          </div>
+        </div>
+        <?php } ?>
+    </div>
+  </section>
+</div>
+<!-- MODAL DEL CARRITO -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">TU CARRITO DE COMPRAS</h1>
+        <button type="button" class="btn-close" class="close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="container my-5 py-3 z-depth-1 rounded">
+<section class="dark-grey-text">
+  <div class="table-responsive">
+  <div class="text-center" id="CarritoVacio">
+
+  </div>
+    <table class="table product-table mb-0" id="sincarrito">
+      <thead class="mdb-color lighten-5">
+        <tr>
+          <th></th>
+          <th class="font-weight-bold">
+            <strong>Producto</strong>
+          </th>
+          
+          <th></th>
+          <th class="font-weight-bold">
+            <strong>Precio</strong>
+          </th>
+          <th class="font-weight-bold">
+            <strong>Cantidad</strong>
+          </th>
+          
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+      
+      </tbody>
+      <tr>
+            <td colspan="3"></td>
+            <td>
+              <h4 class="mt-2">
+                <strong>Total</strong>
+              </h4>
+            </td>
+            <td class="text-right">
+              <h4 class="mt-2">
+                <strong class="itemCartTotal"></strong>
+              </h4>
+            </td>
+            <td colspan="3" class="text-right">
+              <a type="button" class="btn btn-primary btn-rounded btn-sm" data-toggle="modal" data-target="#detalle_pedido">Pasar a pedido
+                <i class="fas fa-angle-right right"></i>
+              </a>
+            </td>
+          </tr>
+    </table>
+  </div>
+</section>
+</div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- DETALLE DEL PEDIDO -->
+<div class="modal fade" id="detalle_pedido" tabindex="-1" aria-labelledby="detalle_pedidoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="detalle_pedidoLabel">PASAR A PEDIDO</h1>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="container mt-5">
+  <section class="dark-grey-text">
+  	<div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-8">
+            <ul class="nav md-pills nav-justified pills-primary font-weight-bold">
+              <li class="nav-item">
+                <a 
+                  class="nav-link active"
+                  data-toggle="tab"
+                  href="#tabCheckoutBilling123"
+                  role="tab"
+                >
+                  1. Datos del envio
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a 
+                  class="nav-link" 
+                  data-toggle="tab" 
+                  href="#tabCheckoutPayment123" 
+                  role="tab"
+                >
+                  2. Pagos
+                </a>
+              </li> -->
+            </ul>
+            <div class="tab-content pt-4">
+              <div class="tab-pane fade in show active" id="tabCheckoutBilling123" role="tabpanel">
+                <form>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="firstName" class="">Nombres (*)</label>
+                      <input 
+                        type="text"
+                        class="form-control "
+                        id="nombres_pedido"
+                        onchange="validarCampos()"
+                      >
+                      <div class="invalid-feedback">
+                        Ingrese su nombre.
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                      <label for="lastName" class="">Apellidos (*)</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="apellidos_pedido"
+                        onchange="validarCampos()"
+                      >
+                      <div class="invalid-feedback">
+                        Ingrese su apellido.
+                      </div>
+                    </div>
+                  </div>
+                  <label for="email" class="">Celular (*)</label>
+                  <input
+                    type="number"
+                    class="form-control mb-2"
+                    id="celular_pedido"
+                    onchange="validarCampos()"
+                  >
+                  <div class="invalid-feedback">
+                    Ingrese su numero de celular.
+                  </div>
+                  <label for="address" class="">Dirección (*)</label>
+                  <input
+                    type="text"
+                    class="form-control mb-2"
+                    id="direccion_pedido"
+                    onchange="validarCampos()"
+                  >
+                  <div class="invalid-feedback">
+                    Ingrese la direccion a llegar el pedido.
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-12 mb-4">
+                      <label for="country">Departamento</label>
+                      <select
+                        class="form-control d-block w-100"
+                        required
+                        disabled
+                        id="departamento_pedido"
+                      >
+                        <option>TOLIMA</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Por favor seleccione el departamento.
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                      <label for="state">Municipio</label>
+                      <select
+                        class="form-control d-block w-100"
+                        required
+                        disabled
+                        id="municipio_pedido"
+                        >
+                        <option>IBAGUE</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Por favor seleccione el municipio.
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 mb-4">
+                      <label for="zip">Sede (*)</label>
+                      <select
+                        class="form-control d-block w-100"
+                        required 
+                        id="sede_pedido"
+                        onchange="validarCampos()"
+                      >
+                        <option value="">SELECCIONA LA SEDE MAS CERCANA A TI</option>
+                        <option value="SEDE PRINCIPAL (BARRIO AMBALA)">SEDE PRINCIPAL (BARRIO AMBALA)</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Por favor seleccione la sede mas cercana.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label>¿Alguna sugerencia a tu pedido?</label>
+                      <textarea
+                        rows="3"
+                        class="form-control"
+                        id="sugerencia_pedido"
+                      ></textarea>
+                    </div>
+                  </div>
+                <div class="d-block my-3">
+                  <h6>¿Como deseas hacer el pago?</h6>
+                  <div class="mb-2">
+                    <input
+                      name="group2"
+                      type="radio"
+                      class="form-check-input with-gap"
+                      id="pago_pedido"
+                      value="NEQUI"
+                      onchange="validarCampos()"
+                    >
+                    <label class="form-check-label" for="pago_pedido">Nequi</label>
+                  </div>
+                  <div class="mb-2">
+                    <input
+                      name="group2"
+                      type="radio"
+                      class="form-check-input with-gap"
+                      id="pago_pedido"
+                      value="BANCARIA"
+                      onchange="validarCampos()"
+                    >
+                    <label class="form-check-label" for="pago_pedido">Transferencia bancaria</label>
+                  </div>
+                  <div class="mb-2">
+                    <input
+                      name="group2"
+                      type="radio"
+                      class="form-check-input with-gap"
+                      id="pago_pedido"
+                      value="CONTRAENTREGA"
+                      onchange="validarCampos()"
+                    >
+                    <label class="form-check-label" for="pago_pedido">Pago contra entrega</label>
+                    <div class="invalid-feedback">
+                      Seleccione metodo de pago.
+                    </div>
+                  </div>
+                </div>
+                  <hr>
+                  <div class="mb-1">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      id="chekboxRules"
+                    >
+                    <label class="form-check-label" for="chekboxRules">Acepto los términos y condiciones</label>
+                  </div>
+                  <div class="mb-1">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      id="safeTheInfo"
+                    >
+                    <label class="form-check-label" for="safeTheInfo">Guarda para la próxima vez</label>
+                  </div>
+                  <hr>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4">
+            <button
+              class="btn btn-primary btn-lg btn-block"
+              type="button"
+              onclick="agragarOrdenPedido()"
+            >
+              Hacer pedido
+            </button>
+            <div class="card z-depth-0 border border-light rounded-0">
+              <div class="card-body">
+                <h4 class="mb-4 mt-1 h5 text-center font-weight-bold text-uppercase">Detalle del pedido</h4>
+                <hr>
+                <dl class="row contenido_detalle" id="contenido_detalle">
+                  <pre>
+                    
+                  </pre>
+                </dl>
+                <hr>
+                <dl class="row">
+                  <dt class="col-sm-8">
+                    Total del pedido
+                  </dt>
+                  <dt class="col-sm-4 itemCartTotalDetalle">
+                    
+                  </dt>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+ <!--  -->
+ <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -190,28 +570,27 @@
                 <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails"
                   data-ride="carousel">
                   <div class="carousel-inner text-center text-md-left" role="listbox">
-                    <div class="carousel-item active">
-                      <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/17.jpg"
-                        alt="First slide" class="img-fluid" width="300px;">
+                    <div class="carousel-item active text-center" id="imagen_producto">
+                      
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-lg-8 text-center text-md-left">
                 <h4
-                  class="h4-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4">
-                  <strong>Sony headphones</strong>
+                  class="h4-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4 " id="text_nombre_producto">
+                  
                 </h4>
-                <span class="badge badge-danger product mb-4 ml-xl-0 ml-4">bestseller</span>
-                <h4 class="h3-responsive text-center text-md-left mb-2 ml-xl-0 ml-4">
-                  <span class="red-text font-weight-bold">
-                    <strong>$49</strong>
+                <span class="text-danger product mb-2 ml-xl-0 ml-4" id="text_categoria_producto"></span>
+                <h4 class="h3-responsive text-center text-md-left  ml-xl-0 ml-4">
+                  <span class="red-text font-weight-bold" id="text_precio_producto">
+                    
                   </span>
-                  <span class="grey-text">
+                  <!-- <span class="grey-text">
                     <small>
                       <s>$89</s>
                     </small>
-                  </span>
+                  </span> -->
                 </h4>
                 <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
                   <div class="card">
@@ -219,72 +598,23 @@
                       <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
                         aria-controls="collapseOne1">
                         <h5 class="mb-0">
-                          Description
+                          Descripción
                           <i class="fas fa-angle-down rotate-icon"></i>
                         </h5>
                       </a>
                     </div>
                     <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
                       data-parent="#accordionEx">
-                      <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                        squid.
-                        3 wolf moon officia aute,
-                        <br>
-                        <div class="form-check form-check-inline">
-                            <input type="checkbox" class="form-check-input" id="materialInline1">
-                            <label class="form-check-label" for="materialInline1">Con papas</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input type="checkbox" class="form-check-input" id="materialInline1">
-                            <label class="form-check-label" for="materialInline1">Sin papas</label>
-                        </div>
-                      </div>
+                      <p class="text-justify" id="text_descripcion_producto">
+                      </p>
                     </div>
                   </div>
-                  
                 </div>
                 <section class="color">
                   <div class="mt-2">
-                    <p class="grey-text">Salsas y adicinales</p>
-                    <div class="row text-center text-md-left">
-                      <div class="col-md-6">
-                        <div class="form-check form-check-inline">
-                          <input type="checkbox" class="form-check-input" id="materialInline1">
-                          <label class="form-check-label" for="materialInline1">Salsa Maiz</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="checkbox" class="form-check-input" id="materialInline1">
-                          <label class="form-check-label" for="materialInline1">Salsa Tomate</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="checkbox" class="form-check-input" id="materialInline1">
-                          <label class="form-check-label" for="materialInline1">Salsa Tartara</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="checkbox" class="form-check-input" id="materialInline1">
-                          <label class="form-check-label" for="materialInline1">Salsa Ajo</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-check form-check-inline">
-                          <input type="checkbox" class="form-check-input" id="materialInline2">
-                          <label class="form-check-label" for="materialInline2">Salsa de piña</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="checkbox" class="form-check-input" id="materialInline2">
-                          <label class="form-check-label" for="materialInline2">Salsa de Mora</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="checkbox" class="form-check-input" id="materialInline2">
-                          <label class="form-check-label" for="materialInline2">Salsa de BBQ</label>
-                        </div>
-                      </div>
-                    </div>
                     <div class="row mt-3">
-                      <div class="col-md-12 text-center text-md-left text-md-right">
-                        <button class="btn btn-primary btn-rounded">
-                          <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Agregar al carrito</button>
+                      <div class="col-md-12 text-center text-md-left text-md-right" id="boton_agregar_carrito">
+                        
                       </div>
                     </div>
                   </div>
@@ -295,47 +625,11 @@
         </div>
       </div>
     </div>
-    <hr class="w-header my-4 pb-2">
-    <div class="row">
-    <?php foreach($productosc->result() as $productoscate){ ?>
-      <div class="col-lg-4 col-md-12">
-        <a class="card z-depth-0 mb-4" data-toggle="modal" data-target="#basicExampleModal">
-          <div class="card-body">
-            <div class="row align-items-center">
-              <div class="col-6 px-0">
-                <img src="<?php echo $productoscate->url_imagen; ?>" class="img-fluid">
-              </div>
-              <div class="col-6">
-                <p class="mb-0"><strong><?php echo $productoscate->nombre; ?></strong></p>
-                <ul class="rating inline-ul">
-                  <li>
-                    <i class="fas fa-star blue-text"></i>
-                  </li>
-                  <li>
-                    <i class="fas fa-star blue-text"></i>
-                  </li>
-                  <li>
-                    <i class="fas fa-star blue-text"></i>
-                  </li>
-                  <li>
-                    <i class="fas fa-star blue-text"></i>
-                  </li>
-                  <li>
-                    <i class="fas fa-star grey-text"></i>
-                  </li>
-                </ul>
-                <h6 class="h6-responsive font-weight-bold dark-grey-text"><strong>$<?php echo $productoscate->precio; ?></strong></h6>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <?php } ?>
-    </div>
-  </section>
-</div>
+
 <script src="<?php echo base_url();?>./public/js/jquery.min.js"></script>
 <script src="<?php echo base_url();?>./public/js/asclepio.min.js"></script>
+<script src="<?php echo base_url(); ?>public/js/scripts/ecommerce.js"></script>
+<script src="<?php echo base_url(); ?>public/js/overhang.min.js"></script>
 <!-- ========== END SECONDARY CONTENTS ========== -->
 
   <!-- JS Implementing Plugins -->
@@ -444,6 +738,9 @@
         )
       })
     })()
+  </script>
+  <script>
+    var baseurl = "<?php echo base_url();?>";
   </script>
 </body>
 </html>

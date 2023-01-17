@@ -1,4 +1,14 @@
 
+const Clickbutton = document.querySelectorAll('.btn_agregar_carrito');
+const tbody = document.querySelector('.tbody');
+const contenido = document.querySelector('.contenido_detalle');
+let carrito = [];
+let totalPedido = 0;
+
+Clickbutton.forEach(btn => {
+  btn.addEventListener('click', agregarCarritoItem)
+});
+
 
 function getDataModalProduct(codigo_producto) {
   var url = baseurl  + "ecommerce/getproductocodigo/" + codigo_producto;
@@ -12,19 +22,11 @@ function getDataModalProduct(codigo_producto) {
       document.getElementById("text_categoria_producto").innerHTML = data.categorias;
       document.getElementById("text_descripcion_producto").innerHTML = data.descripcion;
       document.getElementById("text_precio_producto").innerHTML = '<strong>$'+data.precio+'</strong>';
-      document.getElementById("boton_agregar_carrito").innerHTML = '<button class="btn btn-primary btn-rounded btn-sm" onClick="agregarCarritoCompras('+data.codigo_producto+')"><i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Agregar al carrito</button>';
+      // document.getElementById("boton_agregar_carrito").innerHTML = '<button class="btn btn-primary btn-rounded btn-sm" onClick="agregarCarritoCompras('+data.codigo_producto+')"><i class="fas fa-cart-plus mr-2 btn_agregar_carrito" aria-hidden="true"></i> Agregar al carrito</button>';
       
     }
   })
 }
-
-const Clickbutton = document.querySelectorAll('.btn_agregar_carrito');
-const tbody = document.querySelector('.tbody');
-let carrito = [];
-
-Clickbutton.forEach(btn => {
-  btn.addEventListener('click', agregarCarritoItem)
-});
 
 function agregarCarritoItem(e) {
   const button = e.target;
@@ -32,8 +34,10 @@ function agregarCarritoItem(e) {
   const itemTitle = item.querySelector('.text-body').textContent;
   const itemPrice = item.querySelector('.card-text').textContent;
   const itemImage = item.querySelector('.card-img-top').src;
+  const itemCodigo = item.querySelector('.codigo_producto').textContent;
 
   const newItem = {
+    codigo: itemCodigo,
     title:itemTitle,
     precio: itemPrice,
     img: itemImage,
@@ -41,6 +45,7 @@ function agregarCarritoItem(e) {
   }
   addItemCarrito(newItem)
   validarInfoCarrito()
+  validarinfo()
 }
 
 function addItemCarrito(newItem){
@@ -50,13 +55,22 @@ function addItemCarrito(newItem){
         carrito[i].cantidad ++;
         const inputValue = inputelemento[i];
         inputValue.value ++;
-        carritoTotal()
+        carritoTotal();
+        $("body").overhang({
+          type: "success",
+          message: "Se ha agragado (1)  cantidad al producto " + newItem.title.trim()
+        });
         return null;
       }
   }
   carrito.push(newItem);
-  renderCarrito()
-  validarInfoCarrito()
+  renderCarrito();
+  validarInfoCarrito();
+  validarinfo();
+  $("body").overhang({
+    type: "success",
+    message: "Se ha agregado un producto a tu carrito"
+  });
 }
 
 function renderCarrito(){
@@ -75,18 +89,23 @@ function renderCarrito(){
   })
   carritoTotal()
   validarInfoCarrito()
+  validarinfo()
 }
 
 function carritoTotal(){
   let total = 0;
   const itemCartTotal  = document.querySelector('.itemCartTotal');
+  const itemCartTotalDetalle  = document.querySelector('.itemCartTotalDetalle');
   carrito.forEach((item) => {
     const precio = Number(item.precio.replace("$", ''));
     total = total + precio*item.cantidad
   });
   itemCartTotal.innerHTML = '$' + total;
+  itemCartTotalDetalle.innerHTML = '$' + total;
+  totalPedido = total;
   addLocalStorage()
   validarInfoCarrito()
+  validarinfo()
 }
 
 function removeItemCarrito(e){
@@ -101,8 +120,13 @@ function removeItemCarrito(e){
     }
   }
   tr.remove();
-  carritoTotal()
-  validarInfoCarrito()
+  carritoTotal();
+  validarInfoCarrito();
+  validarinfo();
+  $("body").overhang({
+    type: "error",
+    message: "Se ha quitado el producto de la lista de tu pedido",
+  });
 }
 
 function sumaCantidad(e){
@@ -114,6 +138,7 @@ function sumaCantidad(e){
       sumaInput.value < 1 ? (sumaInput.value = ''): sumaInput.value;
       item.cantidad = sumaInput.value;
       carritoTotal()
+      validarinfo()
     }
   })
 }
@@ -127,6 +152,7 @@ window.onload = function(){
   if(storage){
     carrito = storage;
     renderCarrito()
+    validarinfo()
   }
 }
 
@@ -142,6 +168,200 @@ function validarInfoCarrito() {
     
 }
 validarInfoCarrito();
+
+function validarinfo(){
+  contenido.innerHTML = '';
+  carrito.map(function(item) {
+    var cortar = item.precio.slice(1,15);
+    let total = parseInt(cortar) * parseInt(item.cantidad);
+    const div = document.createElement('pre');
+    const content = `<dd class="col-sm-8">${item.title + ' (' + item.cantidad + ')' } <span>${'$'+total}</span></dd>`;
+    div.innerHTML = content;
+    contenido.append(div);
+  })
+}
+
+function agragarOrdenPedido(){
+  var url = baseurl + "ecommerce/agregarpedido";
+  var nombres = $("#nombres_pedido").val(),
+  apellidos = $("#apellidos_pedido").val(),
+  celular = $("#celular_pedido").val(),
+  direccion = $("#direccion_pedido").val(),
+  departamento = $("#departamento_pedido").val(),
+  municipio = $("#municipio_pedido").val(),
+  sede = $("#sede_pedido").val(),
+  sugerencia = $("#sugerencia_pedido").val(),
+  pago = $('input:radio[name=group2]:checked').val();
+  let productos = [];
+  for (let i = 0; i < carrito.length; i++) {
+    productos [i] = carrito[i];
+  }
+  if($("input[name='group2']:radio").is(':checked')){
+    $.ajax({
+      url: url,
+      method: "POST",
+      data: {
+        nombres: nombres,
+        apellidos: apellidos,
+        celular: celular,
+        direccion: direccion,
+        departamento: departamento,
+        municipio: municipio,
+        sede: sede,
+        sugerencia: sugerencia,
+        pago: pago,
+        total: totalPedido,
+        productos: productos
+      },
+      success: function(){
+        $("body").overhang({
+          type: "success",
+          message: "Gracias por tu compra el pedido se ha enviado correctamente."
+        });
+        setTimeout(reloadPage, 3000);
+      },
+      error: function(){
+        $("body").overhang({
+          type: "error",
+          message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+        });
+      }
+    })
+}
+else {
+  // validar nombre
+  if(nombres === ""){
+    $("#nombres_pedido").removeClass("is-valid");
+    $("#nombres_pedido").addClass("is-invalid");
+  }
+  else {
+    $("#nombres_pedido").removeClass("is-invalid");
+    $("#nombres_pedido").addClass("is-valid");
+  }
+  // validar apellido
+  if(apellidos === ""){
+    $("#apellidos_pedido").removeClass("is-valid");
+    $("#apellidos_pedido").addClass("is-invalid");
+  }
+  else {
+    $("#apellidos_pedido").removeClass("is-invalid");
+    $("#apellidos_pedido").addClass("is-valid");
+  }
+  // validar apellido
+  if(celular === ""){
+    $("#celular_pedido").removeClass("is-valid");
+    $("#celular_pedido").addClass("is-invalid");
+  }
+  else {
+    $("#celular_pedido").removeClass("is-invalid");
+    $("#celular_pedido").addClass("is-valid");
+  }
+  // validar direccion
+  if(direccion === ""){
+    $("#direccion_pedido").removeClass("is-valid");
+    $("#direccion_pedido").addClass("is-invalid");
+  }
+  else {
+    $("#direccion_pedido").removeClass("is-invalid");
+    $("#direccion_pedido").addClass("is-valid");
+  }
+  // sede
+  if(sede === ""){
+    $("#sede_pedido").removeClass("is-valid");
+    $("#sede_pedido").addClass("is-invalid");
+  }
+  else {
+    $("#sede_pedido").removeClass("is-invalid");
+    $("#sede_pedido").addClass("is-valid");
+  }
+  // validar radio button de pago
+  if($("input[name='group2']:radio").is(':checked')){
+    $("#pago_pedido").removeClass("is-invalid");
+    $("#pago_pedido").addClass("is-valid");
+  }
+  else {
+    $("#pago_pedido").removeClass("is-valid");
+    $("#pago_pedido").addClass("is-invalid"); 
+  }
+  $("body").overhang({
+    type: "error",
+    message: "Alerta ! El campo de pago debe seleccionarse",
+  });
+  
+}
+}
+
+function reloadPage() {
+  location.reload();
+}
+
+function validarCampos(){
+  var nombres = $("#nombres_pedido").val(),
+  apellidos = $("#apellidos_pedido").val(),
+  celular = $("#celular_pedido").val(),
+  direccion = $("#direccion_pedido").val(),
+  sede = $("#sede_pedido").val();
+  
+  
+
+  
+  // validar nombre
+  if(nombres === ""){
+    $("#nombres_pedido").removeClass("is-valid");
+    $("#nombres_pedido").addClass("is-invalid");
+  }
+  else {
+    $("#nombres_pedido").removeClass("is-invalid");
+    $("#nombres_pedido").addClass("is-valid");
+  }
+  // validar apellido
+  if(apellidos === ""){
+    $("#apellidos_pedido").removeClass("is-valid");
+    $("#apellidos_pedido").addClass("is-invalid");
+  }
+  else {
+    $("#apellidos_pedido").removeClass("is-invalid");
+    $("#apellidos_pedido").addClass("is-valid");
+  }
+  // validar apellido
+  if(celular === ""){
+    $("#celular_pedido").removeClass("is-valid");
+    $("#celular_pedido").addClass("is-invalid");
+  }
+  else {
+    $("#celular_pedido").removeClass("is-invalid");
+    $("#celular_pedido").addClass("is-valid");
+  }
+  // validar direccion
+  if(direccion === ""){
+    $("#direccion_pedido").removeClass("is-valid");
+    $("#direccion_pedido").addClass("is-invalid");
+  }
+  else {
+    $("#direccion_pedido").removeClass("is-invalid");
+    $("#direccion_pedido").addClass("is-valid");
+  }
+  // sede
+  if(sede === ""){
+    $("#sede_pedido").removeClass("is-valid");
+    $("#sede_pedido").addClass("is-invalid");
+  }
+  else {
+    $("#sede_pedido").removeClass("is-invalid");
+    $("#sede_pedido").addClass("is-valid");
+  }
+  // validar radio button de pago
+  if($("input[name='group2']:radio").is(':checked')){
+    $("#pago_pedido").removeClass("is-invalid");
+    $("#pago_pedido").addClass("is-valid");
+  }
+  else {
+    $("#pago_pedido").removeClass("is-valid");
+    $("#pago_pedido").addClass("is-invalid");
+    
+  }
+}
+
 
 
 

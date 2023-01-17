@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda virtual</title>
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/fontawesome/css/fontawesome.css">
-  <link href="<?php echo base_url(); ?>public/fontawesome/css/brands.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>public/fontawesome/css/solid.css" rel="stylesheet">
-  
+    <link href="<?php echo base_url(); ?>public/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>public/fontawesome/css/solid.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>public/css/overhang.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
     <link rel="stylesheet" href="https://htmlstream.com/preview/front-v4.2/html/assets/css/vendor.min.css">
     <link rel="stylesheet" href="https://htmlstream.com/preview/front-v4.2/html/assets/css/theme.min.css?v=1.0">
@@ -101,7 +101,8 @@
                 type="button"
                 data-toggle="modal"
                 data-target="#staticBackdrop"
-                aria-hidden="true">
+                aria-hidden="true"
+                >
               <i class="fas fa-shopping-basket text-white"></i>
               </button>
               <button class="btn btn-primary btn-transition btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">Rastrear pedido</button>
@@ -370,6 +371,7 @@
                 src="<?php echo $productos->url_imagen; ?>"
                 alt="Image Description"
               >
+              <div class="codigo_producto" hidden><?php echo $productos->codigo; ?></div>
               <div class="card-pinned-top-start">
                 <span class="badge bg-danger rounded-pill"><?php echo $productos->categorias; ?></span>
               </div>
@@ -387,13 +389,13 @@
             </div>
             <div class="card-body">
               <div class="mb-1">
-                <a class="link-sm link-secondary" href="#"><?php echo $productos->categorias; ?></a>
+                <a class="link-sm link-secondary"><?php echo $productos->categorias; ?></a>
               </div>
               <a class="text-body" href="#"><?php echo $productos->nombre; ?></a>
               <p class="card-text text-dark">$<?php echo $productos->precio; ?></p>
             </div>
             <div class="card-footer pt-0">
-              <!-- <a class="d-inline-flex align-items-center mb-3" href="#">
+              <a class="d-inline-flex align-items-center mb-3" href="#">
                 <div class="d-flex gap-1 me-2">
                   <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
                   <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
@@ -401,8 +403,7 @@
                   <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
                   <img src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
                 </div>
-                <span class="small">0</span>
-              </a> -->
+              </a>
               <a
                 type="button"
                 class="btn btn-outline-danger btn-sm rounded-pill btn_agregar_carrito"
@@ -548,17 +549,7 @@
               </p>
             </div>
             <div class="d-grid gap-2">
-              <a class="btn btn-white btn-lg" href="#">
-                <span class="d-flex justify-content-center align-items-center">
-                  <img class="avatar avatar-xss me-2" src="../assets/svg/brands/google-icon.svg" alt="Image Description">
-                  Log in with Google
-                </span>
-              </a>
-
-              <a class="js-animation-link btn btn-primary btn-lg" href="#" data-hs-show-animation-options='{
-                       "targetSelector": "#signupModalFormLoginWithEmail",
-                       "groupName": "idForm"
-                     }'>Log in with Email</a>
+             
             </div>
           </div>
           <div id="signupModalFormLoginWithEmail" style="display: none; opacity: 0;">
@@ -595,107 +586,93 @@
               </div>
             </form>
           </div>
+          <!--  -->
+          style
           <div id="signupModalFormSignup">
-            <div class="text-center mb-7">
-              <h2>Sign up</h2>
-              <p>Already have an account?
-                <a class="js-animation-link link" href="javascript:;" role="button" data-hs-show-animation-options='{
-                         "targetSelector": "#signupModalFormLogin",
-                         "groupName": "idForm"
-                       }'>Log in</a>
-              </p>
+            <div class="text-center mb-3">
+              <h2>Rastrea tu pedido</h2>
+              <p>Con tu numero de celular puedes saber el estado de tu pedido</p>
+              <input type="text" class="form-control" placeholder="Ingresa tu numero de celular">
             </div>
             <div class="d-grid gap-3">
-              <a class="btn btn-white btn-lg" href="#">
-                <span class="d-flex justify-content-center align-items-center">
-                  <img class="avatar avatar-xss me-2" src="../assets/svg/brands/google-icon.svg" alt="Image Description">
-                  Sign up with Google
-                </span>
-              </a>
-              <a class="js-animation-link btn btn-primary btn-lg" href="#" data-hs-show-animation-options='{
-                       "targetSelector": "#signupModalFormSignupWithEmail",
-                       "groupName": "idForm"
-                     }'>Sign up with Email</a>
-
-              <div class="text-center">
+              <h3 class="text-center">ORDEN DE PEDIDO</h3>
+              <!-- <div class="text-center">
                 <p class="small mb-0">By continuing you agree to our <a href="#">Terms and Conditions</a></p>
+              </div> -->
+              <div class="row">
+                
+<div class="toggle">
+    <span>☀️</span>
+    <input type="checkbox" id="toggle-switch" />
+    <label for="toggle-switch"></label>
+    <span>🌙</span>
+</div>
+<div class="main-container">
+    <div class="steps-container">
+        <div class="step completed">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+            </svg>
+            <div class="label completed">
+                Prospect
+            </div>
+            <div class="icon completed">
+                <i class="far fa-handshake"></i>
+            </div>
+        </div>
+        <div class="line completed"></div>
+        <div class="step completed">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+            </svg>
+            <div class="label completed">
+                Tour
+            </div>
+            <div class="icon completed">
+                <i class="far fa-map"></i>
+            </div>
+        </div>
+        <div class="line next-step-in-progress">
+        </div>
+        <div class="step in-progress">
+            <div class="preloader"></div>
+            <div class="label loading">
+                Offer
+            </div>
+            <div class="icon in-progress">
+                <i class="far fa-money-bill-alt"></i>
+            </div>
+        </div>
+        <div class="line prev-step-in-progress"></div>
+        <div class="step">
+            <div class="label">
+                Contract
+            </div>
+            <div class="icon">
+                <i class="far fa-newspaper"></i>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="step">
+            <div class="label">
+                Settled
+            </div>
+            <div class="icon">
+                <i class="fas fa-home"></i>
+            </div>
+        </div>
+    </div>
+</div>
               </div>
             </div>
-          </div>
-          <div id="signupModalFormSignupWithEmail" style="display: none; opacity: 0;">
-            <div class="text-center mb-7">
-              <h2>Sign up</h2>
-              <p>Already have an account?
-                <a class="js-animation-link link" href="javascript:;" role="button" data-hs-show-animation-options='{
-                         "targetSelector": "#signupModalFormLogin",
-                         "groupName": "idForm"
-                       }'>Log in</a>
-              </p>
-            </div>
-            <form class="js-validate need-validate" novalidate>
-              <div class="mb-3">
-                <label class="form-label" for="signupModalFormSignupEmail">Your email</label>
-                <input type="email" class="form-control form-control-lg" name="email" id="signupModalFormSignupEmail" placeholder="email@site.com" aria-label="email@site.com" required>
-                <span class="invalid-feedback">Please enter a valid email address.</span>
-              </div>
-              <div class="mb-3">
-                <label class="form-label" for="signupModalFormSignupPassword">Password</label>
-                <input type="password" class="form-control form-control-lg" name="password" id="signupModalFormSignupPassword" placeholder="8+ characters required" aria-label="8+ characters required" required>
-                <span class="invalid-feedback">Your password is invalid. Please try again.</span>
-              </div>
-              <div class="mb-3" data-hs-validation-validate-class>
-                <label class="form-label" for="signupModalFormSignupConfirmPassword">Confirm password</label>
-                <input type="password" class="form-control form-control-lg" name="confirmPassword" id="signupModalFormSignupConfirmPassword" placeholder="8+ characters required" aria-label="8+ characters required" required data-hs-validation-equal-field="#signupModalFormSignupPassword">
-                <span class="invalid-feedback">Password does not match the confirm password.</span>
-              </div>
-              <div class="d-grid mb-3">
-                <button type="submit" class="btn btn-primary form-control-lg">Sign up</button>
-              </div>
-              <div class="text-center">
-                <p class="small mb-0">By continuing you agree to our <a href="#">Terms and Conditions</a></p>
-              </div>
-            </form>
-          </div>
-          <div id="signupModalFormResetPassword" style="display: none; opacity: 0;">
-            <div class="text-center mb-7">
-              <h2>Forgot password?</h2>
-              <p>Enter the email address you used when you joined and we'll send you instructions to reset your password.</p>
-            </div>
-            <form class="js-validate need-validate" novalidate>
-              <div class="mb-3">
-                <div class="d-flex justify-content-between align-items-center">
-                  <label class="form-label" for="signupModalFormResetPasswordEmail" tabindex="0">Your email</label>
-                  <a class="js-animation-link form-label-link" href="javascript:;" data-hs-show-animation-options='{
-                         "targetSelector": "#signupModalFormLogin",
-                         "groupName": "idForm"
-                       }'>
-                    <i class="bi-chevron-left small"></i> Back to Log in
-                  </a>
-                </div>
-                <input type="email" class="form-control form-control-lg" name="email" id="signupModalFormResetPasswordEmail" tabindex="1" placeholder="Enter your email address" aria-label="Enter your email address" required>
-                <span class="invalid-feedback">Please enter a valid email address.</span>
-              </div>
-              <div class="d-grid">
-                <button type="submit" class="btn btn-primary form-control-lg">Submit</button>
-              </div>
-            </form>
           </div>
         </div>
         <div class="modal-footer d-block text-center py-sm-5">
-          <small class="text-cap mb-4">Trusted by the world's best teams</small>
+          <small class="text-cap mb-4">Papas locas Ibague</small>
           <div class="w-85 mx-auto">
             <div class="row justify-content-between">
               <div class="col">
                 <img class="img-fluid" src="../assets/svg/brands/gitlab-gray.svg" alt="Logo">
-              </div>
-              <div class="col">
-                <img class="img-fluid" src="../assets/svg/brands/fitbit-gray.svg" alt="Logo">
-              </div>
-              <div class="col">
-                <img class="img-fluid" src="../assets/svg/brands/flow-xo-gray.svg" alt="Logo">
-              </div>
-              <div class="col">
-                <img class="img-fluid" src="../assets/svg/brands/layar-gray.svg" alt="Logo">
               </div>
             </div>
           </div>
@@ -761,7 +738,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">PEDIDO AGREGADO AL CARRITO</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">TU CARRITO DE COMPRAS</h1>
         <button type="button" class="btn-close" class="close" data-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -916,211 +893,206 @@
                   1. Datos del envio
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a 
-                  class="nav-link disabled" 
+                  class="nav-link" 
                   data-toggle="tab" 
                   href="#tabCheckoutPayment123" 
                   role="tab"
                 >
                   2. Pagos
                 </a>
-              </li>
+              </li> -->
             </ul>
             <div class="tab-content pt-4">
               <div class="tab-pane fade in show active" id="tabCheckoutBilling123" role="tabpanel">
                 <form>
                   <div class="row">
                     <div class="col-md-6 mb-3">
-                      <label for="firstName" class="">Nombres</label>
-                      <input type="text" id="firstName" class="form-control">
+                      <label for="firstName" class="">Nombres (*)</label>
+                      <input 
+                        type="text"
+                        class="form-control "
+                        id="nombres_pedido"
+                        onchange="validarCampos()"
+                      >
+                      <div class="invalid-feedback">
+                        Ingrese su nombre.
+                      </div>
                     </div>
                     <div class="col-md-6 mb-2">
-                      <label for="lastName" class="">Apellidos</label>
-                      <input type="text" id="lastName" class="form-control">
+                      <label for="lastName" class="">Apellidos (*)</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="apellidos_pedido"
+                        onchange="validarCampos()"
+                      >
+                      <div class="invalid-feedback">
+                        Ingrese su apellido.
+                      </div>
                     </div>
                   </div>
-                  <div class="input-group mb-4" hidden>
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="basic-addon1">@</span>
-                    </div>
-                    <input type="text" class="form-control py-0" placeholder="Username" aria-describedby="basic-addon1">
+                  <label for="email" class="">Celular (*)</label>
+                  <input
+                    type="number"
+                    class="form-control mb-2"
+                    id="celular_pedido"
+                    onchange="validarCampos()"
+                  >
+                  <div class="invalid-feedback">
+                    Ingrese su numero de celular.
                   </div>
-                  <label for="email" class="">Celular</label>
-                  <input type="text" id="email" class="form-control mb-3">
-
-                  <label for="address" class="">Dirección</label>
-                  <input type="text" id="address" class="form-control mb-3">
+                  <label for="address" class="">Dirección (*)</label>
+                  <input
+                    type="text"
+                    class="form-control mb-2"
+                    id="direccion_pedido"
+                    onchange="validarCampos()"
+                  >
+                  <div class="invalid-feedback">
+                    Ingrese la direccion a llegar el pedido.
+                  </div>
                   <div class="row">
                     <div class="col-lg-3 col-md-12 mb-4">
                       <label for="country">Departamento</label>
-                      <select class="custom-select d-block w-100" id="country" required disabled>
+                      <select
+                        class="form-control d-block w-100"
+                        required
+                        disabled
+                        id="departamento_pedido"
+                      >
                         <option>TOLIMA</option>
                       </select>
                       <div class="invalid-feedback">
-                        Please select a valid country.
+                        Por favor seleccione el departamento.
                       </div>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-4">
                       <label for="state">Municipio</label>
-                      <select class="custom-select d-block w-100" id="state" required disabled>
+                      <select
+                        class="form-control d-block w-100"
+                        required
+                        disabled
+                        id="municipio_pedido"
+                        >
                         <option>IBAGUE</option>
                       </select>
                       <div class="invalid-feedback">
-                        Please provide a valid state.
+                        Por favor seleccione el municipio.
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-6 mb-4">
-                      <label for="zip">Sede</label>
-                      <select class="custom-select d-block w-100" id="state" required >
-                        <option>SELECCIONA LA SEDE MAS CERCANA A TI</option>
-                        <option>IBAGUE</option>
+                      <label for="zip">Sede (*)</label>
+                      <select
+                        class="form-control d-block w-100"
+                        required 
+                        id="sede_pedido"
+                        onchange="validarCampos()"
+                      >
+                        <option value="">SELECCIONA LA SEDE MAS CERCANA A TI</option>
+                        <option value="SEDE PRINCIPAL (BARRIO AMBALA)">SEDE PRINCIPAL (BARRIO AMBALA)</option>
                       </select>
                       <div class="invalid-feedback">
-                        Zip code required.
+                        Por favor seleccione la sede mas cercana.
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                        <label>¿Alguna sugerencia a tu pedido?</label>
-                      <textarea  rows="3" class="form-control"></textarea>
+                      <label>¿Alguna sugerencia a tu pedido?</label>
+                      <textarea
+                        rows="3"
+                        class="form-control"
+                        id="sugerencia_pedido"
+                      ></textarea>
                     </div>
                   </div>
+                <div class="d-block my-3">
+                  <h6>¿Como deseas hacer el pago?</h6>
+                  <div class="mb-2">
+                    <input
+                      name="group2"
+                      type="radio"
+                      class="form-check-input with-gap"
+                      id="pago_pedido"
+                      value="NEQUI"
+                      onchange="validarCampos()"
+                    >
+                    <label class="form-check-label" for="pago_pedido">Nequi</label>
+                  </div>
+                  <div class="mb-2">
+                    <input
+                      name="group2"
+                      type="radio"
+                      class="form-check-input with-gap"
+                      id="pago_pedido"
+                      value="BANCARIA"
+                      onchange="validarCampos()"
+                    >
+                    <label class="form-check-label" for="pago_pedido">Transferencia bancaria</label>
+                  </div>
+                  <div class="mb-2">
+                    <input
+                      name="group2"
+                      type="radio"
+                      class="form-check-input with-gap"
+                      id="pago_pedido"
+                      value="CONTRAENTREGA"
+                      onchange="validarCampos()"
+                    >
+                    <label class="form-check-label" for="pago_pedido">Pago contra entrega</label>
+                    <div class="invalid-feedback">
+                      Seleccione metodo de pago.
+                    </div>
+                  </div>
+                </div>
                   <hr>
                   <div class="mb-1">
-                    <input type="checkbox" class="form-check-input filled-in" id="chekboxRules">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      id="chekboxRules"
+                    >
                     <label class="form-check-label" for="chekboxRules">Acepto los términos y condiciones</label>
                   </div>
                   <div class="mb-1">
-                    <input type="checkbox" class="form-check-input filled-in" id="safeTheInfo">
-                    <label class="form-check-label" for="safeTheInfo">Guarda esta información para la próxima vez</label>
-                  </div>
-                  <div class="mb-1">
-                    <input type="checkbox" class="form-check-input filled-in" id="subscribeNewsletter">
-                    <label class="form-check-label" for="subscribeNewsletter">Crearte como usuario</label>
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      id="safeTheInfo"
+                    >
+                    <label class="form-check-label" for="safeTheInfo">Guarda para la próxima vez</label>
                   </div>
                   <hr>
-                  <button class="btn btn-primary btn-lg btn-block" type="submit">Proximo paso</button>
                 </form>
-              </div>
-              <div class="tab-pane fade" id="tabCheckoutAddons123" role="tabpanel">
-                <div class="row">
-                  <div class="col-md-5 mb-4">
-                    <img src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" class="img-fluid z-depth-1-half"
-                      alt="Second sample image">
-                  </div>
-                  <div class="col-md-7 mb-4">
-                    <h5 class="mb-3 h5">Additional premium support</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, ea ut aperiam corrupti,
-                      dolorem.</p>
-                    <select class="mdb-select colorful-select dropdown-info">
-                      <option value="" disabled>Choose a period of time</option>
-                      <option value="1" selected>+6 months : 200$</option>
-                      <option value="2">+12 months: 400$</option>
-                      <option value="3">+18 months: 800$</option>
-                      <option value="4">+24 months: 1200$</option>
-                    </select>
-                    <button type="button" class="btn btn-primary btn-md">Add premium support to the cart</button>
-                  </div>
-                </div>
-                <hr class="mb-5">
-                <div class="row">
-                  <div class="col-md-5 mb-4">
-                    <img src="https://mdbootstrap.com/img/Photos/Others/images/44.jpg" class="img-fluid z-depth-1-half"
-                      alt="Second sample image">
-                  </div>
-                  <div class="col-md-7 mb-4">
-                    <h5 class="mb-3 h5">MDB Membership</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, ea ut aperiam corrupti,
-                      dolorem.</p>
-                    <select class="mdb-select colorful-select dropdown-info">
-                      <option value="" disabled>Choose a period of time</option>
-                      <option value="1" selected>+6 months : 200$</option>
-                      <option value="2">+12 months: 400$</option>
-                      <option value="3">+18 months: 800$</option>
-                      <option value="4">+24 months: 1200$</option>
-                    </select>
-                    <button type="button" class="btn btn-primary btn-md">Add MDB Membership to the cart</button>
-                  </div>
-                </div>
-                <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Next step</button>
-              </div>
-              <div class="tab-pane fade" id="tabCheckoutPayment123" role="tabpanel">
-                <div class="d-block my-3">
-                  <div class="mb-2">
-                    <input name="group2" type="radio" class="form-check-input with-gap" id="radioWithGap4" checked
-                      required>
-                    <label class="form-check-label" for="radioWithGap4">Nequi</label>
-                  </div>
-                  <div class="mb-2">
-                    <input iname="group2" type="radio" class="form-check-input with-gap" id="radioWithGap5"
-                      required>
-                    <label class="form-check-label" for="radioWithGap5">Transferencia bancaria</label>
-                  </div>
-                  <div class="mb-2">
-                    <input name="group2" type="radio" class="form-check-input with-gap" id="radioWithGap6" required>
-                    <label class="form-check-label" for="radioWithGap6">Pago contra entrega</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 mb-3">
-                    <label for="cc-name123">Name on card</label>
-                    <input type="text" class="form-control" id="cc-name123" placeholder="" required>
-                    <small class="text-muted">Full name as displayed on card</small>
-                    <div class="invalid-feedback">
-                      Name on card is required
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="cc-number123">Credit card number</label>
-                    <input type="text" class="form-control" id="cc-number123" placeholder="" required>
-                    <div class="invalid-feedback">
-                      Credit card number is required
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-3 mb-3">
-                    <label for="cc-expiration123">Expiration</label>
-                    <input type="text" class="form-control" id="cc-expiration123" placeholder="" required>
-                    <div class="invalid-feedback">
-                      Expiration date required
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-3">
-                    <label for="cc-cvv123">CVV</label>
-                    <input type="text" class="form-control" id="cc-cvv123" placeholder="" required>
-                    <div class="invalid-feedback">
-                      Security code required
-                    </div>
-                  </div>
-                </div>
-                <hr class="mb-4">
               </div>
             </div>
           </div>
           <div class="col-lg-4 mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">hacer pedido</button>
+            <button
+              class="btn btn-primary btn-lg btn-block"
+              type="button"
+              onclick="agragarOrdenPedido()"
+            >
+              Hacer pedido
+            </button>
             <div class="card z-depth-0 border border-light rounded-0">
               <div class="card-body">
                 <h4 class="mb-4 mt-1 h5 text-center font-weight-bold text-uppercase">Detalle del pedido</h4>
                 <hr>
-                <dl class="row">
-                  <dd class="col-sm-8" id="producto_detalle">
+                <dl class="row contenido_detalle" id="contenido_detalle">
+                  <pre>
                     
-                  </dd>
-                  <dd class="col-sm-4" id="precio_detalle">
-                  </dd>
+                  </pre>
                 </dl>
                 <hr>
                 <dl class="row">
                   <dt class="col-sm-8">
                     Total del pedido
                   </dt>
-                  <dt class="col-sm-4">
-                    $ 2000
+                  <dt class="col-sm-4 itemCartTotalDetalle">
+                    
                   </dt>
                 </dl>
               </div>
@@ -1235,6 +1207,7 @@
     var baseurl = "<?php echo base_url();?>";
   </script>
   <script src="<?php echo base_url(); ?>public/js/scripts/ecommerce.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/overhang.min.js"></script>
   <script>
     $(document).ready(function() {
 	$('.mdb-select').material_select();

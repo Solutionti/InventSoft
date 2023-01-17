@@ -38,5 +38,46 @@ class Ecommerce extends CI_Controller {
       echo json_encode($producto);
     }
 
+    public function agregarPedido(){
+      $productos = $this->input->post("productos");
+      $nombres = $this->input->post("nombres");
+      $apellidos = $this->input->post("apellidos");
+      $celular = $this->input->post("celular");
+      $direccion = $this->input->post("direccion");
+      $departamento = $this->input->post("departamento");
+      $municipio = $this->input->post("municipio");
+      $sede = $this->input->post("sede");
+      $sugerencia = $this->input->post("sugerencia");
+      $pago = $this->input->post("pago");
+      $total = $this->input->post("total");
+      $consecutivo = $this->Ecommerce_model->ultimoConsecutivo()->consecutivo + 1;
+
+      $datos = [
+        "nombres" => $nombres,
+        "apellidos" => $apellidos,
+        "celular" => $celular,
+        "direccion" => $direccion,
+        "departamento" => $departamento,
+        "municipio" => $municipio,
+        "sede" => $sede,
+        "sugerencia" => $sugerencia,
+        "pago" => $pago,
+        "total" => $total,
+        "consecutivo" => $consecutivo
+      ];
+
+      $this->Ecommerce_model->agregarPedido($datos);
+
+      for($i=0; $i < sizeof($productos); $i++) {
+        $data2 = [
+          "consecutivo" => $consecutivo,
+          "productos" => $productos[$i]["codigo"],
+          "cantidad" => $productos[$i]["cantidad"]
+        ];
+        $this->Ecommerce_model->agregarDetallePedido($data2);
+      }
+      
+    }
+
 
 }

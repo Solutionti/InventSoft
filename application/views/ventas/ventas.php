@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buen viaje - Ventas</title>
+    <title>InventSoft - Ventas</title>
     <?php require_once("componentes/head.php"); ?>
 </head>
-<body class="g-sidenav-show bg-gray-100">
+<body style="background-color: black !important;">
 <?php $estadocajas = $estadocaja->result()[0]; ?>
-  <div class="position-absolute w-100 min-height-300 top-0 bg-default" style="background-image: url(''); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%">
-    <span class="mask bg-default opacity-6"></span>
+  <div class="position-absolute w-100 min-height-300 top-0 " style="background-image: url(''); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%">
+    <span class=""></span>
   </div>
   <div class="main-content position-relative max-height-vh-100 h-100">
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="<?php echo base_url(); ?>clientes/inicio">Buen Viaje</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="<?php echo base_url(); ?>clientes/inicio">InventSoft</a></li>
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Ventas</li>
           </ol>
           
@@ -203,7 +203,7 @@
                   <div class="row mt-3">
                     <div class="table-responsive">
                       <table class="table table-stripped table-hover">
-                        <thead class="bg-default ">
+                        <thead style="background-color: black !important;">
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12"></th>
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Producto</th>
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>
@@ -219,16 +219,16 @@
                 <div class="col-md-4 mb-4">
                   <div class="card card-pricing">
                     <div
-                      class="card-header bg-gradient-light text-center pt-4 pb-5 position-relative"
+                      class="card-header bg-gradient-dark text-center pt-4 pb-5 position-relative"
                     >
                       <div class="z-index-1 position-relative">
-                        <h5 class="text-black">TOTAL VENTA</h5>
-                        <h1 class="text-black mt-2 mb-0" id="ventaa">
+                        <h5 class="text-white">TOTAL VENTA</h5>
+                        <h1 class="text-white mt-2 mb-0" id="ventaa">
                         <small id="total-compra">$ </small>0
                         </h1>
-                        <h6 class="text-black">TOTAL DEVOLVER</h6>
+                        <h6 class="text-white">TOTAL DEVOLVER</h6>
                         <div id="volver">
-                          <h3 class="text-black" id="devolver">0</h3>
+                          <h3 class="text-white" id="devolver">0</h3>
                         </div>
                       </div>
                     </div>

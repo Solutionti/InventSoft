@@ -40,5 +40,40 @@ class Ecommerce_model extends CI_model {
 
       return $result->row();
     }
+
+    public function agregarPedido($data) {
+      $datos = [
+        "consecutivo" => "PED".$data["consecutivo"],
+        "documento" => "FACTURA",
+        "sede" => $data["sede"],
+        "tppago" => $data["pago"],
+        "total" => $data["total"],
+        "fecha" => date("Y-m-d"),
+        "hora" => date("h: i A"),
+        "codigo_cliente" => $data["celular"],
+        "comentario" => $data["sugerencia"],
+        "estado" => "PEDIDO"
+      ];
+      $this->db->insert("pedidos", $datos);
+    }
+
+    public function agregarDetallePedido($data){
+      $datos = [
+        "codigo_pedido" => "PED".$data["consecutivo"],
+        "codigo_producto" => $data["productos"],
+        "fecha" => date("Y-m-d"),
+        "hora" => date("h: i A"),
+        "cantidad" => $data["cantidad"]
+      ];
+      $this->db->insert("detalle_pedido", $datos);
+    }
+
+    public function ultimoConsecutivo() {
+      $this->db->select("MAX(codigo_pedido) as consecutivo");
+      $this->db->from("pedidos");
+      $result = $this->db->get();
+
+      return $result->row();
+    }
 }
 ?>
