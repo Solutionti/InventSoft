@@ -538,56 +538,6 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div id="signupModalFormLogin" style="display: none; opacity: 0;">
-            <div class="text-center mb-7">
-              <h2>Log in</h2>
-              <p>Don't have an account yet?
-                <a class="js-animation-link link" href="javascript:;" role="button" data-hs-show-animation-options='{
-                         "targetSelector": "#signupModalFormSignup",
-                         "groupName": "idForm"
-                       }'>Sign up</a>
-              </p>
-            </div>
-            <div class="d-grid gap-2">
-             
-            </div>
-          </div>
-          <div id="signupModalFormLoginWithEmail" style="display: none; opacity: 0;">
-            <div class="text-center mb-7">
-              <h2>Log in</h2>
-              <p>Don't have an account yet?
-                <a class="js-animation-link link" href="javascript:;" role="button" data-hs-show-animation-options='{
-                         "targetSelector": "#signupModalFormSignup",
-                         "groupName": "idForm"
-                       }'>Sign up</a>
-              </p>
-            </div>
-            <form class="js-validate needs-validation" novalidate>
-              <div class="mb-3">
-                <label class="form-label" for="signupModalFormLoginEmail">Your email</label>
-                <input type="email" class="form-control form-control-lg" name="email" id="signupModalFormLoginEmail" placeholder="email@site.com" aria-label="email@site.com" required>
-                <span class="invalid-feedback">Please enter a valid email address.</span>
-              </div>
-              <div class="mb-3">
-                <div class="d-flex justify-content-between align-items-center">
-                  <label class="form-label" for="signupModalFormLoginPassword">Password</label>
-
-                  <a class="js-animation-link form-label-link" href="javascript:;" data-hs-show-animation-options='{
-                       "targetSelector": "#signupModalFormResetPassword",
-                       "groupName": "idForm"
-                     }'>Forgot Password?</a>
-                </div>
-
-                <input type="password" class="form-control form-control-lg" name="password" id="signupModalFormLoginPassword" placeholder="8+ characters required" aria-label="8+ characters required" required minlength="8">
-                <span class="invalid-feedback">Please enter a valid password.</span>
-              </div>
-              <div class="d-grid mb-3">
-                <button type="submit" class="btn btn-primary form-control-lg">Log in</button>
-              </div>
-            </form>
-          </div>
-          <!--  -->
-          style
           <div id="signupModalFormSignup">
             <div class="text-center mb-3">
               <h2>Rastrea tu pedido</h2>
@@ -600,69 +550,6 @@
                 <p class="small mb-0">By continuing you agree to our <a href="#">Terms and Conditions</a></p>
               </div> -->
               <div class="row">
-                
-<div class="toggle">
-    <span>☀️</span>
-    <input type="checkbox" id="toggle-switch" />
-    <label for="toggle-switch"></label>
-    <span>🌙</span>
-</div>
-<div class="main-container">
-    <div class="steps-container">
-        <div class="step completed">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
-            </svg>
-            <div class="label completed">
-                Prospect
-            </div>
-            <div class="icon completed">
-                <i class="far fa-handshake"></i>
-            </div>
-        </div>
-        <div class="line completed"></div>
-        <div class="step completed">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
-            </svg>
-            <div class="label completed">
-                Tour
-            </div>
-            <div class="icon completed">
-                <i class="far fa-map"></i>
-            </div>
-        </div>
-        <div class="line next-step-in-progress">
-        </div>
-        <div class="step in-progress">
-            <div class="preloader"></div>
-            <div class="label loading">
-                Offer
-            </div>
-            <div class="icon in-progress">
-                <i class="far fa-money-bill-alt"></i>
-            </div>
-        </div>
-        <div class="line prev-step-in-progress"></div>
-        <div class="step">
-            <div class="label">
-                Contract
-            </div>
-            <div class="icon">
-                <i class="far fa-newspaper"></i>
-            </div>
-        </div>
-        <div class="line"></div>
-        <div class="step">
-            <div class="label">
-                Settled
-            </div>
-            <div class="icon">
-                <i class="fas fa-home"></i>
-            </div>
-        </div>
-    </div>
-</div>
               </div>
             </div>
           </div>

@@ -76,7 +76,7 @@ $("#codigo_barras").on("change", function() {
     var recibio = parseInt($("#recibio").val()),
         total = parseInt($("#total").val());
         $("#devolver").attr("hidden", true);
-        document.getElementById("volver").innerHTML = '<h2 class="text-black text-uppercase">'+ (recibio - total).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})+'</h2>';
+        document.getElementById("volver").innerHTML = '<h2 class="text-white text-uppercase">'+ (recibio - total).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})+'</h2>';
  });
 
 $("#buscar-producto").on("click", function () {

@@ -302,9 +302,6 @@ function validarCampos(){
   direccion = $("#direccion_pedido").val(),
   sede = $("#sede_pedido").val();
   
-  
-
-  
   // validar nombre
   if(nombres === ""){
     $("#nombres_pedido").removeClass("is-valid");

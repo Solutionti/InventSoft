@@ -66,8 +66,15 @@ class Ecommerce extends CI_Controller {
         "consecutivo" => $consecutivo
       ];
 
-      $this->Ecommerce_model->agregarPedido($datos);
+      $datos2 = [
+        "nombres" => $nombres,
+        "apellidos" => $apellidos,
+        "celular" => $celular,
+        "direccion" => $direccion,
+      ];
 
+      $this->Ecommerce_model->agregarPedido($datos);
+      $this->Ecommerce_model->agregarCliente($datos2);
       for($i=0; $i < sizeof($productos); $i++) {
         $data2 = [
           "consecutivo" => $consecutivo,

@@ -63,7 +63,7 @@
                <table class="table table-responsive table-hover">
                  <thead style="background-color: black !important;">
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>
+                   <!-- <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th> -->
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Consecutivo</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Tipo pago</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Total</th>
@@ -78,28 +78,41 @@
                      <td>
                        <div class="row">
                          <a
-                           class="icon icon-shape icon-sm me-1 bg-gradient-success shadow mx-3"
-                           href="#"
+                         class="icon icon-shape icon-sm me-1 bg-gradient-info shadow mx-3"
+                         href="#"
                          >
-                           <i class="fas fa-check text-white opacity-10"></i>
+                         <i class="fas fa-check text-white opacity-10"></i>
                         </a>
                         <a
+                           class="icon icon-shape icon-sm  bg-gradient-danger shadow mx-1"
+                           target="_blank"
+                           href="<?php echo base_url(); ?>ventas/pdfpedidosucursal/<?php echo $pedidos->codigo_pedido; ?>/<?php echo $pedidos->codigo_cliente; ?>"
+                         >
+                           <i class="fas fa-file-pdf text-white opacity-10"></i>
+                         </a>
+                        <a
                           class="icon icon-shape icon-sm  bg-gradient-primary shadow"
-                          onclick="verUsuarios();"
+                          onclick="verPedido(<?php echo $pedidos->codigo_pedido; ?>)"
                         >
                           <i class="fas fa-eye text-white opacity-10"></i>
                         </a>
+                        <a
+                          class="icon icon-shape icon-sm  bg-gradient-success shadow mx-1"
+                          target="_blank"
+                          href="https://wa.me/+57<?php echo $pedidos->codigo_cliente; ?>?text=Hola hemos recibido tu pedido revisa el detalle del pedido en el siguiente link <?php echo $pedidos->link; ?> gracias por su compra."
+                        >
+                        <i class="fab  fa-whatsapp "></i>
+                        </a>
                       </div>
                     </td>
-                    <td><?php echo $pedidos->codigo_pedido; ?></td>
+                    <!-- <td><?php echo $pedidos->codigo_pedido; ?></td> -->
                     <td><?php echo $pedidos->consecutivo; ?></td>
                     <td><?php echo $pedidos->tppago; ?></td>
-                    <td><?php echo $pedidos->total; ?></td>
+                    <td><?php echo '$'.$pedidos->total; ?></td>
                     <td>No</td>
                     <td><?php echo $pedidos->hora; ?></td>
                     <td><?php echo $pedidos->fecha; ?></td>
                     <td><?php echo $pedidos->estado; ?></td>
-                    
                    </tr>
                    <?php } ?>
                  </tbody>
@@ -110,45 +123,39 @@
           <?php require_once("componentes/footer.php"); ?>
         </div>
 
- <!-- MODAL AGREGAR GASTOS -->
- <div class="modal fade" id="Agregarusuario" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <!-- MODAL VER PEDIDO -->
+ <div class="modal fade" id="verpedido" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header bg-success">
-        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Agregar Gastos</h5>
+        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Detalle del pedido</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="form-group input-group-sm">
-            <label>Categoria</label>
-            <select
-              class="form-control"
-              id="categoria_gasto"
-            >
-              <option value="">SELECCIONE</option>
-              <option value="Gasto interno">Gasto interno</option>
-              <option value="Pago proveedores">Pago a proveedores</option>
-              <option value="Pago descuento">Pago por descuento</option>
-              <option value="Gasto temporal">Gasto temporal</option>
-            </select>
+            <label>Codigo pedido</label>
+            <input
+                type="text"
+                class="form-control"
+                id="codigo_pedido"
+                readonly
+              >
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
             <div class="form-group">
-              <label>Proveedor</label>
+              <label>Sede</label>
               <select 
                 class="form-control form-control-sm"
-                id="proveedor_gasto"
+                id="sede_pedido"
+                readonly
               >
-              <?php foreach($proveedor->result() as $proveedores) { ?>
-                <option value="<?php echo $proveedores->nombre; ?>"><?php echo $proveedores->nombre; ?></option>
-              <?php } ?>
+                <option value="SEDE PRINCIPAL (BARRIO AMBALA)">SEDE PRINCIPAL (BARRIO AMBALA)</option>
               </select>
-              
             </div>              
           </div>
           <div class="col-md-2">
@@ -157,32 +164,57 @@
               <input
                 type="date"
                 class="form-control"
-                id="fecha_gasto"
-                value="<?php echo date("Y-m-d"); ?>"
+                id="fecha_pedido"
+                readonly
+              >
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group input-group-sm">
+              <label>Hora</label>
+              <input
+                type="text"
+                class="form-control"
+                id="hora_pedido"
                 readonly
               >
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-7">
+          <div class="col-md-3">
             <div class="form-group input-group-sm">
-              <label>Nombre</label>
+              <label>Tipo pago</label>
+              <select 
+                class="form-control form-control-sm"
+                id="tppago_pedido"
+                readonly
+              >
+                <option value="NEQUI">NEQUI</option>
+                <option value="BANCARIA">BANCARIA</option>
+                <option value="CONTRAENTREGA">CONTRAENTREGA</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group input-group-sm">
+              <label>Celular cliente</label>
               <input
-                type="text"
+                type="number"
                 class="form-control"
-                id="nombre_gasto"
+                id="celular_pedido"
+                readonly
               >
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group input-group-sm">
-              <label>Precio factura</label>
+              <label>Total pedido</label>
               <input
-                type="number"
+                type="text"
                 class="form-control"
-                id="precio_factura"
-                min="0"
+                id="total_pedido"
+                readonly
               >
             </div>
           </div>
@@ -196,44 +228,95 @@
           </div>
         </div>
         <div class="row">
-        <div class="col-md-6">
+          <div class="col-md-4">
             <div class="form-group input-group-sm">
-              <label>Fecha limite</label>
+              <label>Nombre</label>
               <input
-                type="date"
+                type="text"
                 class="form-control"
-                id="fecha_limite"
-                value="<?php echo date("Y-m-d"); ?>"
+                id="nombre_pedido"
+                readonly
               >
             </div>
           </div>
-          
+          <div class="col-md-4">
+            <div class="form-group input-group-sm">
+              <label>Dirección</label>
+              <input
+                type="text"
+                class="form-control"
+                id="direccion_pedido"
+                readonly
+              >
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group input-group-sm">
+              <label>Domicilio</label>
+              <input
+                type="text"
+                class="form-control"
+                id="domicilio_pedido"
+              >
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Estado</label>
+              <select 
+                class="form-control form-control-sm"
+                id="estado_pedido"
+              >
+                <option value="PEDIDO">PEDIDO</option>
+                <option value="PREPARACION">PREPARACION</option>
+                <option value="ENTREGADO">ENTREGADO</option>
+                <option value="CANCELADO">CANCELADO</option>
+              </select>
+            </div>              
+          </div>
         </div>
         <div class="form-group input-group-sm">
-            <label>Descripciòn</label>
+            <label>Comentarios</label>
             <textarea
               class="form-control"
-              id="descripcion_gasto"
-            >
-            </textarea>
+              id="comentarios_pedido"
+              readonly
+            ></textarea>
+        </div>
+        <div class="row">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-xs font-weight-bolder opacity-12">#</th>
+                  <th class="text-uppercase text-xs font-weight-bolder opacity-12">Pedido</th>
+                  <th class="text-uppercase text-xs font-weight-bolder opacity-12">Producto</th>
+                  <th class="text-uppercase text-xs font-weight-bolder opacity-12">Cantidad</th>
+                </tr>
+              </thead>
+              <tbody class="detalle_productos_pedido ">
+                
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
         <button
           type="button"
           class="btn color-cyan text-white"
-          id="creargasto"
+          id="Actualizarpedido"
         >
-          Guardar
+          Actualizar
         </button>
       </div>
     </div>
   </div>
 </div>
   <?php require_once("componentes/scripts.php"); ?>
+  <script src="<?php echo base_url(); ?>public/js/scripts/pedidos.js"></script>
   <script>
     var baseurl = "<?php echo base_url();?>";
   </script>
-  <script src="<?php echo base_url(); ?>public/js/scripts/gastos.js"></script>
 </body>
 </html>

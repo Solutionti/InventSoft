@@ -76,9 +76,14 @@ $route["ventas/reporteinventario/(:num)"] = "reportes/getinventariototal/$1";
 
 // PEDIDOS
 $route["ventas/pedidos"] = "clientes/pedidos";
+$route["ventas/getpedidos/(:num)"] = "pedidos/getpedidoid/$1";
+$route["ventas/actualizarpedido"] = "pedidos/actualizardomicilioestadopedido";
+$route["ventas/pdfpedidocliente/(:any)/(:any)"] = "pedidos/pdfpedido/$1/$2";
+$route["ventas/pdfpedidosucursal/(:any)/(:any)"] = "pedidos/pdfpedidosucursal/$1/$2";
 
 // ECOMMERCE
 $route["ecommerce/inicio"] = "ecommerce";
 $route["ecommerce/productoscategoria/(:num)"] = "ecommerce/productosCategoria/$1";
 $route["ecommerce/getproductocodigo/(:num)"] = "ecommerce/getproductocodigo/$1";
 $route["ecommerce/agregarpedido"] = "ecommerce/agregarpedido";
+$route["ventas/getpeditosdetalle/(:any)"] = "pedidos/getpedidosdetalle/$1";

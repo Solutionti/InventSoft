@@ -42,6 +42,7 @@ class Ecommerce_model extends CI_model {
     }
 
     public function agregarPedido($data) {
+      $concat = $data['consecutivo'].'/'.$data['celular'];
       $datos = [
         "consecutivo" => "PED".$data["consecutivo"],
         "documento" => "FACTURA",
@@ -52,9 +53,22 @@ class Ecommerce_model extends CI_model {
         "hora" => date("h: i A"),
         "codigo_cliente" => $data["celular"],
         "comentario" => $data["sugerencia"],
-        "estado" => "PEDIDO"
+        "estado" => "PEDIDO",
+        "link" => "http://localhost/CODEIGNITER/ventas-buenviaje/ventas/pdfpedidocliente/".$concat
       ];
       $this->db->insert("pedidos", $datos);
+    }
+
+    public function agregarCliente($data) {
+      $datos = [
+        "nombre" => $data["nombres"],
+        "apellido" => $data["apellidos"],
+        "direccion" => $data["direccion"],
+        "celular" => $data["celular"],
+        "fecha" => date("Y-m-d"),
+        "hora" => date("h: i A"),
+      ];
+      $this->db->insert("clientes", $datos);
     }
 
     public function agregarDetallePedido($data){
