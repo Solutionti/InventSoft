@@ -196,6 +196,8 @@ function verProductos(codigo) {
       $("#precio_p_act").val(data.precio);
       $("#precio_proveedor_act").val(data.costo_proveedor);
       $("#descripcion_p_act").val(data.descripcion);
+      $("#merma_p_act").val(data.merma);
+      $("#cantidad_p").val(data.cantidad);
     }
   });
 }

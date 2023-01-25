@@ -54,7 +54,7 @@
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
                 <p class="mb-0 h6 text-uppercase">Usuarios</p>
-                <button class="btn btn-primary text-white font-weight-bold btn-xs ms-auto" data-bs-toggle="modal" href="#Agregarusuario" role="button"> <i class="fas fa-plus"></i> Agregar</button>
+                <button class="btn btn-danger text-white font-weight-bold btn-xs ms-auto" data-bs-toggle="modal" href="#Agregarusuario" role="button"> <i class="fas fa-plus"></i> Agregar</button>
               </div>
             </div>
             <div class="card-body">

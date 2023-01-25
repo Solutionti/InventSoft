@@ -218,7 +218,8 @@
               <label>Seleccione el reporte a consultar</label>
               <select name="select-inputs" id="select-inputs" class="form-control">
                <option value="">SELECCIONE UNA OPCIÓN</option>
-               <option value="1">Transacciones por dia</option>
+               <option value="1">Transacciones de venta por dia</option>
+               <option value="7">Transacciones de pedidos por dia</option>
                <option value="2">Ventas por categoria</option>
                <option value="3">Transacciones por producto</option>
                <option value="4">Ganancia general</option>

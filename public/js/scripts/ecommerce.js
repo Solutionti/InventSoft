@@ -17,7 +17,7 @@ function getDataModalProduct(codigo_producto) {
     method: "GET",
     success: function(data){
       data = JSON.parse(data);
-      document.getElementById("imagen_producto").innerHTML = '<img src="'+ data.url_imagen +'" alt="First slide" class="img-fluid" width="300px;">';
+      document.getElementById("imagen_producto").innerHTML = '<img src="http://localhost/CODEIGNITER/ventas-buenviaje/public/productos/'+data.url_imagen+'" alt="First slide" class="img-fluid" width="300px;">';
       document.getElementById("text_nombre_producto").innerHTML = '<strong class="">' + data.nombre +'</strong>';
       document.getElementById("text_categoria_producto").innerHTML = data.categorias;
       document.getElementById("text_descripcion_producto").innerHTML = data.descripcion;

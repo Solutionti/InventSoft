@@ -55,7 +55,7 @@
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
                 <p class="mb-0 h6 text-uppercase">Gastos</p>
-                <button class="btn btn-primary text-white btn-xs ms-auto" data-bs-toggle="modal" href="#Agregarusuario" role="button"> <i class="fas fa-plus"></i> Agregar</button>
+                <button class="btn btn-danger text-white btn-xs ms-auto" data-bs-toggle="modal" href="#Agregarusuario" role="button"> <i class="fas fa-plus"></i> Agregar</button>
               </div>
             </div>
             <div class="card-body">
@@ -141,6 +141,7 @@
                 class="form-control form-control-sm"
                 id="proveedor_gasto"
               >
+              <option value="">SELECCIONE UNA OPCION</option>
               <?php foreach($proveedor->result() as $proveedores) { ?>
                 <option value="<?php echo $proveedores->nombre; ?>"><?php echo $proveedores->nombre; ?></option>
               <?php } ?>

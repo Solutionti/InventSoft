@@ -190,7 +190,7 @@
             <div class="card-pinned">
               <img
                 class="card-img-top img-fluid"
-                src="<?php echo $productos->url_imagen; ?>"
+                src="<?php echo base_url();?>public/productos/<?php echo $productos->url_imagen; ?>"
                 alt="Image Description"
               >
               <div class="codigo_producto" hidden><?php echo $productos->codigo; ?></div>

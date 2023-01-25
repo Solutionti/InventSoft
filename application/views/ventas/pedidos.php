@@ -77,14 +77,14 @@
                    <tr>
                      <td>
                        <div class="row">
-                         <a
+                         <!-- <a
                          class="icon icon-shape icon-sm me-1 bg-gradient-info shadow mx-3"
                          href="#"
                          >
                          <i class="fas fa-check text-white opacity-10"></i>
-                        </a>
+                        </a> -->
                         <a
-                           class="icon icon-shape icon-sm  bg-gradient-danger shadow mx-1"
+                           class="icon icon-shape icon-sm  bg-gradient-danger shadow mx-3"
                            target="_blank"
                            href="<?php echo base_url(); ?>ventas/pdfpedidosucursal/<?php echo $pedidos->codigo_pedido; ?>/<?php echo $pedidos->codigo_cliente; ?>"
                          >
