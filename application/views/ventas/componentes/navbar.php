@@ -59,15 +59,7 @@
               <span class="ms-2">Ventas</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a
-              class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
-              href="#"
-            >
-              <i class="ni ni-settings-gear-65"></i>
-              <span class="ms-2">Pedidos</span>
-            </a>
-          </li>
+          
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"

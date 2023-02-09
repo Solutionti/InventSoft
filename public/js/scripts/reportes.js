@@ -6,6 +6,7 @@ $("#select-inputs").on("change", function() {
     $("#ganancia-general").attr("hidden", true);
     $("#kardex-general").attr("hidden", true);
     $("#inventario-pdf").attr("hidden", true);
+    $("#todascategorias").attr("hidden", true);
     $("#reporte-dia").attr("hidden", false);
   }
   else if (selected == 2) {
@@ -14,6 +15,7 @@ $("#select-inputs").on("change", function() {
     $("#ganancia-general").attr("hidden", true);
     $("#kardex-general").attr("hidden", true);
     $("#inventario-pdf").attr("hidden", true);
+    $("#todascategorias").attr("hidden", true);
     $("#ventas-categoria").attr("hidden", false);
   }
   else if (selected == 3) {
@@ -22,6 +24,7 @@ $("#select-inputs").on("change", function() {
     $("#ganancia-general").attr("hidden", true);
     $("#kardex-general").attr("hidden", true);
     $("#inventario-pdf").attr("hidden", true);
+    $("#todascategorias").attr("hidden", true);
     $("#transaccion-producto").attr("hidden", false);
   }
   else if (selected == 4) {
@@ -30,6 +33,7 @@ $("#select-inputs").on("change", function() {
     $("#transaccion-producto").attr("hidden", true);
     $("#kardex-general").attr("hidden", true);
     $("#inventario-pdf").attr("hidden", true);
+    $("#todascategorias").attr("hidden", true);
     $("#ganancia-general").attr("hidden", false);
     
   }
@@ -39,6 +43,7 @@ $("#select-inputs").on("change", function() {
     $("#transaccion-producto").attr("hidden", true);
     $("#ganancia-general").attr("hidden", true);
     $("#inventario-pdf").attr("hidden", true);
+    $("#todascategorias").attr("hidden", true);
     $("#kardex-general").attr("hidden", false);
   }
   else if (selected == 6) {
@@ -47,7 +52,18 @@ $("#select-inputs").on("change", function() {
     $("#transaccion-producto").attr("hidden", true);
     $("#ganancia-general").attr("hidden", true);
     $("#kardex-general").attr("hidden", true);
+    $("#todascategorias").attr("hidden", true);
+    $("#todascategorias").attr("hidden", true);
     $("#inventario-pdf").attr("hidden", false);
+  }
+  else if (selected == 7) {
+    $("#reporte-dia").attr("hidden", true);
+    $("#ventas-categoria").attr("hidden", true);
+    $("#transaccion-producto").attr("hidden", true);
+    $("#ganancia-general").attr("hidden", true);
+    $("#kardex-general").attr("hidden", true);
+    $("#inventario-pdf").attr("hidden", true);
+    $("#todascategorias").attr("hidden", false);
   }
 });
 
@@ -101,3 +117,10 @@ $("#generalcategoria").on("change", function () {
   });
 
 })
+
+function todasCategoriasPdf(){
+  var categoria = $("#generalcategoriainventario").val();
+  url = baseurl  + "ventas/reporteinventario/" + categoria;
+  window.open(url, "_blank", " width=500, height=400");
+     
+}

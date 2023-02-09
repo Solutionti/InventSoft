@@ -224,6 +224,8 @@
                <option value="4">Ganancia general</option>
                <option value="5">Kardex consolidado</option>
                <option value="6">Inventario</option>
+               <option value="7">Todas la categorias</option>
+               <option value="8">Gastos</option>
               </select> 
             </div> 
           </div>
@@ -391,6 +393,27 @@
                                       </div>
                                       <div class="col-md-2 mt-4">
                                       <button type="button" class="btn btn-primary mt-2" onclick="inventarioPdf()">Pdf</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- termina -->
+                                  <div id="todascategorias" hidden>
+                                    <h5>Todas las categorias</h5>
+                                    <div class="row">
+                                      <div class="col-md-5">
+                                        <div class="form-group">
+                                          <label for="">Fecha inicial</label>
+                                          <input type="date" id="fecha_inicial_kardex" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-md-5">
+                                        <div class="form-group">
+                                          <label for="">Fecha final</label>
+                                          <input type="date" id="fecha_final_kardex" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-md-2 mt-4">
+                                      <button type="button" class="btn btn-primary mt-2" onclick="">Pdf</button>
                                       </div>
                                     </div>
                                   </div>
