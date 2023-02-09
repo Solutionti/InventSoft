@@ -155,7 +155,7 @@ document.addEventListener("keydown", function(event) {
 
 //DARLE ACCION A EL BOTON CONTROL + F2
 document.addEventListener("keydown", function(event) {
-  if (event.ctrlKey && event.keyCode === 113)
+  if (event.ctrlKey && event.keyCode === 68)
   {
     location.reload();
   }
@@ -163,7 +163,7 @@ document.addEventListener("keydown", function(event) {
 
 //DARLE ACCION A EL BOTON CONTROL + F3
 document.addEventListener("keydown", function(event) {
-  if (event.ctrlKey && event.keyCode === 114)
+  if (event.ctrlKey && event.keyCode === 83)
   {
     $("#modal-productos").modal("show");
     // $("input[type='search']").focus();

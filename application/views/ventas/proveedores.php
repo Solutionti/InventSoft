@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buen Viaje - Devoluciones</title>
+    <title>InventSoft - Devoluciones</title>
     <?php require_once("componentes/head.php"); ?>
 </head>
 
-<body class="g-sidenav-show bg-gray-100">
-  <div class="position-absolute w-100 min-height-300 top-0 bg-default" style="background-image: url(''); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%">
-    <span class="mask bg-default opacity-6"></span>
+<body style="background-color: #1e2040 !important;">
+  <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url(''); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%">
+    <span class=""></span>
   </div>
   <div class="main-content position-relative max-height-vh-100 h-100">
   <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Buen Viaje</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">InventSoft</a></li>
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Proveedores</li>
           </ol>
           <h6 class="font-weight-bolder text-white mb-0">Proveedores</h6>
