@@ -170,4 +170,14 @@ class Reportes_model extends CI_model {
 
       return $result;
     }
+
+    public function getGastos($fecha_inicial,$fecha_final) {
+      $this->db->select("*");
+      $this->db->from("gastos");
+      $this->db->where("fecha >=", $fecha_inicial);
+      $this->db->where("fecha <=", $fecha_final);
+      $result = $this->db->get();
+
+      return $result;
+    }
 }

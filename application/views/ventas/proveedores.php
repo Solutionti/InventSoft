@@ -65,6 +65,7 @@
                    <!-- <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th> -->
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">nit / documento</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nombre</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Descripcion</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Telefono</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">correo</th>
                  </thead>
@@ -72,10 +73,11 @@
                   <?php foreach($proveedor->result() as $proveedores){ ?>
                   <tr>
                     <!-- <td></td> -->
-                    <td><?php echo $proveedores->nit; ?></td>
-                    <td><?php echo $proveedores->nombre; ?></td>
-                    <td><?php echo $proveedores->telefono; ?></td>
-                    <td><?php echo $proveedores->correo; ?></td>
+                    <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $proveedores->nit; ?></td>
+                    <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $proveedores->nombre; ?></td>
+                    <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $proveedores->descripcion; ?></td>
+                    <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $proveedores->telefono; ?></td>
+                    <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $proveedores->correo; ?></td>
                   </tr>
                   <?php } ?>
                  </tbody>

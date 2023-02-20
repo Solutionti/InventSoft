@@ -286,4 +286,63 @@ class Reportes extends CI_Controller {
       
       $pdf->Output();
     }
+
+    public function getGastos($fecha_inicial,$fecha_final) {
+      $gasto = $this->Reportes_model->getGastos($fecha_inicial,$fecha_final);
+      $this->load->library("pdf");
+      $pdfAct = new Pdf();
+      $pdf=new FPDF();
+      $pdf->addpage();
+      // $pdf->Image('public/img/theme/logo.jpeg' , 20,5, 20 , 17,'jpeg');
+      //$pdf->Image('public/img/theme/zonac.png' , 35 ,5, 15 , 15,'png');
+      $pdf->Ln(2);
+      $pdf->SetFont('Times','',9);
+      $pdf->Cell(80,5,'', '', 0,'L', false );
+      $pdf->Cell(1,5,'CAFETERIA BUEN VIAJE', '', 0,'L', false );
+      $pdf->SetFont('Times','',8);
+      $pdf->Ln(5);
+      $pdf->Cell(83,5,'', '', 0,'L', false );
+      $pdf->Cell(7,5,'TERMINAL LOCAL - 151', '', 0,'L', false );
+      $pdf->Ln(2);
+      $pdf->Cell(70,5,'', '', 0,'L', false );
+      $pdf->Cell(10,5,'_______________________________________', '', 0,'L', false );
+      $pdf->SetFont('Times','',9);
+      $pdf->Ln(9);
+      $pdf->Cell(34,5,'FECHA DEL REPORTE:', '', 0,'L', false );
+      $pdf->Cell(18,5,date("d-m-Y"), '', 0,'L', false );
+      $pdf->Ln(5);
+      $pdf->SetFont('Times','',8);
+      $pdf->Cell(12,5,'HORA:', '', 0,'L', false );
+      $pdf->Cell(4,5,date("H: i A"), '', 0,'L', false );
+      $pdf->Ln(5);
+      $pdf->SetFont('Times','',8);
+      $pdf->Cell(18,5,'VENDEDOR:', '', 0,'L', false );
+      $pdf->Cell(4,5,$this->session->userdata("nombre"). ' '. $this->session->userdata("apellido") , '', 0,'L', false );
+      $pdf->Ln(11);
+      $pdf->SetFont('Times','b',10);
+      $pdf->Cell(18,5,'REPORTE DE GASTOS', '', 0,'L', false );
+      $pdf->Ln(11);
+      $pdf->SetFont('Times','b',9);
+      $pdf->Cell(8,5,'#', 'LTBR', 0,'L', false );
+      $pdf->Cell(30,5,'NOMBRE', 'TBR', 0,'L', false );
+      $pdf->Cell(40,5,"PROVEEDOR", 'TBR', 0,'L', false );
+      $pdf->Cell(20,5,"FECHA", 'TBR', 0,'L', false );
+      $pdf->Cell(60,5,"DESCRIPCION", 'TBR', 0,'L', false );
+      $pdf->Cell(20,5,"PRECIO", 'TBR', 0,'L', false );
+      $pdf->Cell(17,5,"USUARIO", 'TBR', 0,'L', false );
+      foreach($gasto->result() as $gastos){
+        $pdf->Ln(6);
+        $pdf->SetFont('Times','',9);
+        $pdf->Cell(8,5,$gastos->codigo_gasto, '', 0,'L', false );
+        $pdf->Cell(30,5,$gastos->categoria, '', 0,'L', false );
+        $pdf->Cell(40,5,$gastos->proveedor, '', 0,'L', false );
+        $pdf->Cell(20,5,$gastos->fecha, '', 0,'L', false );
+        $pdf->Cell(60,5,$gastos->descripcion, '', 0,'', false );
+        $pdf->Cell(20,5,$gastos->precio, '', 0,'L', false );
+        $pdf->Cell(17,5,$gastos->usuario, '', 0,'L', false );
+      }
+      
+      $pdf->Output();
+
+    }
 }

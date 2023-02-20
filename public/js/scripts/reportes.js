@@ -7,6 +7,7 @@ $("#select-inputs").on("change", function() {
     $("#kardex-general").attr("hidden", true);
     $("#inventario-pdf").attr("hidden", true);
     $("#todascategorias").attr("hidden", true);
+    $("#gastos").attr("hidden", true);
     $("#reporte-dia").attr("hidden", false);
   }
   else if (selected == 2) {
@@ -16,6 +17,7 @@ $("#select-inputs").on("change", function() {
     $("#kardex-general").attr("hidden", true);
     $("#inventario-pdf").attr("hidden", true);
     $("#todascategorias").attr("hidden", true);
+    $("#gastos").attr("hidden", true);
     $("#ventas-categoria").attr("hidden", false);
   }
   else if (selected == 3) {
@@ -25,6 +27,7 @@ $("#select-inputs").on("change", function() {
     $("#kardex-general").attr("hidden", true);
     $("#inventario-pdf").attr("hidden", true);
     $("#todascategorias").attr("hidden", true);
+    $("#gastos").attr("hidden", true);
     $("#transaccion-producto").attr("hidden", false);
   }
   else if (selected == 4) {
@@ -34,6 +37,7 @@ $("#select-inputs").on("change", function() {
     $("#kardex-general").attr("hidden", true);
     $("#inventario-pdf").attr("hidden", true);
     $("#todascategorias").attr("hidden", true);
+    $("#gastos").attr("hidden", true);
     $("#ganancia-general").attr("hidden", false);
     
   }
@@ -44,6 +48,7 @@ $("#select-inputs").on("change", function() {
     $("#ganancia-general").attr("hidden", true);
     $("#inventario-pdf").attr("hidden", true);
     $("#todascategorias").attr("hidden", true);
+    $("#gastos").attr("hidden", true);
     $("#kardex-general").attr("hidden", false);
   }
   else if (selected == 6) {
@@ -54,6 +59,7 @@ $("#select-inputs").on("change", function() {
     $("#kardex-general").attr("hidden", true);
     $("#todascategorias").attr("hidden", true);
     $("#todascategorias").attr("hidden", true);
+    $("#gastos").attr("hidden", true);
     $("#inventario-pdf").attr("hidden", false);
   }
   else if (selected == 7) {
@@ -63,7 +69,18 @@ $("#select-inputs").on("change", function() {
     $("#ganancia-general").attr("hidden", true);
     $("#kardex-general").attr("hidden", true);
     $("#inventario-pdf").attr("hidden", true);
+    $("#gastos").attr("hidden", true);
     $("#todascategorias").attr("hidden", false);
+  }
+  else if (selected == 8) {
+    $("#reporte-dia").attr("hidden", true);
+    $("#ventas-categoria").attr("hidden", true);
+    $("#transaccion-producto").attr("hidden", true);
+    $("#ganancia-general").attr("hidden", true);
+    $("#kardex-general").attr("hidden", true);
+    $("#inventario-pdf").attr("hidden", true);
+    $("#todascategorias").attr("hidden", true);
+    $("#gastos").attr("hidden", false);
   }
 });
 
@@ -121,6 +138,12 @@ $("#generalcategoria").on("change", function () {
 function todasCategoriasPdf(){
   var categoria = $("#generalcategoriainventario").val();
   url = baseurl  + "ventas/reporteinventario/" + categoria;
-  window.open(url, "_blank", " width=500, height=400");
-     
+  window.open(url, "_blank", " width=500, height=400");   
+}
+
+function pdfGastos(){
+  var fecha_inicial = $("#fecha_inicial_gasto").val(),
+      fecha_final = $("#fecha_final_gasto").val();
+  url = baseurl  + "ventas/reportegastos/" + fecha_inicial + "/" + fecha_final ;
+  window.open(url, "_blank", " width=500, height=400");   
 }

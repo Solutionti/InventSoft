@@ -67,9 +67,9 @@
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">proveedor</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Precio factura</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Cuentas por cobrar</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Usuario</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fecha limite</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fecha actual</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fecha limite</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Usuario</th>
                  </thead>
                  <tbody>
                   <?php foreach($gasto->result() as $gastos) { ?>
@@ -94,9 +94,9 @@
                       <td class="text-xs text-dark mb-0"><?php echo $gastos->proveedor; ?></td>
                       <td class="text-xs text-dark mb-0">$ <?php echo $gastos->precio; ?></td>
                       <td class="text-xs text-dark mb-0"><?php echo $gastos->porpagar; ?></td>
-                      <td class="text-xs text-dark mb-0"><?php echo $gastos->usuario; ?></td>
-                      <td class="text-xs text-dark mb-0"><?php echo $gastos->fecha_limite; ?></td>
                       <td class="text-xs text-dark mb-0"><?php echo $gastos->fecha; ?></td>
+                      <td class="text-xs text-dark mb-0"><?php echo $gastos->fecha_limite; ?></td>
+                      <td class="text-xs text-dark mb-0"><?php echo $gastos->usuario; ?></td>
                     </tr>
                   <?php }?>
                  </tbody>
@@ -211,8 +211,7 @@
             <textarea
               class="form-control"
               id="descripcion_gasto"
-            >
-            </textarea>
+            ></textarea>
         </div>
       </div>
       <div class="modal-footer">

@@ -417,6 +417,27 @@
                                       </div>
                                     </div>
                                   </div>
+                                  <!--  -->
+                                  <div id="gastos" hidden>
+                                    <h5>Gastos</h5>
+                                    <div class="row">
+                                      <div class="col-md-5">
+                                        <div class="form-group">
+                                          <label for="">Fecha inicial</label>
+                                          <input type="date" id="fecha_inicial_gasto" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-md-5">
+                                        <div class="form-group">
+                                          <label for="">Fecha final</label>
+                                          <input type="date" id="fecha_final_gasto" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="col-md-2 mt-4">
+                                      <button type="button" class="btn btn-primary mt-2" onclick="pdfGastos()">Pdf</button>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
