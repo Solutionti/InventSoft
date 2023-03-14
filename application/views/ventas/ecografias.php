@@ -403,17 +403,17 @@
                                       <div class="col-md-5">
                                         <div class="form-group">
                                           <label for="">Fecha inicial</label>
-                                          <input type="date" id="fecha_inicial_kardex" class="form-control">
+                                          <input type="date" id="fecha_inicial_dinero" class="form-control">
                                         </div>
                                       </div>
                                       <div class="col-md-5">
                                         <div class="form-group">
                                           <label for="">Fecha final</label>
-                                          <input type="date" id="fecha_final_kardex" class="form-control">
+                                          <input type="date" id="fecha_final_dinero" class="form-control">
                                         </div>
                                       </div>
                                       <div class="col-md-2 mt-4">
-                                      <button type="button" class="btn btn-primary mt-2" onclick="">Pdf</button>
+                                      <button type="button" class="btn btn-primary mt-2" onclick="pdfdineroCategoria()">Pdf</button>
                                       </div>
                                     </div>
                                   </div>
