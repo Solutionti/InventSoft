@@ -132,7 +132,7 @@
   <div class="modal fade" id="productos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-success">
+      <div class="modal-header bg-default">
         <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Agregar producto</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -322,7 +322,7 @@
 <div class="modal fade" id="actualizarproductos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-success">
+      <div class="modal-header bg-default">
         <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Actualizar producto</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -533,7 +533,7 @@
 <div class="modal fade" id="consulta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-success">
+      <div class="modal-header bg-default">
         <h5 class="modal-title text-uppercase text-white font-weight-bold" id="exampleModalLabel">Consulta de kardex</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -659,7 +659,7 @@
   <div class="modal fade" id="entrada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-success">
+      <div class="modal-header bg-default">
         <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Ingreso de productos a la cafeteria</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -805,7 +805,7 @@
 <div class="modal fade" id="salida" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-success">
+      <div class="modal-header bg-default">
         <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Salida de productos de la cafeteria</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
