@@ -7,7 +7,7 @@
     <title>InventSoft - Inicio</title>
     <?php require_once("componentes/head.php"); ?>
 </head>
-<body style="background-color: #1e2040 !important;">
+<body style="background-color: #B20027 !important;">
   <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url(''); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%">
     <span class=""></span>
   </div>
@@ -55,7 +55,7 @@
       <div class="row">
       <div class="col-md-3">
           <div class="card card-profile">
-            <img src="https://cdn.pixabay.com/photo/2015/08/07/16/07/shopping-879498_960_720.jpg" alt="Image placeholder" class="card-img-top">
+            <img src="https://media.istockphoto.com/id/1422515228/es/foto/buscando-el-remedio-perfecto.jpg?s=612x612&w=0&k=20&c=OO9f4afqT65Tpm49Jd6XcBGh7OSCnch_3wuTeTezDaQ=" alt="Image placeholder" class="card-img-top">
             <div class="row justify-content-center">
               <div class="col-4 col-lg-4 order-lg-2">
                 <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
@@ -111,7 +111,7 @@
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
                 <p class="mb-0 text-uppercase">Editar Perfil</p>
-                <button class="btn btn-primary btn-sm ms-auto text-white font-weight-bold" id="actualizar-usuario">Guardar</button>
+                <button class="btn btn-danger btn-sm ms-auto text-white font-weight-bold" id="actualizar-usuario">Guardar</button>
               </div>
             </div>
             <div class="card-body">

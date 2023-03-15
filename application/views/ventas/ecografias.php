@@ -7,7 +7,7 @@
     <title>InventSoft - Inventarios</title>
     <?php require_once("componentes/head.php"); ?>
 </head>
-<body style="background-color: #1e2040 !important;">
+<body style="background-color: #B20027 !important;">
   <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url(''); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%">
     <span class=""></span>
   </div>
@@ -343,7 +343,7 @@
                                         <br>
                                         <div class="table-responsive">
                                           <table class="table table-striped table-hover">
-                                            <thead class="bg-default">
+                                            <thead style="background-color: #B20027 !important;">
                                               <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Ganancia total</th>
                                               <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Ganancia proveedor</th>
                                               <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Categoria</th>

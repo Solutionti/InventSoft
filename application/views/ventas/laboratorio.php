@@ -7,7 +7,7 @@
     <title>InventSoft - Usuarios</title>
     <?php require_once("componentes/head.php"); ?>
 </head>
-<body style="background-color: #1e2040 !important;">
+<body style="background-color: #B20027 !important;">
   <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url(''); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%">
     <span class=""></span>
   </div>
@@ -54,13 +54,13 @@
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
                 <p class="mb-0 h6 text-uppercase">Usuarios</p>
-                <button class="btn btn-primary text-white font-weight-bold btn-xs ms-auto" data-bs-toggle="modal" href="#Agregarusuario" role="button"> <i class="fas fa-plus"></i> Agregar</button>
+                <button class="btn btn-danger text-white font-weight-bold btn-xs ms-auto" data-bs-toggle="modal" href="#Agregarusuario" role="button"> <i class="fas fa-plus"></i> Agregar</button>
               </div>
             </div>
             <div class="card-body">
              <div class="table-responsive">
                <table class="table table-responsive table-hover">
-                 <thead class="bg-default ">
+                 <thead style="background-color: #B20027 !important;">
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nombre</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Usuario</th>

@@ -8,7 +8,7 @@
     <?php require_once("componentes/head.php"); ?>
 </head>
 <?php $estadocajas = $estadocaja->result()[0]; ?>
-<body style="background-color: #1e2040!important;">
+<body style="background-color: #B20027 !important;">
   <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url(''); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%">
     <span class=""></span>
   </div>
@@ -203,7 +203,7 @@
                   <div class="row mt-3">
                     <div class="table-responsive">
                       <table class="table table-stripped table-hover">
-                        <thead class="bg-default ">
+                        <thead style="background-color: #B20027 !important;">
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12"></th>
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Producto</th>
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>
@@ -219,16 +219,16 @@
                 <div class="col-md-4 mb-4">
                   <div class="card card-pricing">
                     <div
-                      class="card-header bg-gradient-light text-center pt-4 pb-5 position-relative"
+                      class="card-header bg-gradient-danger text-center pt-4 pb-5 position-relative"
                     >
                       <div class="z-index-1 position-relative">
-                        <h5 class="text-black">TOTAL VENTA</h5>
-                        <h1 class="text-black mt-2 mb-0" id="ventaa">
+                        <h5 class="text-white">TOTAL VENTA</h5>
+                        <h1 class="text-white mt-2 mb-0" id="ventaa">
                         <small id="total-compra">$ </small>0
                         </h1>
-                        <h6 class="text-black">TOTAL DEVOLVER</h6>
+                        <h6 class="text-white">TOTAL DEVOLVER</h6>
                         <div id="volver">
-                          <h3 class="text-black" id="devolver">0</h3>
+                          <h3 class="text-white" id="devolver">0</h3>
                         </div>
                       </div>
                     </div>
@@ -353,7 +353,7 @@
   >
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
-        <div class="modal-header bg-success">
+        <div class="modal-header bg-default">
           <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Listado de Productos</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -362,7 +362,7 @@
         <div class="modal-body">
           <div class="table-responsive">
             <table class="table table-hover table-borderless table-stripped"  id="table-productos-todos">
-              <thead class="bg-default ">
+              <thead style="background-color: #B20027 !important;">
                 <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Imagen</th>
                 <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>
                 <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nombre</th>
@@ -416,7 +416,7 @@
   >
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
-        <div class="modal-header bg-success">
+        <div class="modal-header bg-default">
           <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Apertura de caja</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -475,7 +475,7 @@
         <div class="modal-footer">
           <button
             type="button"
-            class="btn color-cyan text-white"
+            class="btn btn-danger text-white"
             id="guardar-caja"
           >
             Aceptar
@@ -497,7 +497,7 @@
   >
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
-        <div class="modal-header bg-success">
+        <div class="modal-header bg-default">
           <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Cierre de caja</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -516,7 +516,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success text-white" id="cierre-caja">Aceptar</button>
+          <button type="button" class="btn btn-danger text-white" id="cierre-caja">Aceptar</button>
         </div>
       </div>
     </div>
