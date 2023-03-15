@@ -5,7 +5,7 @@ $("#codigo_barras").focus();
 //CARGUE DE DATATABLES
 $(document).ready( function () {
   $('#table-productos-todos').DataTable({
-    "lengthMenu": [10, 50, 100, 200],
+    "lengthMenu": [5,10, 50, 100, 200],
     "language":{
     "processing": "Procesando",
     "search": "Buscar:",
@@ -45,8 +45,8 @@ $("#codigo_barras").on("change", function() {
       }
       else {
         data = JSON.parse(data);
-        // var imagen = "<img src='https://ventas-buen-viaje.saludmadreymujer.com/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'>";
-        var imagen = "<img src='http://localhost/CODEIGNITER/ventas-buenviaje/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
+        var imagen = "<img src='https://ventas-buen-viaje.saludmadreymujer.com/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'>";
+        // var imagen = "<img src='http://localhost/CODEIGNITER/ventas-buenviaje/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
         document.getElementById("imagen").innerHTML = imagen;
         $("#codigo").val(data.codigo);
         $("#codigo_barras2").val(data.codigo_barras);
@@ -163,7 +163,7 @@ document.addEventListener("keydown", function(event) {
 
 //DARLE ACCION A EL BOTON CONTROL + F3
 document.addEventListener("keydown", function(event) {
-  if (event.ctrlKey && event.keyCode === 83)
+  if (event.keyCode === 83)
   {
     $("#modal-productos").modal("show");
     // $("input[type='search']").focus();
@@ -178,7 +178,8 @@ $("#asociar-producto").on("click", function () {
         method: "GET",
         success: function(data) {
           data = JSON.parse(data);
-          var imagen = "<img src='http://localhost/CODEIGNITER/ventas-buenviaje/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'>";
+          var imagen = "<img src='https://ventas-buen-viaje.saludmadreymujer.com/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'>";
+          // var imagen = "<img src='http://localhost/CODEIGNITER/ventas-buenviaje/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'>";
           document.getElementById("imagen").innerHTML = imagen;
           $("#modal-productos").modal("hide");
           $("#codigo").val(data.codigo);
