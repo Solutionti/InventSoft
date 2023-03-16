@@ -337,7 +337,7 @@
         <div class="row">
           <div class="col-md-12 text-center" id="img-actualizar">
             <img
-              src="https://demos.creative-tim.com/argon-dashboard/assets/img/team-2.jpg"
+              src=""
               class="rounded-circle img-fluid border border-2 border-white"
               width="150px;"
             >
