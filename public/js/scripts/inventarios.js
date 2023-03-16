@@ -187,7 +187,7 @@ function verProductos(codigo) {
     method: "GET",
     success: function (data) {
       data = JSON.parse(data);
-      var imagen = "<img src='http://localhost/CODEIGNITER/ventas-buenviaje/public/productos/"+ data.url_imagen +"' class='rounded-circle img-fluid border border-2 border-white' width='150px;'>";
+      var imagen = "<img src='http://localhost/CODEIGNITER/InventSoft/public/productos/"+ data.url_imagen +"' class='rounded-circle img-fluid border border-2 border-white' width='150px;'>";
       document.getElementById("img-actualizar").innerHTML = imagen;
       $("#id_productos_act").val(data.codigo_producto);
       $("#categoria_p_act").val(data.categoria).attr("selected", true);

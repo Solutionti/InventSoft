@@ -209,7 +209,7 @@
         <div class="col-md-3">
     <div class="card"> 
       <div class="card-body">
-        <p class="text-uppercase text-sm">Notas rapidas <i class="fa-regular fa-note-sticky text-primary"></i></p> 
+        <p class="text-uppercase text-sm">Notas rapidas <i class="fas fa-regular fa-sticky-note text-primary"></i></p> 
         <div class="card-body pt-4 p-3">
             <ul class="list-group">
             <li class="border-0 d-flex  bg-gray-100 border-radius-lg">
