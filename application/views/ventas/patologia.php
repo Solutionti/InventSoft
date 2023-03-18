@@ -82,6 +82,7 @@
                   <a
                     class="icon icon-shape icon-sm me-1 bg-gradient-danger shadow mx-3"
                     href="#"
+                    onclick="eliminarProducto(<?php echo $productos->codigo_producto; ?>);"
                   >
                     <i class="fas fa-times text-white opacity-10"></i>
                   </a>

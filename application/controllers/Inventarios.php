@@ -162,4 +162,9 @@ class Inventarios extends CI_Controller {
 
     json_encode($productos);
   }
+
+  public function eliminarProductos(){
+    $codigo = $this->input->post("codigo");
+    $this->Inventarios_model->eliminarProductos($codigo);
+  }
 }

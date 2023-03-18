@@ -51,6 +51,7 @@ class Inventarios_model extends CI_model {
         $this->db->select("p.*, c.nombre as categorias");
         $this->db->from("productos p");
         $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+        $this->db->where("estado", "ACTIVO");
         $result = $this->db->get();
 
         return $result;
@@ -164,7 +165,8 @@ class Inventarios_model extends CI_model {
         $this->db->select("*");
         $this->db->from("productos");
         $this->db->where("codigo", $codigo);
-        $this->db->or_where("codigo_barras", $codigo);
+        $this->db->where("estado", "ACTIVO");
+        // $this->db->or_where("codigo_barras", $codigo);
         $result = $this->db->get();
 
         return $result->row();
@@ -183,6 +185,14 @@ class Inventarios_model extends CI_model {
             "url_imagen" => $data["url_imagen"]
         ];
         $this->db->where("codigo", $data["codigo"]);
+        $this->db->update("productos", $datos);
+    }
+
+    public function eliminarProductos($codigo) {
+        $datos = [
+            "estado" => "INACTIVO"
+        ];
+        $this->db->where("codigo_producto", $codigo);
         $this->db->update("productos", $datos);
     }
 }

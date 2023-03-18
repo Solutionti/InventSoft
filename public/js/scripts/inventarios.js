@@ -478,6 +478,46 @@ $("#buscar_kardex").on("click", function () {
   })
 })
 
+function eliminarProducto(codigo) {
+  var url = baseurl + "ventas/eliminarproductos"; 
+  $("body").overhang({
+    type: "confirm",
+    primary: "#40D47E",
+    accent: "#27AE60",
+    yesColor: "#3498DB",
+    message: "Realmente desea eliminar el producto?",
+    overlay: true,
+    callback: function (value) {
+      var response = value ? "Yes" : "No";
+      if(response == "Yes"){
+        $.ajax({
+          url: url,
+          method: "POST",
+          data: {
+            codigo: codigo
+          },
+          success: function(){
+            $("body").overhang({
+              type: "success",
+              message: "Se ha eliminado el producto correctamente"
+            });
+              setTimeout(reloadPage, 3000);
+          },
+          error: function () {
+            $("body").overhang({
+              type: "error",
+              message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+            });
+          }
+        })
+      }
+      else if(response == "No") {
+        
+      }
+    }
+  });
+}
+
 
 function reloadPage() {
     location.reload();

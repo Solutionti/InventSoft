@@ -45,6 +45,8 @@ $route["ventas/crearsalida"] = "inventarios/crearsalida";
 $route["ventas/consultainventario/(:num)"] = "inventarios/getConsultaInventario/$1";
 $route["ventas/consultarkardex"] = "inventarios/consultarkardex";
 $route["ventas/actualizarimagen"] = "inventarios/actualizarimagen";
+$route["ventas/eliminarproductos"] = "inventarios/eliminarproductos";
+
 
 //VENTAS
 $route["ventas/getproductoventa"] = "ventas/getproductoventa";
