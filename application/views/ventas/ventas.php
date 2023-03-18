@@ -53,7 +53,7 @@
           <div class="card">
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
-                <p class="mb-0 h6 text-uppercase">Sistema de Ventas</p>
+              
               </div>
             </div>
             <div class="card-body">
@@ -299,7 +299,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" hidden>
                   <div class="form-group">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1">
