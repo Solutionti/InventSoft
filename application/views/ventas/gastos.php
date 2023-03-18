@@ -60,7 +60,7 @@
             </div>
             <div class="card-body">
              <div class="table-responsive">
-               <table class="table table-responsive table-hover" id="table-gastos">
+               <table class="table table-responsive table-hover table-borderless" id="table-gastos">
                  <thead class="bg-default">
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Categoria</th>
