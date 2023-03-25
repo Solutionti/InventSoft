@@ -323,4 +323,35 @@ class Reportes_model extends CI_model {
 
       return $result->row(); 
     }
+
+    public function countGastos($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(precio) as gastos");
+      $this->db->from("gastos");
+      $this->db->where("fecha >=", $fecha_inicial);
+      $this->db->where("fecha <=", $fecha_final);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countVenta($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(total_venta) as venta");
+      $this->db->from("ventas");
+      $this->db->where("fecha >=", $fecha_inicial);
+      $this->db->where("fecha <=", $fecha_final);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countGanancia($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(p.costo_proveedor) as ganancia");
+      $this->db->from("productos p");
+      $this->db->join("detalle_venta v", "v.codigo_producto = p.codigo");
+      $this->db->where("v.fecha >=", $fecha_inicial);
+      $this->db->where("v.fecha <=", $fecha_final);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
 }

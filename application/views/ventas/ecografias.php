@@ -224,7 +224,7 @@
                <option value="4">Ganancia general</option>
                <option value="5">Kardex consolidado</option>
                <option value="6">Inventario</option>
-               <option value="7">Todas la categorias</option>
+               <option value="7">Reporte ABC</option>
                <option value="8">Gastos</option>
               </select> 
             </div> 
@@ -398,7 +398,7 @@
                                   </div>
                                   <!-- termina -->
                                   <div id="todascategorias" hidden>
-                                    <h5>Todas las categorias</h5>
+                                    <h5>Reporte ABC</h5>
                                     <div class="row">
                                       <div class="col-md-5">
                                         <div class="form-group">
