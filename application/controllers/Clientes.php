@@ -13,11 +13,7 @@ class Clientes extends CI_Controller {
 		$this->load->model("Ventas_model");
 		$this->load->model("Reportes_model");
 		$this->load->model("Proveedores_model");
-<<<<<<< HEAD
-		$this->load->model("Pedidos_model");
-=======
 		$this->load->model("Notas_model");
->>>>>>> 7d93ac7 (subiendo los cambios de las devoluciones)
 	}
 
     public function index() {
@@ -112,16 +108,6 @@ class Clientes extends CI_Controller {
       $this->load->view("ventas/proveedores", $datos);
 	}
 
-<<<<<<< HEAD
-	public function pedidos() {
-		$pedidos = $this->Pedidos_model->getPedidos();
-		$data = [
-		  "pedido" => $pedidos
-		];
-		
-		$this->load->view("ventas/pedidos", $data);
-	  }
-=======
 	public function registrarnota() {
 		$titulo = $this->input->post("titulo");
 		$asunto = $this->input->post("asunto");
@@ -136,6 +122,5 @@ class Clientes extends CI_Controller {
 		];
 		$this->Notas_model->registrarnota($data);
 	}
->>>>>>> 7d93ac7 (subiendo los cambios de las devoluciones)
 
 }

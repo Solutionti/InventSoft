@@ -65,12 +65,8 @@ $route["ventas/ventas"] = "clientes/ventas";
 $route["iniciarsesionclientes"] = "login/iniciarsesionclientes";
 $route["cerrarsesionclientes"] = "login/cerrarsesionclientes";
 
-<<<<<<< HEAD
 // MESAS
 $route["ventas/mesas"] = "clientes/mesas";
-=======
-
->>>>>>> 7d93ac7 (subiendo los cambios de las devoluciones)
 
 // DEVOLUCIONES
 $route["ventas/devoluciones"] = "clientes/devoluciones";

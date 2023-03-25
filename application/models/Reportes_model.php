@@ -171,4 +171,188 @@ class Reportes_model extends CI_model {
 
       return $result;
     }
+
+    public function getGastos($fecha_inicial,$fecha_final) {
+      $this->db->select("*");
+      $this->db->from("gastos");
+      $this->db->where("fecha >=", $fecha_inicial);
+      $this->db->where("fecha <=", $fecha_final);
+      $result = $this->db->get();
+
+      return $result;
+    }
+
+    public function countDulceria($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(p.precio) as totaldulce");
+      $this->db->from("detalle_venta d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+      $this->db->where("d.fecha >=", $fecha_inicial);
+      $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->where("p.categoria", 1);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countSnack($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(p.precio) as totalsnack");
+      $this->db->from("detalle_venta d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+      $this->db->where("d.fecha >=", $fecha_inicial);
+      $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->where("p.categoria", 2);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countBebidas($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(p.precio) as totalbebidas");
+      $this->db->from("detalle_venta d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+      $this->db->where("d.fecha >=", $fecha_inicial);
+      $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->where("p.categoria", 3);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countBiscochos($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(p.precio) as totalbiscochos");
+      $this->db->from("detalle_venta d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+      $this->db->where("d.fecha >=", $fecha_inicial);
+      $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->where("p.categoria", 4);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countArtesanias($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(p.precio) as totalartesania");
+      $this->db->from("detalle_venta d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+      $this->db->where("d.fecha >=", $fecha_inicial);
+      $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->where("p.categoria", 5);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countVitrina($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(p.precio) as totalvitrina");
+      $this->db->from("detalle_venta d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+      $this->db->where("d.fecha >=", $fecha_inicial);
+      $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->where("p.categoria", 6);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countCaliente($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(p.precio) as totalcaliente");
+      $this->db->from("detalle_venta d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+      $this->db->where("d.fecha >=", $fecha_inicial);
+      $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->where("p.categoria", 7);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countDrogueria($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(p.precio) as totaldrogueria");
+      $this->db->from("detalle_venta d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+      $this->db->where("d.fecha >=", $fecha_inicial);
+      $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->where("p.categoria", 8);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countJugueteria($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(p.precio) as totaljugueteria");
+      $this->db->from("detalle_venta d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+      $this->db->where("d.fecha >=", $fecha_inicial);
+      $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->where("p.categoria", 9);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countArequipes($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(p.precio) as totalarequipes");
+      $this->db->from("detalle_venta d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+      $this->db->where("d.fecha >=", $fecha_inicial);
+      $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->where("p.categoria", 10);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countOtros($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(p.precio) as totalotros");
+      $this->db->from("detalle_venta d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
+      $this->db->where("d.fecha >=", $fecha_inicial);
+      $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->where("p.categoria", 11);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countGastos($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(precio) as gastos");
+      $this->db->from("gastos");
+      $this->db->where("fecha >=", $fecha_inicial);
+      $this->db->where("fecha <=", $fecha_final);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countVenta($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(total_venta) as venta");
+      $this->db->from("ventas");
+      $this->db->where("fecha >=", $fecha_inicial);
+      $this->db->where("fecha <=", $fecha_final);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countGanancia($fecha_inicial, $fecha_final) {
+      $this->db->select("SUM(p.costo_proveedor) as ganancia");
+      $this->db->from("productos p");
+      $this->db->join("detalle_venta v", "v.codigo_producto = p.codigo");
+      $this->db->where("v.fecha >=", $fecha_inicial);
+      $this->db->where("v.fecha <=", $fecha_final);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
 }
