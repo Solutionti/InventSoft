@@ -13,6 +13,7 @@ class Clientes extends CI_Controller {
 		$this->load->model("Ventas_model");
 		$this->load->model("Reportes_model");
 		$this->load->model("Proveedores_model");
+		$this->load->model("Notas_model");
 	}
 
     public function index() {
@@ -22,7 +23,8 @@ class Clientes extends CI_Controller {
 	public function inicio(){
 		$id = $this->session->userdata("codigo");
 		$usuarios = $this->Usuarios_model->getUsuariosId($id);
-		$data = ["usuario" => $usuarios];
+		$notas = $this->Notas_model->getNotas();
+		$data = ["usuario" => $usuarios, "nota" => $notas];
 		$this->load->view("ventas/inicio", $data);
 	}
 
@@ -100,6 +102,21 @@ class Clientes extends CI_Controller {
 		"proveedor" => $proveedores
 	  ]; 
       $this->load->view("ventas/proveedores", $datos);
+	}
+
+	public function registrarnota() {
+		$titulo = $this->input->post("titulo");
+		$asunto = $this->input->post("asunto");
+		$fecha = $this->input->post("fecha");
+		$hora = $this->input->post("hora");
+
+		$data = [
+		  "titulo" => $titulo,
+		  "asunto" => $asunto,
+		  "fecha" => $fecha,
+		  "hora" => $hora,
+		];
+		$this->Notas_model->registrarnota($data);
 	}
 
 }

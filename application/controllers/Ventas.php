@@ -162,4 +162,28 @@ class Ventas extends CI_Controller {
       ];
       $this->Ventas_model->cerrarCaja($datos, $id_caja);
     }
+
+    public function getVentaDetalleDevolucion($codigo){
+      $detalle_devolucion = $this->Ventas_model->getVentaDetalleDevolucion($codigo);
+      
+      echo json_encode($detalle_devolucion->result());
+    }
+
+    public function devolucionVenta(){
+      $codigo_producto = $this->input->post("codigo");
+      $totalproducto = $this->input->post("total");
+      $venta = $this->input->post("venta");
+
+      // consultas para traer los datos ventas
+      $ventaAct = $this->Ventas_model->getVentaValor($venta)->total_venta;
+      $newtotal = $ventaAct - $totalproducto;
+      // consultar el stock del producto
+      $producto = $this->Ventas_model->getInventarioStock($codigo_producto)->stock;
+      $newinventario = $producto + 1;
+
+      // funcionalidad
+      $this->Ventas_model->DescontarValorVentaDevolucion($newtotal, $venta);
+      $this->Ventas_model->agregarProductoStockDevolucion($newinventario, $codigo_producto);
+      $this->Ventas_model->actualizarDetalleVenta($venta, $codigo_producto);
+    }
 }

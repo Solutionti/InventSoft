@@ -18,6 +18,8 @@ $route["cerrarsesion"] = "login/cerrarsesion";
 $route["cerrarsesionclientes"] = "login/cerrarsesionclientes";
 // INICIO
 $route["ventas/inicio"] = "clientes/inicio";
+$route["ventas/registrarnota"] = "clientes/registrarnota";
+
 /*
 **********************************************************
 ***** ADMINISTRACION DE LAS VENTAS E INVENTARIOS ******
@@ -55,12 +57,18 @@ $route["ventas/verproducto/(:num)"] = "ventas/getproductoid/$1";
 $route["ventas/crearventa"] = "ventas/crearventa";
 $route["ventas/abrircaja"] = "ventas/guardaraperturacaja";
 $route["ventas/cerrarcaja"] = "ventas/cerrarcaja";
+
+$route["ventas/getventadetalle/(:num)"] = "ventas/getventadetalledevolucion/$1";
+$route["ventas/devolucionventa"] = "ventas/devolucionventa";
+
 //
 $route["ventas/ecografias"] = "clientes/ecografias";
 $route["ventas/gastos"] = "clientes/gastos";
 $route["ventas/ventas"] = "clientes/ventas";
 $route["iniciarsesionclientes"] = "login/iniciarsesionclientes";
 $route["cerrarsesionclientes"] = "login/cerrarsesionclientes";
+
+
 
 // DEVOLUCIONES
 $route["ventas/devoluciones"] = "clientes/devoluciones";
