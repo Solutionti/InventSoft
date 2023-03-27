@@ -209,27 +209,95 @@
         <div class="col-md-3">
     <div class="card"> 
       <div class="card-body">
-        <p class="text-uppercase text-sm">Notas rapidas <i class="fa-regular fa-note-sticky text-primary"></i></p> 
+        <p class="text-uppercase text-sm">Notas rapidas <i class="fas fa-regular fa-sticky-note text-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></p> 
         <div class="card-body pt-4 p-3">
             <ul class="list-group">
+            <?php foreach($nota->result() as $notas){ ?>
             <li class="border-0 d-flex  bg-gray-100 border-radius-lg">
-            <div class="d-flex flex-column">
-            <h6 class=" text-sm">Pagar proveedor</h6>
-            <span class="mb-2 text-xs">Asunto: <span class="text-dark font-weight-bold ms-sm-0">
-                se debe pagar al proveedor de cocacola
-            </span></span>
-            </div>
+              <div class="d-flex flex-column">
+                <h6 class=" text-sm"><?php echo $notas->titulo;  ?></h6>
+                <span class="mb-2 text-xs">Asunto: <span class="text-dark font-weight-bold ms-sm-0">
+                <?php echo $notas->descripcion; ?>
+                </span></span>
+              </div>
             </li>
+            <?php } ?>
             </ul>
             </div>
       </div>
     </div>
   </div>
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-default">
+        <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">NOTAS RAPIDAS</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+          <div class="form-group">
+            <label>Titulo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="titulo"
+            >
+          </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Asunto</label>
+              <input
+                type="text"
+                class="form-control"
+                id="asunto"
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label>Fecha</label>
+            <div class="form-group">
+            <input
+              type="date"
+              class="form-control"
+              id="fecha"
+            >
+          </div>
+          </div>
+          <div class="col-md-6">
+            <label>Hora</label>
+            <div class="form-group">
+            <input
+              type="time"
+              class="form-control"
+              id="hora"
+            >
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="guardarnota"
+        >
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
         <?php require_once("componentes/footer.php"); ?>
         <?php require_once("componentes/scripts.php"); ?>
         <script>
           var baseurl = "<?php echo base_url();?>";
         </script>
-        <script src="<?php echo base_url(); ?>public/js/scripts/usuarios.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/scripts/notas.js"></script>
 </body>
 </html>

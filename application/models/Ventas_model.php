@@ -192,4 +192,11 @@ class Ventas_model extends CI_model {
     } 
 
 
+
+    public function devolucionVenta(){
+      
+    }
+
+
+
 }
