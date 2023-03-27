@@ -143,4 +143,58 @@ class Ventas_model extends CI_model {
       return $resultado;
     }
 
+    public function getVentaDetalleDevolucion($codigo){
+      $fecha = date("Y-m-d");
+      $this->db->select("d.codigo_producto,d.codigo_venta,d.fecha,d.hora, v.total_venta,v.codigo_venta, d.usuario");
+      $this->db->from("detalle_venta d");
+      $this->db->join("ventas v", "d.codigo_detalle = v.codigo_venta");
+      $this->db->where("d.codigo_producto", $codigo);
+      $this->db->where("v.fecha", $fecha);
+      $result = $this->db->get();
+
+      return $result;
+    }
+
+    public function getVentaValor($codigo) {
+      $this->db->select("*");      
+      $this->db->from("ventas");
+      $this->db->where("codigo_venta", $codigo);
+      $result = $this->db->get();
+      
+      return $result->row();
+    }
+
+    public function DescontarValorVentaDevolucion($total, $venta){
+      $data = [
+        "total_venta" => $total
+      ];
+      $this->db->where("codigo_venta", $venta);
+      $this->db->update("ventas", $data);
+    }
+
+    public function agregarProductoStockDevolucion($stock, $codigo){
+      $data = [
+        "stock" => $stock
+      ];
+      $this->db->where("codigo", $codigo);
+      $this->db->update("productos", $data);
+    }
+
+    public function actualizarDetalleVenta($venta, $codigo){
+      $data = [
+        "devolucion" => 1
+      ];
+      $this->db->where("codigo_venta", "VNT00".$venta);
+      $this->db->where("codigo_producto", $codigo);
+      $this->db->update("detalle_venta", $data);
+    } 
+
+
+
+    public function devolucionVenta(){
+      
+    }
+
+
+
 }

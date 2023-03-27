@@ -299,16 +299,25 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6" hidden>
+                <div class="col-md-6">
                   <div class="form-group">
-                    <!-- <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1">
-                      <label class="custom-control-label" for="customCheck1">Devolucion?</label>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="checkdevolucion"
+                      >
+                      <label class="custom-control-label" for="customCheck1">Devolución?</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1">
-                      <label class="custom-control-label" for="customCheck1"></label>
-                    </div> -->
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="checkrecibocaja"
+                        id="checkrecibocaja"
+                      >
+                      <label class="custom-control-label" for="customCheck1">Recibo de Caja?</label>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -319,9 +328,8 @@
                 </div>
               </div>
               <div class="row mt-3">
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <div class="form-group">
-                    
                     <?php
                       if($estadocajas->estado == "CERRADA") {
                     ?>
@@ -330,6 +338,14 @@
                       <button class="btn bg-gradient-danger" id="cerrar-caja">Cerrar Caja</button> 
                     <?php } ?>
                   </div>
+                </div>
+                <div class="col-md-6" id="ocultobtndevolucion" hidden>
+                <button
+                  class="btn bg-gradient-success"
+                  id="btn_devolucion"
+                >
+                  Hacer devolucion
+                </button> 
                 </div>
               </div>
             </div>
@@ -521,6 +537,40 @@
       </div>
     </div>
   </div>
+  <!-- TABLA DEVOLUCION -->
+  <div class="modal fade" id="modaltabledevolcion" data-backdrop="static" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-default">
+        <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">VENTA ASOCIADA AL PRODUCTO</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="table responsive">
+          <table class="table table-striped table-hover">
+            <thead style="background-color: #B20027 !important;">
+              <tr>
+                <th></th>
+                <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo producto</th>
+                <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo venta</th>
+                <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fecha</th>
+                <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Hora</th>
+                <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Valor</th>
+                <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Usuario</th>
+              </tr>
+            </thead>
+            <tbody id="detalleventas">
+              
+            </tbody>   
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="aceptardevoluciontabla">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
   <?php require_once("componentes/scripts.php"); ?>
   <script>
     var baseurl = "<?php echo base_url();?>";
