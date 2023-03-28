@@ -83,9 +83,7 @@ $("#buscar-producto").on("click", function () {
   $("#modal-productos").modal("show");
 });
 
-$("#otra-venta").on("click", function () {
-  
-});
+
 
 //DARLE ACCION A EL BOTON CONTROL + F1
 document.addEventListener("keydown", function(event) {
