@@ -54,13 +54,18 @@ $("#codigo_barras").on("blur", function(){
         const nombre = data.nombre;
         const codigo = data.codigo_barras;
         const precio = data.precio;
-        
+        if(data.stock <= 0){
+          $("body").overhang({
+            type: "error",
+            message: "Alerta! esta apunto de vender un producto sin stock en inventario. ",
+          });
+        }
         const newItem = {
             nombre: nombre,
             codigo: codigo,
             precio: precio,
             cantidad: 1
-          }
+        }
         addItemCarrito(newItem);
         $("#codigo_barras").val("");
         $("#codigo_barras").focus();
@@ -89,10 +94,10 @@ function addItemCarrito(newItem){
     }
     carrito.push(newItem);
     renderCarrito();
-    $("body").overhang({
-      type: "success",
-      message: "Se ha agregado un producto a la venta"
-    });
+    // $("body").overhang({
+    //   type: "success",
+    //   message: "Se ha agregado un producto a la venta"
+    // });
     
 }
 
@@ -187,6 +192,18 @@ document.addEventListener("keydown", function(event) {
         $("#recibio").addClass("is-invalid");
         $("#recibio").focus();
       }
+      else if (total < recibio){
+        $("body").overhang({
+          type: "error",
+          message: "Alerta ! el recibo de efectivo debe ser mayor o igual a la venta total",
+        });
+      }
+      else if (ventas.length === 0){
+        $("body").overhang({
+          type: "error",
+          message: "Alerta ! Debe ingresar al menos 1 producto a la venta",
+        });
+      }
       else {
         $.ajax({
           url: url,
@@ -214,7 +231,10 @@ document.addEventListener("keydown", function(event) {
                 type: "success",
                 message: "La venta se ha creado correctamente"
               });
-              facturaVenta(consecutivo);
+              if( $('#checkrecibocaja').is(':checked') ) {
+                facturaVenta(consecutivo);
+              }
+              setTimeout(reloadPage, 3000);
             }
           },
           error: function () {
@@ -377,6 +397,96 @@ $("#cierre-caja").on("click", function () {
   });
 
 })
+
+$("#checkrecibocaja").on("click", function(){
+    if( $(this).is(':checked') ){
+      $("body").overhang({
+        type: "success",
+        message: "Se ha activado la impresion de recibo de caja."
+      });
+      
+  } else {
+    $("body").overhang({
+      type: "error",
+      message: "Se ha desactivado la impresion de recibo de caja.",
+    });
+  }
+  });
+  
+  $("#checkdevolucion").on("click", function(){
+    if( $(this).is(':checked') ){
+      $("body").overhang({
+        type: "error",
+        message: "Alerta se activo devolucion de producto al inventario."
+      });
+      $("#ocultobtndevolucion").attr("hidden", false);
+      $("#modaltabledevolcion").modal("show");
+      var codigo = $("#codigo").val();
+      var url = baseurl + "ventas/getventadetalle/" + codigo;
+      $.ajax({
+        url: url,
+        method: "GET",
+        success: function(data){
+          data = JSON.parse(data);
+          console.log(data);
+          detalleventa = data.map(function(detalle){
+            return '<tr><td><div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="codigoventa" id="codigoventa" value="'+detalle.codigo_venta+'"><label class="form-check-label" for="codigoproduct"></label></div></td><td class="text-xs text-dark mb-0">'+detalle.codigo_producto+'</td><td class="text-xs text-dark mb-0">'+'VNT00'+detalle.codigo_venta+'</td><td class="text-xs text-dark mb-0">'+detalle.fecha+'</td><td class="text-xs text-dark mb-0">'+detalle.hora+'</td><td class="text-xs text-dark mb-0">'+'$'+detalle.total_venta+'</td><td class="text-xs text-dark mb-0">'+detalle.usuario+'</td></tr>';
+          });
+          document.getElementById("detalleventas").innerHTML = detalleventa;
+        }
+      });
+      
+    } else {
+      $("body").overhang({
+        type: "success",
+        message: "Alerta se desactivo devolucion de producto al inventario.",
+      });
+        $("#ocultobtndevolucion").attr("hidden", true);
+    }
+  });
+  
+  $("#aceptardevoluciontabla").on("click", function(){
+    $("#modaltabledevolcion").modal("hide");
+  });
+  
+  
+  $("#btn_devolucion").on("click", function(){
+    var url = baseurl + "ventas/devolucionventa";
+     var codigo = $("#codigo").val(),
+         total =  totalPedido,
+         venta = $("#codigoventa:checked").val(),
+         cantidad = $(".cantidad_products").val();
+    if(cantidad >= 2){
+      $("body").overhang({
+        type: "error",
+        message: "Alerta ! solo puede hacer devolucion de 1 cantidad de producto.",
+      });
+    }
+    else {
+      $.ajax({
+       url: url,
+       method: "POST",
+       data: {
+         codigo: codigo,
+         total: total,
+         venta: venta
+       },
+       success: function(){
+         $("body").overhang({
+           type: "success",
+           message: "Se ha realizado la devolucion correctamente"
+         });
+         setTimeout(reloadPage, 3000);
+       },
+       error: function(){
+         $("body").overhang({
+           type: "error",
+           message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+         });
+       }
+      });
+    }
+  });
 
 function reloadPage() {
   location.reload();
