@@ -78,7 +78,7 @@ $("#recibio").on("keyup", function () {
     total = $("#total").val();
     $("#devolver").attr("hidden", true);
     
-    document.getElementById("volver").innerHTML = '<h2 class="text-white text-uppercase">'+ (recibio - totalPedido).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})+'</h2>';
+    document.getElementById("volver").innerHTML = '<h2 class="text-dark text-uppercase">'+ (recibio - totalPedido).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})+'</h2>';
  });
 
 function addItemCarrito(newItem){

@@ -304,10 +304,10 @@
                       class="card-header bg-gradient-light text-center pt-4 pb-5 position-relative"
                     >
                       <div class="z-index-1 position-relative">
-                        <h5 class="text-white">TOTAL VENTA</h5>
+                        <h5 class="text-black">TOTAL VENTA</h5>
                         <h1 class="text-white mt-2 mb-0" id="ventaa">
-                        <small id="compracero">$0 </small>
-                        <small class="total-compra" id="total-compra" hidden></small>
+                        <small id="compracero" class="text-dark">$0 </small>
+                        <small class="total-compra text-dark" id="total-compra" hidden></small>
                         </h1>
                         <h6 class="text-black">TOTAL DEVOLVER</h6>
                         <div id="volver">
