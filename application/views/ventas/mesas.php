@@ -53,6 +53,14 @@
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
                 <p class="mb-0 h6 text-uppercase">Inventario de mesas</p>
+                <button
+                  class="btn btn-danger text-white btn-xs ms-auto mx-2"
+                  data-bs-toggle="modal"
+                  href="#modal_mesas"
+                  role="button"
+                > 
+                  Agregar mesa
+                </button>
               </div>
             </div>
             <div class="card-body">
@@ -91,13 +99,13 @@
           <div class="col-md-2">
             <div class="form-group">
               <label for="">Numero Mesa</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" readonly>
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <label for="">Meser@</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" readonly>
             </div>
           </div>
           <div class="col-md-2">
@@ -117,11 +125,19 @@
               <label>Estado</label>
               <select
                 class="form-control"
+                readonly
               >
               <option value="">Disponible</option>
               <option value="">Ocupada</option>
               </select>
             </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="row">
+          <div class="col-md-12">
+            <label for="">Descripcion</label>
+            <textarea class="form-control"></textarea>
           </div>
         </div>
         <!--  -->
@@ -137,6 +153,32 @@
                     <th class="text-white">Valor</th>
                   </tr>
                 </thead>
+                <tbody>
+                  <tr>
+                    <td>3232</td>
+                    <td>PAPAS A LA FRANCESA</td>
+                    <td>3</td>
+                    <td>$3500</td>
+                  </tr>
+                  <tr>
+                    <td>3243</td>
+                    <td>HAMBURGUESAS</td>
+                    <td>2</td>
+                    <td>$13000</td>
+                  </tr>
+                  <tr>
+                    <td>3232</td>
+                    <td>PERRO CALIENTYE</td>
+                    <td>1</td>
+                    <td>$12000</td>
+                  </tr>
+                  <tr>
+                    <td>3232</td>
+                    <td>PAPAS LOCAS</td>
+                    <td>1</td>
+                    <td>$61000</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
@@ -148,8 +190,50 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Guardar</button>
         <button type="button" class="btn btn-danger">Cerrar mesa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CREACION DE MESAS -->
+<div class="modal fade" id="modal_mesas" tabindex="-1" aria-labelledby="modal_mesasLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h1 class="modal-title fs-5 text-white" id="modal_mesasLabel">CREAR MESAS</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Numero de mesa</label>
+              <input type="number" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Puestos</label>
+              <input type="number" class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="">Estado de la mesa</label>
+              <select class="form-control">
+                <option value="">DISPONIBLE</option>
+                <option value="">OCUPADA</option>
+                <option value="">MANTENIMIENTO</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Guardar</button>
       </div>
     </div>
   </div>

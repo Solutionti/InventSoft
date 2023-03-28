@@ -6,9 +6,10 @@ class Reportes_model extends CI_model {
     //TRANSACCIONES POR DIA
     public function transaccionesVentaDia($fecha_inicial, $fecha_final, $usuario) {
       
-      $this->db->select("d.*, p.nombre, p.precio, p.stock");
+      $this->db->select("d.*, p.nombre, p.precio, p.stock, v.cantidad_productos, v.total_venta");
       $this->db->from("detalle_venta d");
       $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->join("ventas v", "d.codigo_venta = v.codigo_consecutivo");
       $this->db->where("d.fecha >=", $fecha_inicial);
       $this->db->where("d.fecha <=", $fecha_final);
       if($usuario == "0"){
