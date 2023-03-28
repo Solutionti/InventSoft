@@ -41,9 +41,11 @@ class Ventas_model extends CI_model {
         $datos = [
          "codigo_venta" => $data["codigo_venta"],
          "codigo_producto" => $data["venta"],
+         "cantidad" => $data["cantidad"],
          "fecha" => date("Y-m-d"),
          "hora" => date("h: i A"),
-         "usuario" => $this->session->userdata("nombre")
+         "usuario" => $this->session->userdata("nombre"),
+         "descontado" => 1
         ];
         $this->db->insert("detalle_venta", $datos);
     }

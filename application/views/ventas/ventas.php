@@ -155,7 +155,16 @@
                       </div>
                       <?php } ?>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-2">
+                      <label class="text-center">%</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg text-lg"
+                        id="porcentaje"
+                        readonly
+                      >
+                    </div>
+                    <div class="col-md-4">
                       <label>Recibo de efectivo</label>
                       <input
                         type="text"
@@ -169,8 +178,8 @@
                   </div>
                   <?php $id_cajas = $id_caja->result()[0]; ?>
                   <input type="text" class="form-control" id="id_caja" value="<?php echo $id_cajas->id_caja ?>" hidden>
-                  <div class="row" hidden>
-                    <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-6" hidden>
                       <label>Total</label>
                       <input
                         type="text"
@@ -281,9 +290,9 @@
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Producto</th>
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Cantidad</th>
-                          <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Total</th>
+                          <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Precio</th>
                         </thead>
-                        <tbody id="tabla-ventas">
+                        <tbody class="tbody">
                         </tbody>
                       </table>
                     </div>
@@ -297,7 +306,8 @@
                       <div class="z-index-1 position-relative">
                         <h5 class="text-white">TOTAL VENTA</h5>
                         <h1 class="text-white mt-2 mb-0" id="ventaa">
-                        <small id="total-compra">$ </small>0
+                        <small id="compracero">$0 </small>
+                        <small class="total-compra" id="total-compra" hidden></small>
                         </h1>
                         <h6 class="text-white">TOTAL DEVOLVER</h6>
                         <div id="volver">
@@ -598,6 +608,6 @@
   <script>
     var baseurl = "<?php echo base_url();?>";
   </script>
-  <script src="<?php echo base_url(); ?>public/js/scripts/ventas.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/scripts/ventas2.js"></script>
 </body>
 </html>
