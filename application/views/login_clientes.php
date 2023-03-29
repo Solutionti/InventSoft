@@ -221,7 +221,7 @@
               </div>
             </div>
             <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-              <div class="position-relative bg-gradient-success h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('public/img/theme/istockphoto-639318080-612x612.jpg');
+              <div class="position-relative bg-gradient-success h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://http2.mlstatic.com/D_NQ_NP_614585-MLA43545410143_092020-O.jpg');
           background-size: cover; background-repeat: no-repeat">
                 <span class="mask  opacity-6"></span>
                 <!-- <h3 class="mt-1 text-danger font-weight-bolder position-relative">BUEN  <span class="text-success">VIAJE</span> </h3>

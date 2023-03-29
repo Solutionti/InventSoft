@@ -55,7 +55,7 @@
       <div class="row">
       <div class="col-md-3">
           <div class="card card-profile">
-            <img src="https://cdn.pixabay.com/photo/2015/08/07/16/07/shopping-879498_960_720.jpg" alt="Image placeholder" class="card-img-top">
+            <img src="https://i0.wp.com/edomexaldia.com/wp-content/uploads/2020/09/kar-1.jpg?fit=491%2C328&ssl=1" alt="Image placeholder" class="card-img-top">
             <div class="row justify-content-center">
               <div class="col-4 col-lg-4 order-lg-2">
                 <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
