@@ -45,7 +45,6 @@ $route["ventas/crearsalida"] = "inventarios/crearsalida";
 $route["ventas/consultainventario/(:num)"] = "inventarios/getConsultaInventario/$1";
 $route["ventas/consultarkardex"] = "inventarios/consultarkardex";
 $route["ventas/actualizarimagen"] = "inventarios/actualizarimagen";
-
 //VENTAS
 $route["ventas/getproductoventa"] = "ventas/getproductoventa";
 $route["ventas/generarpdfventas/(:any)"] = "ventas/pdfreciboventa/$1";
@@ -59,6 +58,9 @@ $route["ventas/gastos"] = "clientes/gastos";
 $route["ventas/ventas"] = "clientes/ventas";
 $route["iniciarsesionclientes"] = "login/iniciarsesionclientes";
 $route["cerrarsesionclientes"] = "login/cerrarsesionclientes";
+
+// MESAS
+$route["ventas/mesas"] = "clientes/mesas";
 
 // DEVOLUCIONES
 $route["ventas/devoluciones"] = "clientes/devoluciones";

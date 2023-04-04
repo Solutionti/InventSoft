@@ -91,6 +91,10 @@ class Clientes extends CI_Controller {
 		$this->load->view("ventas/ventas", $data);
 	}
 
+	public function mesas(){
+		$this->load->view("ventas/mesas");
+	}
+
 	public function devoluciones(){
 		$this->load->view("ventas/devoluciones");
 	}
