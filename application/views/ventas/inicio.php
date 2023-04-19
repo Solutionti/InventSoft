@@ -55,7 +55,7 @@
       <div class="row">
       <div class="col-md-3">
           <div class="card card-profile">
-            <img src="https://media.istockphoto.com/id/1422515228/es/foto/buscando-el-remedio-perfecto.jpg?s=612x612&w=0&k=20&c=OO9f4afqT65Tpm49Jd6XcBGh7OSCnch_3wuTeTezDaQ=" alt="Image placeholder" class="card-img-top">
+            <img src="<?php echo base_url(); ?>public/img/theme/istockphoto-1422515228-612x612.jpg" alt="Image placeholder" class="card-img-top">
             <div class="row justify-content-center">
               <div class="col-4 col-lg-4 order-lg-2">
                 <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
