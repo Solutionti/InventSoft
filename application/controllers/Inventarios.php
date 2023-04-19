@@ -42,7 +42,7 @@ class Inventarios extends CI_Controller {
           "moneda" => $moneda,
           "descripcion" => $descripcion,
           "pro_venta" => $pro_venta,
-          "url_imagen" => $nombre."-".$archivo[0]
+          "url_imagen" => $codigo."-".$archivo[0]
         ];
         $existproduct = $this->Inventarios_model->getProductoVenta($codigo);
 
