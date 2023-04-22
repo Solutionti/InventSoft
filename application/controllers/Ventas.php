@@ -21,7 +21,6 @@ class Ventas extends CI_Controller {
     }
 
     public function crearVenta() {
-      print_r($this->input->post("ventas"));
       $consecutivo = $this->input->post("consecutivo");
       $documento = $this->input->post("documento");
       $sede = $this->input->post("sede");
@@ -61,7 +60,7 @@ class Ventas extends CI_Controller {
             "cantidad" => $ventas[$i]["cantidad"],
           ];
           $this->Ventas_model->updateInventarioStock($ventas[$i]["codigo"], $stockact);
-          $this->Ventas_model->CrearDetalleVenta($data2);
+          $this->Ventas_model->CrearDetalleVenta($data2, $codigoventa);
         }
       }
       else {

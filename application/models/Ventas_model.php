@@ -37,9 +37,10 @@ class Ventas_model extends CI_model {
       }
     }
 
-    public function CrearDetalleVenta($data) {
+    public function CrearDetalleVenta($data, $consecutivo) {
         $datos = [
          "codigo_venta" => $data["codigo_venta"],
+         "consec_venta" => $consecutivo,
          "codigo_producto" => $data["venta"],
          "cantidad" => $data["cantidad"],
          "fecha" => date("Y-m-d"),
@@ -149,7 +150,7 @@ class Ventas_model extends CI_model {
       $fecha = date("Y-m-d");
       $this->db->select("d.codigo_producto,d.codigo_venta,d.fecha,d.hora, v.total_venta,v.codigo_venta, d.usuario");
       $this->db->from("detalle_venta d");
-      $this->db->join("ventas v", "d.codigo_detalle = v.codigo_venta");
+      $this->db->join("ventas v", "d.consec_venta = v.codigo_venta");
       $this->db->where("d.codigo_producto", $codigo);
       $this->db->where("v.fecha", $fecha);
       $result = $this->db->get();

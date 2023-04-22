@@ -30,7 +30,7 @@ $("#abrir-caja").on("click", function() {
     $("#modal-cerrarcaja").modal("show");
   });
 
-$("#codigo_barras").on("blur", function(){
+$("#codigo_barras").on("change", function(){
     var url1 = baseurl + "ventas/getproductoventa",
         codigo_barras = $("#codigo_barras").val();
     
@@ -42,7 +42,7 @@ $("#codigo_barras").on("blur", function(){
       },
       success: function(data) {
         data = JSON.parse(data);
-        var imagen = "<img src='http://localhost/CODEIGNITER/InventSoft/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
+        var imagen = "<img src='https://ventas-buen-viaje.saludmadreymujer.com/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
         document.getElementById("imagen").innerHTML = imagen;
         $("#codigo").val(data.codigo);
         $("#codigo_barras2").val(data.codigo_barras);
@@ -250,7 +250,7 @@ document.addEventListener("keydown", function(event) {
 
   //DARLE ACCION A EL BOTON CONTROL + F2
   document.addEventListener("keydown", function(event) {
-    if (event.ctrlKey && event.keyCode === 113)
+    if (event.ctrlKey && event.keyCode === 68)
     {
       location.reload();
     }
@@ -258,7 +258,7 @@ document.addEventListener("keydown", function(event) {
 
   //DARLE ACCION A EL BOTON CONTROL + F3
   document.addEventListener("keydown", function(event) {
-    if (event.ctrlKey && event.keyCode === 114)
+    if (event.keyCode === 83)
     {
       $("#modal-productos").modal("show");
       // $("input[type='search']").focus();
@@ -274,7 +274,7 @@ document.addEventListener("keydown", function(event) {
             method: "GET",
             success: function(data) {
               data = JSON.parse(data);
-              var imagen = "<img src='http://localhost/CODEIGNITER/InventSoft/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
+              var imagen = "<img src='https://ventas-buen-viaje.saludmadreymujer.com/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
               document.getElementById("imagen").innerHTML = imagen;
               $("#modal-productos").modal("hide");
               $("#codigo").val(data.codigo);
