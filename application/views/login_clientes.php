@@ -173,7 +173,7 @@
               <div class="card card-plain">
                 <div class="card-header pb-0 text-center">
                   <!-- <img src="<?php echo base_url(); ?>public/img/theme/logo.png" width="50px;" class="img-fluid mb-3"> -->
-                  <h3> <span class="text-primary h4 font-weight-bold">Invent</span> <span class="text-default h2 font-weight-bold">Soft</span> </h3>
+                  <h3> <span class="text-primary h4 font-weight-bold">Invent</span><span class="text-default h2 font-weight-bold">Soft</span> </h3>
                   <p class="text-capitalize">Software de ventas y inventarios</p>
                 </div>
                 <div class="card-body">

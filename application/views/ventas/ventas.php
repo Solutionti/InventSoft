@@ -384,6 +384,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
+                  <?php if($this->session->userdata("rol") == "Administrador"){ ?>
                     <div class="form-check">
                       <input
                         class="form-check-input"
@@ -392,6 +393,7 @@
                       >
                       <label class="custom-control-label" for="customCheck1">Devolución?</label>
                     </div>
+                  <?php } ?>
                     <div class="form-check">
                       <input
                         class="form-check-input"
