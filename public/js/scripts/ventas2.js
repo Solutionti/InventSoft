@@ -192,7 +192,7 @@ document.addEventListener("keydown", function(event) {
         $("#recibio").addClass("is-invalid");
         $("#recibio").focus();
       }
-      else if (total < recibio){
+      else if (total > recibio){
         $("body").overhang({
           type: "error",
           message: "Alerta ! el recibo de efectivo debe ser mayor o igual a la venta total",
