@@ -47,7 +47,7 @@
               href="<?php echo base_url(); ?>ventas/patologia"
             >
               <i class="ni ni-email-83"></i>
-              <span class="ms-2">Inventarios</span>
+              <span class="ms-2">Almacen</span>
             </a>
           </li>
           <li class="nav-item">
@@ -103,7 +103,7 @@
               href="<?php echo base_url(); ?>ventas/patologia"
             >
               <i class="ni ni-email-83"></i>
-              <span class="ms-2">Inventarios</span>
+              <span class="ms-2">Almacen</span>
             </a>
           </li>
           <li class="nav-item">
