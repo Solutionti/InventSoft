@@ -14,6 +14,7 @@ class Clientes extends CI_Controller {
 		$this->load->model("Reportes_model");
 		$this->load->model("Proveedores_model");
 		$this->load->model("Notas_model");
+		$this->load->model("Pedidos_model");
 	}
 
     public function index() {
@@ -123,4 +124,13 @@ class Clientes extends CI_Controller {
 		$this->Notas_model->registrarnota($data);
 	}
 
+	public function pedidos() {
+		$pedidos = $this->Pedidos_model->getPedidos();
+		$data = [
+		  "pedido" => $pedidos
+		];
+		
+		$this->load->view("ventas/pedidos", $data);
+}
+     
 }
