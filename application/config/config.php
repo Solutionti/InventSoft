@@ -16,6 +16,7 @@
 | environments.
 |
 */
+
 date_default_timezone_set('America/Bogota');
 if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
 

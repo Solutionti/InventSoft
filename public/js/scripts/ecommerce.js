@@ -112,7 +112,6 @@ function removeItemCarrito(e){
   const buttonDelete = e.target;
   const tr = buttonDelete.closest(".ItemCarrito");
   const title = tr.querySelector('.title').textContent;
-  console.log(buttonDelete);
   for(let i = 0; i < carrito.length; i++){
     if(carrito[i].title.trim() === title.trim()){
       carrito.splice(i, 1);
