@@ -133,9 +133,9 @@ class Reportes extends CI_Controller {
       $pdf->Cell(50,5,'NOMBRE', 'TBR', 0,'L', false );
       $pdf->Cell(25,5,"VENTA", 'TBR', 0,'L', false );
       $pdf->Cell(25,5,"FECHA", 'TBR', 0,'L', false );
-      $pdf->Cell(25,5,"HORA", 'TBR', 0,'L', false );
+      $pdf->Cell(12,5,"CANT", 'TBR', 0,'L', false );
       $pdf->Cell(20,5,"PRECIO", 'TBR', 0,'L', false );
-      $pdf->Cell(22,5,"CATEGORIA", 'TBR', 0,'L', false );
+      $pdf->Cell(30,5,"CATEGORIA", 'TBR', 0,'L', false );
       foreach($transaccion->result() as $ventacategoria){
       $pdf->Ln(6);
       $pdf->SetFont('Times','',9);
@@ -143,18 +143,18 @@ class Reportes extends CI_Controller {
       $pdf->Cell(50,5,$ventacategoria->nombre, '', 0,'L', false );
       $pdf->Cell(25,5,$ventacategoria->codigo_venta, '', 0,'L', false );
       $pdf->Cell(25,5,$ventacategoria->fecha, '', 0,'L', false );
-      $pdf->Cell(25,5,$ventacategoria->hora, '', 0,'L', false );
-      $pdf->Cell(25,5,"$".$ventacategoria->precio, '', 0,'L', false );
-      $pdf->Cell(18,5,$ventacategoria->categoria, '', 0,'', false );
+      $pdf->Cell(12,5,$ventacategoria->cantidad, '', 0,'L', false );
+      $pdf->Cell(25,5,"$".$ventacategoria->total_venta, '', 0,'L', false );
+      $pdf->Cell(25,5,$ventacategoria->categoria, '', 0,'L', false );
       }
       $pdf->Ln(8);
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(25,5,'', '', 0,'L', false );
       $pdf->Cell(50,5,'', '', 0,'L', false );
-      $pdf->Cell(30,5,"", '', 0,'L', false );
       $pdf->Cell(25,5,"", '', 0,'L', false );
+      $pdf->Cell(12,5,"", '', 0,'L', false );
       $pdf->Cell(25,5,"TOTAL", 'LTBR', 0,'L', false );
-      $pdf->Cell(20,5,"$".$sumatoriaact->total, 'TBR', 0,'L', false );
+      $pdf->Cell(18,5,"$".$sumatoriaact->total, 'TBR', 0,'L', false );
       $pdf->Cell(22,5,"", '', 0,'L', false );
       
       $pdf->Output();
@@ -363,6 +363,9 @@ class Reportes extends CI_Controller {
       $gastos =  $this->Reportes_model->countGastos($fechainicial, $fechafinal);
       $venta = $this->Reportes_model->countVenta($fechainicial, $fechafinal);
       $ganancia = $this->Reportes_model->countGanancia($fechainicial, $fechafinal);
+      
+      $detallegasto = $this->Reportes_model->getGastosABC($fechainicial, $fechafinal);
+      $gasto = $this->Reportes_model->countGastosABC($fechainicial, $fechafinal);
 
       $this->load->library("pdf");
       $pdfAct = new Pdf();
@@ -440,17 +443,20 @@ class Reportes extends CI_Controller {
       $pdf->Cell(30,5,$artesanias->totalartesania, 'TBR', 0,'L', false );
       $pdf->Cell(50,5,"$".($venta->venta - $ganancia->ganancia) , 'TBR', 0,'L', false );
       $pdf->Ln(5);
+
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(8,5,'6', 'LTBR', 0,'L', false );
       $pdf->Cell(30,5,'VITRINA', 'TBR', 0,'L', false );
       $pdf->Cell(40,5,$fechainicial." - ".$fechafinal, 'TBR', 0,'L', false );
       $pdf->Cell(30,5,$vitrina->totalvitrina, 'TBR', 0,'L', false );
+      $pdf->Cell(50,5,"GASTOS", 'TBR', 0,'L', false );
       $pdf->Ln(5);
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(8,5,'7', 'LTBR', 0,'L', false );
       $pdf->Cell(30,5,'CALIENTE', 'TBR', 0,'L', false );
       $pdf->Cell(40,5,$fechainicial." - ".$fechafinal, 'TBR', 0,'L', false );
       $pdf->Cell(30,5,$caliente->totalcaliente, 'TBR', 0,'L', false );
+      $pdf->Cell(50,5,"$".$gasto->gasto, 'TBR', 0,'L', false );
       $pdf->Ln(5);
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(8,5,'8', 'LTBR', 0,'L', false );
@@ -475,6 +481,29 @@ class Reportes extends CI_Controller {
       $pdf->Cell(30,5,'OTROS', 'TBR', 0,'L', false );
       $pdf->Cell(40,5,$fechainicial." - ".$fechafinal, 'TBR', 0,'L', false );
       $pdf->Cell(30,5,$otros->totalotros, 'TBR', 0,'L', false );
+
+      $pdf->Ln(9);
+      $pdf->SetFont('Times','b',10);
+      $pdf->Cell(18,5,'GASTOS', '', 0,'L', false );
+
+      $pdf->Ln(7);
+      $pdf->Cell(45,5,'CATEGORIA', 'TBRL', 0,'L', false );
+      $pdf->Cell(35,5,'PROVEEDOR', 'TBR', 0,'L', false );
+      $pdf->Cell(25,5,'FECHA', 'TBR', 0,'L', false );
+      $pdf->Cell(22,5,'PRECIO', 'TBR', 0,'L', false );
+      $pdf->Cell(35,5,'USUARIO', 'TBR', 0,'L', false );
+      $pdf->Cell(27,5,'POR PAGAR?', 'TBR', 0,'L', false );
+
+      foreach($detallegasto->result() as $detalle){
+      $pdf->SetFont('Times','',10);
+        $pdf->Ln(5);
+        $pdf->Cell(45,5,$detalle->categoria, '', 0,'L', false );
+        $pdf->Cell(35,5,$detalle->proveedor, '', 0,'L', false );
+        $pdf->Cell(25,5,$detalle->fecha, 0,'', false );
+        $pdf->Cell(22,5,"$".$detalle->precio, '', 0,'L', false );
+        $pdf->Cell(35,5,$detalle->usuario, '', 0,'L', false );
+        $pdf->Cell(27,5,$detalle->porpagar, '', 0,'L', false );
+      }
 
       $pdf->Output();
     }

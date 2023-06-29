@@ -36,8 +36,9 @@ class Reportes_model extends CI_model {
       return $result;
     }
     public function ReporteVentaCategoria($fecha_inicial, $fecha_final, $categoria) {
-      $this->db->select("d.*,p.nombre,p.precio,p.categoria,c.nombre as categoria");
+      $this->db->select("d.*,p.nombre,p.precio,p.categoria,c.nombre as categoria,v.total_venta");
       $this->db->from("detalle_venta d");
+      $this->db->join("ventas v", "d.codigo_venta = v.codigo_consecutivo");
       $this->db->join("productos p", "d.codigo_producto = p.codigo");
       $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
       $this->db->where("d.fecha >=", $fecha_inicial);
@@ -50,8 +51,9 @@ class Reportes_model extends CI_model {
     }
 
     public function sumatoriaVentaCategoria($fecha_inicial, $fecha_final, $categoria) {
-      $this->db->select("SUM(p.precio) as total");
+      $this->db->select("SUM(v.total_venta) as total");
       $this->db->from("detalle_venta d");
+      $this->db->join("ventas v", "d.codigo_venta = v.codigo_consecutivo");
       $this->db->join("productos p", "d.codigo_producto = p.codigo");
       $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
       $this->db->where("d.fecha >=", $fecha_inicial);
@@ -353,6 +355,25 @@ class Reportes_model extends CI_model {
       $this->db->where("v.fecha <=", $fecha_final);
       $result = $this->db->get();
 
+      return $result->row(); 
+    }
+
+    public function getGastosABC($fechainicial, $fechafinal) {
+      $this->db->select("*");
+      $this->db->from("gastos");
+      $this->db->where("fecha >=", $fechainicial);
+      $this->db->where("fecha <=", $fechafinal);
+      $result = $this->db->get();
+
+      return $result;
+    }
+
+    public function countGastosABC($fechainicial, $fechafinal){
+      $this->db->select("SUM(precio) as gasto");
+      $this->db->from("gastos");
+      $this->db->where("fecha >=", $fechainicial);
+      $this->db->where("fecha <=", $fechafinal);
+      $result = $this->db->get();
       return $result->row(); 
     }
 }
