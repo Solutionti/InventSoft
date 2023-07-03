@@ -89,6 +89,10 @@ $route["ventas/actualizarpedido"] = "pedidos/actualizardomicilioestadopedido";
 $route["ventas/pdfpedidocliente/(:any)/(:any)"] = "pedidos/pdfpedido/$1/$2";
 $route["ventas/pdfpedidosucursal/(:any)/(:any)"] = "pedidos/pdfpedidosucursal/$1/$2";
 
+// MESAS
+$route["ventas/agregarmesa"] = "mesas/agregarMesa";
+$route["ventas/germesasdetalle"] = "mesas/getMesasDetalleId";
+
 // ECOMMERCE
 $route["ecommerce/inicio"] = "ecommerce";
 $route["ecommerce/productoscategoria/(:num)"] = "ecommerce/productosCategoria/$1";

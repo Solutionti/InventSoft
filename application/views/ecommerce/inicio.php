@@ -893,6 +893,7 @@
                         rows="3"
                         class="form-control"
                         id="sugerencia_pedido"
+                        placeholder="Aca puedes especificar si deseas alguna salsa, descontar ingredientes, etc."
                       ></textarea>
                     </div>
                   </div>

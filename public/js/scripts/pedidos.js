@@ -19,7 +19,7 @@ function verPedido(codigo){
        $("#estado_pedido").val(data.estado),
        $("#domicilio_pedido").val(data.domicilio),
        $("#comentarios_pedido").val(data.comentario);
-      tableDetallePedido(data.consecutivo);
+        tableDetallePedido(data.consecutivo);
       }
   })
 }
@@ -37,7 +37,6 @@ function tableDetallePedido(codigo) {
         const Content = `<td>${index + 1}</td><td>${item.codigo_pedido}</td><td>${item.productonom}</td><td class="text-center">${item.cantidad}</td>`;
         tr.innerHTML = Content;
         tbody.append(tr);
-        // console.log(item);
       });
     }
   })

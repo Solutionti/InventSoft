@@ -54,28 +54,43 @@
               <div class="d-flex align-items-center">
                 <p class="mb-0 h6 text-uppercase">Inventario de mesas</p>
                 <button
-                  class="btn btn-danger text-white btn-xs ms-auto mx-2"
+                  class="btn btn-danger text-white btn-xs  mx-2 mt-2"
                   data-bs-toggle="modal"
                   href="#modal_mesas"
                   role="button"
                 > 
                   Agregar mesa
                 </button>
+                <button
+                  class="btn btn-primary text-white btn-xs ms-auto mx-2"
+                  role="button"
+                  onclick="refreshMesas()"
+                > 
+                  <i class="fas fa-sync"></i> Refrescar
+                </button>
               </div>
             </div>
+            
             <div class="card-body">
               <div class="row">
-              <?php for($i = 0; $i < 18; $i++ ){?>
+                <?php foreach($mesa->result() as $mesas){?>
                 <div class="col-md-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <a href="#" onclick="abrirModalMesasDatos(<?php echo $mesas->numero_mesa; ?>)">
                     <div class="text-center">
                       <img
-                      src="https://t4.ftcdn.net/jpg/02/55/00/13/360_F_255001343_tzPQgCcfVmeZoVj0ilPjlse9qA8wPpt8.jpg"
-                      class="img-fluid mt-0"
-                      width="130px;"
+                        src="https://t4.ftcdn.net/jpg/02/55/00/13/360_F_255001343_tzPQgCcfVmeZoVj0ilPjlse9qA8wPpt8.jpg"
+                        class="img-fluid mt-0"
+                        width="130px;"
                       >
-                      <p>4 personas</p>
-                      <h6>MESA <?php echo $i+1;?>  <i class="fas fa-circle text-success mx-2"></i></h6>
+                      <p><?php echo $mesas->puestos ?> personas</p>
+                      <h6>
+                        MESA <?php echo $mesas->numero_mesa; ?>
+                      <?php if($mesas->estado === "DISPONIBLE" ){ ?>
+                        <i class="fas fa-circle text-success mx-2"></i>
+                      <?php } else if ($mesas->estado == "OCUPADA"){ ?>
+                        <i class="fas fa-circle text-danger mx-2"></i>
+                      <?php } ?>
+                      </h6>
                     </div>
                   </a>
                </div>
@@ -99,25 +114,43 @@
           <div class="col-md-2">
             <div class="form-group">
               <label for="">Numero Mesa</label>
-              <input type="text" class="form-control" readonly>
+              <input
+                type="text"
+                class="form-control"
+                readonly
+                id="mesa_detalle"
+              >
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <label for="">Meser@</label>
-              <input type="text" class="form-control" readonly>
+              <input
+                type="text"
+                class="form-control"
+                readonly
+                id="mesero_detalle"
+              >
             </div>
           </div>
           <div class="col-md-2">
             <div class="form-group">
               <label for="">Propina</label>
-              <input type="text" class="form-control">
+              <input
+                type="text"
+                class="form-control"
+                id="propina_detalle"
+              >
             </div>
           </div>
           <div class="col-md-2">
             <div class="form-group">
               <label for="">Descuento</label>
-              <input type="text" class="form-control">
+              <input
+                type="text"
+                class="form-control"
+                id="descuento_detalle"
+              >
             </div>
           </div>
           <div class="col-md-3">
@@ -126,9 +159,10 @@
               <select
                 class="form-control"
                 readonly
+                id="estado_detalle"
               >
-              <option value="">Disponible</option>
-              <option value="">Ocupada</option>
+              <option value="DISPONIBLE">Disponible</option>
+              <option value="OCUPADA">Ocupada</option>
               </select>
             </div>
           </div>
@@ -136,8 +170,11 @@
         <!--  -->
         <div class="row">
           <div class="col-md-12">
-            <label for="">Descripcion</label>
-            <textarea class="form-control"></textarea>
+            <label>Descripcion</label>
+            <textarea
+              class="form-control"
+              id="descripcion_detalle"
+            ></textarea>
           </div>
         </div>
         <!--  -->
@@ -208,32 +245,46 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label for="">Numero de mesa</label>
-              <input type="number" class="form-control">
+              <label>Numero de mesa</label>
+              <input
+                type="number"
+                class="form-control"
+                id="nro_mesa"
+              >
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="">Puestos</label>
-              <input type="number" class="form-control">
+              <label>Puestos</label>
+              <input
+                type="number"
+                class="form-control"
+                id="puestos"
+              >
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="">Estado de la mesa</label>
-              <select class="form-control">
-                <option value="">DISPONIBLE</option>
-                <option value="">OCUPADA</option>
-                <option value="">MANTENIMIENTO</option>
+              <label>Estado de la mesa</label>
+              <select class="form-control" id="estado">
+                <option value="DISPONIBLE">DISPONIBLE</option>
+                <option value="OCUPADA">OCUPADA</option>
+                <option value="MANTENIMIENTO">MANTENIMIENTO</option>
               </select>
             </div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="crearMesas"
+        >
+          Guardar
+        </button>
       </div>
     </div>
   </div>
@@ -244,6 +295,6 @@
   <script>
     var baseurl = "<?php echo base_url();?>";
   </script>
-  <script src="<?php echo base_url(); ?>public/js/scripts/ventas.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/scripts/mesas.js"></script>
 </body>
 </html>

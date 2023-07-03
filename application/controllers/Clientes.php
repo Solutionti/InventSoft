@@ -15,6 +15,7 @@ class Clientes extends CI_Controller {
 		$this->load->model("Proveedores_model");
 		$this->load->model("Notas_model");
 		$this->load->model("Pedidos_model");
+		$this->load->model("Mesas_model");
 	}
 
     public function index() {
@@ -94,7 +95,12 @@ class Clientes extends CI_Controller {
 	}
 
 	public function mesas(){
-		$this->load->view("ventas/mesas");
+	  $mesas = $this->Mesas_model->getmesas();
+		
+	  $datos = [
+	    "mesa" => $mesas
+	  ];
+	  $this->load->view("ventas/mesas", $datos);
 	}
 
 	public function devoluciones(){
