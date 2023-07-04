@@ -60,6 +60,42 @@ function abrirModalMesasDatos(mesa) {
   });
 }
 
+function cerrarMesas(){
+  var url = baseurl  + "",
+      nro_mesa = $("#mesa_detalle").val(),
+      mesero = $("#mesero_detalle").val(),
+      propina = $("#propina_detalle").val(),
+      descuento = $("#descuento_detalle").val(),
+      estado = $("#estado_detalle").val(),
+      descripcion = $("#descripcion_detalle").val();
+
+  $.ajax({
+    url: url,
+    method: "POST",
+    data: {
+      nro_mesa: nro_mesa,
+      mesero: mesero,
+      propina: propina,
+      descuento: descuento,
+      estado: estado,
+      descripcion: descripcion
+    },
+    success: function(){
+      $("body").overhang({
+        type: "success",
+        message: "La mesa se  ha cerrado con exito"
+      });
+      setTimeout(reloadPage, 2000);
+    },
+    error: function(){
+      $("body").overhang({
+        type: "error",
+        message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+      });
+    }
+  });
+}
+
 function reloadPage() {
   location.reload();
 }

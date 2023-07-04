@@ -33,4 +33,9 @@ class Mesas extends CI_Controller {
       echo json_encode($pedido_mesa);
 
     }
+
+    public function cerrarMesas(){
+      
+
+    }
 }

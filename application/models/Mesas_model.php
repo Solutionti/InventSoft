@@ -39,8 +39,38 @@ class Mesas_model extends CI_model {
       $result = $this->db->get("");
 
       return $result->row();
+    }
 
+    // 
 
+    public function cerrarMesa($mesa, $detalle) {
+      $datos = [
+        "descripcion" => $descripcion,
+        "propina" => $propina,
+        "descuento" => $descuento,
+        "total_pago" => $total,
+        "tp_pago" => $tppago
+      ];
+      $this->db->where("mesa", $mesa);
+      $this->db->where("detalle_pedido", $detalle);
+      $this->db->update("pedidos_mesa", $datos);
+    }
+
+    public function detallePedidoCerrar(){
+      $datos = [
+        "estado" => "CERRADO"
+      ];
+      $this->db->where("mesa", $mesa);
+      $this->db->where("estado", "ACTIVA");
+      $this->db->update("detalle_pedido", $datos);
+    }
+
+    public function cambiarEstadoMesa($mesa) {
+      $datos = [
+        "estado" => "DISPONIBLE"
+      ];
+      $this->db->where("numero_mesa", $mesa);
+      $this->db->update("mesas", $datos);
     }
 
 }

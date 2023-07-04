@@ -221,13 +221,20 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-3 offset-md-9">
-            <h5>TOTAL $99.999.999</h5>
+          <div class="col-md-4 offset-md-8">
+            <h5>TOTAL</h5>
+            <input type="text" class="form-control" id="total">
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger">Cerrar mesa</button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          onclick="cerrarMesas()"
+        >
+          Cerrar mesa
+        </button>
       </div>
     </div>
   </div>
