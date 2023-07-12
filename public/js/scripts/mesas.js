@@ -67,8 +67,9 @@ function cerrarMesas(){
       propina = $("#propina_detalle").val(),
       descuento = $("#descuento_detalle").val(),
       estado = $("#estado_detalle").val(),
-      descripcion = $("#descripcion_detalle").val();
-
+      descripcion = $("#descripcion_detalle").val(),
+      total = $("#total").val();
+      
   $.ajax({
     url: url,
     method: "POST",
@@ -78,7 +79,8 @@ function cerrarMesas(){
       propina: propina,
       descuento: descuento,
       estado: estado,
-      descripcion: descripcion
+      descripcion: descripcion,
+      total: total
     },
     success: function(){
       $("body").overhang({
