@@ -129,9 +129,9 @@
     <div class="modal-content">
       <div class="modal-header bg-success">
         <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Detalle del pedido</h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+        <!-- <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+        </button> -->
       </div>
       <div class="modal-body">
         <div class="row">
@@ -304,7 +304,14 @@
       <div class="modal-footer">
         <button
           type="button"
-          class="btn color-cyan text-white"
+          class="btn btn-danger text-white"
+          onclick="reloadPage()"
+        >
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-success text-white"
           id="Actualizarpedido"
         >
           Actualizar

@@ -35,7 +35,23 @@ class Mesas extends CI_Controller {
     }
 
     public function cerrarMesas(){
-      
+      $nro_mesa = $this->input->post("nro_mesa");
+      $mesero = $this->input->post("mesero");
+      $propina = $this->input->post("propina");
+      $descuento = $this->input->post("descuento");
+      $estado = $this->input->post("estado");
+      $descripcion = $this->input->post("descripcion");
+      $total = $this->input->post("total");
 
+      $this->Mesas_model->cerrarMesa($nro_mesa, $detalle, $descripcion,$propina, $descuento, $total);
+      $this->Mesas_model->detallePedidoCerrar($nro_mesa);
+      $this->Mesas_model->cambiarEstadoMesa($nro_mesa);
+
+    }
+
+    public function getPedidosMesas($mesa){
+      $pedido = $this->Mesas_model->getPedidosMesas($mesa);
+
+      echo json_encode($pedido->result());
     }
 }

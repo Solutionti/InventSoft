@@ -53,6 +53,7 @@ function abrirModalMesasDatos(mesa) {
       $("#descuento_detalle").val(data.descuento);
       $("#estado_detalle").val(data.estado);
       $("#descripcion_detalle").val(data.descripcion);
+      getTablaPedidosMesa(data.mesa);
     },
     error: function(){
 
@@ -60,8 +61,29 @@ function abrirModalMesasDatos(mesa) {
   });
 }
 
+function getTablaPedidosMesa(mesa) {
+  var url = baseurl + "ventas/getpedidomesa/" + mesa;
+  const tbody = document.querySelector('.detalle_pedido_mesas');
+  var contador =  0;
+  $.ajax({
+    url: url,
+    method: "GET",
+    success: function(data) {
+      data = JSON.parse(data);
+      data.map((item, index) => {
+        const tr = document.createElement('tr');
+        const Content = `<td>${item.codigo_pedido_mesa}</td><td>${item.nombre}</td><td class="text-center">${item.cantidad}</td><td class="text-center">${'$'+ item.precio}</td><td class="text-center">${'$'+ item.cantidad * item.precio}</td>`;
+        tr.innerHTML = Content;
+        tbody.append(tr);
+        contador = (item.cantidad * item.precio) + contador;
+      });
+      $("#total").val(contador);
+    }
+  })
+}
+
 function cerrarMesas(){
-  var url = baseurl  + "",
+  var url = baseurl  + "ventas/cerrarmesas",
       nro_mesa = $("#mesa_detalle").val(),
       mesero = $("#mesero_detalle").val(),
       propina = $("#propina_detalle").val(),

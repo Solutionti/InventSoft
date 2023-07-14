@@ -36,27 +36,40 @@ class Mesas_model extends CI_model {
       $this->db->from("pedidos_mesa");
       $this->db->where("estado", "OCUPADA");
       $this->db->where("mesa", $mesa);
-      $result = $this->db->get("");
+      $result = $this->db->get();
 
       return $result->row();
     }
 
     // 
 
-    public function cerrarMesa($mesa, $detalle) {
+    public function getPedidosMesas($mesa){
+      $this->db->select("p.*, m.*, pr.nombre, pr.precio");
+      $this->db->from("pedidos_mesa p");
+      $this->db->join("detalle_mesa m ", "p.detalle_pedido = m.codigo_pedido_mesa");
+      $this->db->join("Productos pr ", "m.codigo_producto = pr.codigo");
+      $this->db->where("p.estado", "OCUPADA");
+      $this->db->where("p.mesa", $mesa);
+      $result = $this->db->get();
+      
+      return $result;
+    }
+
+    public function cerrarMesa($mesa, $detalle, $descripcion,$propina, $descuento, $total) {
       $datos = [
         "descripcion" => $descripcion,
         "propina" => $propina,
         "descuento" => $descuento,
         "total_pago" => $total,
-        "tp_pago" => $tppago
+        "tp_pago" => "EFECTIVO",
+        "estado" => "CERRADA"
       ];
       $this->db->where("mesa", $mesa);
-      $this->db->where("detalle_pedido", $detalle);
+      $this->db->where("detalle_pedido", "1");
       $this->db->update("pedidos_mesa", $datos);
     }
 
-    public function detallePedidoCerrar(){
+    public function detallePedidoCerrar($mesa){
       $datos = [
         "estado" => "CERRADO"
       ];

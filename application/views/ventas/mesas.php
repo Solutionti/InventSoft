@@ -107,7 +107,7 @@
     <div class="modal-content">
       <div class="modal-header bg-success">
         <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">PEDIDOS A LA MESA</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
       </div>
       <div class="modal-body">
         <div class="row">
@@ -187,34 +187,12 @@
                     <th class="text-white">Codigo</th>
                     <th class="text-white">Producto</th>
                     <th class="text-white">Cantidad</th>
-                    <th class="text-white">Valor</th>
+                    <th class="text-white">Valor Unit</th>
+                    <th class="text-white">Total</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>3232</td>
-                    <td>PAPAS A LA FRANCESA</td>
-                    <td>3</td>
-                    <td>$3500</td>
-                  </tr>
-                  <tr>
-                    <td>3243</td>
-                    <td>HAMBURGUESAS</td>
-                    <td>2</td>
-                    <td>$13000</td>
-                  </tr>
-                  <tr>
-                    <td>3232</td>
-                    <td>PERRO CALIENTYE</td>
-                    <td>1</td>
-                    <td>$12000</td>
-                  </tr>
-                  <tr>
-                    <td>3232</td>
-                    <td>PAPAS LOCAS</td>
-                    <td>1</td>
-                    <td>$61000</td>
-                  </tr>
+                <tbody class="detalle_pedido_mesas">
+                  
                 </tbody>
               </table>
             </div>
@@ -223,14 +201,26 @@
         <div class="row">
           <div class="col-md-4 offset-md-8">
             <h5>TOTAL</h5>
-            <input type="text" class="form-control" id="total">
+            <input
+              type="text"
+              class="form-control"
+              id="total"
+              readonly
+            >
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button
+      <button
           type="button"
           class="btn btn-danger"
+          onclick="refreshMesas()"
+        >
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
           onclick="cerrarMesas()"
         >
           Cerrar mesa
