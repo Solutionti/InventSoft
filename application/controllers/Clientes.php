@@ -137,6 +137,20 @@ class Clientes extends CI_Controller {
 		];
 		
 		$this->load->view("ventas/pedidos", $data);
-}
+    }
+
+	public function ventaMesa(){
+	  $categorias1 = $this->Ventas_model->getCategoriaVentaMesa(1);
+	  $categorias2 = $this->Ventas_model->getCategoriaVentaMesa(2);
+	  $categorias3 = $this->Ventas_model->getCategoriaVentaMesa(3);
+	  $categorias4 = $this->Ventas_model->getCategoriaVentaMesa(4);
+	  $data = [
+		"categoria1" => $categorias1,
+		"categoria2" => $categorias2,
+		"categoria3" => $categorias3,
+		"categoria4" => $categorias4,
+	  ];
+	  $this->load->view("ventas/venta_mesa", $data);
+	}
      
 }

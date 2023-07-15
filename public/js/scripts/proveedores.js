@@ -1,3 +1,23 @@
+
+$(document).ready( function () {
+  $('#table-proveedores').DataTable({
+    "lengthMenu": [10, 50, 100, 200],
+    "language":{
+    "processing": "Procesando",
+    "search": "Buscar:",
+    "lengthMenu": "Ver _MENU_ Proveedores",
+    "info": "Mirando _START_ a _END_ de _TOTAL_ Proveedores",
+    "zeroRecords": "No encontraron resultados",
+    "paginate": {
+      "first":      "Primera",
+      "last":       "Ultima",
+      "next":       "Siguiente",
+      "previous":   "Anterior"
+    }
+  }
+  });
+});
+
 $("#crearproveedor").on("click", function(){
     var url = baseurl + "ventas/crearproveedor";
     var nit_proveedores = $("#nit_proveedores").val(), 

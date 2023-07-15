@@ -366,7 +366,6 @@
         <div class="col mb-4">
           <div class="card card-bordered shadow-none text-center h-100">
             <div class="card-pinned">
-            
               <img
                 class="card-img-top img-fluid"
                 src="<?php echo base_url();?>public/productos/<?php echo $productos->url_imagen; ?>"

@@ -193,8 +193,13 @@ class Ventas_model extends CI_model {
 
 
 
-    public function devolucionVenta(){
-      
+    public function getCategoriaVentaMesa($categoria){
+      $this->db->select("*");
+      $this->db->from("productos");
+      $this->db->where("categoria", $categoria);
+      $result = $this->db->get();
+
+      return $result;
     }
 
 

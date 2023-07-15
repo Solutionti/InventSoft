@@ -60,7 +60,7 @@
             </div>
             <div class="card-body">
              <div class="table-responsive">
-               <table class="table table-responsive table-hover">
+               <table class="table table-responsive table-hover table-borderless" id="table-pedidos">
                  <thead style="background-color: black !important;">
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
                    <!-- <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th> -->
@@ -285,7 +285,7 @@
         </div>
         <div class="row">
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped" >
               <thead>
                 <tr>
                   <th class="text-uppercase text-xs font-weight-bolder opacity-12">#</th>

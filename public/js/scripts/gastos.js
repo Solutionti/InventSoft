@@ -1,3 +1,23 @@
+
+$(document).ready( function () {
+  $('#table-gastos').DataTable({
+    "lengthMenu": [10, 50, 100, 200],
+    "language":{
+    "processing": "Procesando",
+    "search": "Buscar:",
+    "lengthMenu": "Ver _MENU_ Gastos",
+    "info": "Mirando _START_ a _END_ de _TOTAL_ Gastos",
+    "zeroRecords": "No encontraron resultados",
+    "paginate": {
+      "first":      "Primera",
+      "last":       "Ultima",
+      "next":       "Siguiente",
+      "previous":   "Anterior"
+    }
+  }
+  });
+});
+
 $("#creargasto").on("click", function() {
   var url1 = baseurl + "ventas/creargasto",
       categoria = $("#categoria_gasto").val(),

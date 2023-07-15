@@ -62,6 +62,7 @@ $route["ventas/devolucionventa"] = "ventas/devolucionventa";
 $route["ventas/ecografias"] = "clientes/ecografias";
 $route["ventas/gastos"] = "clientes/gastos";
 $route["ventas/ventas"] = "clientes/ventas";
+$route["ventas/ventamesa"] = "clientes/ventaMesa";
 $route["iniciarsesionclientes"] = "login/iniciarsesionclientes";
 $route["cerrarsesionclientes"] = "login/cerrarsesionclientes";
 

@@ -1,3 +1,22 @@
+$(document).ready( function () {
+  $('#table-pedidos').DataTable({
+    "lengthMenu": [10, 50, 100, 200],
+    "language":{
+    "processing": "Procesando",
+    "search": "Buscar:",
+    "lengthMenu": "Ver _MENU_ Pedidos",
+    "info": "Mirando _START_ a _END_ de _TOTAL_ Pedidos",
+    "zeroRecords": "No encontraron resultados",
+    "paginate": {
+      "first":      "Primera",
+      "last":       "Ultima",
+      "next":       "Siguiente",
+      "previous":   "Anterior"
+    }
+  }
+  });
+});
+
 function verPedido(codigo){
   $("#verpedido").modal("show");
   var url = baseurl + "ventas/getpedidos/" + codigo ;
