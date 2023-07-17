@@ -53,4 +53,14 @@ function Suubtmit() {
        }
      }
    });
-}
+  }
+
+  $("#vercontra").on("change", function(){
+     var check = $("input:checkbox[name=vercontra]:checked").val();
+     if (check == "on"){
+      $("#password").prop("type", "text");
+    }
+    else {
+      $("#password").prop("type", "password");
+     }
+  });
