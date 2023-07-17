@@ -131,11 +131,11 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <div class="col-md-9 mt-4">
+                <div class="col-md-8 mt-4">
                   <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                       <button
-                        class="nav-link active"
+                        class="nav-link active text-danger"
                         id="home-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#home-tab-pane"
@@ -149,7 +149,7 @@
                     </li>
                     <li class="nav-item" role="presentation">
                       <button
-                        class="nav-link"
+                        class="nav-link text-danger"
                         id="profile-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#profile-tab-pane"
@@ -163,7 +163,7 @@
                     </li>
                     <li class="nav-item" role="presentation">
                       <button
-                        class="nav-link"
+                        class="nav-link text-danger"
                         id="contact-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#contact-tab-pane"
@@ -177,7 +177,7 @@
                     </li>
                     <li class="nav-item" role="presentation">
                       <button
-                        class="nav-link"
+                        class="nav-link text-danger"
                         id="disabled-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#disabled-tab-pane"
@@ -192,7 +192,7 @@
                     </li>
                     <li class="nav-item" role="presentation">
                       <button
-                        class="nav-link"
+                        class="nav-link text-danger"
                         id="disabled-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#disabled-tab-pane"
@@ -214,32 +214,32 @@
                       aria-labelledby="home-tab"
                       tabindex="0"
                     >
+                    <?php foreach($categoria3->result() as $bebidas) { ?>
                       <div class="col-md-3 mb-2 mt-5">
                         <div class="card card-bordered shadow-none text-center h-100">
                           <div class="card-pinned">
                             <img
-                              class=" img-fluid"
-                              src="<?php echo base_url();?>public/productos/hamburguesa.png"
-                              alt="Image Description"
-                              width="170px;"
+                              class="card-img-top img-fluid"
+                              src="<?php echo base_url();?>public/productos/<?php echo $bebidas->url_imagen; ?>"
                             >
-                            <div class="codigo_producto" hidden>1234</div>
+                            <div class="codigo_producto" hidden><?php echo $bebidas->codigo; ?></div>
              
                           </div>
                           <div class="card-body">
-                            <a class="text-body" href="#">Hamburguesa mediana</a>
-                            <p class="card-text text-dark">$9000</p>
+                            <a class="text-body" href="#"><?php echo $bebidas->nombre; ?></a>
+                            <p class="card-text text-dark">$<?php echo $bebidas->precio; ?></p>
                           </div>
                           <div class="card-footer pt-0">
                             <a
                               type="button"
-                              class="btn btn-outline-danger btn-sm rounded-pill btn_agregar_carrito"
+                              class="btn btn-outline-primary btn-sm rounded-pill btn_agregar_carrito"
                             >
                               Agregar al pedido
                             </a>
                           </div>
                         </div>
                       </div>
+                      <?php } ?>
                     </div>
                     <div
                       class="tab-pane fade"
@@ -248,31 +248,33 @@
                       aria-labelledby="profile-tab"
                       tabindex="0"
                     >
-                      <div class="col-md-3 mb-2 mt-5">
-                        <div class="card card-bordered shadow-none text-center h-100">
-                          <div class="card-pinned">
-                            <img
-                              class=" img-fluid"
-                              src="<?php echo base_url();?>public/productos/hamburguesa.png"
-                              alt="Image Description"
-                              width="170px;"
-                            >
-                            <div class="codigo_producto" hidden>1234</div>
-             
-                          </div>
-                          <div class="card-body">
-                            <a class="text-body" href="#">Hamburguesa mediana</a>
-                            <p class="card-text text-dark">$9000</p>
-                          </div>
-                          <div class="card-footer pt-0">
-                            <a
-                              type="button"
-                              class="btn btn-outline-danger btn-sm rounded-pill btn_agregar_carrito"
-                            >
-                              Agregar al pedido
-                            </a>
+                    <div class="row">
+                    <?php foreach($categoria1->result() as $hamburguesas) { ?>
+                    <div class="col-md-3 mb-2 mt-5">
+                      <div class="card card-bordered shadow-none text-center h-100">
+                        <div class="card-pinned">
+                              <img
+                                class="card-img-top img-fluid"
+                                src="<?php echo base_url();?>public/productos/<?php echo $hamburguesas->url_imagen; ?>"
+                                alt="Image Description"
+                              >
+                                <div class="codigo_producto" hidden><?php echo $hamburguesas->codigo; ?></div>
+                            </div>
+                            <div class="card-body">
+                              <a class="text-body" href="#"><?php echo $hamburguesas->nombre; ?></a>
+                              <p class="card-text text-dark">$<?php echo $hamburguesas->precio; ?></p>
+                            </div>
+                            <div class="card-footer pt-0">
+                              <a
+                                type="button"
+                                class="btn btn-outline-primary btn-sm rounded-pill btn_agregar_pedido"
+                              >
+                                Agregar al pedido
+                              </a>
+                            </div>
                           </div>
                         </div>
+                      <?php } ?>
                     </div>
                     </div>
                     <div
@@ -282,32 +284,34 @@
                       aria-labelledby="contact-tab"
                       tabindex="0"
                     >
-                    <div class="col-md-3 mb-2 mt-5">
+                    <?php foreach($categoria2->result() as $perros) { ?>
+                      <div class="col-md-3 mb-2 mt-5">
                         <div class="card card-bordered shadow-none text-center h-100">
                           <div class="card-pinned">
                             <img
-                              class=" img-fluid"
-                              src="<?php echo base_url();?>public/productos/hamburguesa.png"
+                              class="card-img-top img-fluid"
+                              src="<?php echo base_url();?>public/productos/<?php echo $perros->url_imagen; ?>"
                               alt="Image Description"
-                              width="170px;"
                             >
-                            <div class="codigo_producto" hidden>1234</div>
+                            <div class="codigo_producto" hidden><?php echo $perros->codigo; ?></div>
              
                           </div>
                           <div class="card-body">
-                            <a class="text-body" href="#">Hamburguesa mediana</a>
-                            <p class="card-text text-dark">$9000</p>
+                            <a class="text-body" href="#"><?php echo $perros->nombre; ?></a>
+                            <p class="card-text text-dark">$<?php echo $perros->precio; ?></p>
                           </div>
                           <div class="card-footer pt-0">
                             <a
                               type="button"
-                              class="btn btn-outline-danger btn-sm rounded-pill btn_agregar_carrito"
+                              class="btn btn-outline-primary btn-sm rounded-pill btn_agregar_carrito"
                             >
                               Agregar al pedido
                             </a>
                           </div>
                         </div>
+                      </div>
                     </div>
+                    <?php } ?>
                     </div>
                     <div
                       class="tab-pane fade"
@@ -316,36 +320,40 @@
                       aria-labelledby="disabled-tab"
                       tabindex="0"
                     >
-                    <div class="col-md-3 mb-2 mt-5">
+                    <?php foreach($categoria4->result() as $papas) { ?>
+                      <div class="col-md-3 mb-2 mt-5">
                         <div class="card card-bordered shadow-none text-center h-100">
                           <div class="card-pinned">
                             <img
-                              class=" img-fluid"
-                              src="<?php echo base_url();?>public/productos/hamburguesa.png"
+                              class="card-img-top img-fluid"
+                              src="<?php echo base_url();?>public/productos/<?php echo $papas->url_imagen; ?>"
                               alt="Image Description"
                               width="170px;"
                             >
-                            <div class="codigo_producto" hidden>1234</div>
+                            <div class="codigo_producto" hidden><?php echo $papas->codigo; ?></div>
              
                           </div>
                           <div class="card-body">
-                            <a class="text-body" href="#">Hamburguesa media</a>
-                            <p class="card-text text-dark">$9000</p>
+                            <a class="text-body" href="#"><?php echo $papas->nombre; ?></a>
+                            <p class="card-text text-dark">$<?php echo $papas->precio; ?></p>
                           </div>
                           <div class="card-footer pt-0">
                             <a
                               type="button"
-                              class="btn btn-outline-danger btn-sm rounded-pill btn_agregar_carrito"
+                              class="btn btn-outline-primary btn-sm rounded-pill btn_agregar_carrito"
                             >
                               Agregar al pedido
                             </a>
                           </div>
                         </div>
+                      </div>
                     </div>
+                  </div>
+                  <?php } ?>
                 </div>
                 </div>
                 </div>
-                <div class="col-md-3 mb-4">
+                <div class="col-md-4 mb-4">
                   <div class="card card-pricing">
                     <div
                       class="card-header bg-gradient-dark text-center pt-4 pb-5 position-relative"
@@ -353,8 +361,8 @@
                       <div class="z-index-1 position-relative">
                         <h6 class="text-white">TOTAL PEDIDO</h6>
                         <h1 class="text-white mt-2 mb-0" id="ventaa">
-                        <small id="compracero">$0 </small>
-                        <small class="total-compra" id="total-compra" hidden></small>
+                        <small class="itemCartTotal"></small>
+                        <!-- <small class="total-compra" id="total-compra" hidden></small> -->
                         </h1>
                       </div>
                     </div>
@@ -404,12 +412,16 @@
                       class="form-control form-control-sm"
                       id="tp_pago"
                     >
-                    <option value="">1</option>
-                    </select>
+                    <?php foreach($mesa->result() as $mesas){ ?>
+                    <option value="<?php echo $mesas->numero_mesa; ?>"><?php echo $mesas->numero_mesa.' ( '.$mesas->estado.' )'?></option>
+                    <?php } ?>
+                  </select>
                   </div>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Detalle del pedido
+                  </button>
                 </div>
               </div>
-              
               </div>
             </div>
           </div>
@@ -418,6 +430,50 @@
     </div>
    </div>
   </div>
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">DETALLE DEL PEDIDO</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="row">
+  <div class="col-md-12">
+    <table class="table table-hover table-striped">
+      <thead>
+      <tr>
+          <th></th>
+          <th class="font-weight-bold">
+            <strong>Producto</strong>
+          </th>
+          
+          <th></th>
+          <th class="font-weight-bold">
+            <strong>Precio</strong>
+          </th>
+          <th class="font-weight-bold">
+            <strong>Cantidad</strong>
+          </th>
+          
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+
+      </tbody>
+    </table>
+  </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <?php require_once("componentes/footer.php"); ?>
 </div>
 
@@ -425,6 +481,7 @@
   <script>
     var baseurl = "<?php echo base_url();?>";
   </script>
-  <script src="<?php echo base_url(); ?>public/js/scripts/ventas2.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/scripts/venta_mesa.js"></script>
 </body>
 </html>
+

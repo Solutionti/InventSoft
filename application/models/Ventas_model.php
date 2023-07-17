@@ -202,6 +202,14 @@ class Ventas_model extends CI_model {
       return $result;
     }
 
+    public function getmesas(){
+      $this->db->select("*");
+      $this->db->from("mesas");
+      $result = $this->db->get();
+
+      return $result;
+    }
+
 
 
 }

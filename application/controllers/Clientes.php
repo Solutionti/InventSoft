@@ -144,11 +144,13 @@ class Clientes extends CI_Controller {
 	  $categorias2 = $this->Ventas_model->getCategoriaVentaMesa(2);
 	  $categorias3 = $this->Ventas_model->getCategoriaVentaMesa(3);
 	  $categorias4 = $this->Ventas_model->getCategoriaVentaMesa(4);
+	  $mesas = $this->Ventas_model->getmesas();
 	  $data = [
 		"categoria1" => $categorias1,
 		"categoria2" => $categorias2,
 		"categoria3" => $categorias3,
 		"categoria4" => $categorias4,
+		"mesa" => $mesas
 	  ];
 	  $this->load->view("ventas/venta_mesa", $data);
 	}
