@@ -182,10 +182,28 @@
                   <div class="messageError mt-2"></div>
                   <form role="form" method="post" validate id="FormLOG">
                     <div class="mb-3">
-                      <input type="text" class="form-control form-control-lg" id="correo" placeholder="Usuario" required>
+                      <input 
+                        type="text" 
+                        class="form-control form-control-lg"
+                        id="correo"
+                        placeholder="Usuario"
+                        required
+                      >
                     </div>
                     <div class="mb-3">
-                      <input type="password" class="form-control form-control-lg" id="password" placeholder="Contraseña" required>
+                      <input
+                        type="password"
+                        class="form-control form-control-lg"
+                        id="password"
+                        placeholder="Contraseña"
+                        required
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="vercontra" id="vercontra">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Ver contraseña
+                      </label>
                     </div>
                     <div class="text-center">
                       <button type="submit" id="login" class="btn btn-lg btn-primary text-white btn-lg w-100 mt-4 mb-0">Ingresar</button>
