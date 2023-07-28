@@ -45,12 +45,7 @@ $("#codigo_barras").on("change", function() {
       }
       else {
         data = JSON.parse(data);
-<<<<<<< HEAD
-        // var imagen = "<img src='https://ventas-buen-viaje.saludmadreymujer.com/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'>";
-        var imagen = "<img src='http://localhost/CODEIGNITER/ventas-buenviaje/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
-=======
         var imagen = "<img src='https://ventas-buen-viaje.saludmadreymujer.com/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'>";
->>>>>>> 7d93ac7 (subiendo los cambios de las devoluciones)
         document.getElementById("imagen").innerHTML = imagen;
         $("#codigo").val(data.codigo);
         $("#codigo_barras2").val(data.codigo_barras);

@@ -65,7 +65,7 @@ class Mesas_model extends CI_model {
         "estado" => "CERRADA"
       ];
       $this->db->where("mesa", $mesa);
-      $this->db->where("detalle_pedido", "1");
+      // $this->db->where("detalle_pedido", "1");
       $this->db->update("pedidos_mesa", $datos);
     }
 
@@ -81,6 +81,53 @@ class Mesas_model extends CI_model {
     public function cambiarEstadoMesa($mesa) {
       $datos = [
         "estado" => "DISPONIBLE"
+      ];
+      $this->db->where("numero_mesa", $mesa);
+      $this->db->update("mesas", $datos);
+    }
+
+    public function getnumeromesa($mesa){
+      $this->db->select("detalle_pedido");
+      $this->db->from("pedidos_mesa");
+      $this->db->where("estado", "OCUPADA");
+      $this->db->where("mesa", $mesa);
+      $result = $this->db->get();
+
+      return $result->row();
+    }
+
+    public function countPedidosMesa() {
+      $this->db->select("COUNT(*) as cantidades");
+      $this->db->from("pedidos_mesa");
+      $result = $this->db->get();
+      return $result->row();
+    }
+
+    public function guardarPedidoMesa($datos){
+      $datos = [
+        "mesa" => $datos["nro_mesa"],
+        "detalle_pedido" => $datos["venta"],
+        "estado" => "OCUPADA",
+        "mesero" => $this->session->userdata("nombre")." ".$this->session->userdata("apellido"),
+      ];
+      $this->db->insert("pedidos_mesa", $datos);
+    }
+
+    public function guardarDetallepedidoMesa($datos) {
+      $datos = [
+        "codigo_pedido_mesa" => $datos["codigo"],
+        "codigo_producto" => $datos["producto"],
+        "fecha" => date("Y-m-d"),
+        "hora" => date("h: i A"),
+        "cantidad" => $datos["cantidad"]
+      ];
+
+      $this->db->insert("detalle_mesa", $datos);
+    }
+
+    public function cambiarEstadoMesaOcupada($mesa) {
+      $datos = [
+        "estado" => "OCUPADA"
       ];
       $this->db->where("numero_mesa", $mesa);
       $this->db->update("mesas", $datos);

@@ -410,8 +410,9 @@
                     <label>Nro Mesa</label>
                     <select
                       class="form-control form-control-sm"
-                      id="tp_pago"
+                      id="nro_mesa"
                     >
+                    <option value="">SELECCIONE UNA MESA</option>
                     <?php foreach($mesa->result() as $mesas){ ?>
                     <option value="<?php echo $mesas->numero_mesa; ?>"><?php echo $mesas->numero_mesa.' ( '.$mesas->estado.' )'?></option>
                     <?php } ?>
@@ -419,6 +420,9 @@
                   </div>
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Detalle del pedido
+                  </button>
+                  <button type="button" class="btn btn-danger mx-1" id="guardar_pedido">
+                    Guardar
                   </button>
                 </div>
               </div>

@@ -54,4 +54,50 @@ class Mesas extends CI_Controller {
 
       echo json_encode($pedido->result());
     }
+
+    public function getnumeromesa($mesa){
+      $nro_venta = $this->Mesas_model->getnumeromesa($mesa);
+
+      echo json_encode($nro_venta);
+    }
+
+    public function guardarPedidoMesa(){
+      $venta = $this->input->post("venta");
+      $nro_mesa = $this->input->post("nro_mesa");
+      $pedidos = $this->input->post("pedidos");
+
+       $cantidad = $this->Mesas_model->countPedidosMesa();
+      if($venta === ""){
+        $datos = [
+          "venta" => $cantidad->cantidades + 1,
+          "nro_mesa" => $nro_mesa
+        ];
+        $this->Mesas_model->guardarPedidoMesa($datos);
+
+        for($i=0; $i < sizeof($pedidos); $i++) {
+          $datos2 = [
+            "codigo" => $cantidad->cantidades + 1,
+            "producto" => $pedidos[$i]["codigo"],
+            "cantidad" => $pedidos[$i]["cantidad"]
+          ];
+          $this->Mesas_model->guardarDetallepedidoMesa($datos2);
+        }
+        $this->Mesas_model->cambiarEstadoMesaOcupada($nro_mesa);
+
+      }
+      else {
+        $datos = [
+          "venta" => $venta,
+          "nro_mesa" => $nro_mesa
+        ];
+        for($i=0; $i < sizeof($pedidos); $i++) {
+          $datos2 = [
+            "codigo" => $venta,
+            "producto" => $pedidos[$i]["codigo"],
+            "cantidad" => $pedidos[$i]["cantidad"]
+          ];
+          $this->Mesas_model->guardarDetallepedidoMesa($datos2);
+        }
+      }
+    }
 }

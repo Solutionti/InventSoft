@@ -9,7 +9,6 @@ Clickbutton.forEach(btn => {
     btn.addEventListener('click', agregarCarritoItem)
 });
 
-
 function getDataModalProduct(codigo_producto) {
     var url = baseurl  + "ecommerce/getproductocodigo/" + codigo_producto;
     $.ajax({
@@ -155,18 +154,18 @@ function getDataModalProduct(codigo_producto) {
     }
   }
   
-  function validarInfoCarrito() {
-      if(localStorage.getItem("carrito") === null ){
-         document.getElementById("CarritoVacio").innerHTML = '<div class="mb-5"><img class="avatar avatar-xl avatar-4x3" src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/oc-empty-cart.svg" alt="SVG"></div><div class="mb-5"><h3>Su carrito está vacío</h3><p>Antes de proceder al pago debe agregar algunos productos a su carrito de compras. Encontrará muchos productos interesantes en nuestra página "Tienda".</p></div>';
-         $("#sincarrito").attr("hidden", true);
-      }
-      else {
-        document.getElementById("CarritoVacio").innerHTML = '';
-        $("#sincarrito").attr("hidden", false);
-      }
+  // function validarInfoCarrito() {
+  //     if(localStorage.getItem("carrito") === null ){
+  //        document.getElementById("CarritoVacio").innerHTML = '<div class="mb-5"><img class="avatar avatar-xl avatar-4x3" src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/oc-empty-cart.svg" alt="SVG"></div><div class="mb-5"><h3>Su carrito está vacío</h3><p>Antes de proceder al pago debe agregar algunos productos a su carrito de compras. Encontrará muchos productos interesantes en nuestra página "Tienda".</p></div>';
+  //        $("#sincarrito").attr("hidden", true);
+  //     }
+  //     else {
+  //       document.getElementById("CarritoVacio").innerHTML = '';
+  //       $("#sincarrito").attr("hidden", false);
+  //     }
       
-  }
-  validarInfoCarrito();
+  // }
+  // validarInfoCarrito();
   
   function validarinfo(){
     contenido.innerHTML = '';
@@ -179,3 +178,53 @@ function getDataModalProduct(codigo_producto) {
       contenido.append(div);
     })
   }
+
+  $("#nro_mesa").on("change", function(){
+    var input = $("#nro_mesa").val();
+    var url = baseurl + "ventas/getnumeromesa/"+ input;
+    $.ajax({
+      url: url,
+      method: "GET",
+      success: function(data){
+        data = JSON.parse(data);
+        $("#consecutivo").val("");
+        $("#consecutivo").val(data.detalle_pedido);
+      },
+      error: function() {
+
+      }
+    })
+  });
+
+  $("#guardar_pedido").on("click", function(){
+    var url = baseurl + "ventas/guardarpedidomesa",
+        venta = $("#consecutivo").val(),
+        nro_mesa = $("#nro_mesa").val();
+        let pedidos = [];
+        for (let i = 0; i < carrito.length; i++) {
+          pedidos[i] = carrito[i];
+        }
+    $.ajax({
+      url: url,
+      method: "POST",
+      data: {
+        venta: venta,
+        nro_mesa: nro_mesa,
+        pedidos: pedidos
+      },
+      success: function(){
+        $("body").overhang({
+          type: "success",
+          message: "Se ha realizado el pedido correctamente"
+        });
+      },
+      error: function() {
+        $("body").overhang({
+          type: "error",
+          message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+        });
+      }
+    });
+  })
+
+  

@@ -95,7 +95,8 @@ $route["ventas/agregarmesa"] = "mesas/agregarMesa";
 $route["ventas/germesasdetalle"] = "mesas/getMesasDetalleId";
 $route["ventas/cerrarmesas"] = "mesas/cerrarMesas";
 $route["ventas/getpedidomesa/(:num)"] = "mesas/getPedidosMesas/$1";
-
+$route["ventas/getnumeromesa/(:num)"] = "mesas/getnumeromesa/$1";
+$route["ventas/guardarpedidomesa"] = "mesas/guardarPedidoMesa";
 
 // ECOMMERCE
 $route["ecommerce/inicio"] = "ecommerce";

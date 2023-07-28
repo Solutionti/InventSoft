@@ -30,6 +30,24 @@ $("#guardarnota").on("click", function(){
     });
 });
 
+function limpiarCache(){
+  if ('caches' in window) {
+    caches.keys().then(cacheNames => {
+      cacheNames.forEach(cacheName => {
+        caches.delete(cacheName);
+      });
+    });
+    setTimeout(() => { // Reload the page to ensure that all resources have been downloaded.
+      window.location.reload();
+    }, 800);
+  } else {
+    $("body").overhang({
+      type: "error",
+      message: "Por el momento tu navegador no cuenta con cache para realizar la limpieza.",
+    });
+  }
+}
+
 function reloadPage() {
   location.reload();
 }
