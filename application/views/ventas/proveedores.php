@@ -61,7 +61,7 @@
             <div class="card-body">
              <div class="table-responsive">
                <table class="table table-responsive table-hover table-borderless" id="table-proveedores">
-                 <thead style="background-color: #B20027 !important;">
+                 <thead style="background-color: black !important;">
                    <!-- <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th> -->
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">nit / documento</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nombre</th>

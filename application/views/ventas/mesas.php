@@ -91,6 +91,7 @@
                         <i class="fas fa-circle text-danger mx-2"></i>
                       <?php } ?>
                       </h6>
+                       
                     </div>
                   </a>
                </div>
@@ -211,12 +212,18 @@
         </div>
       </div>
       <div class="modal-footer">
-      <button
+        <button
           type="button"
           class="btn btn-danger"
           onclick="refreshMesas()"
         >
           Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+        >
+          Imprimir
         </button>
         <button
           type="button"

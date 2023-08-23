@@ -217,6 +217,7 @@ function getDataModalProduct(codigo_producto) {
           type: "success",
           message: "Se ha realizado el pedido correctamente"
         });
+        setTimeout(reloadPage, 3000);
       },
       error: function() {
         $("body").overhang({
@@ -226,5 +227,9 @@ function getDataModalProduct(codigo_producto) {
       }
     });
   })
+
+  function reloadPage() {
+    location.reload();
+}
 
   

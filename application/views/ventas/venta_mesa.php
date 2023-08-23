@@ -269,7 +269,7 @@
                                 type="button"
                                 class="btn btn-outline-primary btn-sm rounded-pill btn_agregar_pedido"
                               >
-                                Agregar al pedido
+                                Agregar
                               </a>
                             </div>
                           </div>
@@ -342,7 +342,7 @@
                               type="button"
                               class="btn btn-outline-primary btn-sm rounded-pill btn_agregar_carrito"
                             >
-                              Agregar al pedido
+                              Agregar
                             </a>
                           </div>
                         </div>
