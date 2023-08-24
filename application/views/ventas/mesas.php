@@ -112,9 +112,9 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-md-2">
+          <div class="col-md-1">
             <div class="form-group">
-              <label for="">Numero Mesa</label>
+              <label for="">Mesa</label>
               <input
                 type="text"
                 class="form-control"
@@ -144,13 +144,24 @@
               >
             </div>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-1">
             <div class="form-group">
               <label for="">Descuento</label>
               <input
                 type="text"
                 class="form-control"
                 id="descuento_detalle"
+              >
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="">Codigo</label>
+              <input
+                type="text"
+                class="form-control"
+                id="codigo_detalle"
+                readonly
               >
             </div>
           </div>
@@ -222,6 +233,7 @@
         <button
           type="button"
           class="btn btn-primary"
+          onclick="imprimirCocina()"
         >
           Imprimir
         </button>

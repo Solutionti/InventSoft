@@ -46,11 +46,12 @@ function abrirModalMesasDatos(mesa) {
     },
     success: function(data){
       data = JSON.parse(data);
-      // console.log(data);
+      console.log(data);
       $("#mesa_detalle").val(data.mesa);
       $("#mesero_detalle").val(data.mesero);
       $("#propina_detalle").val(data.propina);
       $("#descuento_detalle").val(data.descuento);
+      $("#codigo_detalle").val('VNT'+data.detalle_pedido);
       $("#estado_detalle").val(data.estado);
       $("#descripcion_detalle").val(data.descripcion);
       getTablaPedidosMesa(data.mesa);
@@ -72,7 +73,7 @@ function getTablaPedidosMesa(mesa) {
       data = JSON.parse(data);
       data.map((item, index) => {
         const tr = document.createElement('tr');
-        const Content = `<td>${item.codigo_pedido_mesa}</td><td>${item.nombre}</td><td class="text-center">${item.cantidad}</td><td class="text-center">${'$'+ item.precio}</td><td class="text-center">${'$'+ item.cantidad * item.precio}</td>`;
+        const Content = `<td>VNT${item.codigo_pedido_mesa}</td><td>${item.nombre}</td><td class="text-center">${item.cantidad}</td><td class="text-center">${'$'+ item.precio}</td><td class="text-center">${'$'+ item.cantidad * item.precio}</td>`;
         tr.innerHTML = Content;
         tbody.append(tr);
         contador = (item.cantidad * item.precio) + contador;
@@ -118,6 +119,14 @@ function cerrarMesas(){
       });
     }
   });
+}
+
+function imprimirCocina() {
+  var mesa = $("#mesa_detalle").val(),
+      codigo = $("#codigo_detalle").val();
+  url = baseurl  + "ventas/imprimircocina/" + mesa + "/" + codigo;
+  window.open(url, "_blank", " width=800, height=800"); 
+
 }
 
 function reloadPage() {

@@ -21,7 +21,6 @@ class Ventas extends CI_Controller {
     }
 
     public function crearVenta() {
-      print_r($this->input->post("ventas"));
       $consecutivo = $this->input->post("consecutivo");
       $documento = $this->input->post("documento");
       $sede = $this->input->post("sede");
@@ -33,42 +32,41 @@ class Ventas extends CI_Controller {
       $ventas = $this->input->post("ventas");
       $id_caja = $this->input->post("id_caja");
       $contador = 0;
-      print_r($ventas);
 
-      // $validacion = $this->Ventas_model->getVentaRepetida($consecutivo);
-      // for($i=0; $i < sizeof($ventas); $i++) {
-      //   $contador = $contador + $ventas[$i]["cantidad"];
-      // }
-      // if ( $validacion == 0) {
-      //   $data = [
-      //     "consecutivo" => $consecutivo,
-      //     "documento" => $documento,
-      //     "sede" => $sede,
-      //     "tipo_pago" => $tipo_pago,
-      //     "referencia" => $referencia,
-      //     "total_recibido" => $total_recibido,
-      //     "total_venta" => $total_venta,
-      //     "cantidad_productos" => $contador,
-      //     "id_caja" => $id_caja
-      //   ];
-      //   $codigoventa = $this->Ventas_model->crearVenta($data);
+      $validacion = $this->Ventas_model->getVentaRepetida($consecutivo);
+      for($i=0; $i < sizeof($ventas); $i++) {
+        $contador = $contador + $ventas[$i]["cantidad"];
+      }
+      if ( $validacion == 0) {
+        $data = [
+          "consecutivo" => $consecutivo,
+          "documento" => $documento,
+          "sede" => $sede,
+          "tipo_pago" => $tipo_pago,
+          "referencia" => $referencia,
+          "total_recibido" => $total_recibido,
+          "total_venta" => $total_venta,
+          "cantidad_productos" => $contador,
+          "id_caja" => $id_caja
+        ];
+        $codigoventa = $this->Ventas_model->crearVenta($data);
         
-      //   for($i=0; $i < sizeof($ventas); $i++) {
+        for($i=0; $i < sizeof($ventas); $i++) {
 
-      //     $descuenta = $this->Ventas_model->getInventarioStock($ventas[$i]["codigo"]);
-      //     $stockact = $descuenta->stock - $ventas[$i]["cantidad"];
-      //     $data2 = [
-      //       "codigo_venta" => $consecutivo,
-      //       "venta" => $ventas[$i]["codigo"],
-      //       "cantidad" => $ventas[$i]["cantidad"],
-      //     ];
-      //     $this->Ventas_model->updateInventarioStock($ventas[$i]["codigo"], $stockact);
-      //     $this->Ventas_model->CrearDetalleVenta($data2);
-      //   }
-      // }
-      // else {
-      //   echo "error";
-      // }
+          $descuenta = $this->Ventas_model->getInventarioStock($ventas[$i]["codigo"]);
+          $stockact = $descuenta->stock - $ventas[$i]["cantidad"];
+          $data2 = [
+            "codigo_venta" => $consecutivo,
+            "venta" => $ventas[$i]["codigo"],
+            "cantidad" => $ventas[$i]["cantidad"],
+          ];
+          $this->Ventas_model->updateInventarioStock($ventas[$i]["codigo"], $stockact);
+          $this->Ventas_model->CrearDetalleVenta($data2);
+        }
+      }
+      else {
+        echo "error";
+      }
       
     }
 

@@ -100,4 +100,64 @@ class Mesas extends CI_Controller {
         }
       }
     }
+
+    public function impresionCocinaTiquet($mesa, $codigo){
+      $codigoact = substr ( $codigo, 3, 100);
+      $imprimir = $this->Mesas_model->impresionCocinaTiquet($codigoact);
+      $this->load->library("pdf");
+      $pdfAct = new Pdf();
+      $pdf=new FPDF();
+      $pdf->addpage();
+      // $pdf->Image('public/img/theme/logo.jpeg' , 20,5, 20 , 17,'jpeg');
+      //$pdf->Image('public/img/theme/zonac.png' , 35 ,5, 15 , 15,'png');
+      $pdf->Ln(2);
+      $pdf->SetFont('Times','',7);
+      $pdf->Cell(2,5,'', '', 0,'L', false );
+      $pdf->Cell(1,5,'CAFETERIA BUEN VIAJE', '', 0,'L', false );
+      $pdf->SetFont('Times','',6);
+      $pdf->Ln(3);
+      $pdf->Cell(5,5,'', '', 0,'L', false );
+      $pdf->Cell(7,5,'TERMINAL LOCAL - 151', '', 0,'L', false );
+      $pdf->Ln(2);
+      $pdf->Cell(10,5,'_______________________________', '', 0,'L', false );
+      $pdf->SetFont('Times','',5);
+      $pdf->Ln(5);
+      $pdf->Cell(9,5,'FECHA:', '', 0,'L', false );
+      $pdf->Cell(18,5,'26-12-1993', '', 0,'L', false );
+      $pdf->Ln(2);
+      $pdf->SetFont('Times','',5);
+      $pdf->Cell(8,5,'HORA:', '', 0,'L', false );
+      $pdf->Cell(4,5,"  5:10 PM", '', 0,'L', false );
+      $pdf->Ln(2);
+      $pdf->SetFont('Times','',5);
+      $pdf->Cell(9,5,'MESER@:', '', 0,'L', false );
+      $pdf->Cell(4,5,$this->session->userdata("nombre")." ".$this->session->userdata("apellido"), '', 0,'L', false );
+      $pdf->Ln(3);
+      $pdf->SetFont('Times','',5);
+      $pdf->Cell(9,5,'MESA:', '', 0,'L', false );
+      $pdf->SetFont('Times','b',7);
+      $pdf->Cell(4,5,'#'.$mesa, '', 0,'L', false );
+      $pdf->Ln(4);
+      $pdf->SetFont('Times','b',5);
+      $pdf->Cell(30,5,utf8_decode('PRODUCTOS'), '', 0,'L', false );
+      $pdf->Cell(4,5,"CANT", '', 0,'L', false );
+      $pdf->SetFont('Times','',5);
+      // ACA VA LOS PRODUCTOS
+      foreach($imprimir->result() as $imprimirlo) {
+      $pdf->Ln(3);
+      $pdf->Cell(30,5,$imprimirlo->nombre, '', 0,'L', false );
+      $pdf->Cell(5,5,$imprimirlo->cantidad, '', 0,'L', false );
+      }
+      //FIN DEL PRODUCTO
+      $pdf->Ln(6);
+      $pdf->Cell(1,5,"DESCRIPCION", '', 0,'L', false );
+      $pdf->Ln(4);
+      $pdf->MultiCell(40, 2,"yo solo quiero que cuando alguien se vea al espejo diga chimba por que es bacao cuando alguien dice uy parce pero vea que bacano ese man", '', 'L', false);
+      $pdf->Ln(3);
+      $pdf->SetFont('Times','b',5);
+      $pdf->Cell(1,5,'', '', 0,'L', false );
+      $pdf->Cell(25,5,' ELABORAMOS SU COMIDA CON AMOR ', '', 0,'L', false );
+      $pdf->Ln(10);
+      $pdf->Output();
+    }
 }

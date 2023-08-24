@@ -133,4 +133,14 @@ class Mesas_model extends CI_model {
       $this->db->update("mesas", $datos);
     }
 
+    public function impresionCocinaTiquet($codigo) {
+      $this->db->select("d.*, p.nombre");
+      $this->db->from("detalle_mesa d");
+      $this->db->join("productos p", "d.codigo_producto = p.codigo");
+      $this->db->where("d.codigo_pedido_mesa", $codigo);
+      $result = $this->db->get();
+
+      return $result;
+    }
+
 }
