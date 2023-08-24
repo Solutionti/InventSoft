@@ -82,11 +82,8 @@ $route["ventas/reportecategoriaventa/(:any)/(:any)/(:any)"] = "reportes/Reportev
 $route["ventas/gananciageneral"] = "reportes/gananciageneral";
 $route["ventas/reportekardex/(:any)/(:any)"] = "reportes/reportekardex/$1/$2";
 $route["ventas/reporteinventario/(:num)"] = "reportes/getinventariototal/$1";
-<<<<<<< HEAD
-=======
 $route["ventas/reportegastos/(:any)/(:any)"] = "reportes/getgastos/$1/$2";
 $route["ventas/reportesumacategorias/(:any)/(:any)/(:any)"] = "reportes/gettodascategoriastotal/$1/$2/$3";
->>>>>>> 0f484fc (solucionando los reportes diario y abc)
 
 // PEDIDOS
 $route["ventas/pedidos"] = "clientes/pedidos";
