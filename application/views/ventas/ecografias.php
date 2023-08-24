@@ -402,17 +402,26 @@
                                   <div id="todascategorias" hidden>
                                     <h5>Reporte ABC</h5>
                                     <div class="row">
-                                      <div class="col-md-5">
+                                      <div class="col-md-3">
                                         <div class="form-group">
                                           <label for="">Fecha inicial</label>
                                           <input type="date" id="fecha_inicial_dinero" class="form-control">
                                         </div>
                                       </div>
-                                      <div class="col-md-5">
+                                      <div class="col-md-3">
                                         <div class="form-group">
                                           <label for="">Fecha final</label>
                                           <input type="date" id="fecha_final_dinero" class="form-control">
                                         </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <label for="">Usuario</label>
+                                        <select class="form-control" id="usuario_final_dinero">
+                                         <option value="0" selected>SELECCIONE UNA OPCION</option>
+                                         <?php foreach($usuario->result() as $usuarios) {?>
+                                          <option value="<?php echo $usuarios->nombre; ?>"><?php echo $usuarios->nombre .' '.$usuarios->apellido; ?></option>
+                                         <?php } ?>
+                                        </select>
                                       </div>
                                       <div class="col-md-2 mt-4">
                                       <button type="button" class="btn btn-primary mt-2" onclick="pdfdineroCategoria()">Pdf</button>

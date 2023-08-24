@@ -101,3 +101,25 @@ $("#generalcategoria").on("change", function () {
   });
 
 })
+
+function todasCategoriasPdf(){
+  var categoria = $("#generalcategoriainventario").val();
+  url = baseurl  + "ventas/reporteinventario/" + categoria;
+  window.open(url, "_blank", " width=500, height=400");   
+}
+
+function pdfGastos(){
+  var fecha_inicial = $("#fecha_inicial_gasto").val(),
+      fecha_final = $("#fecha_final_gasto").val();
+  url = baseurl  + "ventas/reportegastos/" + fecha_inicial + "/" + fecha_final ;
+  window.open(url, "_blank", " width=500, height=400");   
+}
+
+function pdfdineroCategoria(){
+  var fecha_inicial = $("#fecha_inicial_dinero").val(),
+      fecha_final = $("#fecha_final_dinero").val();
+      usuario = $("#usuario_final_dinero").val();
+      
+  url = baseurl  + "ventas/reportesumacategorias/" + fecha_inicial + "/" + fecha_final + "/" + usuario ;
+  window.open(url, "_blank", " width=500, height=400"); 
+}
