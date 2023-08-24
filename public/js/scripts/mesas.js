@@ -92,33 +92,55 @@ function cerrarMesas(){
       estado = $("#estado_detalle").val(),
       descripcion = $("#descripcion_detalle").val(),
       total = $("#total").val();
-      
-  $.ajax({
-    url: url,
-    method: "POST",
-    data: {
-      nro_mesa: nro_mesa,
-      mesero: mesero,
-      propina: propina,
-      descuento: descuento,
-      estado: estado,
-      descripcion: descripcion,
-      total: total
-    },
-    success: function(){
+
       $("body").overhang({
-        type: "success",
-        message: "La mesa se  ha cerrado con exito"
+        type: "confirm",
+        primary: "#40D47E",
+        accent: "#27AE60",
+        yesColor: "#3498DB",
+        yesMessage: "Si",
+        noMessage: "No",
+        message: "Realmente Desea Cerrar la  Mesa?",
+        overlay: true,
+        callback: function (value) {
+          var response = value ? "Yes" : "No";
+          if(response == "Yes"){
+            $.ajax({
+              url: url,
+              method: "POST",
+              data: {
+                nro_mesa: nro_mesa,
+                mesero: mesero,
+                propina: propina,
+                descuento: descuento,
+                estado: estado,
+                descripcion: descripcion,
+                total: total
+              },
+              success: function(){
+                $("body").overhang({
+                  type: "success",
+                  message: "La mesa se  ha cerrado con exito"
+                });
+                setTimeout(reloadPage, 2000);
+              },
+              error: function(){
+                $("body").overhang({
+                  type: "error",
+                  message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+                });
+              }
+            });
+          }
+          else if(response == "No") {
+            
+          }
+        }
       });
-      setTimeout(reloadPage, 2000);
-    },
-    error: function(){
-      $("body").overhang({
-        type: "error",
-        message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
-      });
-    }
-  });
+  
+      //
+      //  
+  
 }
 
 function imprimirCocina() {
