@@ -151,6 +151,8 @@ function pdfGastos(){
 function pdfdineroCategoria(){
   var fecha_inicial = $("#fecha_inicial_dinero").val(),
       fecha_final = $("#fecha_final_dinero").val();
-  url = baseurl  + "ventas/reportesumacategorias/" + fecha_inicial + "/" + fecha_final ;
+      usuario = $("#usuario_final_dinero").val();
+      
+  url = baseurl  + "ventas/reportesumacategorias/" + fecha_inicial + "/" + fecha_final + "/" + usuario ;
   window.open(url, "_blank", " width=500, height=400"); 
 }
