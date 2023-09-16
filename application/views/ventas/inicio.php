@@ -55,7 +55,7 @@
       <div class="row">
       <div class="col-md-3">
           <div class="card card-profile">
-            <img src="https://cdn.pixabay.com/photo/2015/08/07/16/07/shopping-879498_960_720.jpg" alt="Image placeholder" class="card-img-top">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSerxXIY8G13Kr2KogeqKOQZ7b178_uNC5Krwi40DIVzOyqw8ojL-aRyJ6Ub-vICpRJO-Y&usqp=CAU" alt="Image placeholder" class="card-img-top">
             <div class="row justify-content-center">
               <div class="col-4 col-lg-4 order-lg-2">
                 <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">

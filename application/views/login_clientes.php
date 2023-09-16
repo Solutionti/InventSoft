@@ -149,8 +149,6 @@
       width: 100%;
     }
 
-    
-
     svg#rocket-smoke {
       right: 120px;
       transform: rotate(-5deg);
@@ -172,8 +170,8 @@
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
               <div class="card card-plain">
                 <div class="card-header pb-0 text-center">
-                  <!-- <img src="<?php echo base_url(); ?>public/img/theme/logo.png" width="50px;" class="img-fluid mb-3"> -->
-                  <h3> <span class="text-primary h4 font-weight-bold">Invent</span><span class="text-default h2 font-weight-bold">Soft</span> </h3>
+                  <img src="<?php echo base_url(); ?>public/img/theme/logofutboll.jpg" width="70px;" class="img-fluid mb-3">
+                  <h3> <span class="text-success h4 font-weight-bold">Invent</span><span class="text-default h2 font-weight-bold">Soft</span> </h3>
                   <p class="text-capitalize">Software de ventas y inventarios</p>
                 </div>
                 <div class="card-body">
@@ -206,7 +204,7 @@
                       </label>
                     </div>
                     <div class="text-center">
-                      <button type="submit" id="login" class="btn btn-lg btn-primary text-white btn-lg w-100 mt-4 mb-0">Ingresar</button>
+                      <button type="submit" id="login" class="btn btn-lg btn-success text-white btn-lg w-100 mt-4 mb-0">Ingresar</button>
                     </div>
                   </form>
                 </div>
@@ -216,7 +214,7 @@
                     <a
                       target="_blank" 
                       href="https://wa.me/+573155639791"
-                      class="text-primary text-gradient font-weight-bold"
+                      class="text-success text-gradient font-weight-bold"
                     >
                       Solicitar
                     </a>
@@ -239,7 +237,7 @@
               </div>
             </div>
             <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-              <div class="position-relative bg-gradient-success h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('public/img/theme/istockphoto-639318080-612x612.jpg');
+              <div class="position-relative bg-gradient-success h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://www.economiayviveros.com.ar/imagenes/ciencia-y-arte/cesped-canchas-futbol-1.jpg');
           background-size: cover; background-repeat: no-repeat">
                 <span class="mask  opacity-6"></span>
                 <!-- <h3 class="mt-1 text-danger font-weight-bolder position-relative">BUEN  <span class="text-success">VIAJE</span> </h3>
