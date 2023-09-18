@@ -62,7 +62,7 @@
       <div class="row">
       <div class="col-md-3">
           <div class="card card-profile">
-            <img src="https://cdn.pixabay.com/photo/2017/08/12/18/59/snack-2635035_960_720.jpg" alt="Image placeholder" class="card-img-top">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzc7FNrkGT2FDSdU408oeyOm7azwMXpD_NRA&usqp=CAU" alt="Image placeholder" class="card-img-top">
             <div class="row justify-content-center">
               <div class="col-4 col-lg-4 order-lg-2">
                 <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
