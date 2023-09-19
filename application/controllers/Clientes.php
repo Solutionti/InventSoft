@@ -119,4 +119,8 @@ class Clientes extends CI_Controller {
 		$this->Notas_model->registrarnota($data);
 	}
 
+	public function organigrama() {
+	  $this->load->view("ventas/organigrama");
+	}
+
 }
