@@ -42,7 +42,7 @@ $("#codigo_barras").on("change", function(){
       },
       success: function(data) {
         data = JSON.parse(data);
-        var imagen = "<img src='https://ventas-buen-viaje.saludmadreymujer.com/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
+        var imagen = "<img src='https://futbol9.solutiont1.com/public/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
         document.getElementById("imagen").innerHTML = imagen;
         $("#codigo").val(data.codigo);
         $("#codigo_barras2").val(data.codigo_barras);
@@ -84,7 +84,7 @@ $("#recibio").on("keyup", function () {
 function addItemCarrito(newItem){
     var  inputelemento = tbody.getElementsByClassName('cantidad_products');
     for(let i= 0; i < carrito.length; i++ ){
-        if(carrito[i].nombre === newItem.nombre.trim()){
+        if(carrito[i].nombre.trim() === newItem.nombre.trim()){
           carrito[i].cantidad ++;
           const inputValue = inputelemento[i];
           inputValue.value ++;
@@ -94,10 +94,10 @@ function addItemCarrito(newItem){
     }
     carrito.push(newItem);
     renderCarrito();
-    // $("body").overhang({
-    //   type: "success",
-    //   message: "Se ha agregado un producto a la venta"
-    // });
+    $("body").overhang({
+      type: "success",
+      message: "Se ha agregado un producto a la venta"
+    });
     
 }
 
@@ -122,7 +122,7 @@ function renderCarrito(){
     const tr = sumaInput.closest(".ItemCarrito");
     const title = tr.querySelector('.title').textContent;
     carrito.forEach(item => {
-      if(item.nombre.trim() === title){
+      if(item.nombre.trim() === title.trim()){
         sumaInput.value < 1 ? (sumaInput.value = ''): sumaInput.value;
         item.cantidad = sumaInput.value;
         carritoTotal();
@@ -268,7 +268,7 @@ document.addEventListener("keydown", function(event) {
             method: "GET",
             success: function(data) {
               data = JSON.parse(data);
-              var imagen = "<img src='https://ventas-buen-viaje.saludmadreymujer.com/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
+              var imagen = "<img src='https://futbol9.solutiont1.com/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
               document.getElementById("imagen").innerHTML = imagen;
               $("#modal-productos").modal("hide");
               $("#codigo").val(data.codigo);

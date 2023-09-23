@@ -13,8 +13,6 @@
       var baseurl = "<?php echo base_url();?>";
       let respuesta = baseurl + "ventas/getdataCalendario";
       var calendar = new FullCalendar.Calendar(calendarEl, {
-        
-
         slotLabelFormat:{
              hour: '2-digit',
              minute: '2-digit',
@@ -48,7 +46,19 @@
          method: "GET",
          color: "green"
        },
-       editable: false
+       editable: false,
+       eventClick: function(info){
+        var texto = info.event.title;
+        var cadena = texto.split(" || ");
+        var tipo_cancha = $("#tipo_cancha_act").val(cadena[1]),
+            estado = $("#estado_act").val(cadena[3]),
+            fecha = $("#fecha_act").val(),
+            hora = $("#hora_act").val(),
+            nombre = $("#nombre_act").val(cadena[0]),
+            comentarios = $("#comentarios_act").val(cadena[2]);
+            
+        $("#editarorganigrama").modal("show");
+       }
       });
         calendar.render();
     });
@@ -103,7 +113,7 @@
           <div class="card">
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
-                <p class="mb-0 h6 text-uppercase">Organigrama de partidos futboll </p>
+                <p class="mb-0 h6 text-uppercase">Organigrama de partidos futbol </p>
                 <button class="btn btn-primary text-white btn-xs ms-auto" data-bs-toggle="modal" href="#Agregarusuario" role="button"> <i class="fas fa-plus"></i> Agregar</button>
               </div>
             </div>
@@ -117,7 +127,7 @@
           <?php require_once("componentes/footer.php"); ?>
         </div>
 
- <!-- MODAL AGREGAR GASTOS -->
+ <!-- MODAL AGREGAR ORGANIGRAMA -->
  <div class="modal fade" id="Agregarusuario" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -134,12 +144,15 @@
             <label>Tipo de Cancha</label>
             <select
               class="form-control"
-              id="categoria_gasto"
+              id="tipo_cancha"
             >
               <option value="">SELECCIONE UN TIPO DE CANCHA</option>
               <option value="Futbol 5">Futbol 5</option>
               <option value="Futbol 9">Futbol 9</option>
             </select>
+            <div id="validationServer03Feedback" class="invalid-feedback">
+              Campo obligatorio
+            </div>
             </div>
           </div>
           <div class="col-md-2">
@@ -147,11 +160,11 @@
               <label>Estado</label>
               <select 
                 class="form-control form-control-sm"
-                id="proveedor_gasto"
+                id="estado"
               >
-                <option value="Pago proveedores">Confirmada</option>
-                <option value="Pago proveedores">En juego</option>
-                <option value="Gasto interno">Cancelada</option>
+                <option value="Confirmada">Confirmada</option>
+                <option value="En juego">En juego</option>
+                <option value="Cancelada">Cancelada</option>
               </select>
               
             </div>              
@@ -162,9 +175,12 @@
               <input
                 type="date"
                 class="form-control"
-                id="fecha_gasto"
+                id="fecha"
                 value="<?php echo date("Y-m-d"); ?>"
               >
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                Campo obligatorio
+              </div>
             </div>
           </div>
           <div class="col-md-2">
@@ -173,9 +189,12 @@
               <input
                 type="time"
                 class="form-control"
-                id="fecha_gasto"
+                id="hora"
                 value="<?php echo date("Y-m-d"); ?>"
               >
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                Campo obligatorio
+              </div>
             </div>
           </div>
         </div>
@@ -186,8 +205,11 @@
               <input
                 type="text"
                 class="form-control"
-                id="nombre_gasto"
+                id="nombre"
               >
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                Campo obligatorio
+              </div>
             </div>
           </div>
           <div class="col-md-4">
@@ -196,8 +218,11 @@
               <input
                 type="text"
                 class="form-control"
-                id="nombre_gasto"
+                id="documento"
               >
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                Campo obligatorio
+              </div>
             </div>
           </div>
           <div class="col-md-3">
@@ -206,9 +231,12 @@
               <input
                 type="number"
                 class="form-control"
-                id="precio_factura"
+                id="celular"
                 min="0"
               >
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                Campo obligatorio
+              </div>
             </div>
           </div>
         </div>
@@ -218,7 +246,7 @@
             <label>Comentarios</label>
             <textarea
               class="form-control"
-              id="descripcion_gasto"
+              id="comentarios"
             ></textarea>
         </div>
       </div>
@@ -226,7 +254,7 @@
         <button
           type="button"
           class="btn color-cyan text-white"
-          id="creargasto"
+          id="crearorganigrama"
         >
           Guardar
         </button>
@@ -234,9 +262,92 @@
     </div>
   </div>
 </div>
+</div>
+
+<!-- MODAL EDITAR ORGANIGRAMA -->
+<div class="modal fade" id="editarorganigrama" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Actualizar Organigrama</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group input-group-sm">
+            <label>Tipo de Cancha</label>
+            <select
+              class="form-control"
+              id="tipo_cancha_act"
+            >
+              <option value="">SELECCIONE UN TIPO DE CANCHA</option>
+              <option value="Futbol 5">Futbol 5</option>
+              <option value="Futbol 9">Futbol 9</option>
+            </select>
+            <div id="validationServer03Feedback" class="invalid-feedback">
+              Campo obligatorio
+            </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Estado</label>
+              <select 
+                class="form-control form-control-sm"
+                id="estado_act"
+              >
+                <option value="Confirmada">Confirmada</option>
+                <option value="En juego">En juego</option>
+                <option value="Cancelada">Cancelada</option>
+                <option value="Eliminar">Eliminar</option>
+              </select>
+              
+            </div>              
+          </div>
+          <div class="col-md-5">
+            <div class="form-group input-group-sm">
+              <label>Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre_act"
+              >
+              <div id="validationServer03Feedback" class="invalid-feedback">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group input-group-sm">
+            <label>Comentarios</label>
+            <textarea
+              class="form-control"
+              id="comentarios_act"
+            ></textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn color-cyan text-white"
+          id="actualizarorganigrama"
+        >
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <?php require_once("componentes/scripts.php"); ?>
-  
-  <!-- <script src="<?php echo base_url(); ?>public/js/scripts/gastos.js"></script> -->
+  <script>
+    var baseurl = "<?php echo base_url();?>";
+  </script>
+  <script src="<?php echo base_url(); ?>public/js/scripts/organigrama.js?v=1.0.0"></script>
   
    
 </body>

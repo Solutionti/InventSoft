@@ -80,6 +80,8 @@ $route["ventas/proveedores"] = "clientes/proveedores";
 $route["ventas/crearproveedor"] = "proveedores/guardarproveedores";
 
 $route["ventas/getdataCalendario"] = "organigramas/getdataCalendario";
+$route["ventas/insertarOrganigrama"] = "organigramas/insertardatosorganigrama";
+$route["ventas/actualizarOrganigrama"] = "organigramas/actualizardatosorganigrama";
 
 //REPORTES
 $route["ventas/reportedia/(:any)/(:any)/(:any)"] = "reportes/reportedia/$1/$2/$3";

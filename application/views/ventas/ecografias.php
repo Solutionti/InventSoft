@@ -464,6 +464,6 @@
   <script>
     var baseurl = "<?php echo base_url();?>";
   </script>
-  <script src="<?php echo base_url(); ?>public/js/scripts/reportes.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/scripts/reportes.js?v=1.0.0"></script>
 </body>
 </html>

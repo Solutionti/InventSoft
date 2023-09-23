@@ -660,6 +660,6 @@
   <script>
     var baseurl = "<?php echo base_url();?>";
   </script>
-  <script src="<?php echo base_url(); ?>public/js/scripts/ventas2.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/scripts/ventas2.js?v=1.0.0"></script>
 </body>
 </html>

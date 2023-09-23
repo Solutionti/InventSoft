@@ -230,6 +230,6 @@
   <script>
     var baseurl = "<?php echo base_url();?>";
   </script>
-  <script src="<?php echo base_url(); ?>public/js/scripts/gastos.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/scripts/gastos.js?v=1.0.0"></script>
 </body>
 </html>
