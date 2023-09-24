@@ -14,6 +14,7 @@ class Clientes extends CI_Controller {
 		$this->load->model("Reportes_model");
 		$this->load->model("Proveedores_model");
 		$this->load->model("Notas_model");
+		$this->load->model("Mesas_model");
 	}
 
     public function index() {
@@ -122,5 +123,32 @@ class Clientes extends CI_Controller {
 	public function organigrama() {
 	  $this->load->view("ventas/organigrama");
 	}
+
+	public function mesas(){
+		$mesas = $this->Mesas_model->getmesas();
+		  
+		$datos = [
+		  "mesa" => $mesas
+		];
+		$this->load->view("ventas/mesas", $datos);
+	}
+
+	public function ventaMesa(){
+		$categorias1 = $this->Ventas_model->getCategoriaVentaMesa(1);
+		$categorias2 = $this->Ventas_model->getCategoriaVentaMesa(2);
+		$categorias3 = $this->Ventas_model->getCategoriaVentaMesa(3);
+		$categorias4 = $this->Ventas_model->getCategoriaVentaMesa(4);
+		$categorias5 = $this->Ventas_model->getCategoriaVentaMesa(5);
+		$mesas = $this->Ventas_model->getmesas();
+		$data = [
+		  "categoria1" => $categorias1,
+		  "categoria2" => $categorias2,
+		  "categoria3" => $categorias3,
+		  "categoria4" => $categorias4,
+		  "categoria5" => $categorias5,
+		  "mesa" => $mesas
+		];
+		$this->load->view("ventas/venta_mesa", $data);
+	  }
 
 }

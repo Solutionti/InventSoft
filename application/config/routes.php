@@ -92,6 +92,18 @@ $route["ventas/reporteinventario/(:num)"] = "reportes/getinventariototal/$1";
 $route["ventas/reportegastos/(:any)/(:any)"] = "reportes/getgastos/$1/$2";
 $route["ventas/reportesumacategorias/(:any)/(:any)/(:any)"] = "reportes/gettodascategoriastotal/$1/$2/$3";
 
+// MESAS
+$route["ventas/mesas"] = "clientes/mesas";
+
+// VENTA  EN MESAS
+$route["ventas/ventamesa"] = "clientes/ventaMesa";
+$route["ventas/agregarmesa"] = "mesas/agregarMesa";
+$route["ventas/germesasdetalle"] = "mesas/getMesasDetalleId";
+$route["ventas/cerrarmesas"] = "mesas/cerrarMesas";
+$route["ventas/getpedidomesa/(:num)"] = "mesas/getPedidosMesas/$1";
+$route["ventas/getnumeromesa/(:num)"] = "mesas/getnumeromesa/$1";
+$route["ventas/guardarpedidomesa"] = "mesas/guardarPedidoMesa";
+$route["ventas/imprimircocina/(:num)/(:any)"] = "mesas/impresionCocinaTiquet/$1/$2";
 
 // ECOMMERCE
 $route["ecommerce/inicio"] = "ecommerce";

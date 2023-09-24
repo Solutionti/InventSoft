@@ -252,10 +252,9 @@ document.addEventListener("keydown", function(event) {
 
   //DARLE ACCION A EL BOTON CONTROL + F3
   document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 83)
+    if (event.keyCode === 112)
     {
       $("#modal-productos").modal("show");
-      // $("input[type='search']").focus();
     }
   });
 

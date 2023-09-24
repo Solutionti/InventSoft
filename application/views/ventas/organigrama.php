@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InventSoft - Gastos</title>
+    <title>InventSoft - Organigrama</title>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
     <script src='fullcalendar/dist/index.global.js'></script>
     <script>
@@ -131,7 +131,7 @@
  <div class="modal fade" id="Agregarusuario" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-success">
+      <div class="modal-header bg-default">
         <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Agregar Organigrama</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -268,7 +268,7 @@
 <div class="modal fade" id="editarorganigrama" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-success">
+      <div class="modal-header bg-default">
         <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Actualizar Organigrama</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>

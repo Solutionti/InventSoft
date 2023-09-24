@@ -454,7 +454,7 @@
   >
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
-        <div class="modal-header bg-success">
+        <div class="modal-header bg-default">
           <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Listado de Productos</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -517,7 +517,7 @@
   >
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
-        <div class="modal-header bg-success">
+        <div class="modal-header bg-default">
           <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Apertura de caja</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -598,7 +598,7 @@
   >
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
-        <div class="modal-header bg-success">
+        <div class="modal-header bg-default">
           <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Cierre de caja</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>

@@ -190,7 +190,26 @@ class Ventas_model extends CI_model {
       $this->db->where("codigo_venta", "VNT00".$venta);
       $this->db->where("codigo_producto", $codigo);
       $this->db->update("detalle_venta", $data);
-    } 
+    }
+
+
+
+    public function getCategoriaVentaMesa($categoria){
+      $this->db->select("*");
+      $this->db->from("productos");
+      $this->db->where("categoria", $categoria);
+      $result = $this->db->get();
+
+      return $result;
+    }
+
+    public function getmesas(){
+      $this->db->select("*");
+      $this->db->from("mesas");
+      $result = $this->db->get();
+
+      return $result;
+    }
 
 
 }
