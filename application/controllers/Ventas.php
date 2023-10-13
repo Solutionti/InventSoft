@@ -31,6 +31,7 @@ class Ventas extends CI_Controller {
       $cantidad_productos  = count($this->input->post("ventas"));
       $ventas = $this->input->post("ventas");
       $id_caja = $this->input->post("id_caja");
+      $descuento =  $this->input->post("descuento");
       $contador = 0;
 
       $validacion = $this->Ventas_model->getVentaRepetida($consecutivo);
@@ -47,7 +48,8 @@ class Ventas extends CI_Controller {
           "total_recibido" => $total_recibido,
           "total_venta" => $total_venta,
           "cantidad_productos" => $contador,
-          "id_caja" => $id_caja
+          "id_caja" => $id_caja,
+          "descuento" => $descuento
         ];
         $codigoventa = $this->Ventas_model->crearVenta($data);
         

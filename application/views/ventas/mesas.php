@@ -64,6 +64,14 @@
                 <button
                   class="btn btn-primary text-white btn-xs ms-auto mx-2"
                   role="button"
+                  onclick="limpiarMesa()"
+                > 
+                
+                  <i class="fas fa-delete"></i> Limpiar Mesa
+                </button>
+                <button
+                  class="btn btn-primary text-white btn-xs ms-auto mx-2"
+                  role="button"
                   onclick="refreshMesas()"
                 > 
                   <i class="fas fa-sync"></i> Refrescar

@@ -150,6 +150,46 @@ $("#crearMesas").on("click", function(){
     window.open(url, "_blank", " width=800, height=800"); 
   
   }
+
+  function limpiarMesa() {
+    url = baseurl + "ventas/limpiarmesas";
+
+    $("body").overhang({
+      type: "confirm",
+      primary: "#40D47E",
+      accent: "#27AE60",
+      yesColor: "#3498DB",
+      yesMessage: "Si",
+      noMessage: "No",
+      message: "Realmente Desea Limpiar las  Mesas?",
+      overlay: true,
+      callback: function (value) {
+        var response = value ? "Yes" : "No";
+        if(response == "Yes"){
+          $.ajax({
+            url: url,
+            method: "POST",
+            success: function(){
+              $("body").overhang({
+                type: "success",
+                message: "La mesa se han Limpiado con exito"
+              });
+              setTimeout(reloadPage, 2000);
+            },
+            error: function(){
+              $("body").overhang({
+                type: "error",
+                message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+              });
+            }
+          });
+        }
+        else if(response == "No") {
+          
+        }
+      }
+    });
+  }
   
   function reloadPage() {
     location.reload();

@@ -133,7 +133,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                       <?php if($estadocajas->estado === "ABIERTA") { ?>
                       <div class="form-group">
                         <label>Codigo de barras</label>
@@ -164,13 +164,32 @@
                         readonly
                       >
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                       <label>Recibo de efectivo</label>
                       <input
                         type="text"
                         class="form-control form-control-lg text-lg"
                         id="recibio"
                       >
+                    </div>
+                    <div class="col-md-2">
+                      <label>Descuento</label>
+                      <input
+                        type="number"
+                        class="form-control form-control-lg text-lg"
+                        id="descuento"
+                        value="0"
+                        readonly
+                      >
+                    </div>
+                    <div class="col-md-1 mt-4">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input mt-4 descuentocheck"
+                          type="checkbox"
+                          id="descuentocheck"
+                        >
+                      </div>
                     </div>
                     <div class="col-md-1 mt-2" id="total_productos">
                     
@@ -365,7 +384,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Sede</label>
-                    <input type="text" class="form-control form-control-sm" value="Sede terminal" id="sede" readonly>
+                    <input type="text" class="form-control form-control-sm" value="Sede principal" id="sede" readonly>
                   </div>
                 </div>
                 <div class="col-md-6">

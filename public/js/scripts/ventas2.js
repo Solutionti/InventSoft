@@ -42,7 +42,7 @@ $("#codigo_barras").on("change", function(){
       },
       success: function(data) {
         data = JSON.parse(data);
-        var imagen = "<img src='https://futbol9.solutiont1.com/public/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
+        var imagen = "<img src='https://futbol9.solutiont1.com/public/productos/"+ data.url_imagen +"' class='w-100 border-radius-lg shadow-sm'> ";
         document.getElementById("imagen").innerHTML = imagen;
         $("#codigo").val(data.codigo);
         $("#codigo_barras2").val(data.codigo_barras);
@@ -181,7 +181,9 @@ document.addEventListener("keydown", function(event) {
       tp_pago = $("#tp_pago").val(),
       referencia = $("#referencia").val(),
       sede = $("#sede").val(),
-      id_caja = $("#id_caja").val();
+      id_caja = $("#id_caja").val(),
+      descuento = $("#descuento").val();
+      
       let ventas = [];
   
       for (let i = 0; i < carrito.length; i++) {
@@ -211,7 +213,8 @@ document.addEventListener("keydown", function(event) {
             tp_pago: tp_pago,
             referencia: referencia,
             sede: sede,
-            id_caja: id_caja
+            id_caja: id_caja,
+            descuento: descuento
           },
           success: function(data) {
             if (data === "error") {
@@ -478,6 +481,19 @@ $("#checkrecibocaja").on("click", function(){
          });
        }
       });
+    }
+  });
+
+
+  $("#descuentocheck").on("change", function(){
+    
+    if($(".descuentocheck").is(':checked')) {
+      $("#descuento").prop("readonly", false);
+      $("#descuento").val("");
+    }
+    else {
+      $("#descuento").prop("readonly", true);
+      $("#descuento").val(0);
     }
   });
 

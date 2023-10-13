@@ -6,7 +6,7 @@ class Reportes_model extends CI_model {
     //TRANSACCIONES POR DIA
     public function transaccionesVentaDia($fecha_inicial, $fecha_final, $usuario) {
       
-      $this->db->select("d.*, p.nombre, p.precio, p.stock, v.cantidad_productos, v.total_venta");
+      $this->db->select("d.*, p.nombre, p.precio, p.stock, v.cantidad_productos, v.total_venta, v.descuento");
       $this->db->from("detalle_venta d");
       $this->db->join("productos p", "d.codigo_producto = p.codigo");
       $this->db->join("ventas v", "d.codigo_venta = v.codigo_consecutivo");
@@ -21,6 +21,23 @@ class Reportes_model extends CI_model {
 
       return $result;
     }
+
+    public function sumarDescuentos($fecha_inicial,$fecha_final, $usuario) {
+      $this->db->select("SUM(descuento) as descuentos");
+      $this->db->from("ventas");
+      $this->db->where("fecha >=", $fecha_inicial);
+      $this->db->where("fecha <=", $fecha_final);
+      if($usuario == "0"){
+      }
+      else {
+        $this->db->where("usuario", $usuario);
+      }
+      $result = $this->db->get();
+
+      return $result;
+    }
+
+
     public function sumatoriaVentaDia($fecha_inicial, $fecha_final, $usuario) {
       $this->db->select("SUM(total_venta) as totalventa");
       $this->db->from("ventas");

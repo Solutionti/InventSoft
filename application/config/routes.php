@@ -94,6 +94,8 @@ $route["ventas/reportesumacategorias/(:any)/(:any)/(:any)"] = "reportes/gettodas
 
 // MESAS
 $route["ventas/mesas"] = "clientes/mesas";
+$route["ventas/limpiarmesas"] = "mesas/limpiarMesas";
+
 
 // VENTA  EN MESAS
 $route["ventas/ventamesa"] = "clientes/ventaMesa";

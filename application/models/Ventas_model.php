@@ -15,7 +15,8 @@ class Ventas_model extends CI_model {
           "total_venta" => $data["total_venta"],
           "cantidad_productos" => $data["cantidad_productos"],
           "usuario" => $this->session->userdata("nombre"),
-          "id_caja" => $data["id_caja"]
+          "id_caja" => $data["id_caja"],
+          "descuento" => $data["descuento"]
         ];
         $this->db->insert("ventas", $datos);
         $id = $this->db->insert_id();

@@ -13,8 +13,11 @@ class Reportes extends CI_Controller {
       $transaccion = $this->Reportes_model->transaccionesVentaDia($fecha_inicial, $fecha_final, $usuario);
       $sumatoria = $this->Reportes_model->sumatoriaVentaDia($fecha_inicial, $fecha_final, $usuario);
       $gastos = $this->Reportes_model->sumatoriaGastos($fecha_inicial, $fecha_final, $usuario);
+      $descuento = $this->Reportes_model->sumarDescuentos($fecha_inicial, $fecha_final, $usuario);
+      $descuentos =  $descuento->result()[0];
       $sumatoriaact =  $sumatoria->result()[0];
       $gastoact =  $gastos->result()[0];
+
       $this->load->library("pdf");
       $pdfAct = new Pdf();
       $pdf=new FPDF();
@@ -53,10 +56,10 @@ class Reportes extends CI_Controller {
       $pdf->Cell(50,5,'NOMBRE', 'TBR', 0,'L', false );
       $pdf->Cell(20,5,"VENTA", 'TBR', 0,'L', false );
       $pdf->Cell(20,5,"FECHA", 'TBR', 0,'L', false );
-      $pdf->Cell(18,5,"HORA", 'TBR', 0,'L', false );
       $pdf->Cell(20,5,"PRECIO", 'TBR', 0,'L', false );
       $pdf->Cell(18,5,"CANT", 'TBR', 0,'L', false );
       $pdf->Cell(18,5,"TOTAL", 'TBR', 0,'L', false );
+      $pdf->Cell(18,5,"DESCUEN", 'TBR', 0,'L', false );
       $pdf->Cell(15,5,"DEVO", 'TBR', 0,'L', false );
       foreach($transaccion->result() as $reportedia){
       $pdf->Ln(6);
@@ -65,10 +68,10 @@ class Reportes extends CI_Controller {
       $pdf->Cell(50,5,$reportedia->nombre, '', 0,'L', false );
       $pdf->Cell(20,5,$reportedia->codigo_venta, '', 0,'L', false );
       $pdf->Cell(20,5,$reportedia->fecha, '', 0,'L', false );
-      $pdf->Cell(18,5,$reportedia->hora, '', 0,'L', false );
       $pdf->Cell(25,5,"$".$reportedia->precio, '', 0,'L', false );
       $pdf->Cell(18,5,$reportedia->cantidad - $reportedia->devolucion , '', 0,'L', false );
       $pdf->Cell(15,5,$reportedia->precio * $reportedia->cantidad, '', 0,'L', false );
+      $pdf->Cell(18,5,$reportedia->descuento, '', 0,'L', false );
       $pdf->Cell(15,5,$reportedia->devolucion, '', 0,'L', false );
       }
       $pdf->Ln(8);
@@ -78,7 +81,7 @@ class Reportes extends CI_Controller {
       $pdf->Cell(30,5,"", '', 0,'L', false );
       $pdf->Cell(25,5,"", '', 0,'L', false );
       $pdf->Cell(25,5,"TOTAL", 'LTBR', 0,'L', false );
-      $pdf->Cell(20,5,"$".$sumatoriaact->totalventa, 'TBR', 0,'L', false );
+      $pdf->Cell(20,5,"$".($sumatoriaact->totalventa - $descuentos->descuentos), 'TBR', 0,'L', false );
       $pdf->Cell(18,5,"", '', 0,'L', false );
       $pdf->Ln(8);
       $pdf->SetFont('Times','b',9);
@@ -97,6 +100,10 @@ class Reportes extends CI_Controller {
       $transaccion = $this->Reportes_model->ReporteVentaCategoria($fecha_inicial, $fecha_final, $categoria);
       $sumatoria = $this->Reportes_model->sumatoriaVentaCategoria($fecha_inicial, $fecha_final, $categoria);
       $sumatoriaact = $sumatoria->result()[0];
+
+      $descuento = $this->Reportes_model->sumarDescuentos($fecha_inicial, $fecha_final, 0);
+      $descuentos =  $descuento->result()[0];
+
       $this->load->library("pdf");
       $pdfAct = new Pdf();
       $pdf=new FPDF();
@@ -137,7 +144,7 @@ class Reportes extends CI_Controller {
       $pdf->Cell(25,5,"FECHA", 'TBR', 0,'L', false );
       $pdf->Cell(12,5,"CANT", 'TBR', 0,'L', false );
       $pdf->Cell(20,5,"PRECIO", 'TBR', 0,'L', false );
-      $pdf->Cell(30,5,"CATEGORIA", 'TBR', 0,'L', false );
+      $pdf->Cell(30,5,"DESCUENTO", 'TBR', 0,'L', false );
       foreach($transaccion->result() as $ventacategoria){
       $pdf->Ln(6);
       $pdf->SetFont('Times','',9);
@@ -147,7 +154,7 @@ class Reportes extends CI_Controller {
       $pdf->Cell(25,5,$ventacategoria->fecha, '', 0,'L', false );
       $pdf->Cell(12,5,$ventacategoria->cantidad, '', 0,'L', false );
       $pdf->Cell(25,5,"$".$ventacategoria->total_venta, '', 0,'L', false );
-      $pdf->Cell(25,5,$ventacategoria->categoria, '', 0,'L', false );
+      $pdf->Cell(25,5,$descuentos->descuentos, '', 0,'L', false );
       }
       $pdf->Ln(8);
       $pdf->SetFont('Times','b',9);
@@ -156,7 +163,7 @@ class Reportes extends CI_Controller {
       $pdf->Cell(25,5,"", '', 0,'L', false );
       $pdf->Cell(12,5,"", '', 0,'L', false );
       $pdf->Cell(25,5,"TOTAL", 'LTBR', 0,'L', false );
-      $pdf->Cell(18,5,"$".$sumatoriaact->total, 'TBR', 0,'L', false );
+      $pdf->Cell(18,5,"$".($sumatoriaact->total - $descuentos->descuentos), 'TBR', 0,'L', false );
       $pdf->Cell(22,5,"", '', 0,'L', false );
       
       $pdf->Output();
@@ -370,6 +377,10 @@ class Reportes extends CI_Controller {
       $detallegasto = $this->Reportes_model->getGastosABC($fechainicial, $fechafinal, $usuario);
       $gasto = $this->Reportes_model->countGastosABC($fechainicial, $fechafinal, $usuario);
 
+
+      $descuento = $this->Reportes_model->sumarDescuentos($fechainicial, $fechafinal, $usuario);
+      $descuentos = $descuento->result()[0];
+
       $this->load->library("pdf");
       $pdfAct = new Pdf();
       $pdf=new FPDF();
@@ -409,6 +420,7 @@ class Reportes extends CI_Controller {
       $pdf->Cell(40,5,"FECHA INICIAL - FINAL", 'TBR', 0,'L', false );
       $pdf->Cell(30,5,"INGRESOS", 'TBR', 0,'L', false );
       $pdf->Cell(50,5,"GASTO TOTAL", 'TBR', 0,'L', false );
+      $pdf->Cell(30,5,"DESCUENTOS", 'TBR', 0,'L', false );
       $pdf->Ln(5);
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(8,5,'1', 'LTBR', 0,'L', false );
@@ -416,6 +428,7 @@ class Reportes extends CI_Controller {
       $pdf->Cell(40,5,$fechainicial." - ".$fechafinal, 'TBR', 0,'L', false );
       $pdf->Cell(30,5,$dulceria->total, 'TBR', 0,'L', false );
       $pdf->Cell(50,5,'$'.$gastos->gastos, 'TBR', 0,'L', false );
+      $pdf->Cell(30,5,"$".$descuentos->descuentos, 'TBR', 0,'L', false );
       $pdf->Ln(5);
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(8,5,'2', 'LTBR', 0,'L', false );
@@ -430,7 +443,7 @@ class Reportes extends CI_Controller {
       $pdf->Cell(30,5,'SNACKS', 'TBR', 0,'L', false );
       $pdf->Cell(40,5,$fechainicial." - ".$fechafinal, 'TBR', 0,'L', false );
       $pdf->Cell(30,5,$bebidas->total, 'TBR', 0,'L', false );
-      $pdf->Cell(50,5,'$'.$venta->venta, 'TBR', 0,'L', false );
+      $pdf->Cell(50,5,'$'.($venta->venta - $descuentos->descuentos), 'TBR', 0,'L', false );
       $pdf->Ln(5);
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(8,5,'4', 'LTBR', 0,'L', false );
@@ -444,7 +457,7 @@ class Reportes extends CI_Controller {
       $pdf->Cell(30,5,'OTROS', 'TBR', 0,'L', false );
       $pdf->Cell(40,5,$fechainicial." - ".$fechafinal, 'TBR', 0,'L', false );
       $pdf->Cell(30,5,$artesanias->total, 'TBR', 0,'L', false );
-      $pdf->Cell(50,5,"$".($venta->venta - $ganancia->ganancia) , 'TBR', 0,'L', false );
+      $pdf->Cell(50,5,"$".($venta->venta - $ganancia->ganancia - $descuentos->descuentos) , 'TBR', 0,'L', false );
       $pdf->Ln(5);
 
       // $pdf->SetFont('Times','b',9);

@@ -24,6 +24,7 @@ class Mesas_model extends CI_model {
     public function getmesas(){
       $this->db->select("*");
       $this->db->from("mesas");
+      $this->db->where("estado", "OCUPADA");
       $this->db->order_by("numero_mesa", "ASC");
       $result = $this->db->get();
     
@@ -141,6 +142,10 @@ class Mesas_model extends CI_model {
       $result = $this->db->get();
 
       return $result;
+    }
+
+    public function limpiarMesas() {
+      $this->db->truncate('mesas');
     }
 
 }

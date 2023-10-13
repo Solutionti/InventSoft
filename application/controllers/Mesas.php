@@ -101,6 +101,10 @@ class Mesas extends CI_Controller {
       }
     }
 
+    public function limpiarMesas() {
+      $this->Mesas_model->limpiarMesas();
+    }
+
     public function impresionCocinaTiquet($mesa, $codigo){
       $codigoact = substr ( $codigo, 3, 100);
       $imprimir = $this->Mesas_model->impresionCocinaTiquet($codigoact);

@@ -144,6 +144,33 @@
           <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
+              href="<?php echo base_url(); ?>ventas/mesas"
+            >
+              <i class="ni ni-settings-gear-65"></i>
+              <span class="ms-2">Mesas</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
+              href="<?php echo base_url(); ?>ventas/ventamesa"
+            >
+              <i class="ni ni-settings-gear-65"></i>
+              <span class="ms-2">Venta en Mesas</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
+              href="<?php echo base_url(); ?>ventas/organigrama"
+            >
+              <i class="ni ni-settings-gear-65"></i>
+              <span class="ms-2">Organigrama</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
               href="<?php echo base_url(); ?>ventas/gastos"
             >
               <i class="ni ni-settings-gear-65"></i>
