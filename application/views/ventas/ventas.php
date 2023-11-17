@@ -631,11 +631,9 @@
           <h5 class="gray-text">¿Esta seguro de cerrar caja?</h5>
           <small>Se recomienda revisar sus montos de cierre</small>
           <h6 class="text-uppercase mt-3">efectivo en caja: $/ <spam id="balance"> <?php echo $balances->venta - $balances->descuento; ?></spam></h6>
-          <h6 class="text-uppercase">TOTAL NEQUI: $/ <?php echo $nequis->nequi; ?></h6>
           <h6 class="text-uppercase">Efectivo real:  $/ <spam id="efectivo"></spam></h6>
           <h6 class="text-uppercase text-danger">Diferencia: $/ <spam id="diferencia"></spam></h6>
           <h6 class="text-uppercase">Descuentos aplicados: $/ <?php echo $balances->descuento; ?></h6>
-          <h6 class="text-uppercase">Pago doble: $/ <?php echo $balances->transaccion; ?></h6>
           <br>
           <div class="form-group">
             <input type="number" class="form-control" placeholder="Total efectivo" id="real_efectivo">
@@ -685,6 +683,6 @@
   <script>
     var baseurl = "<?php echo base_url();?>";
   </script>
-  <script src="<?php echo base_url(); ?>public/js/scripts/ventas2.js?v=1.1.1"></script>
+  <script src="<?php echo base_url(); ?>public/js/scripts/ventas2.js?v=1.1.0"></script>
 </body>
 </html>

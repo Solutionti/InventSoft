@@ -12,6 +12,7 @@ class Reportes_model extends CI_model {
       $this->db->join("ventas v", "d.codigo_venta = v.codigo_consecutivo");
       $this->db->where("d.fecha >=", $fecha_inicial);
       $this->db->where("d.fecha <=", $fecha_final);
+      $this->db->order_by("d.codigo_detalle", "ASC");
       if($usuario == "0"){
       }
       else {
@@ -36,7 +37,7 @@ class Reportes_model extends CI_model {
       return $result;
     }
     public function ReporteVentaCategoria($fecha_inicial, $fecha_final, $categoria) {
-      $this->db->select("d.*,p.nombre,p.precio,p.categoria,c.nombre as categoria,v.total_venta");
+      $this->db->select("d.*,p.nombre,p.precio,p.categoria,c.nombre as categoria,v.total_venta, v.descuento");
       $this->db->from("detalle_venta d");
       $this->db->join("ventas v", "d.codigo_venta = v.codigo_consecutivo");
       $this->db->join("productos p", "d.codigo_producto = p.codigo");
@@ -108,6 +109,8 @@ class Reportes_model extends CI_model {
     public function totalInventario() {
       $this->db->select("SUM(precio * stock) as totalinventario");
       $this->db->from("productos");
+      $this->db->where_not_in("codigo", "555555555");
+      $this->db->where_not_in("codigo", "999999999");
       $result = $this->db->get();
 
       return $result;
@@ -185,18 +188,16 @@ class Reportes_model extends CI_model {
     }
 
     public function countCategoriasABC($fecha_inicial, $fecha_final, $categoria, $usuario) {
-      $this->db->select("SUM(v.total_venta) as total");
-      $this->db->from("detalle_venta d");
-      $this->db->join("ventas v", "d.codigo_venta = v.codigo_consecutivo");
-      $this->db->join("productos p", "d.codigo_producto = p.codigo");
-      $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
-      $this->db->where("d.fecha >=", $fecha_inicial);
-      $this->db->where("d.fecha <=", $fecha_final);
-      $this->db->where("p.categoria", $categoria);
-      $this->db->where("d.usuario", $usuario);
+      $this->db->select("SUM(valor * cantidad) as total");
+      $this->db->from("detalle_venta");
+      $this->db->where("fecha >=", $fecha_inicial);
+      $this->db->where("fecha <=", $fecha_final);
+      $this->db->where("categoria", $categoria);
+      $this->db->where("usuario", $usuario);
       $result = $this->db->get();
 
       return $result->row();
+
     }
 
     public function countGastos($fecha_inicial, $fecha_final, $usuario) {

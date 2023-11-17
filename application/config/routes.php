@@ -76,6 +76,11 @@ $route["ventas/devoluciones"] = "clientes/devoluciones";
 $route["ventas/proveedores"] = "clientes/proveedores";
 $route["ventas/crearproveedor"] = "proveedores/guardarproveedores";
 
+$route["ventas/getdataCalendario"] = "organigramas/getdataCalendario";
+$route["ventas/insertarOrganigrama"] = "organigramas/insertardatosorganigrama";
+$route["ventas/actualizarOrganigrama"] = "organigramas/actualizardatosorganigrama";
+$route["ventas/buscarcliente"] = "organigramas/buscarcliente";
+
 //REPORTES
 $route["ventas/reportedia/(:any)/(:any)/(:any)"] = "reportes/reportedia/$1/$2/$3";
 $route["ventas/reportecategoriaventa/(:any)/(:any)/(:any)"] = "reportes/Reporteventacategoria/$1/$2/$3";

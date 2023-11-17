@@ -164,7 +164,7 @@
                 </div>
                 <div class="col-lg-6 order-lg-1">
                   <div class="w-75 mx-auto">
-                    <img class="img-fluid" src="https://laspapaslocas.com/wp-content/uploads/sites/9/2022/04/papas.png" alt="Image Description">
+                    <img class="img-fluid" src="https://weblab1.axesa.net/laspapalocas2/wp-content/uploads/sites/4/2022/03/papas.png" alt="Image Description">
                   </div>
                 </div>
               </div>
@@ -212,7 +212,7 @@
             </div>
             <div class="swiper-slide">
               <a class="js-swiper-thumb-progress swiper-thumb-progress-avatar" href="javascript:;" tabindex="0">
-                <img class="swiper-thumb-progress-avatar-img" src="https://laspapaslocas.com/wp-content/uploads/sites/9/2022/04/papas.png" alt="Image Description">
+                <img class="swiper-thumb-progress-avatar-img" src="https://weblab1.axesa.net/laspapalocas2/wp-content/uploads/sites/4/2022/03/papas.png" alt="Image Description">
               </a>
             </div>
             <div class="swiper-slide">
@@ -277,13 +277,13 @@
           <div class="card card-bordered shadow-none overflow-hidden">
             <div class="card-body d-flex align-items-center border-bottom p-0">
               <div class="w-65 border-end">
-                <img class="img-fluid" src="<?php echo $categorias->url1; ?>" alt="Image Description">
+                <img class="img-fluid" src="<?php echo $categorias->url1; ?>">
               </div>
               <div class="w-35">
                 <div class="border-bottom">
-                  <img class="img-fluid" src="<?php echo $categorias->url2; ?>" alt="Image Description">
+                  <img class="img-fluid" src="<?php echo $categorias->url2; ?>">
                 </div>
-                <img class="img-fluid" src="<?php echo $categorias->url3; ?>" alt="Image Description">
+                <img class="img-fluid" src="<?php echo $categorias->url3; ?>">
               </div>
             </div>
             <div class="card-footer text-center">
@@ -344,7 +344,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="card card-lg bg-img-start" style="background-image: url(https://www.misterpollo.co/domicilios/514-large_default/hamburguesa-combo-13.jpg); min-height: 30rem;">
+          <div class="card card-lg bg-img-start" style="background-image: url(https://img.freepik.com/foto-gratis/hot-dog-ternera-parrilla-snack-ketchup-ia-generativa_188544-7829.jpg); min-height: 30rem;">
             <div class="card-body">
               <div class="mb-4">
                 <h2 class="card-title text-white">$10.000</h2>

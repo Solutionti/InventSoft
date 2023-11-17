@@ -121,7 +121,7 @@
                 </div>
                 <div class="col-lg-6 order-lg-1">
                   <div class="w-75 mx-auto">
-                    <img class="img-fluid" src="https://laspapaslocas.com/wp-content/uploads/sites/9/2022/04/papas.png" alt="Image Description">
+                    <img class="img-fluid" src="https://weblab1.axesa.net/laspapalocas2/wp-content/uploads/sites/4/2022/03/papas.png" alt="">
                   </div>
                 </div>
               </div>
@@ -169,7 +169,7 @@
             </div>
             <div class="swiper-slide">
               <a class="js-swiper-thumb-progress swiper-thumb-progress-avatar" href="javascript:;" tabindex="0">
-                <img class="swiper-thumb-progress-avatar-img" src="https://laspapaslocas.com/wp-content/uploads/sites/9/2022/04/papas.png" alt="Image Description">
+                <img class="swiper-thumb-progress-avatar-img" src="https://weblab1.axesa.net/laspapalocas2/wp-content/uploads/sites/4/2022/03/papas.png" alt="Image Description">
               </a>
             </div>
             <div class="swiper-slide">

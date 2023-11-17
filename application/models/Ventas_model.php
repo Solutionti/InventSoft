@@ -47,7 +47,9 @@ class Ventas_model extends CI_model {
          "fecha" => date("Y-m-d"),
          "hora" => date("h: i A"),
          "usuario" => $this->session->userdata("nombre"),
-         "descontado" => 1
+         "descontado" => 1,
+         "categoria" => $data["categoria"],
+         "valor" => $data["precio"],
         ];
         $this->db->insert("detalle_venta", $datos);
     }
@@ -55,7 +57,7 @@ class Ventas_model extends CI_model {
    
 
     public function getInventarioStock($codigo) {
-      $this->db->select("stock");
+      $this->db->select("stock, categoria, precio");
       $this->db->from("productos");
       $this->db->where("codigo", $codigo);
       $resultado = $this->db->get();
@@ -137,7 +139,7 @@ class Ventas_model extends CI_model {
     public function getBalanceSistema() {
       $resultado = $this->getIdCaja();
       $resultados = $resultado->result()[0];
-      $this->db->select("SUM(total_venta) as venta, SUM(descuento) as descuento, SUM(transaccion) as transaccion");
+      $this->db->select("SUM(total_venta) as venta, SUM(descuento) as descuento");
       $this->db->from("ventas");
       // $this->db->where("fecha", date("Y-m-d"));
       $this->db->where("usuario", $this->session->userdata("nombre"));

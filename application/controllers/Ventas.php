@@ -39,6 +39,7 @@ class Ventas extends CI_Controller {
       for($i=0; $i < sizeof($ventas); $i++) {
         $contador = $contador + $ventas[$i]["cantidad"];
       }
+
       if ( $validacion == 0) {
         $data = [
           "consecutivo" => $consecutivo,
@@ -58,11 +59,20 @@ class Ventas extends CI_Controller {
         for($i=0; $i < sizeof($ventas); $i++) {
 
           $descuenta = $this->Ventas_model->getInventarioStock($ventas[$i]["codigo"]);
-          $stockact = $descuenta->stock - $ventas[$i]["cantidad"];
+
+          if($ventas[$i]["codigo"] == "555555555" || $ventas[$i]["codigo"] == "999999999") {
+            $stockact = $descuenta->stock + $ventas[$i]["cantidad"];
+          }
+          else {
+            $stockact = $descuenta->stock - $ventas[$i]["cantidad"];
+          }
+
           $data2 = [
             "codigo_venta" => $consecutivo,
             "venta" => $ventas[$i]["codigo"],
             "cantidad" => $ventas[$i]["cantidad"],
+            "categoria" => $descuenta->categoria,
+            "precio" => $descuenta->precio
           ];
           $this->Ventas_model->updateInventarioStock($ventas[$i]["codigo"], $stockact);
           $this->Ventas_model->CrearDetalleVenta($data2);
