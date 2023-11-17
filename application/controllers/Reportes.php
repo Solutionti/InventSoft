@@ -52,10 +52,10 @@ class Reportes extends CI_Controller {
       $pdf->Cell(18,5,'REPORTE DE VENTA DIARIA POR USUARIO', '', 0,'L', false );
       $pdf->Ln(11);
       $pdf->SetFont('Times','b',9);
-      $pdf->Cell(18,5,'CODIGO', 'LTBR', 0,'L', false );
-      $pdf->Cell(50,5,'NOMBRE', 'TBR', 0,'L', false );
+      $pdf->Cell(25,5,'CODIGO', 'LTBR', 0,'L', false );
+      $pdf->Cell(63,5,'NOMBRE', 'TBR', 0,'L', false );
       $pdf->Cell(20,5,"VENTA", 'TBR', 0,'L', false );
-      $pdf->Cell(20,5,"FECHA", 'TBR', 0,'L', false );
+      // $pdf->Cell(20,5,"FECHA", 'TBR', 0,'L', false );
       $pdf->Cell(20,5,"PRECIO", 'TBR', 0,'L', false );
       $pdf->Cell(18,5,"CANT", 'TBR', 0,'L', false );
       $pdf->Cell(18,5,"TOTAL", 'TBR', 0,'L', false );
@@ -64,10 +64,10 @@ class Reportes extends CI_Controller {
       foreach($transaccion->result() as $reportedia){
       $pdf->Ln(6);
       $pdf->SetFont('Times','',9);
-      $pdf->Cell(18,5,$reportedia->codigo_producto, '', 0,'L', false );
-      $pdf->Cell(50,5,$reportedia->nombre, '', 0,'L', false );
+      $pdf->Cell(25,5,$reportedia->codigo_producto, '', 0,'L', false );
+      $pdf->Cell(63,5,utf8_decode($reportedia->nombre), '', 0,'L', false );
       $pdf->Cell(20,5,$reportedia->codigo_venta, '', 0,'L', false );
-      $pdf->Cell(20,5,$reportedia->fecha, '', 0,'L', false );
+      // $pdf->Cell(20,5,$reportedia->fecha, '', 0,'L', false );
       $pdf->Cell(25,5,"$".$reportedia->precio, '', 0,'L', false );
       $pdf->Cell(18,5,$reportedia->cantidad - $reportedia->devolucion , '', 0,'L', false );
       $pdf->Cell(15,5,$reportedia->precio * $reportedia->cantidad, '', 0,'L', false );
@@ -149,12 +149,12 @@ class Reportes extends CI_Controller {
       $pdf->Ln(6);
       $pdf->SetFont('Times','',9);
       $pdf->Cell(25,5,$ventacategoria->codigo_producto, '', 0,'L', false );
-      $pdf->Cell(50,5,$ventacategoria->nombre, '', 0,'L', false );
+      $pdf->Cell(50,5, utf8_decode($ventacategoria->nombre), '', 0,'L', false );
       $pdf->Cell(25,5,$ventacategoria->codigo_venta, '', 0,'L', false );
       $pdf->Cell(25,5,$ventacategoria->fecha, '', 0,'L', false );
       $pdf->Cell(12,5,$ventacategoria->cantidad, '', 0,'L', false );
       $pdf->Cell(25,5,"$".$ventacategoria->total_venta, '', 0,'L', false );
-      $pdf->Cell(25,5,$descuentos->descuentos, '', 0,'L', false );
+      $pdf->Cell(25,5,$ventacategoria->descuento, '', 0,'L', false );
       }
       $pdf->Ln(8);
       $pdf->SetFont('Times','b',9);
@@ -277,21 +277,21 @@ class Reportes extends CI_Controller {
       $pdf->Ln(11);
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(25,5,'CODIGO', 'LTBR', 0,'L', false );
-      $pdf->Cell(40,5,'NOMBRE', 'TBR', 0,'L', false );
+      $pdf->Cell(75,5,'NOMBRE', 'TBR', 0,'L', false );
       $pdf->Cell(30,5,"PROVEEDOR", 'TBR', 0,'L', false );
       $pdf->Cell(20,5,"VENTA", 'TBR', 0,'L', false );
       $pdf->Cell(17,5,"STOCK", 'TBR', 0,'L', false );
-      $pdf->Cell(35,5,"FECHA", 'TBR', 0,'L', false );
+      // $pdf->Cell(35,5,"FECHA", 'TBR', 0,'L', false );
       $pdf->Cell(20,5,"MERMA", 'TBR', 0,'L', false );
       foreach($inventario->result() as $inventarios){
         $pdf->Ln(6);
         $pdf->SetFont('Times','',9);
         $pdf->Cell(25,5,$inventarios->codigo, '', 0,'L', false );
-        $pdf->Cell(40,5,$inventarios->nombre, '', 0,'L', false );
+        $pdf->Cell(75,5, utf8_decode($inventarios->nombre), '', 0,'L', false );
         $pdf->Cell(30,5,$inventarios->costo_proveedor, '', 0,'L', false );
         $pdf->Cell(20,5,$inventarios->precio, '', 0,'L', false );
         $pdf->Cell(17,5,$inventarios->stock, '', 0,'L', false );
-        $pdf->Cell(35,5,$inventarios->fecha, '', 0,'L', false );
+        // $pdf->Cell(35,5,$inventarios->fecha, '', 0,'L', false );
         $pdf->Cell(18,5,$inventarios->merma, '', 0,'L', false );
       }
       

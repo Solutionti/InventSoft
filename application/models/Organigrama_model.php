@@ -66,5 +66,14 @@ class Organigrama_model extends CI_model {
         $this->db->where("nombre", $data["nombre"]);
         $this->db->update("citas", $datos);
     }
+
+    public function buscarCliente($celular) {
+      $this->db->select("*");
+      $this->db->from("citas");
+      $this->db->where("telefono", $celular);
+      $result = $this->db->get();
+
+      return $result->row();
+    }
     
 }

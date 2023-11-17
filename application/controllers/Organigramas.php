@@ -54,4 +54,10 @@ class Organigramas extends CI_Controller {
 		$this->Organigrama_model->actualizardatosorganigrama($datos);
 	}
 
+	public function buscarCliente() {
+	  $celular = $this->input->post("celular");
+	  $response = $this->Organigrama_model->buscarCliente($celular);
+	  echo json_encode($response);
+	}
+
 }

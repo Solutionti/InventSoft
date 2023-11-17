@@ -92,6 +92,36 @@ $("#actualizarorganigrama").on("click", function(){
     });
 });
 
+$("#celular").on("blur", function() {
+  var url = baseurl + "ventas/buscarcliente";
+  var celular = $("#celular").val();
+
+  $.ajax({
+    url: url,
+    method: "POST",
+    data: {
+      celular: celular
+    },
+    success: function(data) {
+      data = JSON.parse(data);
+      $("#documento").val(data.documento);
+      $("#nombre").val(data.nombre);
+      
+      $("body").overhang({
+        type: "success",
+        message: "Se encontro un coincidencia con la busqueda"
+      });
+      
+    },
+    error: function() {
+      $("body").overhang({
+        type: "error",
+        message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+      });
+    }
+  });
+});
+
 function reloadPage() {
   location.reload();
 }
