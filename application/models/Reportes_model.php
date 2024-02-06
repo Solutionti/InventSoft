@@ -61,7 +61,7 @@ class Reportes_model extends CI_model {
       $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
       $this->db->where("d.fecha >=", $fecha_inicial);
       $this->db->where("d.fecha <=", $fecha_final);
-      $this->db->where("p.categoria", $categoria);
+      $this->db->where("d.categoria", $categoria);
       $result = $this->db->get();
 
       return $result; 
@@ -69,14 +69,14 @@ class Reportes_model extends CI_model {
     }
 
     public function sumatoriaVentaCategoria($fecha_inicial, $fecha_final, $categoria) {
-      $this->db->select("SUM(v.total_venta) as total");
+      $this->db->select("SUM(d.cantidad * d.valor) as total");
       $this->db->from("detalle_venta d");
       $this->db->join("ventas v", "d.codigo_venta = v.codigo_consecutivo");
       $this->db->join("productos p", "d.codigo_producto = p.codigo");
       $this->db->join("categorias c", "p.categoria = c.codigo_categoria");
       $this->db->where("d.fecha >=", $fecha_inicial);
       $this->db->where("d.fecha <=", $fecha_final);
-      $this->db->where("p.categoria", $categoria);
+      $this->db->where("d.categoria", $categoria);
       $result = $this->db->get();
 
       return $result; 
@@ -240,12 +240,25 @@ class Reportes_model extends CI_model {
     }
 
     public function countGanancia($fecha_inicial, $fecha_final, $usuario) {
-      $this->db->select("SUM(p.costo_proveedor) as ganancia");
+      $this->db->select("SUM(p.costo_proveedor * v.cantidad) as ganancia");
       $this->db->from("productos p");
       $this->db->join("detalle_venta v", "v.codigo_producto = p.codigo");
       $this->db->where("v.fecha >=", $fecha_inicial);
       $this->db->where("v.fecha <=", $fecha_final);
       $this->db->where("v.usuario", $usuario);
+      $result = $this->db->get();
+
+      return $result->row(); 
+    }
+
+    public function countGananciaIndividual($fecha_inicial, $fecha_final, $usuario, $categoria) {
+      $this->db->select("SUM(p.costo_proveedor * v.cantidad) as ganancia");
+      $this->db->from("productos p");
+      $this->db->join("detalle_venta v", "v.codigo_producto = p.codigo");
+      $this->db->where("v.fecha >=", $fecha_inicial);
+      $this->db->where("v.fecha <=", $fecha_final);
+      $this->db->where("v.usuario", $usuario);
+      $this->db->where("v.categoria", $categoria);
       $result = $this->db->get();
 
       return $result->row(); 

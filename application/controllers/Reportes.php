@@ -153,7 +153,7 @@ class Reportes extends CI_Controller {
       $pdf->Cell(25,5,$ventacategoria->codigo_venta, '', 0,'L', false );
       $pdf->Cell(25,5,$ventacategoria->fecha, '', 0,'L', false );
       $pdf->Cell(12,5,$ventacategoria->cantidad, '', 0,'L', false );
-      $pdf->Cell(25,5,"$".$ventacategoria->total_venta, '', 0,'L', false );
+      $pdf->Cell(25,5,"$".$ventacategoria->valor * $ventacategoria->cantidad, '', 0,'L', false );
       $pdf->Cell(25,5,$ventacategoria->descuento, '', 0,'L', false );
       }
       $pdf->Ln(8);
@@ -374,6 +374,13 @@ class Reportes extends CI_Controller {
       $venta = $this->Reportes_model->countVenta($fechainicial, $fechafinal, $usuario);
       $ganancia = $this->Reportes_model->countGanancia($fechainicial, $fechafinal, $usuario);
       
+      // ganancia individual 
+      $canchas1 = $this->Reportes_model->countGananciaIndividual($fechainicial, $fechafinal, $usuario,1);
+      $bebidas1 = $this->Reportes_model->countGananciaIndividual($fechainicial, $fechafinal, $usuario,2);
+      $snacks1 = $this->Reportes_model->countGananciaIndividual($fechainicial, $fechafinal, $usuario,3);
+      $dulceria1 = $this->Reportes_model->countGananciaIndividual($fechainicial, $fechafinal, $usuario,4);
+      $otros1 = $this->Reportes_model->countGananciaIndividual($fechainicial, $fechafinal, $usuario,5);
+
       $detallegasto = $this->Reportes_model->getGastosABC($fechainicial, $fechafinal, $usuario);
       $gasto = $this->Reportes_model->countGastosABC($fechainicial, $fechafinal, $usuario);
 
@@ -417,7 +424,7 @@ class Reportes extends CI_Controller {
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(8,5,'#', 'LTBR', 0,'L', false );
       $pdf->Cell(30,5,'CATEGORIA', 'TBR', 0,'L', false );
-      $pdf->Cell(40,5,"FECHA INICIAL - FINAL", 'TBR', 0,'L', false );
+      $pdf->Cell(40,5,"GANANCIA INDIVIDUAL", 'TBR', 0,'L', false );
       $pdf->Cell(30,5,"INGRESOS", 'TBR', 0,'L', false );
       $pdf->Cell(50,5,"GASTO TOTAL", 'TBR', 0,'L', false );
       $pdf->Cell(30,5,"DESCUENTOS", 'TBR', 0,'L', false );
@@ -425,7 +432,7 @@ class Reportes extends CI_Controller {
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(8,5,'1', 'LTBR', 0,'L', false );
       $pdf->Cell(30,5,'CANCHAS', 'TBR', 0,'L', false );
-      $pdf->Cell(40,5,$fechainicial." - ".$fechafinal, 'TBR', 0,'L', false );
+      $pdf->Cell(40,5,$canchas1->ganancia, 'TBR', 0,'L', false );
       $pdf->Cell(30,5,$dulceria->total, 'TBR', 0,'L', false );
       $pdf->Cell(50,5,'$'.$gastos->gastos, 'TBR', 0,'L', false );
       $pdf->Cell(30,5,"$".$descuentos->descuentos, 'TBR', 0,'L', false );
@@ -433,7 +440,7 @@ class Reportes extends CI_Controller {
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(8,5,'2', 'LTBR', 0,'L', false );
       $pdf->Cell(30,5,'BEBIDAS', 'TBR', 0,'L', false );
-      $pdf->Cell(40,5,$fechainicial." - ".$fechafinal, 'TBR', 0,'L', false );
+      $pdf->Cell(40,5,$bebidas1->ganancia, 'TBR', 0,'L', false );
       $pdf->Cell(30,5,$snack->total, 'TBR', 0,'L', false );
       $pdf->Cell(50,5,"VENTA TOTAL", 'TBR', 0,'L', false );
 
@@ -441,23 +448,23 @@ class Reportes extends CI_Controller {
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(8,5,'3', 'LTBR', 0,'L', false );
       $pdf->Cell(30,5,'SNACKS', 'TBR', 0,'L', false );
-      $pdf->Cell(40,5,$fechainicial." - ".$fechafinal, 'TBR', 0,'L', false );
+      $pdf->Cell(40,5,$snacks1->ganancia, 'TBR', 0,'L', false );
       $pdf->Cell(30,5,$bebidas->total, 'TBR', 0,'L', false );
       $pdf->Cell(50,5,'$'.($venta->venta - $descuentos->descuentos), 'TBR', 0,'L', false );
       $pdf->Ln(5);
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(8,5,'4', 'LTBR', 0,'L', false );
       $pdf->Cell(30,5,'DULCERIA', 'TBR', 0,'L', false );
-      $pdf->Cell(40,5,$fechainicial." - ".$fechafinal, 'TBR', 0,'L', false );
+      $pdf->Cell(40,5,$dulceria1->ganancia, 'TBR', 0,'L', false );
       $pdf->Cell(30,5,$biscochos->total, 'TBR', 0,'L', false );
       $pdf->Cell(50,5,"GANANCIA", 'TBR', 0,'L', false );
       $pdf->Ln(5);
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(8,5,'5', 'LTBR', 0,'L', false );
       $pdf->Cell(30,5,'OTROS', 'TBR', 0,'L', false );
-      $pdf->Cell(40,5,$fechainicial." - ".$fechafinal, 'TBR', 0,'L', false );
+      $pdf->Cell(40,5,$otros1->ganancia, 'TBR', 0,'L', false );
       $pdf->Cell(30,5,$artesanias->total, 'TBR', 0,'L', false );
-      $pdf->Cell(50,5,"$".($venta->venta - $ganancia->ganancia - $descuentos->descuentos) , 'TBR', 0,'L', false );
+      $pdf->Cell(50,5,"$".($ganancia->ganancia) , 'TBR', 0,'L', false );
       $pdf->Ln(5);
 
       // $pdf->SetFont('Times','b',9);

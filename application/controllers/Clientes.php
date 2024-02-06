@@ -79,6 +79,7 @@ class Clientes extends CI_Controller {
 
 	public function ventas() {
 		$balances = $this->Ventas_model->getBalanceSistema();
+		$nequis = $this->Ventas_model->getBalanceSistemaNequi();
 		$productos = $this->Inventarios_model->getProductos();
 		$consecutivos = $this->Inventarios_model->consecutivoDocumentoVenta();
 		$estadocajas = $this->Ventas_model->getEstadoCaja();
@@ -88,7 +89,8 @@ class Clientes extends CI_Controller {
 		  "consecutivo" => $consecutivos,
 		  "balance" => $balances,
 		  "estadocaja" => $estadocajas,
-		  "id_caja" => $idcajas
+		  "id_caja" => $idcajas,
+		  "nequi" => $nequis
 		];
 		$this->load->view("ventas/ventas", $data);
 	}

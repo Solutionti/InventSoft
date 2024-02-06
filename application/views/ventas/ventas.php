@@ -323,7 +323,7 @@
                       class="card-header bg-gradient-light text-center pt-4 pb-5 position-relative"
                     >
                       <div class="z-index-1 position-relative">
-                        <h5 class="text-black">TOTAL VENTA</h5>
+                        <h5 class="text-black">TOTAL VENTA </h5> 
                         <h1 class="text-white mt-2 mb-0" id="ventaa">
                         <small id="compracero" class="text-dark">$0 </small>
                         <small class="total-compra text-dark" id="total-compra" hidden></small>
@@ -403,7 +403,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                  <?php if($this->session->userdata("rol") == "Administrador"){ ?>
+                  
                     <div class="form-check">
                       <input
                         class="form-check-input"
@@ -412,7 +412,7 @@
                       >
                       <label class="custom-control-label" for="customCheck1">Devolución?</label>
                     </div>
-                  <?php } ?>
+                  
                     <div class="form-check">
                       <input
                         class="form-check-input"
@@ -421,6 +421,19 @@
                         id="checkrecibocaja"
                       >
                       <label class="custom-control-label" for="customCheck1">Recibo de Caja?</label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="pagodoble"
+                      >
+                      <label class="custom-control-label" for="customCheck1">Es pago doble?</label>
+                    </div>
+                    <div id="divConsignacion" hidden>
+                      <label class="mt-3">Costo Enviado</label>      
+                      <input type="number" class="form-control form-control-sm" id="costoenviado">
                     </div>
                   </div>
                 </div>
@@ -432,7 +445,7 @@
                 </div>
               </div>
               <div class="row mt-3">
-                  <div class="col-md-6">
+                  <div class="col-md-8">
                     <div class="form-group">
                     <?php
                       if($estadocajas->estado == "CERRADA") {
@@ -441,6 +454,14 @@
                     <?php } else { ?>
                       <button class="btn bg-gradient-danger" id="cerrar-caja">Cerrar Caja</button> 
                     <?php } ?>
+                    
+                    <!-- <button type="button" class="btn btn-primary position-relative">
+                      Sin pagar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        99+
+                       <span class="visually-hidden">unread messages</span>
+                     </span>
+                    </button> -->
                   </div>
                 </div>
                 <div class="col-md-6" id="ocultobtndevolucion" hidden>
@@ -625,12 +646,15 @@
         </div>
         <div class="modal-body">
           <?php $balances = $balance->result()[0]; ?>
+          <?php $nequis = $nequi->result()[0]; ?>
           <h5 class="gray-text">¿Esta seguro de cerrar caja?</h5>
           <small>Se recomienda revisar sus montos de cierre</small>
           <h6 class="text-uppercase mt-3">efectivo en caja: $/ <spam id="balance"> <?php echo $balances->venta - $balances->descuento; ?></spam></h6>
+          <h6 class="text-uppercase">TOTAL NEQUI: $/ <?php echo $nequis->nequi; ?></h6>
           <h6 class="text-uppercase">Efectivo real:  $/ <spam id="efectivo"></spam></h6>
           <h6 class="text-uppercase text-danger">Diferencia: $/ <spam id="diferencia"></spam></h6>
           <h6 class="text-uppercase">Descuentos aplicados: $/ <?php echo $balances->descuento; ?></h6>
+          <h6 class="text-uppercase">Pago doble: $/ <?php echo $balances->transaccion; ?></h6>
           <br>
           <div class="form-group">
             <input type="number" class="form-control" placeholder="Total efectivo" id="real_efectivo">
@@ -680,6 +704,6 @@
   <script>
     var baseurl = "<?php echo base_url();?>";
   </script>
-  <script src="<?php echo base_url(); ?>public/js/scripts/ventas2.js?v=1.1.0"></script>
+  <script src="<?php echo base_url(); ?>public/js/scripts/ventas2.js?v=1.1.1"></script>
 </body>
 </html>

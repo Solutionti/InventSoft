@@ -23,6 +23,8 @@ $(document).ready( function () {
   });
 });
 
+
+
 $("#abrir-caja").on("click", function() {
     $("#modal-abrircaja").modal("show");
   });
@@ -182,7 +184,8 @@ document.addEventListener("keydown", function(event) {
       referencia = $("#referencia").val(),
       sede = $("#sede").val(),
       id_caja = $("#id_caja").val(),
-      descuento = $("#descuento").val();
+      descuento = $("#descuento").val()
+      transaccion = $("#costoenviado").val();
       
       let ventas = [];
   
@@ -214,7 +217,8 @@ document.addEventListener("keydown", function(event) {
             referencia: referencia,
             sede: sede,
             id_caja: id_caja,
-            descuento: descuento
+            descuento: descuento,
+            transaccion: transaccion
           },
           success: function(data) {
             if (data === "error") {
@@ -452,20 +456,21 @@ $("#checkrecibocaja").on("click", function(){
          total =  totalPedido,
          venta = $("#codigoventa:checked").val(),
          cantidad = $(".cantidad_products").val();
-    if(cantidad >= 2){
-      $("body").overhang({
-        type: "error",
-        message: "Alerta ! solo puede hacer devolucion de 1 cantidad de producto.",
-      });
-    }
-    else {
+    // if(cantidad >= 2){
+    //   $("body").overhang({
+    //     type: "error",
+    //     message: "Alerta ! solo puede hacer devolucion de 1 cantidad de producto.",
+    //   });
+    // }
+    // else {
       $.ajax({
        url: url,
        method: "POST",
        data: {
          codigo: codigo,
          total: total,
-         venta: venta
+         venta: venta,
+         cantidad: cantidad
        },
        success: function(){
          $("body").overhang({
@@ -481,7 +486,7 @@ $("#checkrecibocaja").on("click", function(){
          });
        }
       });
-    }
+    // }
   });
 
 
@@ -494,6 +499,15 @@ $("#checkrecibocaja").on("click", function(){
     else {
       $("#descuento").prop("readonly", true);
       $("#descuento").val(0);
+    }
+  });
+
+  $("#pagodoble").on("change", function(){
+    if( $('#pagodoble').is(':checked') ) {
+      $("#divConsignacion").attr("hidden", false);
+    }
+    else {
+      $("#divConsignacion").attr("hidden", true);
     }
   });
 
