@@ -15,13 +15,9 @@ class Ventas_model extends CI_model {
           "total_venta" => $data["total_venta"],
           "cantidad_productos" => $data["cantidad_productos"],
           "usuario" => $this->session->userdata("nombre"),
-<<<<<<< HEAD
-          "id_caja" => $data["id_caja"]
-=======
           "id_caja" => $data["id_caja"],
           "descuento" => $data["descuento"],
           "transaccion" => $data["transaccion"],
->>>>>>> df4bf8d (subiendo los cambios de la actualizacion ultima)
         ];
         $this->db->insert("ventas", $datos);
         $id = $this->db->insert_id();
@@ -141,11 +137,7 @@ class Ventas_model extends CI_model {
     public function getBalanceSistema() {
       $resultado = $this->getIdCaja();
       $resultados = $resultado->result()[0];
-<<<<<<< HEAD
-      $this->db->select("SUM(total_venta) as venta");
-=======
       $this->db->select("SUM(total_venta) as venta, SUM(descuento) as descuento, SUM(transaccion) as transaccion");
->>>>>>> df4bf8d (subiendo los cambios de la actualizacion ultima)
       $this->db->from("ventas");
       // $this->db->where("fecha", date("Y-m-d"));
       $this->db->where("usuario", $this->session->userdata("nombre"));
