@@ -366,6 +366,13 @@ class Reportes extends CI_Controller {
       $venta = $this->Reportes_model->countVenta($fechainicial, $fechafinal, $usuario);
       $ganancia = $this->Reportes_model->countGanancia($fechainicial, $fechafinal, $usuario);
       
+      // ganancia individual 
+      $canchas1 = $this->Reportes_model->countGananciaIndividual($fechainicial, $fechafinal, $usuario,1);
+      $bebidas1 = $this->Reportes_model->countGananciaIndividual($fechainicial, $fechafinal, $usuario,2);
+      $snacks1 = $this->Reportes_model->countGananciaIndividual($fechainicial, $fechafinal, $usuario,3);
+      $dulceria1 = $this->Reportes_model->countGananciaIndividual($fechainicial, $fechafinal, $usuario,4);
+      $otros1 = $this->Reportes_model->countGananciaIndividual($fechainicial, $fechafinal, $usuario,5);
+
       $detallegasto = $this->Reportes_model->getGastosABC($fechainicial, $fechafinal, $usuario);
       $gasto = $this->Reportes_model->countGastosABC($fechainicial, $fechafinal, $usuario);
 
@@ -405,7 +412,7 @@ class Reportes extends CI_Controller {
       $pdf->SetFont('Times','b',9);
       $pdf->Cell(8,5,'#', 'LTBR', 0,'L', false );
       $pdf->Cell(30,5,'CATEGORIA', 'TBR', 0,'L', false );
-      $pdf->Cell(40,5,"FECHA INICIAL - FINAL", 'TBR', 0,'L', false );
+      $pdf->Cell(40,5,"GANANCIA INDIVIDUAL", 'TBR', 0,'L', false );
       $pdf->Cell(30,5,"INGRESOS", 'TBR', 0,'L', false );
       $pdf->Cell(50,5,"GASTO TOTAL", 'TBR', 0,'L', false );
       $pdf->Ln(5);

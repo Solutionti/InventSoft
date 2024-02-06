@@ -31,6 +31,8 @@ class Ventas extends CI_Controller {
       $cantidad_productos  = count($this->input->post("ventas"));
       $ventas = $this->input->post("ventas");
       $id_caja = $this->input->post("id_caja");
+      $descuento =  $this->input->post("descuento");
+      $transaccion = $this->input->post("transaccion");
       $contador = 0;
 
       $validacion = $this->Ventas_model->getVentaRepetida($consecutivo);
@@ -47,7 +49,9 @@ class Ventas extends CI_Controller {
           "total_recibido" => $total_recibido,
           "total_venta" => $total_venta,
           "cantidad_productos" => $contador,
-          "id_caja" => $id_caja
+          "id_caja" => $id_caja,
+          "descuento" => $descuento,
+          "transaccion"=> $transaccion,
         ];
         $codigoventa = $this->Ventas_model->crearVenta($data);
         
@@ -176,16 +180,17 @@ class Ventas extends CI_Controller {
       $codigo_producto = $this->input->post("codigo");
       $totalproducto = $this->input->post("total");
       $venta = $this->input->post("venta");
+      $cantidad = $this->input->post("cantidad");
 
       // consultas para traer los datos ventas
       $ventaAct = $this->Ventas_model->getVentaValor($venta)->total_venta;
       $newtotal = $ventaAct - $totalproducto;
       // consultar el stock del producto
       $producto = $this->Ventas_model->getInventarioStock($codigo_producto)->stock;
-      $newinventario = $producto + 1;
+      $newinventario = $producto + $cantidad;
 
       // funcionalidad
-      $this->Ventas_model->DescontarValorVentaDevolucion($newtotal, $venta);
+      $this->Ventas_model->DescontarValorVentaDevolucion($newtotal, $venta, $codigo_producto, $cantidad);
       $this->Ventas_model->agregarProductoStockDevolucion($newinventario, $codigo_producto);
       $this->Ventas_model->actualizarDetalleVenta($venta, $codigo_producto);
     }

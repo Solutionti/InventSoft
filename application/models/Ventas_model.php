@@ -15,7 +15,13 @@ class Ventas_model extends CI_model {
           "total_venta" => $data["total_venta"],
           "cantidad_productos" => $data["cantidad_productos"],
           "usuario" => $this->session->userdata("nombre"),
+<<<<<<< HEAD
           "id_caja" => $data["id_caja"]
+=======
+          "id_caja" => $data["id_caja"],
+          "descuento" => $data["descuento"],
+          "transaccion" => $data["transaccion"],
+>>>>>>> df4bf8d (subiendo los cambios de la actualizacion ultima)
         ];
         $this->db->insert("ventas", $datos);
         $id = $this->db->insert_id();
@@ -135,11 +141,30 @@ class Ventas_model extends CI_model {
     public function getBalanceSistema() {
       $resultado = $this->getIdCaja();
       $resultados = $resultado->result()[0];
+<<<<<<< HEAD
       $this->db->select("SUM(total_venta) as venta");
+=======
+      $this->db->select("SUM(total_venta) as venta, SUM(descuento) as descuento, SUM(transaccion) as transaccion");
+>>>>>>> df4bf8d (subiendo los cambios de la actualizacion ultima)
       $this->db->from("ventas");
       // $this->db->where("fecha", date("Y-m-d"));
       $this->db->where("usuario", $this->session->userdata("nombre"));
       $this->db->where("id_caja", $resultados->id_caja);
+      $resultado = $this->db->get();
+
+      return $resultado;
+    }
+
+    public function getBalanceSistemaNequi() {
+      $resultado = $this->getIdCaja();
+      $resultados = $resultado->result()[0];
+      $this->db->select("SUM(total_venta) as nequi");
+      $this->db->from("ventas");
+      $this->db->where("fecha", date("Y-m-d"));
+      $this->db->where("usuario", $this->session->userdata("nombre"));
+      $this->db->where("id_caja", $resultados->id_caja);
+      $this->db->where("tipo_pago", "NEQUI");
+
       $resultado = $this->db->get();
 
       return $resultado;
@@ -152,6 +177,7 @@ class Ventas_model extends CI_model {
       $this->db->join("ventas v", "d.codigo_detalle = v.codigo_venta");
       $this->db->where("d.codigo_producto", $codigo);
       $this->db->where("v.fecha", $fecha);
+      $this->db->where("v.total_venta >", 0);
       $result = $this->db->get();
 
       return $result;
@@ -166,12 +192,29 @@ class Ventas_model extends CI_model {
       return $result->row();
     }
 
-    public function DescontarValorVentaDevolucion($total, $venta){
+    public function DescontarValorVentaDevolucion($total, $venta, $codigo, $cantidad){
+      // 
       $data = [
         "total_venta" => $total
       ];
       $this->db->where("codigo_venta", $venta);
       $this->db->update("ventas", $data);
+
+      // 
+      $this->db->select("valor, cantidad");
+      $this->db->from("detalle_venta");
+      $this->db->where("codigo_venta", 'VNT00'.$venta);
+      $result = $this->db->get();
+
+      $resultado = $result->result()[0];
+      $cantidadNueva = $resultado->cantidad - $cantidad;
+       
+      $data2 = [
+        "cantidad" => $cantidadNueva
+      ];
+      $this->db->where("codigo_venta", 'VNT00'.$venta);
+      $this->db->where("codigo_producto", $codigo);
+      $this->db->update("detalle_venta", $data2);
     }
 
     public function agregarProductoStockDevolucion($stock, $codigo){

@@ -23,6 +23,8 @@ $(document).ready( function () {
   });
 });
 
+
+
 $("#abrir-caja").on("click", function() {
     $("#modal-abrircaja").modal("show");
   });
@@ -176,7 +178,14 @@ document.addEventListener("keydown", function(event) {
       tp_pago = $("#tp_pago").val(),
       referencia = $("#referencia").val(),
       sede = $("#sede").val(),
+<<<<<<< HEAD
       id_caja = $("#id_caja").val();
+=======
+      id_caja = $("#id_caja").val(),
+      descuento = $("#descuento").val()
+      transaccion = $("#costoenviado").val();
+      
+>>>>>>> df4bf8d (subiendo los cambios de la actualizacion ultima)
       let ventas = [];
   
       for (let i = 0; i < carrito.length; i++) {
@@ -200,7 +209,13 @@ document.addEventListener("keydown", function(event) {
             tp_pago: tp_pago,
             referencia: referencia,
             sede: sede,
+<<<<<<< HEAD
             id_caja: id_caja
+=======
+            id_caja: id_caja,
+            descuento: descuento,
+            transaccion: transaccion
+>>>>>>> df4bf8d (subiendo los cambios de la actualizacion ultima)
           },
           success: function(data) {
             if (data === "error") {
@@ -378,6 +393,122 @@ $("#cierre-caja").on("click", function () {
 
 })
 
+<<<<<<< HEAD
+=======
+$("#checkrecibocaja").on("click", function(){
+    if( $(this).is(':checked') ){
+      $("body").overhang({
+        type: "success",
+        message: "Se ha activado la impresion de recibo de caja."
+      });
+      
+  } else {
+    $("body").overhang({
+      type: "error",
+      message: "Se ha desactivado la impresion de recibo de caja.",
+    });
+  }
+  });
+  
+  $("#checkdevolucion").on("click", function(){
+    if( $(this).is(':checked') ){
+      $("body").overhang({
+        type: "error",
+        message: "Alerta se activo devolucion de producto al inventario."
+      });
+      $("#ocultobtndevolucion").attr("hidden", false);
+      $("#modaltabledevolcion").modal("show");
+      var codigo = $("#codigo").val();
+      var url = baseurl + "ventas/getventadetalle/" + codigo;
+      $.ajax({
+        url: url,
+        method: "GET",
+        success: function(data){
+          data = JSON.parse(data);
+          console.log(data);
+          detalleventa = data.map(function(detalle){
+            return '<tr><td><div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="codigoventa" id="codigoventa" value="'+detalle.codigo_venta+'"><label class="form-check-label" for="codigoproduct"></label></div></td><td class="text-xs text-dark mb-0">'+detalle.codigo_producto+'</td><td class="text-xs text-dark mb-0">'+'VNT00'+detalle.codigo_venta+'</td><td class="text-xs text-dark mb-0">'+detalle.fecha+'</td><td class="text-xs text-dark mb-0">'+detalle.hora+'</td><td class="text-xs text-dark mb-0">'+'$'+detalle.total_venta+'</td><td class="text-xs text-dark mb-0">'+detalle.usuario+'</td></tr>';
+          });
+          document.getElementById("detalleventas").innerHTML = detalleventa;
+        }
+      });
+      
+    } else {
+      $("body").overhang({
+        type: "success",
+        message: "Alerta se desactivo devolucion de producto al inventario.",
+      });
+        $("#ocultobtndevolucion").attr("hidden", true);
+    }
+  });
+  
+  $("#aceptardevoluciontabla").on("click", function(){
+    $("#modaltabledevolcion").modal("hide");
+  });
+  
+  
+  $("#btn_devolucion").on("click", function(){
+    var url = baseurl + "ventas/devolucionventa";
+     var codigo = $("#codigo").val(),
+         total =  totalPedido,
+         venta = $("#codigoventa:checked").val(),
+         cantidad = $(".cantidad_products").val();
+    // if(cantidad >= 2){
+    //   $("body").overhang({
+    //     type: "error",
+    //     message: "Alerta ! solo puede hacer devolucion de 1 cantidad de producto.",
+    //   });
+    // }
+    // else {
+      $.ajax({
+       url: url,
+       method: "POST",
+       data: {
+         codigo: codigo,
+         total: total,
+         venta: venta,
+         cantidad: cantidad
+       },
+       success: function(){
+         $("body").overhang({
+           type: "success",
+           message: "Se ha realizado la devolucion correctamente"
+         });
+         setTimeout(reloadPage, 3000);
+       },
+       error: function(){
+         $("body").overhang({
+           type: "error",
+           message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+         });
+       }
+      });
+    // }
+  });
+
+
+  $("#descuentocheck").on("change", function(){
+    
+    if($(".descuentocheck").is(':checked')) {
+      $("#descuento").prop("readonly", false);
+      $("#descuento").val("");
+    }
+    else {
+      $("#descuento").prop("readonly", true);
+      $("#descuento").val(0);
+    }
+  });
+
+  $("#pagodoble").on("change", function(){
+    if( $('#pagodoble').is(':checked') ) {
+      $("#divConsignacion").attr("hidden", false);
+    }
+    else {
+      $("#divConsignacion").attr("hidden", true);
+    }
+  });
+
+>>>>>>> df4bf8d (subiendo los cambios de la actualizacion ultima)
 function reloadPage() {
   location.reload();
 }
