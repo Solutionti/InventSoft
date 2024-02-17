@@ -178,14 +178,10 @@ document.addEventListener("keydown", function(event) {
       tp_pago = $("#tp_pago").val(),
       referencia = $("#referencia").val(),
       sede = $("#sede").val(),
-<<<<<<< HEAD
-      id_caja = $("#id_caja").val();
-=======
       id_caja = $("#id_caja").val(),
       descuento = $("#descuento").val()
       transaccion = $("#costoenviado").val();
       
->>>>>>> df4bf8d (subiendo los cambios de la actualizacion ultima)
       let ventas = [];
   
       for (let i = 0; i < carrito.length; i++) {
@@ -209,13 +205,9 @@ document.addEventListener("keydown", function(event) {
             tp_pago: tp_pago,
             referencia: referencia,
             sede: sede,
-<<<<<<< HEAD
-            id_caja: id_caja
-=======
             id_caja: id_caja,
             descuento: descuento,
             transaccion: transaccion
->>>>>>> df4bf8d (subiendo los cambios de la actualizacion ultima)
           },
           success: function(data) {
             if (data === "error") {
@@ -393,8 +385,6 @@ $("#cierre-caja").on("click", function () {
 
 })
 
-<<<<<<< HEAD
-=======
 $("#checkrecibocaja").on("click", function(){
     if( $(this).is(':checked') ){
       $("body").overhang({
@@ -508,7 +498,6 @@ $("#checkrecibocaja").on("click", function(){
     }
   });
 
->>>>>>> df4bf8d (subiendo los cambios de la actualizacion ultima)
 function reloadPage() {
   location.reload();
 }

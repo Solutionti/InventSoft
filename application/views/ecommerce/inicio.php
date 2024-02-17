@@ -12,19 +12,40 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
     <link rel="stylesheet" href="https://htmlstream.com/preview/front-v4.2/html/assets/css/vendor.min.css">
     <link rel="stylesheet" href="https://htmlstream.com/preview/front-v4.2/html/assets/css/theme.min.css?v=1.0">
+    <style>
+      .fixedButton{
+            position: fixed !important;
+            bottom: 20px !important;
+            right: 30px !important; 
+            padding: 10px !important;
+            z-index: 10;
+        }
+        
+    </style>
 </head>
 <body style="background-color: black;">
+      <a
+        type="button"
+        class="btn btn-primary btn-icon fixedButton avatar-circle btn-lg"
+        data-toggle="modal"
+        data-target="#staticBackdrop"
+        aria-hidden="true"
+      >
+        <div><i class="fas fa-shopping-cart"></i></div>
+      </a>
     <!-- ========== HEADER ========== -->
   <header id="header" class="navbar navbar-expand-lg navbar-end navbar-dark">
     <div class="container ">
       <nav class="js-mega-menu navbar-nav-wrap ">
-        <a class="navbar-brand" href="../demo-shop/index.html" aria-label="Front">
+        <a class="" href="../demo-shop/index.html" aria-label="Front">
           <img 
-            class="navbar-brand-logo" 
+            class="" 
             src="https://www.sosfactory.com/wp-content/uploads/2016/12/icon-restaurant-bolat-min.png"
+            width="70px; !important"
           >
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            
+        <button class="navbar-toggler"  type="button"  data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-default">
             <i class="fas fa-bars"></i>
           </span>
@@ -32,6 +53,20 @@
             <i class="fas fa-times"></i>
           </span>
         </button>
+        <button class="btn btn-ghost-secondary btn-sm btn-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarSearch" aria-controls="offcanvasNavbarSearch">
+                <i class="fas fa-search text-white"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-ghost-secondary btn-sm btn-icon"
+                type="button"
+                data-toggle="modal"
+                data-target="#staticBackdrop"
+                aria-hidden="true"
+                >
+              <i class="fas fa-shopping-basket text-white"></i>
+              </button>
+              <button class="btn btn-primary btn-transition btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">Rastrear Pedido</button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ">
             <li class="nav-item">
@@ -51,62 +86,12 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="#">Productos mas vendidos</a>
+              <a class="nav-link text-white" href="#">Promociones</a>
             </li>
-            <!-- <li class="hs-has-mega-menu nav-item" data-hs-mega-menu-item-options='{
-                  "desktop": {
-                    "position": "right",
-                    "maxWidth": "27rem"
-                  }
-                }'>
-              <a id="pagesMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle text-white" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Conoce mas</a>
-              <div class="hs-mega-menu dropdown-menu" aria-labelledby="pagesMegaMenu" style="min-width: 27rem;">
-                <div class="navbar-dropdown-menu-inner">
-                  <span class="dropdown-header">Elements</span>
-
-                  <div class="row">
-                    <div class="col-sm mb-3 mb-sm-0">
-                      <a class="dropdown-item " href="#">Categories</a>
-                      <a class="dropdown-item " href="#">Categories Sidebar</a>
-                      <a class="dropdown-item " href="#">Empty Cart</a>
-                    </div>
-                    <div class="col-sm">
-                      <a class="dropdown-item " href="#">Cart</a>
-                      <a class="dropdown-item " href="#">Checkout</a>
-                      <a class="dropdown-item " href="#">Order Completed</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="navbar-dropdown-menu-shop-banner">
-                  <div class="d-flex">
-                    <div class="flex-shrink-0">
-                      <img class="navbar-dropdown-menu-shop-banner-img" src="https://htmlstream.com/preview/front-v4.2/html/assets/img/mockups/img4.png" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 p-4">
-                      <span class="h4 d-block text-primary">Win T-Shirt</span>
-                      <p>Win one of our Front brand T-shirts.</p>
-                      <a class="btn btn-sm btn-soft-primary btn-transition" href="../index.html">Learn more <i class="bi-chevron-right small"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li> -->
             <li class="nav-item">
-              <button class="btn btn-ghost-secondary btn-sm btn-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarSearch" aria-controls="offcanvasNavbarSearch">
-                <i class="fas fa-search text-white"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-ghost-secondary btn-sm btn-icon"
-                type="button"
-                data-toggle="modal"
-                data-target="#staticBackdrop"
-                aria-hidden="true"
-                >
-              <i class="fas fa-shopping-basket text-white"></i>
-              </button>
-              <button class="btn btn-primary btn-transition btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">Rastrear pedido</button>
+              <a class="nav-link text-white" href="#">Premios por compras</a>
             </li>
+            
           </ul>
         </div>
       </nav>
@@ -199,8 +184,7 @@
             </div>
           </div>
         </div>
-        <div class="js-swiper-shop-classic-hero-button-next swiper-button-next"></div>
-        <div class="js-swiper-shop-classic-hero-button-prev swiper-button-prev"></div>
+        
       </div>
       <div class="position-absolute bottom-0 start-0 end-0 mb-3">
         <div class="js-swiper-shop-hero-thumbs swiper" style="max-width: 13rem;">
@@ -233,7 +217,7 @@
                 <img class="avatar avatar-4x3" src="https://htmlstream.com/preview/front-v4.2/html/assets/svg/illustrations/oc-protected-card.svg" alt="Image Description">
               </div>
               <div class="flex-grow-1 ms-4">
-                <h4 class="mb-1 text-white">Pago seguro</h4>
+                <h4 class="mb-1 text-white">Pago Seguro</h4>
                 <p class="small mb-0 text-white">Pago seguro garantizado</p>
               </div>
             </div>
@@ -248,7 +232,7 @@
                 >
               </div>
               <div class="flex-grow-1 ms-4">
-                <h4 class="mb-1 text-white">Tiempos cortos de entrega</h4>
+                <h4 class="mb-1 text-white">Tiempos Cortos de Entrega</h4>
                 <p class="small mb-0 text-white"></p>
               </div>
             </div>
@@ -267,99 +251,19 @@
         </div>
       </div>
     </div>
-    <div class="container content-space-2 content-space-lg-1">
+    <div class="container content-space-0 content-space-lg-0">
       <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-        <h2 class="text-white">La mejor manera de comprar con los mejores productos de</h2>
+        <h3 class="text-white">La mejor manera de comprar con los mejores productos de</h3>
       </div>
       <div class="row mb-2">
       <?php foreach($categoria->result() as $categorias){ ?>
-        <div class="col-sm-6 col-md-3 mb-4">
-          <div class="card card-bordered shadow-none overflow-hidden">
-            <div class="card-body d-flex align-items-center border-bottom p-0">
-              <div class="w-65 border-end">
-                <img class="img-fluid" src="<?php echo $categorias->url1; ?>">
-              </div>
-              <div class="w-35">
-                <div class="border-bottom">
-                  <img class="img-fluid" src="<?php echo $categorias->url2; ?>">
-                </div>
-                <img class="img-fluid" src="<?php echo $categorias->url3; ?>">
-              </div>
-            </div>
-            <div class="card-footer text-center">
-              <h4 class="card-title text-uppercase"><?php echo $categorias->nombre; ?></h4>
-              <!-- <p class="card-text text-muted small">Starting from $29.99</p> -->
-              <a
-                class="btn btn-outline-primary btn-sm btn-transition rounded-pill px-6"
-                href="<?php echo base_url(); ?>ecommerce/productoscategoria/<?php echo $categorias->codigo_categoria; ?>"
-              >Ver todos</a>
-            </div>
-          </div>
-        </div>
+       
         <?php } ?>
       </div>
-      <div class="text-center">
-        <p class="small text-white">Solo por tiempo limitado, hasta agotar existencias.</p>
-      </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mb-4 mb-md-0">
-          <div class="card card-lg bg-img-start" style="background-image: url(https://www.comunicare.es/wp-content/uploads/2021/01/Publicidad-para-hamburguesas.jpg); min-height: 30rem;">
-            <div class="card-body">
-              <span class="card-subtitle text-white">Por tiempo limitado</span>
-              <h2 class="card-title display-4 text-white">70% OFF</h2>
-              <div class="w-md-65">
-                <div class="js-countdown row mb-5">
-                  <div class="col-4 text-center">
-                    <div class="border border-dark rounded-2 p-2 mb-1">
-                      <span class="js-cd-days h2 text-white"></span>
-                    </div>
-
-                    <h5 class="card-title text-white">Dias</h5>
-                  </div>
-                  <div class="col-4 text-center">
-                    <div class="border border-dark rounded-2 p-2 mb-1">
-                      <span class="js-cd-hours h2 text-white"></span>
-                    </div>
-
-                    <h5 class="card-title text-white">Horas</h5>
-                  </div>
-                  <div class="col-4 text-center">
-                    <div class="border border-dark rounded-2 p-2 mb-1">
-                      <span class="js-cd-minutes h2 text-white"></span>
-                    </div>
-                    <h5 class="card-title text-white">Minutos</h5>
-                  </div>
-                  <div class="col-4 d-none text-center">
-                    <div class="border border-dark rounded-2 p-2 mb-1">
-                      <span class="js-cd-seconds h2 text-white"></span>
-                    </div>
-                    <h5 class="card-title text-white">Sec</h5>
-                  </div>
-                </div>
-              </div>
-              <a class="btn btn-light btn-sm btn-transition rounded-pill px-6" href="#">Comprar</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card card-lg bg-img-start" style="background-image: url(https://img.freepik.com/foto-gratis/hot-dog-ternera-parrilla-snack-ketchup-ia-generativa_188544-7829.jpg); min-height: 30rem;">
-            <div class="card-body">
-              <div class="mb-4">
-                <h2 class="card-title text-white">$10.000</h2>
-                <h3 class="card-title text-white">Nakto Combo Bigmac</h3>
-                <p class="card-text text-white">Lleva tu combo personal con con papas y gaseosa  por un precio especial</p>
-              </div>
-              <a class="btn btn-light btn-sm btn-transition rounded-pill px-6" href="#">Comprar</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container content-space-2 content-space-lg-3">
+    <div class="container content-space-1 content-space-lg-1">
       <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-        <h2 class="text-white">Nuestros productos</h2>
+        <h3 class="text-white">Nuestros productos</h3>
       </div>
       <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-3">
       <?php foreach($producto->result() as $productos){ ?>
@@ -555,7 +459,7 @@
           </div>
         </div>
         <div class="modal-footer d-block text-center py-sm-5">
-          <small class="text-cap mb-4">Papas locas Ibague</small>
+          <small class="text-cap mb-4">La Plazita Web</small>
           <div class="w-85 mx-auto">
             <div class="row justify-content-between">
               <div class="col">
@@ -567,22 +471,7 @@
       </div>
     </div>
   </div>
-  <a class="js-go-to go-to position-fixed" href="javascript:;" style="visibility: hidden;" data-hs-go-to-options='{
-       "offsetTop": 700,
-       "position": {
-         "init": {
-           "right": "2rem"
-         },
-         "show": {
-           "bottom": "2rem"
-         },
-         "hide": {
-           "bottom": "-2rem"
-         }
-       }
-     }'>
-    <i class="fas fa-chevron-up"></i>
-  </a>
+  
   <div class="offcanvas offcanvas-top offcanvas-navbar-search bg-light" tabindex="-1" id="offcanvasNavbarSearch">
     <div class="offcanvas-body">
       <div class="container">
@@ -1101,5 +990,6 @@
 	$('.mdb-select').material_select();
 });
 </script>
+
 </body>
 </html>

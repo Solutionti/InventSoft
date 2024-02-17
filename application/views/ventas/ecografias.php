@@ -60,6 +60,9 @@
           <div class="card-body">
         <div class="container-fluid py-4">
       <div class="row">
+        <div class="col-md-3">
+          <!--  -->
+        </div>
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
           <div class="card">
             <div class="card-body p-3">
@@ -71,9 +74,7 @@
                     <h5 class="font-weight-bolder">
                       <?php echo $ventadias->venta; ?>
                     </h5>
-                    <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">100%</span>
-                    </p>
+                   
                   </div>
                 </div>
                 <div class="col-4 text-end">
@@ -85,20 +86,18 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
           <div class="card">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
                     <?php $gastos = $gasto->result()[0]; ?>
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Gastos</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Compras</p>
                     <h5 class="font-weight-bolder">
                       <?php echo $gastos->gastos; ?>
                     </h5>
-                    <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">+50%</span>
-                    </p>
+                    
                   </div>
                 </div>
                 <div class="col-4 text-end">
@@ -110,19 +109,17 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
           <div class="card">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Gastos - Venta</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Venta - Gasto</p>
                     <h5 class="font-weight-bolder">
                       <?php echo ($ventadias->venta - $gastos->gastos); ?>
                     </h5>
-                    <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">+70%</span>
-                    </p>
+                    
                   </div>
                 </div>
                 <div class="col-4 text-end">
@@ -134,7 +131,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6">
+        <!-- <div class="col-xl-3 col-sm-6">
           <div class="card">
             <div class="card-body p-3">
               <div class="row">
@@ -158,52 +155,25 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 mt-3">
+        <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4 mt-3">
           <div class="card">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
                     <?php $totalproveedores = $totalproveedor->result()[0]; ?>
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Total proveedor</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Inversiòn</p>
                     <h5 class="font-weight-bolder">
                       <?php echo $totalproveedores->totalproveedor; ?>
                     </h5>
-                    <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">+100%</span>
-                    </p>
+                    
                   </div>
                 </div>
                 <div class="col-4 text-end">
                   <div class="icon icon-shape bg-gradient-info shadow-success text-center rounded-circle">
                     <i class="fas fa-database text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 mt-3">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <?php $totalinventarios = $totalinventario->result()[0]; ?>
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Ganancia total</p>
-                    <h5 class="font-weight-bolder">
-                      <?php echo $totalinventarios->totalinventario; ?>
-                    </h5>
-                    <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">+100%</span>
-                    </p>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-dark shadow-success text-center rounded-circle">
-                    <i class="fas fa-shopping-cart text-lg opacity-10" aria-hidden="true"></i>
                   </div>
                 </div>
               </div>
@@ -228,14 +198,15 @@
                <option value="6">Inventario</option>
                <option value="7">Reporte ABC</option>
                <option value="8">Gastos</option>
-              </select> 
+              </select>
+              <br>
             </div> 
           </div>
         </div>
         <div class="col-md-9">
           <div class="card border-1">
             <div class="card-body">
-               <div id="reporte-dia" hidden>
+               <div id="reporte-dia" >
                 <div class="row">
                 <h5> Reporte por día</h5>
                   <div class="col-md-3">
@@ -453,12 +424,136 @@
                               </div>
                             </div>
                           </div>
-                        </div> 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                          <div class="row mt-3">
+                          <div class="col-lg-3">
+                            <div class="card h-100">
+                              <div class="card-header pb-0 p-3">
+        <div class="row">
+        <div class="col-12 d-flex align-items-center">
+        <h6 class="mb-0">Venta X Dia de la Semana</h6>
+        </div>
+        </div>
+        </div>
+        <div class="card-body p-3 pb-0">
+        <ul class="list-group">
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+        <div class="d-flex flex-column">
+        <h6 class="mb-1 text-dark font-weight-bold text-sm">Lunes</h6>
+        <span class="text-xs">#MS-415646</span>
+        </div>
+        <div class="d-flex align-items-center text-sm">
+        $5.000.000
+        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
+          <i class="fas fa-file-pdf text-lg me-1 text-danger"></i>
+          Pdf
+        </button>
+        </div>
+        </li>
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+        <div class="d-flex flex-column">
+        <h6 class="text-dark mb-1 font-weight-bold text-sm">Martes</h6>
+        <span class="text-xs">#RV-126749</span>
+        </div>
+        <div class="d-flex align-items-center text-sm">
+        $250
+        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
+          <i class="fas fa-file-pdf text-lg me-1 text-danger"></i>Pdf
+        </button>
+        </div>
+        </li>
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+        <div class="d-flex flex-column">
+        <h6 class="text-dark mb-1 font-weight-bold text-sm">Miercoles</h6>
+        <span class="text-xs">#FB-212562</span>
+        </div>
+        <div class="d-flex align-items-center text-sm">
+        $560
+        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
+          <i class="fas fa-file-pdf text-lg me-1 text-danger"></i> Pdf
+        </button>
+        </div>
+        </li>
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+        <div class="d-flex flex-column">
+        <h6 class="text-dark mb-1 font-weight-bold text-sm">Jueves</h6>
+        <span class="text-xs">#QW-103578</span>
+        </div>
+        <div class="d-flex align-items-center text-sm">
+        $120
+        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
+          <i class="fas fa-file-pdf text-lg me-1 text-danger"></i> Pdf
+        </button>
+        </div>
+        </li>
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
+        <div class="d-flex flex-column">
+        <h6 class="text-dark mb-1 font-weight-bold text-sm">Viernes</h6>
+        <span class="text-xs">#AR-803481</span>
+        </div>
+        <div class="d-flex align-items-center text-sm">
+        $300
+        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
+          <i class="fas fa-file-pdf text-lg me-1 text-danger"></i> Pdf
+        </button>
+        </div>
+        </li>
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
+        <div class="d-flex flex-column">
+        <h6 class="text-dark mb-1 font-weight-bold text-sm">Sabado</h6>
+        <span class="text-xs">#AR-803481</span>
+        </div>
+        <div class="d-flex align-items-center text-sm">
+        $300
+        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
+          <i class="fas fa-file-pdf text-lg me-1 text-danger"></i> Pdf
+        </button>
+        </div>
+        </li>
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
+        <div class="d-flex flex-column">
+        <h6 class="text-dark mb-1 font-weight-bold text-sm">Domingo</h6>
+        <span class="text-xs">#PRT-80</span>
+        </div>
+        <div class="d-flex align-items-center text-sm">
+        $300
+        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
+          <i class="fas fa-file-pdf text-lg me-1 text-danger"></i> Pdf
+        </button>
+        </div>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+  <div class="card">
+    <div class="card-header pb-0 px-3">
+      <h6 class="mb-0">Top Productos mas Vendidos</h6>
+    </div>
+    <div class="card-body pt-4 p-3">
+      <table class="table table-striped table-hover">
+        <thead style="background-color: black !important;">
+          <tr>
+            <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>
+            <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nombre</th>
+            <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Imagen</th>
+            <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Estado</th>
+            <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Unidades Vendidas</th>
+            <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Total Ventas</th>
+          </tr>
+        </thead> 
+      </table>
+    </div>
+  </div>
+  </div>
+</div>
+</div> 
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
   <?php require_once("componentes/footer.php"); ?>
 </div>
 

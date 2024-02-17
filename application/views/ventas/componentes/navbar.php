@@ -3,7 +3,7 @@
     <div class="col-auto">
       <div class="avatar avatar-xl position-relative">
         <img
-          src="<?php echo base_url(); ?>public/img/theme/team-41.jpg"
+          src="https://aiavatargpt.com/imgs/styles/men/lowres/Oil%20Painting.png"
           alt="profile_image"
           class="w-100 border-radius-lg shadow-sm"
         >
@@ -92,7 +92,7 @@
               href="<?php echo base_url(); ?>ventas/gastos"
             >
               <i class="ni ni-settings-gear-65"></i>
-              <span class="ms-2">Gastos</span>
+              <span class="ms-2">Compras</span>
             </a>
           </li>
           <li class="nav-item">

@@ -18,7 +18,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">InventSoft</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Gastos</li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Compras</li>
           </ol>
           <h6 class="font-weight-bolder text-white mb-0">Gastos</h6>
         </nav>
@@ -54,7 +54,7 @@
           <div class="card">
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
-                <p class="mb-0 h6 text-uppercase">Gastos</p>
+                <p class="mb-0 h6 text-uppercase">Compras</p>
                 <button class="btn btn-danger text-white btn-xs ms-auto" data-bs-toggle="modal" href="#Agregarusuario" role="button"> <i class="fas fa-plus"></i> Agregar</button>
               </div>
             </div>
@@ -112,7 +112,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header bg-success">
-        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Agregar Gastos</h5>
+        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Agregar compra</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

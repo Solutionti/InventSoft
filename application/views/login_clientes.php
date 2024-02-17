@@ -172,8 +172,8 @@
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
               <div class="card card-plain">
                 <div class="card-header pb-0 text-center">
-                  <img src="<?php echo base_url(); ?>public/img/theme/logoancas.jpg" width="90px;" class="img-fluid mb-3">
-                  <h3> <span class="text-danger h4 font-weight-bold">Invent</span> <span class="text-default h2 font-weight-bold">Soft</span> </h3>
+                  <img src="https://i.pinimg.com/736x/07/85/03/078503de249a8ab316ac28a9d40f4839.jpg" width="90px;" class="img-fluid mb-3">
+                  <h3> <span class="text-success h4 font-weight-bold">Invent</span> <span class="text-default h2 font-weight-bold">Soft</span> </h3>
                   <p class="text-capitalize">Software de ventas y inventarios</p>
                 </div>
                 <div class="card-body">
@@ -209,7 +209,7 @@
                       <button
                         type="submit"
                         id="login"
-                        class="btn btn-lg btn-danger text-white btn-lg w-100 mt-4 mb-0"
+                        class="btn btn-lg btn-success text-white btn-lg w-100 mt-4 mb-0"
                       >
                         Ingresar
                       </button>
@@ -245,7 +245,7 @@
               </div>
             </div>
             <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-              <div class="position-relative bg-gradient-success h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://cdn.theforkmanager.com/static/styles/blog_article_header_image/public/2021-07/shutterstock_1201677928.jpg?itok=hBu6t9i1');
+              <div class="position-relative bg-gradient-success h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://img.lalr.co/cms/2019/01/23133103/Plaza-de-mercado-AN.jpg');
           background-size: cover; background-repeat: no-repeat">
                 <span class="mask  opacity-6"></span>
                 <!-- <h3 class="mt-1 text-danger font-weight-bolder position-relative">BUEN  <span class="text-success">VIAJE</span> </h3> -->

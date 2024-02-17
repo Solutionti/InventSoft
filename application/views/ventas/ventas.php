@@ -267,7 +267,11 @@
                     </div>
                     <div class="col-md-1">
                       <br>
-                      <button class="btn btn-icon btn-2 btn-sm text-white color-cyan mt-1" type="button" id="buscar-producto">
+                      <button
+                        class="btn btn-icon btn-2 btn-sm text-white color-cyan mt-1"
+                        type="button"
+                        id="buscar-producto"
+                      >
 	                      <span class="fas fa-search"><i class="ni ni-bulb-61"></i></span>
                       </button>
                     </div>
@@ -304,7 +308,7 @@
                       class="card-header bg-gradient-dark text-center pt-4 pb-5 position-relative"
                     >
                       <div class="z-index-1 position-relative">
-                        <h5 class="text-black">TOTAL VENTA </h5> 
+                        <h5 class="text-white">TOTAL VENTA </h5> 
                         <h1 class="text-white mt-2 mb-0" id="ventaa">
                         <small id="compracero">$0 </small>
                         <small class="total-compra" id="total-compra" hidden></small>
