@@ -31,6 +31,14 @@ class Ecommerce extends CI_Controller {
       $this->load->view("ecommerce/detalle_categoria", $data);
     }
 
+    public function premios() {
+      $categorias = $this->Ecommerce_model->getCategorias();
+      $data = [
+        "categoria" => $categorias,
+      ]; 
+      $this->load->view("ecommerce/premios", $data);
+    }
+
 
     public function getProductoCodigo($codigo){
       $producto = $this->Ecommerce_model->getProductoCodigo($codigo);

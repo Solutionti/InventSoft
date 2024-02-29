@@ -110,6 +110,7 @@ $route["ventas/imprimircocina/(:num)/(:any)"] = "mesas/impresionCocinaTiquet/$1/
 // ECOMMERCE
 $route["ecommerce/inicio"] = "ecommerce";
 $route["ecommerce/productoscategoria/(:num)"] = "ecommerce/productosCategoria/$1";
+$route["ecommerce/premios"] = "ecommerce/premios";
 $route["ecommerce/getproductocodigo/(:num)"] = "ecommerce/getproductocodigo/$1";
 $route["ecommerce/agregarpedido"] = "ecommerce/agregarpedido";
 $route["ventas/getpeditosdetalle/(:any)"] = "pedidos/getpedidosdetalle/$1";
