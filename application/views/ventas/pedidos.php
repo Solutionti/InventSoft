@@ -50,7 +50,7 @@
     <?php require_once("componentes/navbar.php");?>
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
           <div class="card">
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
@@ -121,7 +121,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
         <div class="card h-100 mb-4">
 <div class="card-header pb-0 px-3">
 <div class="row">
