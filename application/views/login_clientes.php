@@ -158,6 +158,17 @@
   }
   </style>
 <body class="">
+<div class="container-fluid">
+  <div
+    class="position-fixed"
+    style="z-index:50;"
+  >
+    <a class="btn btn-primary btn-sm text-white" target="blank" href="https://wa.me/+573155639791">
+      <i class="fab fa-whatsapp"></i> 
+      Soporte
+    </a>
+  </div>
+ </div>
 <div class="container position-sticky z-index-sticky top-0">
     <div class="row">
       <div class="col-12">
