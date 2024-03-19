@@ -3,7 +3,7 @@
     <div class="col-auto">
       <div class="avatar avatar-xl position-relative">
         <img
-          src="https://aiavatargpt.com/imgs/styles/men/lowres/Oil%20Painting.png"
+          src="<?php echo base_url(); ?>public/img/theme/team-41.jpg"
           alt="profile_image"
           class="w-100 border-radius-lg shadow-sm"
         >
@@ -141,7 +141,7 @@
               <span class="ms-2">Ventas</span>
             </a>
           </li>
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <a
               class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
               href="<?php echo base_url(); ?>ventas/ventamesa"
@@ -175,3 +175,35 @@
     </div>
   </div>
 </div>
+
+<style>
+    .loading {
+      width: 100%;
+      height: 674px;
+      top: 0;
+      left: 0;
+      background-color: #344767;
+      z-index: 99;
+      display: flex;
+      justify-content: center;
+      z-index: 100000;
+      position: fixed;
+      align-items: center;
+      clip-path: circle(150% at 100% 0);
+      transition:  clip-path 9s ease-in-out ;
+    }
+    .container2 {
+      clip-path: circle(0% at 100% 0);
+    } 
+  </style>
+
+  <div id="loading" class="loading">
+    <img id="loading-image" src="<?php echo base_url() ?>public/img/theme/triangulo.gif" width="100px;" />
+    <h3 class="text-white"> <span class="text-primary h2">Solution</span> <span class="text-danger h4">TI</span> </h3>
+    <small class="h6 text-white mt-5 mr-5">InventSoft</small>
+  </div>
+  <script>
+    window.addEventListener("load", function(){
+      document.getElementById("loading").classList.toggle("container2");
+    });
+  </script>
